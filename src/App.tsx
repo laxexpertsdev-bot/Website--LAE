@@ -25,6 +25,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 import ExitIntentPopup from './components/ExitIntentPopup';
 import CookieConsent from './components/CookieConsent';
 import ScrollToTop from './components/ScrollToTop';
+import ReviewBanner from './components/ReviewBanner';
 
 function App() {
   const [showExitPopup, setShowExitPopup] = useState(false);
@@ -105,6 +106,7 @@ function App() {
             <Route path="/gestion-cookies" element={<GestionCookiesPage />} />
           </Routes>
         </main>
+        <ReviewBanner />
         <Footer />
         <WhatsAppButton />
         <ExitIntentPopup 
