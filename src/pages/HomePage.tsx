@@ -236,7 +236,11 @@ const HomePage: React.FC = () => {
           <h3 className="text-center text-xl font-bold text-slate-900 mb-12">
             Nos partenaires assureurs
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 items-center justify-items-center max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-6 items-center justify-items-center max-w-6xl mx-auto">
+            <div className="bg-white h-20 w-full max-w-[140px] flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 opacity-80 hover:opacity-100 px-4">
+              <span className="text-sm font-bold text-slate-700 text-center leading-tight">ACHEEL</span>
+            </div>
+            
             <div className="bg-white h-20 w-full max-w-[140px] flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 opacity-80 hover:opacity-100 px-4">
               <img 
                 src="https://www.april.fr/sites/all/themes/april/logo.svg" 
@@ -247,33 +251,7 @@ const HomePage: React.FC = () => {
             </div>
             
             <div className="bg-white h-20 w-full max-w-[140px] flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 opacity-80 hover:opacity-100 px-4">
-              <img 
-                src="https://www.alptis.org/sites/default/files/logo-alptis.svg" 
-                alt="ALPTIS - Mutuelle et prévoyance" 
-                className="h-12 w-auto object-contain"
-                loading="lazy"
-              />
-            </div>
-            
-            <div className="bg-white h-20 w-full max-w-[140px] flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 opacity-80 hover:opacity-100 px-4">
-              <span className="text-sm font-bold text-slate-700 text-center leading-tight">SPVIE</span>
-            </div>
-            
-            <div className="bg-white h-20 w-full max-w-[140px] flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 opacity-80 hover:opacity-100 px-4">
-              <span className="text-sm font-bold text-slate-700 text-center leading-tight">NEOLIANE</span>
-            </div>
-            
-            <div className="bg-white h-20 w-full max-w-[140px] flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 opacity-80 hover:opacity-100 px-4">
-              <img 
-                src="https://www.generali.fr/sites/all/themes/generali/images/logo-generali.svg" 
-                alt="GENERALI - Assureur international" 
-                className="h-12 w-auto object-contain"
-                loading="lazy"
-              />
-            </div>
-            
-            <div className="bg-white h-20 w-full max-w-[140px] flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 opacity-80 hover:opacity-100 px-4">
-              <span className="text-sm font-bold text-slate-700 text-center leading-tight">MNCAP</span>
+              <span className="text-sm font-bold text-slate-700 text-center leading-tight">ASSUREMA</span>
             </div>
             
             <div className="bg-white h-20 w-full max-w-[140px] flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 opacity-80 hover:opacity-100 px-4">
@@ -282,6 +260,10 @@ const HomePage: React.FC = () => {
             
             <div className="bg-white h-20 w-full max-w-[140px] flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 opacity-80 hover:opacity-100 px-4">
               <span className="text-sm font-bold text-slate-700 text-center leading-tight">CEGEMA</span>
+            </div>
+            
+            <div className="bg-white h-20 w-full max-w-[140px] flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 opacity-80 hover:opacity-100 px-4">
+              <span className="text-sm font-bold text-slate-700 text-center leading-tight">QBE</span>
             </div>
             
             <div className="bg-white h-20 w-full max-w-[140px] flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 opacity-80 hover:opacity-100 px-4">
