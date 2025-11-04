@@ -236,40 +236,80 @@ const HomePage: React.FC = () => {
           <h3 className="text-center text-xl font-bold text-slate-900 mb-12">
             Nos partenaires assureurs
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-6 items-center justify-items-center max-w-6xl mx-auto">
-            <div className="bg-white h-20 w-full max-w-[140px] flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 opacity-80 hover:opacity-100 px-4">
-              <span className="text-sm font-bold text-slate-700 text-center leading-tight">ACHEEL</span>
-            </div>
-            
-            <div className="bg-white h-20 w-full max-w-[140px] flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 opacity-80 hover:opacity-100 px-4">
-              <img 
-                src="https://www.april.fr/sites/all/themes/april/logo.svg" 
-                alt="APRIL - Spécialiste assurance santé" 
-                className="h-12 w-auto object-contain"
-                loading="lazy"
-              />
-            </div>
-            
-            <div className="bg-white h-20 w-full max-w-[140px] flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 opacity-80 hover:opacity-100 px-4">
-              <span className="text-sm font-bold text-slate-700 text-center leading-tight">ASSUREMA</span>
-            </div>
-            
-            <div className="bg-white h-20 w-full max-w-[140px] flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 opacity-80 hover:opacity-100 px-4">
-              <span className="text-sm font-bold text-slate-700 text-center leading-tight">KEREIS</span>
-            </div>
-            
-            <div className="bg-white h-20 w-full max-w-[140px] flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 opacity-80 hover:opacity-100 px-4">
-              <span className="text-sm font-bold text-slate-700 text-center leading-tight">CEGEMA</span>
-            </div>
-            
-            <div className="bg-white h-20 w-full max-w-[140px] flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 opacity-80 hover:opacity-100 px-4">
-              <span className="text-sm font-bold text-slate-700 text-center leading-tight">QBE</span>
-            </div>
-            
-            <div className="bg-white h-20 w-full max-w-[140px] flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 opacity-80 hover:opacity-100 px-4">
-              <span className="text-sm font-bold text-slate-700 text-center leading-tight">GROUPE AMI 3F</span>
+          <p className="text-center text-slate-600 mb-8">
+            Ils nous font confiance pour protéger nos clients au quotidien.
+          </p>
+          
+          <div className="bg-white rounded-2xl shadow-lg p-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-8 items-center justify-items-center">
+              {/* ACHEEL */}
+              <div className="flex items-center justify-center h-16 w-full">
+                <div className="text-center">
+                  <div className="text-lg font-bold text-blue-700 mb-1">ACHEEL</div>
+                  <div className="text-xs text-slate-500">Assureur</div>
+                </div>
+              </div>
+              
+              {/* APRIL */}
+              <div className="flex items-center justify-center h-16 w-full">
+                <img 
+                  src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=200&h=80"
+                  alt="APRIL - Spécialiste assurance santé" 
+                  className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+                  loading="lazy"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const parent = target.parentElement;
+                    if (parent) {
+                      parent.innerHTML = '<div class="text-center"><div class="text-lg font-bold text-red-600 mb-1">APRIL</div><div class="text-xs text-slate-500">Santé</div></div>';
+                    }
+                  }}
+                />
+              </div>
+              
+              {/* ASSUREMA */}
+              <div className="flex items-center justify-center h-16 w-full">
+                <div className="text-center">
+                  <div className="text-lg font-bold text-green-700 mb-1">ASSUREMA</div>
+                  <div className="text-xs text-slate-500">Courtier</div>
+                </div>
+              </div>
+              
+              {/* KEREIS */}
+              <div className="flex items-center justify-center h-16 w-full">
+                <div className="text-center">
+                  <div className="text-lg font-bold text-purple-700 mb-1">KEREIS</div>
+                  <div className="text-xs text-slate-500">Assureur</div>
+                </div>
+              </div>
+              
+              {/* CEGEMA */}
+              <div className="flex items-center justify-center h-16 w-full">
+                <div className="text-center">
+                  <div className="text-lg font-bold text-orange-700 mb-1">CEGEMA</div>
+                  <div className="text-xs text-slate-500">Mutuelle</div>
+                </div>
+              </div>
+              
+              {/* QBE */}
+              <div className="flex items-center justify-center h-16 w-full">
+                <div className="text-center">
+                  <div className="text-lg font-bold text-indigo-700 mb-1">QBE</div>
+                  <div className="text-xs text-slate-500">International</div>
+                </div>
+              </div>
+              
+              {/* GROUPE AMI 3F */}
+              <div className="flex items-center justify-center h-16 w-full">
+                <div className="text-center">
+                  <div className="text-lg font-bold text-teal-700 mb-1">AMI 3F</div>
+                  <div className="text-xs text-slate-500">Groupe</div>
+                </div>
+              </div>
             </div>
           </div>
+          
           <div className="text-center mt-8">
             <p className="text-sm text-slate-500">
               Et bien d'autres partenaires pour vous offrir les meilleures solutions
