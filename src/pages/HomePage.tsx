@@ -240,71 +240,54 @@ const HomePage: React.FC = () => {
             Ils nous font confiance pour protéger nos clients au quotidien.
           </p>
           
-          <div className="bg-white rounded-2xl shadow-lg p-8 max-w-5xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-8 items-center justify-items-center">
+          <div className="bg-white rounded-xl shadow-lg p-8 max-w-6xl mx-auto">
+            <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-12">
               {/* ACHEEL */}
-              <div className="flex items-center justify-center h-16 w-full">
-                <div className="text-center">
-                  <div className="text-lg font-bold text-blue-700 mb-1">ACHEEL</div>
-                  <div className="text-xs text-slate-500">Assureur</div>
+              <div className="flex items-center justify-center h-20 min-w-[120px]">
+                <div className="text-2xl font-bold text-blue-600 tracking-wide">
+                  ACHEEL
                 </div>
               </div>
               
               {/* APRIL */}
-              <div className="flex items-center justify-center h-16 w-full">
-                <img 
-                  src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=200&h=80"
-                  alt="APRIL - Spécialiste assurance santé" 
-                  className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
-                  loading="lazy"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    const parent = target.parentElement;
-                    if (parent) {
-                      parent.innerHTML = '<div class="text-center"><div class="text-lg font-bold text-red-600 mb-1">APRIL</div><div class="text-xs text-slate-500">Santé</div></div>';
-                    }
-                  }}
-                />
+              <div className="flex items-center justify-center h-20 min-w-[120px]">
+                <div className="text-2xl font-bold text-red-500 tracking-wide">
+                  APRIL
+                </div>
               </div>
               
               {/* ASSUREMA */}
-              <div className="flex items-center justify-center h-16 w-full">
-                <div className="text-center">
-                  <div className="text-lg font-bold text-green-700 mb-1">ASSUREMA</div>
-                  <div className="text-xs text-slate-500">Courtier</div>
+              <div className="flex items-center justify-center h-20 min-w-[120px]">
+                <div className="text-2xl font-bold text-green-600 tracking-wide">
+                  ASSUREMA
                 </div>
               </div>
               
               {/* KEREIS */}
-              <div className="flex items-center justify-center h-16 w-full">
-                <div className="text-center">
-                  <div className="text-lg font-bold text-purple-700 mb-1">KEREIS</div>
-                  <div className="text-xs text-slate-500">Assureur</div>
+              <div className="flex items-center justify-center h-20 min-w-[120px]">
+                <div className="text-2xl font-bold text-purple-600 tracking-wide">
+                  KEREIS
                 </div>
               </div>
               
               {/* CEGEMA */}
-              <div className="flex items-center justify-center h-16 w-full">
-                <div className="text-center">
-                  <div className="text-lg font-bold text-orange-700 mb-1">CEGEMA</div>
-                  <div className="text-xs text-slate-500">Mutuelle</div>
+              <div className="flex items-center justify-center h-20 min-w-[120px]">
+                <div className="text-2xl font-bold text-orange-600 tracking-wide">
+                  CEGEMA
                 </div>
               </div>
               
               {/* QBE */}
-              <div className="flex items-center justify-center h-16 w-full">
-                <div className="text-center">
-                  <div className="text-lg font-bold text-indigo-700 mb-1">QBE</div>
-                  <div className="text-xs text-slate-500">International</div>
+              <div className="flex items-center justify-center h-20 min-w-[120px]">
+                <div className="text-2xl font-bold text-indigo-600 tracking-wide">
+                  QBE
                 </div>
               </div>
               
               {/* GROUPE AMI 3F */}
-              <div className="flex items-center justify-center h-16 w-full">
-                <div className="text-center">
-                  <div className="text-lg font-bold text-teal-700 mb-1">AMI 3F</div>
-                  <div className="text-xs text-slate-500">Groupe</div>
+              <div className="flex items-center justify-center h-20 min-w-[120px]">
+                <div className="text-2xl font-bold text-teal-600 tracking-wide">
+                  AMI 3F
                 </div>
               </div>
             </div>
