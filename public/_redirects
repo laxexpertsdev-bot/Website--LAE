@@ -1,0 +1,12 @@
+# Redirections pour domaine canonique
+http://lesassureursexperts.fr/* https://lesassureursexperts.fr/:splat 301!
+http://www.lesassureursexperts.fr/* https://lesassureursexperts.fr/:splat 301!
+https://www.lesassureursexperts.fr/* https://lesassureursexperts.fr/:splat 301!
+
+# Headers de sécurité
+/*
+  Strict-Transport-Security: max-age=15552000; includeSubDomains
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Cache-Control: public, max-age=31536000, immutable

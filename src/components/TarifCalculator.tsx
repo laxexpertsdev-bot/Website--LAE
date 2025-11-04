@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Calculator, TrendingDown, CheckCircle, Info, Phone } from 'lucide-react';
 
+// Endpoint pour envoi des données (à configurer)
+const ENDPOINT = "https://script.google.com/macros/s/XXXXXXXX/exec"; // NE PAS CHANGER, je remplacerai l'URL
+
 const TarifCalculator: React.FC = () => {
   const [formData, setFormData] = useState({
     type: '',
@@ -22,6 +25,7 @@ const TarifCalculator: React.FC = () => {
     telephone: '',
     email: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const moyennes = {
     sante: { salarie: 45, tns: 55, retraite: 80, etudiant: 22 },
@@ -80,35 +84,42 @@ const TarifCalculator: React.FC = () => {
     }, 100);
   };
 
-  const handleLeadSubmit = (e: React.FormEvent) => {
+  const handleLeadSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simulate form submission
-    console.log('Lead form submitted:', leadForm);
+    if (isSubmitting) return;
     
-    // Create mailto link with form data
-    const subject = encodeURIComponent('Demande de simulation gratuite - Les Assureurs Experts');
-    const body = encodeURIComponent(`
-Bonjour,
-
-Je souhaite recevoir une simulation gratuite pour mon assurance.
-
-Mes informations :
-- Prénom : ${leadForm.prenom}
-- Téléphone : ${leadForm.telephone}
-- Email : ${leadForm.email}
-- Type d'assurance : ${formData.type}
-- Âge : ${formData.age}
-- Statut : ${formData.statut}
-- Cotisation actuelle : ${formData.cotisation}€/mois
-
-Cordialement,
-${leadForm.prenom}
-    `);
+    setIsSubmitting(true);
     
-    window.location.href = `mailto:contact@lesassureursexperts.fr?subject=${subject}&body=${body}`;
-    
-    alert('Votre demande a été préparée. Votre client email va s\'ouvrir.');
+    try {
+      const payload = {
+        nom: leadForm.prenom,
+        telephone: leadForm.telephone,
+        email: leadForm.email,
+        message: `Demande simulation - Type: ${formData.type}, Âge: ${formData.age}, Statut: ${formData.statut}, Cotisation: ${formData.cotisation}€/mois`,
+        source: "site"
+      };
+      
+      const response = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      });
+      
+      if (response.ok) {
+        alert('Votre demande a été envoyée avec succès ! Nous vous contacterons sous 24h.');
+        setLeadForm({ prenom: '', telephone: '', email: '' });
+      } else {
+        throw new Error('Erreur serveur');
+      }
+    } catch (error) {
+      console.error('Erreur envoi formulaire:', error);
+      alert('Une erreur est survenue. Veuillez réessayer ou nous contacter directement.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const getResultIcon = () => {
@@ -279,10 +290,11 @@ ${leadForm.prenom}
                 />
                 <button
                   type="submit"
-                  className="w-full bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-3 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+                  disabled={isSubmitting}
+                  className={`w-full ${isSubmitting ? 'bg-gray-400' : 'bg-green-600 hover:bg-green-700'} text-white font-bold px-6 py-3 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2`}
                 >
                   <Phone className="w-5 h-5" />
-                  Recevoir ma simulation gratuite
+                  {isSubmitting ? 'Envoi...' : 'Recevoir ma simulation gratuite'}
                 </button>
               </form>
 
