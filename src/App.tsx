@@ -26,6 +26,7 @@ import ExitIntentPopup from './components/ExitIntentPopup';
 import CookieConsent from './components/CookieConsent';
 import ScrollToTop from './components/ScrollToTop';
 import ReviewBanner from './components/ReviewBanner';
+import InternalReviewBanner from './components/InternalReviewBanner';
 
 function App() {
   const [showExitPopup, setShowExitPopup] = useState(false);
@@ -107,6 +108,7 @@ function App() {
           </Routes>
         </main>
         <ReviewBanner />
+        <InternalReviewBanner />
         <Footer />
         <WhatsAppButton />
         <ExitIntentPopup 
