@@ -80,6 +80,7 @@ const HeroBanner: React.FC = () => {
                 <img
                   src="https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=800"
                   alt="Famille protégée par nos assurances"
+                  loading="lazy"
                   className="w-full h-[500px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent"></div>

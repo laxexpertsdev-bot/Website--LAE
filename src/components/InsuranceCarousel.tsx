@@ -228,6 +228,7 @@ const InsuranceCarousel: React.FC = () => {
                     <img
                       src={insuranceCards[currentSlide].image}
                       alt={insuranceCards[currentSlide].alt}
+                      loading="lazy"
                       className="w-full h-full object-cover"
                     />
                     <div className={`absolute inset-0 bg-gradient-to-r ${insuranceCards[currentSlide].color} opacity-20`}></div>

@@ -13,6 +13,10 @@ const HomePage: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [honeypot, setHoneypot] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Endpoint pour envoi des données (à configurer)
+  const ENDPOINT = "https://script.google.com/macros/s/XXXXXXXX/exec"; // NE PAS CHANGER, je remplacerai l'URL
   const [formData, setFormData] = useState({
     firstName: '',
     email: '',
@@ -35,28 +39,39 @@ const HomePage: React.FC = () => {
       return; // Likely spam, do nothing
     }
 
+    if (isSubmitting) return;
+    
     setIsLoading(true);
+    setIsSubmitting(true);
     
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const payload = {
+        nom: formData.firstName,
+        telephone: '', // Pas de téléphone dans ce formulaire
+        email: formData.email,
+        message: 'Demande de guide "Les 10 erreurs à éviter en assurance"',
+        source: "site"
+      };
       
-      // Here you would normally send data to your CRM/newsletter service
-      console.log('Lead magnet form submitted:', formData);
+      const response = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      });
       
-      // Track conversion if Google Analytics is available
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'lead_magnet_download', {
-          event_category: 'engagement',
-          event_label: 'insurance_guide'
-        });
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        throw new Error('Erreur serveur');
       }
-      
-      setIsSubmitted(true);
     } catch (error) {
       console.error('Error submitting form:', error);
+      alert('Une erreur est survenue. Veuillez réessayer.');
     } finally {
       setIsLoading(false);
+      setIsSubmitting(false);
     }
   };
 
@@ -321,10 +336,10 @@ const HomePage: React.FC = () => {
                 
                 <button
                   type="submit"
-                  disabled={isLoading}
-                  className="w-full bg-white text-blue-700 px-8 py-4 rounded-lg text-lg font-bold hover:bg-blue-50 transition-all duration-200 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  disabled={isLoading || isSubmitting}
+                  className={`w-full ${isLoading || isSubmitting ? 'bg-gray-300' : 'bg-white hover:bg-blue-50'} text-blue-700 px-8 py-4 rounded-lg text-lg font-bold transition-all duration-200 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2`}
                 >
-                  {isLoading ? (
+                  {isLoading || isSubmitting ? (
                     <>
                       <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-blue-700"></div>
                       Envoi en cours...
