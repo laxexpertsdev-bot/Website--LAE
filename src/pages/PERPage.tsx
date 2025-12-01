@@ -233,35 +233,53 @@ const PERPage: React.FC = () => {
               </p>
               
               <form className="space-y-4">
+              <form
+                action="https://formspree.io/f/mblnydqy"
+                method="POST"
+                className="space-y-4"
+              >
                 <input
                   type="text"
+                  name="fullName"
                   placeholder="Prénom et Nom"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500"
                   required
                 />
                 <input
                   type="tel"
+                  name="phone"
                   placeholder="Téléphone"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500"
                   required
                 />
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500"
                   required
                 />
                 <input
                   type="number"
+                  name="annualIncome"
                   placeholder="Revenus annuels (€)"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500"
                 />
-                <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500">
+                <select 
+                  name="insuranceType"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500"
+                >
                   <option value="per">Plan Épargne Retraite (PER)</option>
                 </select>
                 
                 <div className="flex items-start gap-3">
-                  <input type="checkbox" id="consent" className="w-5 h-5 text-amber-500 mt-0.5" required />
+                  <input 
+                    type="checkbox" 
+                    id="consent" 
+                    name="consent"
+                    className="w-5 h-5 text-amber-500 mt-0.5" 
+                    required 
+                  />
                   <label htmlFor="consent" className="text-sm text-gray-600">
                     J'accepte d'être contacté par Les Assureurs Experts.
                   </label>
