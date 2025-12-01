@@ -219,7 +219,6 @@ const AssuranceBateauPage: React.FC = () => {
                 Obtenez votre tarif en 2 minutes.
               </p>
               
-              <form className="space-y-4">
               <form
                 action="https://formspree.io/f/mblnydqy"
                 method="POST"
