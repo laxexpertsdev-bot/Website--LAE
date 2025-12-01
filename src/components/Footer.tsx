@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
             <div className="lg:col-span-1 space-y-4">
               <div className="flex items-center">
                 <img 
-                  src="/logo-improved.svg" 
+                  src="/Votre texte de paragraphe (500 x 250 px) (3).png" 
                   alt="LES ASSUREURS EXPERTS" 
                   className="h-12 w-auto object-contain"
                 />
