@@ -13,8 +13,37 @@ const ContactPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Contact form:', formData);
-    alert('Message envoyé ! Nous vous répondrons sous 24h.');
+    
+    const submitForm = async () => {
+      try {
+        const response = await fetch("https://formspree.io/f/mblnydqy", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: JSON.stringify(formData)
+        });
+        
+        if (response.ok) {
+          alert("Message envoyé ! Nous vous répondrons sous 24h.");
+          setFormData({
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            subject: '',
+            message: ''
+          });
+        } else {
+          alert("Erreur lors de l'envoi. Veuillez réessayer.");
+        }
+      } catch (error) {
+        alert("Erreur lors de l'envoi. Veuillez réessayer.");
+      }
+    };
+    
+    submitForm();
   };
 
   return (

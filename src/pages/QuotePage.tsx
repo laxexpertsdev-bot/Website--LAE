@@ -42,9 +42,37 @@ const QuotePage: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    console.log('Lead data:', formData);
-    // Here you would typically send data to your CRM
-    alert('Demande envoyée ! Vous serez contacté sous 24h.');
+    const submitForm = async () => {
+      try {
+        const response = await fetch("https://formspree.io/f/mblnydqy", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: JSON.stringify(formData)
+        });
+        
+        if (response.ok) {
+          alert("Demande envoyée ! Vous serez contacté sous 24h.");
+          setFormData({
+            insuranceType: '',
+            currentlyInsured: '',
+            firstName: '',
+            lastName: '',
+            phone: '',
+            email: '',
+            wantCallback: false
+          });
+        } else {
+          alert("Erreur lors de l'envoi. Veuillez réessayer.");
+        }
+      } catch (error) {
+        alert("Erreur lors de l'envoi. Veuillez réessayer.");
+      }
+    };
+    
+    submitForm();
   };
 
   const isStepValid = () => {

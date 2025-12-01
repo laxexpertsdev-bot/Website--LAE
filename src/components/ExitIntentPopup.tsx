@@ -103,18 +103,44 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
       return;
     }
     
-    console.log('Popup lead:', formData);
+    const submitForm = async () => {
+      try {
+        const response = await fetch("https://formspree.io/f/mblnydqy", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: JSON.stringify(formData)
+        });
+        
+        if (response.ok) {
+          // Tracking événement (si système de tracking en place)
+          if (typeof window !== 'undefined' && (window as any).gtag) {
+            (window as any).gtag('event', 'popup_submit', {
+              event_category: 'engagement',
+              event_label: 'simplified_popup'
+            });
+          }
+          
+          alert('Demande envoyée ! Vous serez rappelé sous 24h.');
+          setFormData({
+            insuranceType: '',
+            fullName: '',
+            phone: '',
+            email: '',
+            rgpdConsent: false
+          });
+          handleClose();
+        } else {
+          alert("Erreur lors de l'envoi. Veuillez réessayer.");
+        }
+      } catch (error) {
+        alert("Erreur lors de l'envoi. Veuillez réessayer.");
+      }
+    };
     
-    // Tracking événement (si système de tracking en place)
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'popup_submit', {
-        event_category: 'engagement',
-        event_label: 'simplified_popup'
-      });
-    }
-    
-    alert('Demande envoyée ! Vous serez rappelé sous 24h.');
-    handleClose();
+    submitForm();
   };
 
   // Ne pas afficher si récemment fermé

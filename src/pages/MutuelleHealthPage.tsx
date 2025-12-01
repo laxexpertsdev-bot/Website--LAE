@@ -3,6 +3,52 @@ import { Link } from 'react-router-dom';
 import { Heart, CheckCircle, Users, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
 
 const MutuelleHealthPage: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    insuranceType: 'mutuelle-sante',
+    consent: false
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    try {
+      const response = await fetch("https://formspree.io/f/mblnydqy", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      if (response.ok) {
+        alert("Message envoyé ! Nous vous répondrons sous 24h.");
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          insuranceType: 'mutuelle-sante',
+          consent: false
+        });
+      } else {
+        alert("Erreur lors de l'envoi. Veuillez réessayer.");
+      }
+    } catch (error) {
+      alert("Erreur lors de l'envoi. Veuillez réessayer.");
+    }
+  };
+
   const coverageItems = [
     "Hospitalisation (chambre individuelle, frais de séjour)",
     "Soins courants (médecins généralistes et spécialistes)",
@@ -238,30 +284,53 @@ const MutuelleHealthPage: React.FC = () => {
               </p>
               
               <form className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   placeholder="Prénom et Nom"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 <input
                   type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
                   placeholder="Téléphone"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   placeholder="Email"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   required
                 />
-                <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                <select 
+                  name="insuranceType"
+                  value={formData.insuranceType}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                >
                   <option value="mutuelle-sante">Mutuelle santé</option>
                 </select>
                 
                 <div className="flex items-start gap-3">
-                  <input type="checkbox" id="consent" className="w-5 h-5 text-blue-600 mt-0.5" required />
+                   <input 
+                     type="checkbox" 
+                     id="consent" 
+                     name="consent"
+                     checked={formData.consent}
+                     onChange={handleInputChange}
+                     className="w-5 h-5 text-blue-600 mt-0.5" 
+                     required 
+                   />
                   <label htmlFor="consent" className="text-sm text-gray-600">
                     J'accepte d'être contacté par Les Assureurs Experts. Mes données restent confidentielles.
                   </label>

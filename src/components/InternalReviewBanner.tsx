@@ -76,25 +76,43 @@ const InternalReviewBanner: React.FC = () => {
       return;
     }
 
-    // Enregistrer temporairement dans localStorage (en attendant l'endpoint)
-    const review = {
-      rating,
-      name: formData.name || 'Anonyme',
-      comment: formData.comment,
-      date: new Date().toISOString()
+    const submitForm = async () => {
+      try {
+        const reviewData = {
+          rating,
+          name: formData.name || 'Anonyme',
+          comment: formData.comment,
+          date: new Date().toISOString()
+        };
+        
+        const response = await fetch("https://formspree.io/f/mblnydqy", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: JSON.stringify(reviewData)
+        });
+        
+        if (response.ok) {
+          setIsSubmitted(true);
+          setRating(0);
+          setFormData({ name: '', comment: '' });
+          
+          // Fermer automatiquement après 3 secondes
+          setTimeout(() => {
+            handleCloseModal();
+            handleClose(); // Cacher le bandeau aussi
+          }, 3000);
+        } else {
+          alert("Erreur lors de l'envoi. Veuillez réessayer.");
+        }
+      } catch (error) {
+        alert("Erreur lors de l'envoi. Veuillez réessayer.");
+      }
     };
     
-    const existingReviews = JSON.parse(localStorage.getItem('internalReviews') || '[]');
-    existingReviews.push(review);
-    localStorage.setItem('internalReviews', JSON.stringify(existingReviews));
-    
-    setIsSubmitted(true);
-    
-    // Fermer automatiquement après 3 secondes
-    setTimeout(() => {
-      handleCloseModal();
-      handleClose(); // Cacher le bandeau aussi
-    }, 3000);
+    submitForm();
   };
 
   if (!isVisible) return null;

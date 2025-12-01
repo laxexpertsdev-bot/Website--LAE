@@ -38,23 +38,35 @@ const HomePage: React.FC = () => {
     setIsLoading(true);
     
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const response = await fetch("https://formspree.io/f/mblnydqy", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
       
-      // Here you would normally send data to your CRM/newsletter service
-      console.log('Lead magnet form submitted:', formData);
-      
-      // Track conversion if Google Analytics is available
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'lead_magnet_download', {
-          event_category: 'engagement',
-          event_label: 'insurance_guide'
+      if (response.ok) {
+        // Track conversion if Google Analytics is available
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'lead_magnet_download', {
+            event_category: 'engagement',
+            event_label: 'insurance_guide'
+          });
+        }
+        
+        setIsSubmitted(true);
+        setFormData({
+          firstName: '',
+          email: '',
+          consent: false
         });
+      } else {
+        alert("Erreur lors de l'envoi. Veuillez réessayer.");
       }
-      
-      setIsSubmitted(true);
     } catch (error) {
-      console.error('Error submitting form:', error);
+      alert("Erreur lors de l'envoi. Veuillez réessayer.");
     } finally {
       setIsLoading(false);
     }

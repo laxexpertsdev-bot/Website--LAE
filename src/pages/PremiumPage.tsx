@@ -36,8 +36,36 @@ const PremiumPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Premium subscription:', formData);
-    alert('Inscription en cours... Redirection vers le paiement sécurisé.');
+    
+    const submitForm = async () => {
+      try {
+        const response = await fetch("https://formspree.io/f/mblnydqy", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: JSON.stringify(formData)
+        });
+        
+        if (response.ok) {
+          alert("Inscription en cours... Redirection vers le paiement sécurisé.");
+          setFormData({
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            paymentMethod: 'card'
+          });
+        } else {
+          alert("Erreur lors de l'envoi. Veuillez réessayer.");
+        }
+      } catch (error) {
+        alert("Erreur lors de l'envoi. Veuillez réessayer.");
+      }
+    };
+    
+    submitForm();
   };
 
   return (
