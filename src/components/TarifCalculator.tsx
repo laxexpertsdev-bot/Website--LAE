@@ -92,34 +92,7 @@ const TarifCalculator: React.FC = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch("https://formspree.io/f/mblnydqy", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        body: JSON.stringify({
-          nom: leadForm.prenom,
-          telephone: leadForm.telephone,
-          email: leadForm.email,
-          message: `Demande simulation - Type: ${formData.type}, Âge: ${formData.age}, Statut: ${formData.statut}, Cotisation: ${formData.cotisation}€/mois`,
-          source: "site"
-        })
-      });
-      
-      if (response.ok) {
-        alert('Votre demande a été envoyée avec succès ! Nous vous contacterons sous 24h.');
-        setLeadForm({ prenom: '', telephone: '', email: '' });
-      } else {
-        alert('Une erreur est survenue. Veuillez réessayer ou nous contacter directement.');
-      }
-    } catch (error) {
-      alert('Une erreur est survenue. Veuillez réessayer ou nous contacter directement.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
+      const payload = {
         nom: leadForm.prenom,
         telephone: leadForm.telephone,
         email: leadForm.email,
