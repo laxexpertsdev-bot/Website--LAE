@@ -84,7 +84,7 @@ const Header: React.FC = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3">
               <img 
-                src="/Votre texte de paragraphe (500 x 250 px) (2).png" 
+                src="/logo-improved.svg" 
                 alt="LES ASSUREURS EXPERTS" 
                 className="h-24 w-auto object-contain md:h-28"
               />
