@@ -37,35 +37,7 @@ const PremiumPage: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    const submitForm = async () => {
-      try {
-        const response = await fetch("https://formspree.io/f/mblnydqy", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-          },
-          body: JSON.stringify(formData)
-        });
-        
-        if (response.ok) {
-          alert("Inscription en cours... Redirection vers le paiement sécurisé.");
-          setFormData({
-            firstName: '',
-            lastName: '',
-            email: '',
-            phone: '',
-            paymentMethod: 'card'
-          });
-        } else {
-          alert("Erreur lors de l'envoi. Veuillez réessayer.");
-        }
-      } catch (error) {
-        alert("Erreur lors de l'envoi. Veuillez réessayer.");
-      }
-    };
-    
-    submitForm();
+    // Form will be handled by Formspree POST
   };
 
   return (
@@ -169,7 +141,13 @@ const PremiumPage: React.FC = () => {
               Rejoindre le Club Premium
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form
+              action="https://formspree.io/f/mblnydqy"
+              method="POST"
+              className="space-y-6"
+            >
+              <input type="hidden" name="billingType" value={billingType} />
+              
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -177,6 +155,7 @@ const PremiumPage: React.FC = () => {
                   </label>
                   <input
                     type="text"
+                    name="firstName"
                     value={formData.firstName}
                     onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
@@ -189,6 +168,7 @@ const PremiumPage: React.FC = () => {
                   </label>
                   <input
                     type="text"
+                    name="lastName"
                     value={formData.lastName}
                     onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
@@ -203,6 +183,7 @@ const PremiumPage: React.FC = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
@@ -216,6 +197,7 @@ const PremiumPage: React.FC = () => {
                 </label>
                 <input
                   type="tel"
+                  name="phone"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"

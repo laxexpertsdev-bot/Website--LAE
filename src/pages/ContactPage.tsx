@@ -14,36 +14,7 @@ const ContactPage: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    const submitForm = async () => {
-      try {
-        const response = await fetch("https://formspree.io/f/mblnydqy", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-          },
-          body: JSON.stringify(formData)
-        });
-        
-        if (response.ok) {
-          alert("Message envoyé ! Nous vous répondrons sous 24h.");
-          setFormData({
-            firstName: '',
-            lastName: '',
-            email: '',
-            phone: '',
-            subject: '',
-            message: ''
-          });
-        } else {
-          alert("Erreur lors de l'envoi. Veuillez réessayer.");
-        }
-      } catch (error) {
-        alert("Erreur lors de l'envoi. Veuillez réessayer.");
-      }
-    };
-    
-    submitForm();
+    // Form will be handled by Formspree POST
   };
 
   return (
@@ -161,7 +132,11 @@ const ContactPage: React.FC = () => {
               Envoyez-nous un message
             </h2>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form
+              action="https://formspree.io/f/mblnydqy"
+              method="POST"
+              className="space-y-6"
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -169,6 +144,7 @@ const ContactPage: React.FC = () => {
                   </label>
                   <input
                     type="text"
+                    name="firstName"
                     value={formData.firstName}
                     onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -181,6 +157,7 @@ const ContactPage: React.FC = () => {
                   </label>
                   <input
                     type="text"
+                    name="lastName"
                     value={formData.lastName}
                     onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -196,6 +173,7 @@ const ContactPage: React.FC = () => {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -208,6 +186,7 @@ const ContactPage: React.FC = () => {
                   </label>
                   <input
                     type="tel"
+                    name="phone"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -220,6 +199,7 @@ const ContactPage: React.FC = () => {
                   Type d'assurance ou sujet *
                 </label>
                 <select
+                  name="subject"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -237,6 +217,7 @@ const ContactPage: React.FC = () => {
                   Message *
                 </label>
                 <textarea
+                  name="message"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={6}

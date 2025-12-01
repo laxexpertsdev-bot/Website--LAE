@@ -87,39 +87,7 @@ const TarifCalculator: React.FC = () => {
   const handleLeadSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (isSubmitting) return;
-    
-    setIsSubmitting(true);
-    
-    try {
-      const payload = {
-        nom: leadForm.prenom,
-        telephone: leadForm.telephone,
-        email: leadForm.email,
-        message: `Demande simulation - Type: ${formData.type}, Âge: ${formData.age}, Statut: ${formData.statut}, Cotisation: ${formData.cotisation}€/mois`,
-        source: "site"
-      };
-      
-      const response = await fetch(ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload)
-      });
-      
-      if (response.ok) {
-        alert('Votre demande a été envoyée avec succès ! Nous vous contacterons sous 24h.');
-        setLeadForm({ prenom: '', telephone: '', email: '' });
-      } else {
-        throw new Error('Erreur serveur');
-      }
-    } catch (error) {
-      console.error('Erreur envoi formulaire:', error);
-      alert('Une erreur est survenue. Veuillez réessayer ou nous contacter directement.');
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Form will be handled by Formspree POST
   };
 
   const getResultIcon = () => {
@@ -260,10 +228,20 @@ const TarifCalculator: React.FC = () => {
                 Souhaitez-vous recevoir une étude personnalisée gratuite ? Laissez-nous vos coordonnées :
               </p>
 
-              <form onSubmit={handleLeadSubmit} className="space-y-4 max-w-md">
+              <form
+                action="https://formspree.io/f/mblnydqy"
+                method="POST"
+                className="space-y-4 max-w-md"
+              >
+                <input type="hidden" name="type" value={formData.type} />
+                <input type="hidden" name="age" value={formData.age} />
+                <input type="hidden" name="statut" value={formData.statut} />
+                <input type="hidden" name="cotisation" value={formData.cotisation} />
+                <input type="hidden" name="message" value={`Demande simulation - Type: ${formData.type}, Âge: ${formData.age}, Statut: ${formData.statut}, Cotisation: ${formData.cotisation}€/mois`} />
+                
                 <input
                   type="text"
-                  name="prenom"
+                  name="firstName"
                   placeholder="Prénom"
                   value={leadForm.prenom}
                   onChange={handleLeadInputChange}
@@ -272,7 +250,7 @@ const TarifCalculator: React.FC = () => {
                 />
                 <input
                   type="tel"
-                  name="telephone"
+                  name="phone"
                   placeholder="Téléphone"
                   value={leadForm.telephone}
                   onChange={handleLeadInputChange}
@@ -290,11 +268,10 @@ const TarifCalculator: React.FC = () => {
                 />
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className={`w-full ${isSubmitting ? 'bg-gray-400' : 'bg-green-600 hover:bg-green-700'} text-white font-bold px-6 py-3 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2`}
+                  className="w-full bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-3 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
                 >
                   <Phone className="w-5 h-5" />
-                  {isSubmitting ? 'Envoi...' : 'Recevoir ma simulation gratuite'}
+                  Recevoir ma simulation gratuite
                 </button>
               </form>
 

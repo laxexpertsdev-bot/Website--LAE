@@ -76,43 +76,16 @@ const InternalReviewBanner: React.FC = () => {
       return;
     }
 
-    const submitForm = async () => {
-      try {
-        const reviewData = {
-          rating,
-          name: formData.name || 'Anonyme',
-          comment: formData.comment,
-          date: new Date().toISOString()
-        };
-        
-        const response = await fetch("https://formspree.io/f/mblnydqy", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-          },
-          body: JSON.stringify(reviewData)
-        });
-        
-        if (response.ok) {
-          setIsSubmitted(true);
-          setRating(0);
-          setFormData({ name: '', comment: '' });
-          
-          // Fermer automatiquement après 3 secondes
-          setTimeout(() => {
-            handleCloseModal();
-            handleClose(); // Cacher le bandeau aussi
-          }, 3000);
-        } else {
-          alert("Erreur lors de l'envoi. Veuillez réessayer.");
-        }
-      } catch (error) {
-        alert("Erreur lors de l'envoi. Veuillez réessayer.");
-      }
-    };
+    // Form will be handled by Formspree POST
+    setIsSubmitted(true);
+    setRating(0);
+    setFormData({ name: '', comment: '' });
     
-    submitForm();
+    // Fermer automatiquement après 3 secondes
+    setTimeout(() => {
+      handleCloseModal();
+      handleClose(); // Cacher le bandeau aussi
+    }, 3000);
   };
 
   if (!isVisible) return null;
@@ -172,7 +145,13 @@ const InternalReviewBanner: React.FC = () => {
             {/* Contenu */}
             <div className="p-6">
               {!isSubmitted ? (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form
+                  action="https://formspree.io/f/mblnydqy"
+                  method="POST"
+                  className="space-y-6"
+                >
+                  <input type="hidden" name="rating" value={rating} />
+                  
                   {/* Étoiles */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-3">

@@ -326,7 +326,11 @@ const HomePage: React.FC = () => {
               <p className="text-lg">👉 Réservez votre bilan et recevez le guide par email en avant-première.</p>
             </div>
             {!isSubmitted ? (
-              <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+              <form
+                action="https://formspree.io/f/mblnydqy"
+                method="POST"
+                className="max-w-md mx-auto"
+              >
                 {/* Honeypot field for spam protection */}
                 <input
                   type="text"

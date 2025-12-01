@@ -22,31 +22,7 @@ const MutuelleHealthPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    try {
-      const response = await fetch("https://formspree.io/f/mblnydqy", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        body: JSON.stringify(formData)
-      });
-      
-      if (response.ok) {
-        alert("Message envoyé ! Nous vous répondrons sous 24h.");
-        setFormData({
-          name: '',
-          phone: '',
-          email: '',
-          insuranceType: 'mutuelle-sante',
-          consent: false
-        });
-      } else {
-        alert("Erreur lors de l'envoi. Veuillez réessayer.");
-      }
-    } catch (error) {
-      alert("Erreur lors de l'envoi. Veuillez réessayer.");
-    }
+    // Form will be handled by Formspree POST
   };
 
   const coverageItems = [
@@ -283,7 +259,11 @@ const MutuelleHealthPage: React.FC = () => {
                 Remplissez notre formulaire rapide : réponse personnalisée sous 24h.
               </p>
               
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form
+                action="https://formspree.io/f/mblnydqy"
+                method="POST"
+                className="space-y-4"
+              >
                 <input
                   type="text"
                   name="name"

@@ -103,44 +103,7 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
       return;
     }
     
-    const submitForm = async () => {
-      try {
-        const response = await fetch("https://formspree.io/f/mblnydqy", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-          },
-          body: JSON.stringify(formData)
-        });
-        
-        if (response.ok) {
-          // Tracking événement (si système de tracking en place)
-          if (typeof window !== 'undefined' && (window as any).gtag) {
-            (window as any).gtag('event', 'popup_submit', {
-              event_category: 'engagement',
-              event_label: 'simplified_popup'
-            });
-          }
-          
-          alert('Demande envoyée ! Vous serez rappelé sous 24h.');
-          setFormData({
-            insuranceType: '',
-            fullName: '',
-            phone: '',
-            email: '',
-            rgpdConsent: false
-          });
-          handleClose();
-        } else {
-          alert("Erreur lors de l'envoi. Veuillez réessayer.");
-        }
-      } catch (error) {
-        alert("Erreur lors de l'envoi. Veuillez réessayer.");
-      }
-    };
-    
-    submitForm();
+    // Form will be handled by Formspree POST
   };
 
   // Ne pas afficher si récemment fermé
@@ -193,13 +156,18 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
           </div>
 
           {/* Formulaire simplifié */}
-          <form onSubmit={handleSubmit} className="space-y-3">
+          <form
+            action="https://formspree.io/f/mblnydqy"
+            method="POST"
+            className="space-y-3"
+          >
             {/* Type d'assurance */}
             <div>
               <label className="block text-xs font-medium text-gray-700 mb-1">
                 Type d'assurance souhaitée *
               </label>
               <select
+                name="insuranceType"
                 value={formData.insuranceType}
                 onChange={(e) => setFormData({ ...formData, insuranceType: e.target.value })}
                 className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
@@ -226,6 +194,7 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
               </label>
               <input
                 type="text"
+                name="fullName"
                 value={formData.fullName}
                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                 className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
@@ -241,6 +210,7 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
               </label>
               <input
                 type="tel"
+                name="phone"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
@@ -256,6 +226,7 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
               </label>
               <input
                 type="email"
+                name="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
@@ -268,6 +239,7 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
               <input
                 type="checkbox"
                 id="rgpd-consent"
+                name="rgpdConsent"
                 checked={formData.rgpdConsent}
                 onChange={(e) => setFormData({ ...formData, rgpdConsent: e.target.checked })}
                 className="w-4 h-4 text-blue-600 mt-0.5"
