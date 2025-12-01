@@ -232,7 +232,6 @@ const PERPage: React.FC = () => {
                 Calculez vos économies d'impôt en 2 minutes.
               </p>
               
-              <form className="space-y-4">
               <form
                 action="https://formspree.io/f/mblnydqy"
                 method="POST"
