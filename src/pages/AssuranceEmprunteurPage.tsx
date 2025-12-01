@@ -221,7 +221,6 @@ const AssuranceEmprunteurPage: React.FC = () => {
                 Obtenez votre simulation personnalisée en 2 minutes.
               </p>
               
-              <form className="space-y-4">
               <form
                 action="https://formspree.io/f/mblnydqy"
                 method="POST"
