@@ -144,13 +144,33 @@ const ComprehensiveInsuranceSection: React.FC = () => {
                 </p>
                 
                 {/* CTA Button */}
-                <Link
-                  to="/devis"
-                  className="inline-flex items-center gap-2 text-slate-900 hover:text-blue-700 font-medium transition-colors group"
-                >
+                <div className="space-y-2">
+                  <Link
+                    to="/devis"
+                    className="inline-flex items-center gap-2 text-slate-900 hover:text-blue-700 font-medium transition-colors group"
+                  >
+                    Obtenir un devis
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                  <br />
+                  <Link
+                    to={
+                      insurance.title === 'Mutuelle santé' ? '/mutuelle-sante' :
+                      insurance.title === 'Assurance emprunteur' ? '/assurance-emprunteur' :
+                      insurance.title === 'Assurance auto' ? '/assurance-auto' :
+                      insurance.title === 'Assurance 2 roues' ? '/assurance-2-roues' :
+                      insurance.title === 'Expatriés & santé internationale' ? '/expatries' :
+                      insurance.title === 'Prévoyance individuelle' ? '/prevoyance' :
+                      insurance.title === 'Assurance bateau' ? '/assurance-bateau' :
+                      insurance.title === 'Épargne & patrimoine' ? '/per' :
+                      '/offres'
+                    }
+                    className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors group text-sm"
+                  >
                   En savoir plus
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                  </Link>
+                </div>
               </motion.div>
             ))}
           </div>

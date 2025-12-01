@@ -160,16 +160,13 @@ const InsuranceSection: React.FC = () => {
                 )}
                 
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      window.location.href = '/devis';
-                    }}
+                  <Link
+                    to="/devis"
                     className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-4 py-2.5 rounded-lg font-medium transition-all duration-200 shadow-md hover:shadow-lg group"
                   >
                     {insurance.cta}
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  </Link>
                 </motion.div>
               </div>
             </motion.div>
