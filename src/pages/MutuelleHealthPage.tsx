@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Heart, CheckCircle, Users, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
 
@@ -283,7 +283,6 @@ const MutuelleHealthPage: React.FC = () => {
                 Remplissez notre formulaire rapide : réponse personnalisée sous 24h.
               </p>
               
-              <form className="space-y-4">
               <form onSubmit={handleSubmit} className="space-y-4">
                 <input
                   type="text"
