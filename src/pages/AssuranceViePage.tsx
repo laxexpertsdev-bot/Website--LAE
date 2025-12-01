@@ -269,7 +269,6 @@ const AssuranceViePage: React.FC = () => {
                 Découvrez le potentiel de votre épargne.
               </p>
               
-              <form className="space-y-4">
               <form
                 action="https://formspree.io/f/mblnydqy"
                 method="POST"
