@@ -282,7 +282,7 @@ const AssuranceHabitationPage: React.FC = () => {
         </div>
       </div>
     </div>
-    </>
+  </>
   );
 };
 
