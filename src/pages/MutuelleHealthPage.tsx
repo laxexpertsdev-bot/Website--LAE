@@ -360,7 +360,7 @@ const MutuelleHealthPage: React.FC = () => {
         </div>
       </div>
     </div>
-  </>
+    </>
   );
 };
 
