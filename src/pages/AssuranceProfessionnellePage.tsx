@@ -287,6 +287,7 @@ const AssuranceProfessionnellePage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
