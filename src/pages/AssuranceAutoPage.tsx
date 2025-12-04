@@ -281,6 +281,7 @@ const AssuranceAutoPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
