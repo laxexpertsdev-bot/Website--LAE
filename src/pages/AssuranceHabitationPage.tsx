@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Home, CheckCircle, Calculator, Phone, ArrowRight, ChevronRight, Shield } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const AssuranceHabitationPage: React.FC = () => {
   const coverageItems = [
@@ -35,6 +36,14 @@ const AssuranceHabitationPage: React.FC = () => {
   ];
 
   return (
+    <>
+      <Helmet>
+        <title>Assurance Habitation Pas Chère | Devis Gratuit | Les Assureurs Experts</title>
+        <meta name="description" content="Assurance habitation dès 8€/mois. Devis gratuit en 5 minutes. Propriétaire ou locataire, trouvez la meilleure protection pour votre logement." />
+        <meta name="keywords" content="assurance habitation, assurance logement, multirisque habitation, assurance propriétaire, assurance locataire" />
+        <link rel="canonical" href="https://lesassureursexperts.fr/assurance-habitation" />
+      </Helmet>
+      
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">

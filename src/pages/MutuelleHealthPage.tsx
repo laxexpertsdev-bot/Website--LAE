@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Heart, CheckCircle, Users, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const MutuelleHealthPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -57,6 +58,14 @@ const MutuelleHealthPage: React.FC = () => {
   ];
 
   return (
+    <>
+      <Helmet>
+        <title>Mutuelle Santé Pas Chère | Comparateur Expert | Les Assureurs Experts</title>
+        <meta name="description" content="Trouvez votre mutuelle santé idéale dès 18€/mois. Comparateur expert, devis gratuit, famille/senior/étudiant. Courtier ORIAS agréé." />
+        <meta name="keywords" content="mutuelle santé, assurance santé, complémentaire santé, mutuelle famille, mutuelle senior" />
+        <link rel="canonical" href="https://lesassureursexperts.fr/mutuelle-sante" />
+      </Helmet>
+      
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">

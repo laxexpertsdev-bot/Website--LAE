@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, Shield, Home, Car, Bike, Plane, Anchor, ArrowRight, PiggyBank } from 'lucide-react';
+import { Heart, Shield, Home, Car, Bike, Plane, Anchor, ArrowRight, PiggyBank, Briefcase } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const InsuranceSection: React.FC = () => {

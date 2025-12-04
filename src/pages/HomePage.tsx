@@ -416,6 +416,171 @@ const HomePage: React.FC = () => {
       {/* Tarif Calculator */}
       <TarifCalculator />
       
+      {/* Contenu d'Autorité SEO - Section Expertise */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="prose prose-lg max-w-none">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Les Assureurs Experts : Votre Courtier ORIAS de Confiance
+            </h2>
+            
+            <div className="space-y-8 text-gray-700 leading-relaxed">
+              <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+                <h3 className="text-xl font-semibold text-blue-900 mb-3">
+                  🏛️ Courtier Agréé ORIAS 25002995 - Votre Garantie d'Expertise
+                </h3>
+                <p className="text-blue-800">
+                  En tant que courtier en assurance agréé par l'ORIAS (Organisme pour le Registre des 
+                  Intermédiaires en Assurance), nous respectons un code de déontologie strict qui garantit 
+                  la transparence de nos conseils et la protection de vos intérêts. Notre enregistrement 
+                  sous le numéro 25002995 atteste de notre compétence professionnelle et de notre 
+                  conformité réglementaire.
+                </p>
+              </div>
+              
+              <h3 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+                Pourquoi Choisir un Courtier Expert pour Vos Assurances ?
+              </h3>
+              
+              <p>
+                Dans un marché de l'assurance de plus en plus complexe, faire appel à un courtier expert 
+                présente de nombreux avantages. Contrairement aux assureurs directs qui ne proposent que 
+                leurs propres produits, nous comparons les offres de plus de 20 compagnies partenaires 
+                pour vous trouver la solution la plus adaptée à votre situation et votre budget.
+              </p>
+              
+              <p>
+                Notre expertise nous permet de décrypter les garanties, d'identifier les exclusions 
+                importantes et de négocier les meilleurs tarifs. Nous vous accompagnons également dans 
+                la gestion de vos sinistres et l'évolution de vos contrats selon vos besoins.
+              </p>
+              
+              <h3 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+                Choisir le Bon Contrat d'Assurance Auto : Notre Expertise à Votre Service
+              </h3>
+              
+              <p>
+                L'assurance automobile est obligatoire mais choisir la bonne couverture peut s'avérer 
+                complexe. Entre l'assurance au tiers, l'assurance tous risques, les garanties optionnelles 
+                et les franchises, il est facile de se perdre. Notre équipe d'experts analyse votre profil 
+                de conducteur, votre véhicule et votre usage pour vous proposer la formule optimale.
+              </p>
+              
+              <p>
+                Nous prenons en compte tous les critères : votre âge, votre expérience de conduite, 
+                votre coefficient bonus-malus, la valeur de votre véhicule, votre lieu de résidence 
+                et vos habitudes de conduite. Cette analyse approfondie nous permet de vous faire 
+                économiser jusqu'à 30% sur votre prime annuelle tout en bénéficiant d'une couverture 
+                adaptée.
+              </p>
+              
+              <h3 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+                Assurance Habitation : Protégez Votre Patrimoine Efficacement
+              </h3>
+              
+              <p>
+                Votre logement représente souvent votre bien le plus précieux. Qu'il s'agisse d'une 
+                résidence principale, secondaire, ou d'un investissement locatif, chaque situation 
+                nécessite une approche spécifique. Nos experts en assurance habitation évaluent 
+                précisément vos besoins pour vous proposer une couverture optimale.
+              </p>
+              
+              <p>
+                Nous analysons les risques spécifiques à votre logement : zone géographique, type 
+                de construction, valeur des biens mobiliers, présence d'équipements particuliers. 
+                Cette expertise nous permet de vous proposer des garanties adaptées au juste prix, 
+                sans sur-assurance ni sous-assurance.
+              </p>
+              
+              <h3 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+                Assurance Santé : Trouvez la Mutuelle Qui Vous Correspond
+              </h3>
+              
+              <p>
+                Le système de santé français, bien que performant, laisse de nombreux frais à votre 
+                charge. Une bonne mutuelle santé est indispensable pour compléter les remboursements 
+                de la Sécurité sociale. Nos conseillers spécialisés analysent vos besoins de santé 
+                et votre budget pour vous proposer la formule la plus avantageuse.
+              </p>
+              
+              <p>
+                Que vous soyez jeune actif, famille nombreuse, senior ou travailleur indépendant, 
+                nous avons des solutions adaptées. Nous comparons les niveaux de remboursement en 
+                optique, dentaire, hospitalisation et médecines douces pour vous garantir la meilleure 
+                prise en charge possible.
+              </p>
+              
+              <h3 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+                Assurance Professionnelle : Sécurisez Votre Activité
+              </h3>
+              
+              <p>
+                Exercer une activité professionnelle expose à de nombreux risques : responsabilité 
+                civile, cyber-attaques, perte d'exploitation, protection juridique. Nos experts en 
+                assurance professionnelle connaissent les spécificités de chaque secteur d'activité 
+                et vous proposent une couverture sur mesure.
+              </p>
+              
+              <p>
+                Que vous soyez artisan, commerçant, profession libérale, consultant ou dirigeant 
+                d'entreprise, nous analysons vos risques métier pour vous proposer les garanties 
+                indispensables à la pérennité de votre activité. Notre approche personnalisée 
+                vous permet de vous concentrer sur votre cœur de métier en toute sérénité.
+              </p>
+              
+              <h3 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+                Notre Méthode : Analyse, Comparaison, Négociation
+              </h3>
+              
+              <p>
+                Notre processus d'accompagnement repose sur trois piliers fondamentaux. D'abord, 
+                nous analysons en détail votre situation personnelle ou professionnelle pour 
+                identifier précisément vos besoins de couverture. Ensuite, nous comparons les 
+                offres de nos partenaires assureurs en tenant compte du rapport qualité-prix. 
+                Enfin, nous négocions les conditions et tarifs pour obtenir les meilleures 
+                conditions possibles.
+              </p>
+              
+              <p>
+                Cette méthode éprouvée nous permet de vous faire bénéficier d'économies substantielles 
+                tout en améliorant votre niveau de protection. Nos clients économisent en moyenne 
+                25% sur leurs primes d'assurance tout en bénéficiant de garanties souvent supérieures 
+                à leurs anciens contrats.
+              </p>
+              
+              <h3 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+                Un Accompagnement Personnalisé et Durable
+              </h3>
+              
+              <p>
+                Notre relation ne s'arrête pas à la souscription de vos contrats. Nous vous 
+                accompagnons tout au long de la vie de vos assurances : gestion des sinistres, 
+                évolution de vos besoins, renégociation des tarifs, optimisation de vos garanties. 
+                Votre conseiller dédié reste votre interlocuteur privilégié pour toutes vos questions.
+              </p>
+              
+              <p>
+                Cette approche relationnelle nous distingue des comparateurs en ligne et des 
+                assureurs directs. Nous croyons qu'une bonne assurance nécessite un conseil humain 
+                et personnalisé, adapté à l'évolution de votre situation personnelle et professionnelle.
+              </p>
+              
+              <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg mt-8">
+                <h4 className="font-semibold text-green-900 mb-3">
+                  🎯 Votre Satisfaction, Notre Priorité
+                </h4>
+                <p className="text-green-800">
+                  Avec plus de 95% de clients satisfaits et un taux de fidélisation exceptionnel, 
+                  Les Assureurs Experts s'impose comme le partenaire de référence pour tous vos 
+                  besoins d'assurance. Rejoignez nos milliers de clients qui nous font confiance 
+                  pour protéger ce qui compte le plus pour eux.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       {/* SEO Content Section - Added below conversion elements */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

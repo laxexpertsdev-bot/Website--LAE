@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Briefcase, CheckCircle, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const AssuranceProfessionnellePage: React.FC = () => {
   const coverageItems = [
@@ -35,6 +36,14 @@ const AssuranceProfessionnellePage: React.FC = () => {
   ];
 
   return (
+    <>
+      <Helmet>
+        <title>Assurance Professionnelle RC Pro | Devis Expert | Les Assureurs Experts</title>
+        <meta name="description" content="Assurance professionnelle dès 15€/mois. RC Pro, cyber-risques, protection juridique. Devis adapté à votre métier. Courtier ORIAS spécialisé." />
+        <meta name="keywords" content="assurance professionnelle, RC pro, responsabilité civile professionnelle, assurance métier, cyber risques" />
+        <link rel="canonical" href="https://lesassureursexperts.fr/assurance-professionnelle" />
+      </Helmet>
+      
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">

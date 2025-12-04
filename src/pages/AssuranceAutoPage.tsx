@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Car, CheckCircle, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const AssuranceAutoPage: React.FC = () => {
   const coverageItems = [
@@ -35,6 +36,14 @@ const AssuranceAutoPage: React.FC = () => {
   ];
 
   return (
+    <>
+      <Helmet>
+        <title>Devis Assurance Auto Expert et Rapide | Les Assureurs Experts</title>
+        <meta name="description" content="Obtenez votre devis assurance auto personnalisé en 2 minutes. Courtier ORIAS, tarifs négociés, jeunes conducteurs acceptés. Économisez jusqu'à 30% !" />
+        <meta name="keywords" content="devis assurance auto, assurance voiture, courtier auto, comparateur assurance auto, jeunes conducteurs" />
+        <link rel="canonical" href="https://lesassureursexperts.fr/assurance-auto" />
+      </Helmet>
+      
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
