@@ -20,6 +20,8 @@ import MentionsLegalesPage from './pages/MentionsLegalesPage';
 import PolitiqueConfidentialitePage from './pages/PolitiqueConfidentialitePage';
 import ConditionsGeneralesPage from './pages/ConditionsGeneralesPage';
 import GestionCookiesPage from './pages/GestionCookiesPage';
+import AssuranceHabitationPage from './pages/AssuranceHabitationPage';
+import AssuranceProfessionnellePage from './pages/AssuranceProfessionnellePage';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import ExitIntentPopup from './components/ExitIntentPopup';
@@ -100,6 +102,8 @@ function App() {
             <Route path="/expatries" element={<ExpatriesPage />} />
             <Route path="/per" element={<PERPage />} />
             <Route path="/assurance-vie" element={<AssuranceViePage />} />
+            <Route path="/assurance-habitation" element={<AssuranceHabitationPage />} />
+            <Route path="/assurance-professionnelle" element={<AssuranceProfessionnellePage />} />
             <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
             <Route path="/politique-confidentialite" element={<PolitiqueConfidentialitePage />} />
             <Route path="/conditions-generales" element={<ConditionsGeneralesPage />} />

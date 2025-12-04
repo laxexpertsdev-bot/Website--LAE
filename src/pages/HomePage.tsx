@@ -416,6 +416,134 @@ const HomePage: React.FC = () => {
       {/* Tarif Calculator */}
       <TarifCalculator />
       
+      {/* SEO Content Section - Added below conversion elements */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="prose prose-lg max-w-none">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Les Assureurs Experts : Votre Partenaire de Confiance pour Toutes Vos Assurances
+            </h2>
+            
+            <div className="space-y-6 text-gray-700 leading-relaxed">
+              <p>
+                <strong>Les Assureurs Experts</strong> révolutionne le monde du courtage en assurance en combinant 
+                l'expertise humaine traditionnelle avec les avantages du digital. Notre cabinet, enregistré à l'ORIAS 
+                sous le numéro 25002995, vous accompagne dans tous vos projets d'assurance avec une approche 
+                personnalisée et transparente.
+              </p>
+              
+              <h3 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+                Notre Expertise au Service de Votre Protection
+              </h3>
+              
+              <p>
+                Depuis notre création, nous avons développé une expertise reconnue dans tous les domaines de l'assurance. 
+                Que vous soyez un particulier à la recherche d'une mutuelle santé adaptée à votre budget, un chef 
+                d'entreprise souhaitant optimiser sa couverture prévoyance, ou un jeune couple désirant économiser 
+                sur son assurance emprunteur, nous avons la solution qui vous correspond.
+              </p>
+              
+              <p>
+                Notre équipe d'experts certifiés analyse quotidiennement le marché de l'assurance pour vous proposer 
+                les meilleures offres. Nous travaillons avec plus de 20 compagnies partenaires, ce qui nous permet 
+                de comparer et négocier les tarifs les plus avantageux pour nos clients.
+              </p>
+              
+              <h3 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+                Pourquoi Choisir Les Assureurs Experts ?
+              </h3>
+              
+              <div className="grid md:grid-cols-2 gap-6 my-8">
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <h4 className="font-semibold text-blue-900 mb-3">🎯 Accompagnement Personnalisé</h4>
+                  <p className="text-blue-800 text-sm">
+                    Chaque client bénéficie d'un conseiller dédié qui comprend ses besoins spécifiques et 
+                    l'accompagne tout au long de sa relation avec nous.
+                  </p>
+                </div>
+                <div className="bg-green-50 p-6 rounded-lg">
+                  <h4 className="font-semibold text-green-900 mb-3">💰 Tarifs Négociés</h4>
+                  <p className="text-green-800 text-sm">
+                    Grâce à notre volume d'affaires et nos partenariats privilégiés, nous obtenons 
+                    des tarifs préférentiels que nous répercutons directement à nos clients.
+                  </p>
+                </div>
+                <div className="bg-purple-50 p-6 rounded-lg">
+                  <h4 className="font-semibold text-purple-900 mb-3">⚡ Processus Simplifié</h4>
+                  <p className="text-purple-800 text-sm">
+                    Fini les démarches complexes ! Notre plateforme digitale vous permet de souscrire 
+                    en quelques clics, avec un suivi en temps réel de votre dossier.
+                  </p>
+                </div>
+                <div className="bg-orange-50 p-6 rounded-lg">
+                  <h4 className="font-semibold text-orange-900 mb-3">🛡️ Expertise Certifiée</h4>
+                  <p className="text-orange-800 text-sm">
+                    Nos conseillers sont formés en permanence aux évolutions réglementaires et 
+                    aux nouveaux produits du marché de l'assurance.
+                  </p>
+                </div>
+              </div>
+              
+              <h3 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+                Nos Domaines d'Expertise
+              </h3>
+              
+              <p>
+                <strong>Assurance Santé :</strong> Nous vous aidons à trouver la mutuelle santé qui correspond 
+                parfaitement à vos besoins et à votre budget. Que vous soyez salarié, indépendant, retraité 
+                ou étudiant, nous analysons votre situation pour vous proposer les meilleures garanties au 
+                meilleur prix.
+              </p>
+              
+              <p>
+                <strong>Assurance Emprunteur :</strong> Grâce à la loi Lemoine, vous pouvez désormais changer 
+                d'assurance emprunteur à tout moment. Nos experts vous accompagnent dans cette démarche pour 
+                vous faire économiser jusqu'à 15 000 € sur la durée de votre prêt immobilier.
+              </p>
+              
+              <p>
+                <strong>Assurance Auto et 2 Roues :</strong> Protection optimale pour tous vos véhicules, 
+                du scooter 50cc à la voiture de luxe. Nous négocions les meilleurs tarifs avec nos partenaires 
+                assureurs pour vous offrir une couverture complète à prix compétitif.
+              </p>
+              
+              <p>
+                <strong>Prévoyance et Protection :</strong> Sécurisez l'avenir de votre famille avec nos 
+                solutions de prévoyance adaptées. Capital décès, rente d'invalidité, arrêt de travail : 
+                nous vous protégeons contre tous les aléas de la vie.
+              </p>
+              
+              <h3 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+                Notre Engagement Qualité
+              </h3>
+              
+              <p>
+                En tant que courtier en assurance agréé ORIAS, nous respectons un code de déontologie strict 
+                qui garantit la transparence de nos conseils et la protection de vos intérêts. Notre rémunération 
+                provient exclusivement des commissions versées par les compagnies d'assurance, ce qui signifie 
+                que nos services de conseil et de comparaison vous sont offerts gratuitement.
+              </p>
+              
+              <p>
+                Nous nous engageons à vous fournir une information claire et complète sur les produits que nous 
+                vous proposons, à respecter vos données personnelles conformément au RGPD, et à vous accompagner 
+                dans la gestion de vos contrats tout au long de votre relation avec nous.
+              </p>
+              
+              <div className="bg-gray-50 p-6 rounded-lg mt-8">
+                <h4 className="font-semibold text-gray-900 mb-3">📞 Un Service Client d'Excellence</h4>
+                <p className="text-gray-700">
+                  Notre équipe est disponible du lundi au vendredi de 9h à 18h et le samedi de 9h à 13h 
+                  pour répondre à toutes vos questions. Vous pouvez nous joindre par téléphone au 
+                  01 62 17 77 70, par email à contact@lesassureursexperts.fr, ou via notre chat WhatsApp 
+                  pour une réponse immédiate.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       {/* Final CTA Section */}
       <section className="py-20 bg-slate-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

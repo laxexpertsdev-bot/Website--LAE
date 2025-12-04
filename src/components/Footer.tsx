@@ -133,7 +133,7 @@ const Footer: React.FC = () => {
               <div className="flex items-center gap-6 mt-4 md:mt-0">
                 <span className="text-xs text-gray-500">ORIAS : 25002995</span>
                 <span className="text-xs text-gray-500">RCS Paris : 940 148 802</span>
-                <span className="text-xs text-gray-500">Présidée par Rebecca ATIA</span>
+                <span className="text-xs text-gray-500">Courtier en assurance agréé</span>
               </div>
             </div>
           </div>
