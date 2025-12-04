@@ -427,7 +427,7 @@ const HomePage: React.FC = () => {
             <div className="space-y-6 text-gray-700 leading-relaxed">
               <p>
                 <strong>Les Assureurs Experts</strong> révolutionne le monde du courtage en assurance en combinant 
-                l'expertise humaine traditionnelle avec les avantages du digital. Notre cabinet, enregistré à l'ORIAS 
+                l'expertise humaine traditionnelle avec les avantages du digital. Notre cabinet, enregistré à l\'ORIAS 
                 sous le numéro 25002995, vous accompagne dans tous vos projets d'assurance avec une approche 
                 personnalisée et transparente.
               </p>
