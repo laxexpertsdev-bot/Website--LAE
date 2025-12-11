@@ -8,28 +8,32 @@ const HeroBanner: React.FC = () => {
 
   const slides = [
     {
-      url: "https://images.pexels.com/photos/3913017/pexels-photo-3913017.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Univers Complet d'Assurance"
+      url: "https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Famille heureuse avec clés de maison - Assurance Habitation"
     },
     {
-      url: "https://images.pexels.com/photos/5668838/pexels-photo-5668838.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Assurance Habitation"
+      url: "https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Couple élégant près de leur voiture - Assurance Auto"
     },
     {
-      url: "https://images.pexels.com/photos/2422278/pexels-photo-2422278.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Assurance Expatrié"
+      url: "https://images.pexels.com/photos/3768131/pexels-photo-3768131.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Couple senior stylé et souriant - Santé & Prévoyance"
     },
     {
-      url: "https://images.pexels.com/photos/2245436/pexels-photo-2245436.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Assurance Bateau et Plaisance"
+      url: "https://images.pexels.com/photos/1850629/pexels-photo-1850629.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Famille en voyage avec valises - Expatriation & Voyage"
     },
     {
-      url: "https://images.pexels.com/photos/5327580/pexels-photo-5327580.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Assurance Santé et Prévoyance"
+      url: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Professionnel satisfait - Patrimoine & PER"
     },
     {
-      url: "https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Patrimoine et Finance"
+      url: "https://images.pexels.com/photos/5945590/pexels-photo-5945590.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Jeune couple avec moto - Assurance 2-Roues"
+    },
+    {
+      url: "https://images.pexels.com/photos/3608056/pexels-photo-3608056.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Famille multi-générationnelle joyeuse - Assurance Vie"
     }
   ];
 
