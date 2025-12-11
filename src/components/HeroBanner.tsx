@@ -8,20 +8,24 @@ const HeroBanner: React.FC = () => {
 
   const slides = [
     {
-      url: "https://images.pexels.com/photos/7018393/pexels-photo-7018393.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Famille heureuse dans leur maison moderne - Assurance Habitation"
+      url: "https://images.pexels.com/photos/1430672/pexels-photo-1430672.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Famille heureuse sur un bateau - Assurance Bateau"
     },
     {
       url: "https://images.pexels.com/photos/6069955/pexels-photo-6069955.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Couple senior stylé souriant ensemble - Santé & Prévoyance"
+      alt: "Couple senior stylé sur une moto - Assurance 2-Roues & Prévoyance"
     },
     {
-      url: "https://images.pexels.com/photos/4484078/pexels-photo-4484078.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Conseiller professionnel avec client près d'une voiture - Assurance Auto"
+      url: "https://images.pexels.com/photos/5668772/pexels-photo-5668772.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Homme d'affaires souriant satisfait - PER & Patrimoine"
     },
     {
-      url: "https://images.pexels.com/photos/1008155/pexels-photo-1008155.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Couple avec valises à l'aéroport - Assurance Expatriation"
+      url: "https://images.pexels.com/photos/8293778/pexels-photo-8293778.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Professionnels du bâtiment élégants - Assurance Habitation"
+    },
+    {
+      url: "https://images.pexels.com/photos/4586957/pexels-photo-4586957.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Professionnelle de santé souriante - Assurance Santé & Prévoyance"
     }
   ];
 
