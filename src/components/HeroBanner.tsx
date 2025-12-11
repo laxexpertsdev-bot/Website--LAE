@@ -8,8 +8,8 @@ const HeroBanner: React.FC = () => {
 
   const slides = [
     {
-      url: "https://images.pexels.com/photos/3752169/pexels-photo-3752169.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Assurance Auto et Moto"
+      url: "https://images.pexels.com/photos/3913017/pexels-photo-3913017.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Univers Complet d'Assurance"
     },
     {
       url: "https://images.pexels.com/photos/5668838/pexels-photo-5668838.jpeg?auto=compress&cs=tinysrgb&w=1200",
