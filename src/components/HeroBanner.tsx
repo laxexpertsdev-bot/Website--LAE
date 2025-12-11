@@ -8,8 +8,8 @@ const HeroBanner: React.FC = () => {
 
   const slides = [
     {
-      url: "https://images.pexels.com/photos/6787202/pexels-photo-6787202.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Famille heureuse en vacances au ski - Protection et sérénité"
+      url: "https://images.pexels.com/photos/1450363/pexels-photo-1450363.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Famille heureuse sur un yacht moderne - Sécurité et bonheur"
     },
     {
       url: "https://images.pexels.com/photos/6069589/pexels-photo-6069589.jpeg?auto=compress&cs=tinysrgb&w=1200",
