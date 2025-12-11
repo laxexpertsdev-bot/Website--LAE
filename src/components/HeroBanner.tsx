@@ -8,32 +8,20 @@ const HeroBanner: React.FC = () => {
 
   const slides = [
     {
-      url: "https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Famille heureuse avec clés de maison - Assurance Habitation"
+      url: "https://images.pexels.com/photos/7018393/pexels-photo-7018393.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Famille heureuse dans leur maison moderne - Assurance Habitation"
     },
     {
-      url: "https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Couple élégant près de leur voiture - Assurance Auto"
+      url: "https://images.pexels.com/photos/6069955/pexels-photo-6069955.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Couple senior stylé souriant ensemble - Santé & Prévoyance"
     },
     {
-      url: "https://images.pexels.com/photos/3768131/pexels-photo-3768131.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Couple senior stylé et souriant - Santé & Prévoyance"
+      url: "https://images.pexels.com/photos/4484078/pexels-photo-4484078.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Conseiller professionnel avec client près d'une voiture - Assurance Auto"
     },
     {
-      url: "https://images.pexels.com/photos/1850629/pexels-photo-1850629.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Famille en voyage avec valises - Expatriation & Voyage"
-    },
-    {
-      url: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Professionnel satisfait - Patrimoine & PER"
-    },
-    {
-      url: "https://images.pexels.com/photos/5945590/pexels-photo-5945590.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Jeune couple avec moto - Assurance 2-Roues"
-    },
-    {
-      url: "https://images.pexels.com/photos/3608056/pexels-photo-3608056.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Famille multi-générationnelle joyeuse - Assurance Vie"
+      url: "https://images.pexels.com/photos/1008155/pexels-photo-1008155.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Couple avec valises à l'aéroport - Assurance Expatriation"
     }
   ];
 
