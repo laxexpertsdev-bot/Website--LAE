@@ -139,18 +139,18 @@ const CookieConsent: React.FC = () => {
 
           {!showCustomize ? (
             <div className="space-y-4">
-              <div className="grid sm:grid-cols-3 gap-3">
-                <button
-                  onClick={acceptAll}
-                  className="px-6 py-3.5 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all font-semibold text-base shadow-md hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300"
-                  aria-label="Accepter tous les cookies"
-                >
-                  Accepter
-                </button>
+              <button
+                onClick={acceptAll}
+                className="w-full px-6 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all font-bold text-lg shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 transform hover:scale-[1.02]"
+                aria-label="Accepter tous les cookies"
+              >
+                Accepter tous les cookies
+              </button>
 
+              <div className="grid sm:grid-cols-2 gap-3 pt-2">
                 <button
                   onClick={rejectAll}
-                  className="px-6 py-3.5 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-all font-semibold text-base shadow-md hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-gray-300"
+                  className="w-full px-5 py-3 bg-gray-50 text-gray-700 border-2 border-gray-300 rounded-lg hover:bg-gray-100 hover:border-gray-400 transition-all font-medium text-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-gray-300"
                   aria-label="Refuser les cookies non essentiels"
                 >
                   Refuser
@@ -158,14 +158,14 @@ const CookieConsent: React.FC = () => {
 
                 <button
                   onClick={() => setShowCustomize(true)}
-                  className="px-6 py-3.5 bg-white text-blue-600 border-2 border-blue-600 rounded-xl hover:bg-blue-50 transition-all font-semibold text-base shadow-md hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300"
+                  className="w-full px-5 py-3 bg-gray-50 text-gray-700 border-2 border-gray-300 rounded-lg hover:bg-gray-100 hover:border-gray-400 transition-all font-medium text-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-gray-300"
                   aria-label="Personnaliser les préférences de cookies"
                 >
                   Personnaliser
                 </button>
               </div>
 
-              <div className="text-center pt-4">
+              <div className="text-center pt-3">
                 <Link
                   to="/gestion-cookies"
                   className="text-sm text-blue-600 hover:text-blue-800 underline focus:outline-none focus:ring-2 focus:ring-blue-300 rounded px-2 py-1"
