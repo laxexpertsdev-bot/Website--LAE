@@ -24,8 +24,8 @@ const HeroBanner: React.FC = () => {
       alt: "Professionnel réussi consultant ses gains financiers - PER & Patrimoine"
     },
     {
-      url: "https://images.pexels.com/photos/4173239/pexels-photo-4173239.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Professionnelle de santé souriante et chaleureuse - Assurance Santé & Prévoyance"
+      url: "https://images.pexels.com/photos/7579831/pexels-photo-7579831.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Infirmière bienveillante accompagnant une patiente - Assurance Santé & Prévoyance"
     }
   ];
 
