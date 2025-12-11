@@ -8,11 +8,11 @@ const HeroBanner: React.FC = () => {
 
   const slides = [
     {
-      url: "https://images.pexels.com/photos/1450363/pexels-photo-1450363.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      url: "https://images.pexels.com/photos/3889742/pexels-photo-3889742.jpeg?auto=compress&cs=tinysrgb&w=1200",
       alt: "Famille heureuse sur un yacht moderne - Sécurité et bonheur"
     },
     {
-      url: "https://images.pexels.com/photos/6069589/pexels-photo-6069589.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      url: "https://images.pexels.com/photos/2174656/pexels-photo-2174656.jpeg?auto=compress&cs=tinysrgb&w=1200",
       alt: "Couple senior élégant et confiant sur une moto - Assurance 2-Roues & Prévoyance"
     },
     {
@@ -20,8 +20,8 @@ const HeroBanner: React.FC = () => {
       alt: "Homme d'affaires satisfait de la croissance de ses investissements - PER & Patrimoine"
     },
     {
-      url: "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Professionnels du bâtiment dans un environnement moderne - Assurance Habitation"
+      url: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      alt: "Professionnel réussi consultant ses gains financiers - PER & Patrimoine"
     },
     {
       url: "https://images.pexels.com/photos/4173239/pexels-photo-4173239.jpeg?auto=compress&cs=tinysrgb&w=1200",
