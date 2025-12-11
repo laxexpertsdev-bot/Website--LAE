@@ -12,7 +12,7 @@ const HeroBanner: React.FC = () => {
       alt: "Assurance Auto et Moto"
     },
     {
-      url: "https://images.pexels.com/photos/7413915/pexels-photo-7413915.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      url: "https://images.pexels.com/photos/5668838/pexels-photo-5668838.jpeg?auto=compress&cs=tinysrgb&w=1200",
       alt: "Assurance Habitation"
     },
     {
