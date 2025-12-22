@@ -1,0 +1,26 @@
+{
+  "name": "Les Assureurs Experts",
+  "short_name": "LAE",
+  "description": "Courtier en assurance agréé ORIAS - Comparez et économisez",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#1e40af",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}
