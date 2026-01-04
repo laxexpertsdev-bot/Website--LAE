@@ -28,6 +28,7 @@ import ExitIntentPopup from './components/ExitIntentPopup';
 import CookieConsent from './components/CookieConsent';
 import ScrollToTop from './components/ScrollToTop';
 import InternalReviewBanner from './components/InternalReviewBanner';
+import SocialMediaBanner from './components/SocialMediaBanner';
 
 function App() {
   const [showExitPopup, setShowExitPopup] = useState(false);
@@ -111,6 +112,7 @@ function App() {
           </Routes>
         </main>
         <InternalReviewBanner />
+        <SocialMediaBanner />
         <Footer />
         <WhatsAppButton />
         <ExitIntentPopup 
