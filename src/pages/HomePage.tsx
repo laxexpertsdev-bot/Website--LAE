@@ -7,6 +7,7 @@ import InsuranceSection from '../components/InsuranceSection';
 import ComprehensiveInsuranceSection from '../components/ComprehensiveInsuranceSection';
 import InsuranceCarousel from '../components/InsuranceCarousel';
 import TarifCalculator from '../components/TarifCalculator';
+import SocialMediaBanner from '../components/SocialMediaBanner';
 
 const HomePage: React.FC = () => {
   // Lead magnet form state
@@ -709,6 +710,9 @@ const HomePage: React.FC = () => {
         </div>
       </section>
       
+      {/* Social Media Banner */}
+      <SocialMediaBanner />
+
       {/* Final CTA Section */}
       <section className="py-20 bg-slate-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
