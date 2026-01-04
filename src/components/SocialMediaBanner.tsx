@@ -7,7 +7,7 @@ const SocialMediaBanner: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h3 className="text-xl font-semibold text-slate-800 mb-2">
-            Retrouvez Les Assureurs Experts sur nos réseaux
+            Suivez Les Assureurs Experts sur nos réseaux
           </h3>
           <p className="text-slate-600 mb-6 text-sm max-w-2xl mx-auto">
             Conseils, pédagogie et expertise assurance au quotidien.
