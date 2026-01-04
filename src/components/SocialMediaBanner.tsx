@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, X, Facebook } from 'lucide-react';
+import { Instagram, Facebook } from 'lucide-react';
 
 const SocialMediaBanner: React.FC = () => {
   return (
@@ -31,7 +31,12 @@ const SocialMediaBanner: React.FC = () => {
               className="flex items-center justify-center w-12 h-12 rounded-full bg-white border-2 border-slate-200 text-slate-700 hover:border-slate-900 hover:text-slate-900 hover:scale-110 transition-all duration-300 shadow-sm hover:shadow-md"
               aria-label="X"
             >
-              <X className="w-5 h-5" />
+              <img
+                src="/x-logo-official.svg"
+                alt="X Logo"
+                className="w-5 h-5"
+                style={{ filter: 'brightness(0) saturate(100%)' }}
+              />
             </a>
 
             <a
