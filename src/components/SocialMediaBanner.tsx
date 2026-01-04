@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Twitter, Facebook } from 'lucide-react';
+import { Instagram, X, Facebook } from 'lucide-react';
 
 const SocialMediaBanner: React.FC = () => {
   return (
@@ -28,10 +28,10 @@ const SocialMediaBanner: React.FC = () => {
               href="https://x.com/ContactAtia"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-12 h-12 rounded-full bg-white border-2 border-slate-200 text-slate-700 hover:border-blue-400 hover:text-blue-400 hover:scale-110 transition-all duration-300 shadow-sm hover:shadow-md"
-              aria-label="X (Twitter)"
+              className="flex items-center justify-center w-12 h-12 rounded-full bg-white border-2 border-slate-200 text-slate-700 hover:border-slate-900 hover:text-slate-900 hover:scale-110 transition-all duration-300 shadow-sm hover:shadow-md"
+              aria-label="X"
             >
-              <Twitter className="w-5 h-5" />
+              <X className="w-5 h-5" />
             </a>
 
             <a

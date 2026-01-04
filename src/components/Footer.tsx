@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, MessageCircle, Instagram, Twitter, Facebook } from 'lucide-react';
+import { MapPin, Phone, Mail, MessageCircle, Instagram, X, Facebook } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -145,10 +145,10 @@ const Footer: React.FC = () => {
                   href="https://x.com/ContactAtia"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-blue-400 hover:text-white transition-all duration-300"
-                  aria-label="X (Twitter)"
+                  className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-slate-900 hover:text-white transition-all duration-300"
+                  aria-label="X"
                 >
-                  <Twitter className="w-4 h-4" />
+                  <X className="w-4 h-4" />
                 </a>
                 <a
                   href="https://www.facebook.com/profile.php?id=61585792499102"
