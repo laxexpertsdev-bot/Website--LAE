@@ -256,23 +256,29 @@ const HomePage: React.FC = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 items-center">
               {/* ACHEEL */}
               <div className="flex items-center justify-center h-16" data-partner="acheel">
-                <div className="w-32 h-12 bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center">
-                  <span className="text-xs text-slate-400 font-medium">Logo à importer</span>
-                </div>
+                <img
+                  src="/partners/logo_de_la_startup_acheel.png"
+                  alt="ACHEEL"
+                  className="h-[55px] w-auto object-contain"
+                />
               </div>
 
               {/* APRIL */}
               <div className="flex items-center justify-center h-16" data-partner="april">
-                <div className="w-32 h-12 bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center">
-                  <span className="text-xs text-slate-400 font-medium">Logo à importer</span>
-                </div>
+                <img
+                  src="/partners/images.png"
+                  alt="APRIL"
+                  className="h-[55px] w-auto object-contain"
+                />
               </div>
 
               {/* ASSUREMA */}
               <div className="flex items-center justify-center h-16" data-partner="assurema">
-                <div className="w-32 h-12 bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center">
-                  <span className="text-xs text-slate-400 font-medium">Logo à importer</span>
-                </div>
+                <img
+                  src="/partners/images.jfif"
+                  alt="ASSUREMA"
+                  className="h-[55px] w-auto object-contain"
+                />
               </div>
 
               {/* KEREIS */}
