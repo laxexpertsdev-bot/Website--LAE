@@ -277,37 +277,47 @@ const HomePage: React.FC = () => {
 
               {/* KEREIS */}
               <div className="flex items-center justify-center h-16" data-partner="kereis">
-                <div className="w-32 h-12 bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center">
-                  <span className="text-xs text-slate-400 font-medium">Logo à importer</span>
-                </div>
+                <img
+                  src="/partners/kereis-france-logo-rvb-unboxed-860x484.png.webp"
+                  alt="KEREIS"
+                  className="h-[55px] w-auto object-contain"
+                />
               </div>
 
               {/* CEGEMA */}
               <div className="flex items-center justify-center h-16" data-partner="cegema">
-                <div className="w-32 h-12 bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center">
-                  <span className="text-xs text-slate-400 font-medium">Logo à importer</span>
-                </div>
+                <img
+                  src="/partners/images_(4).png"
+                  alt="CEGEMA"
+                  className="h-[55px] w-auto object-contain"
+                />
               </div>
 
               {/* QBE */}
               <div className="flex items-center justify-center h-16" data-partner="qbe">
-                <div className="w-32 h-12 bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center">
-                  <span className="text-xs text-slate-400 font-medium">Logo à importer</span>
-                </div>
+                <img
+                  src="/partners/images_(3).png"
+                  alt="QBE"
+                  className="h-[55px] w-auto object-contain"
+                />
               </div>
 
               {/* AMI 3F */}
               <div className="flex items-center justify-center h-16" data-partner="ami3f">
-                <div className="w-32 h-12 bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center">
-                  <span className="text-xs text-slate-400 font-medium">Logo à importer</span>
-                </div>
+                <img
+                  src="/partners/images_(2).png"
+                  alt="AMI 3F"
+                  className="h-[55px] w-auto object-contain"
+                />
               </div>
 
               {/* APICIL */}
               <div className="flex items-center justify-center h-16" data-partner="apicil">
-                <div className="w-32 h-12 bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center">
-                  <span className="text-xs text-slate-400 font-medium">Logo à importer</span>
-                </div>
+                <img
+                  src="/partners/images_(1).png"
+                  alt="APICIL"
+                  className="h-[55px] w-auto object-contain"
+                />
               </div>
             </div>
           </div>
