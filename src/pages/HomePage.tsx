@@ -253,54 +253,157 @@ const HomePage: React.FC = () => {
           </p>
           
           <div className="bg-white rounded-xl shadow-lg p-8 max-w-6xl mx-auto">
-            <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 items-center">
               {/* ACHEEL */}
-              <div className="flex items-center justify-center h-20 min-w-[120px]">
-                <div className="text-2xl font-bold text-blue-600 tracking-wide">
-                  ACHEEL
-                </div>
+              <div className="flex items-center justify-center h-16">
+                <img
+                  src="/partners/acheel-logo.svg"
+                  alt="ACHEEL"
+                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) {
+                      const fallback = document.createElement('div');
+                      fallback.className = 'text-lg font-semibold text-slate-400 text-center';
+                      fallback.textContent = 'ACHEEL';
+                      parent.appendChild(fallback);
+                    }
+                  }}
+                />
               </div>
-              
+
               {/* APRIL */}
-              <div className="flex items-center justify-center h-20 min-w-[120px]">
-                <div className="text-2xl font-bold text-red-500 tracking-wide">
-                  APRIL
-                </div>
+              <div className="flex items-center justify-center h-16">
+                <img
+                  src="/partners/april-logo.svg"
+                  alt="APRIL"
+                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) {
+                      const fallback = document.createElement('div');
+                      fallback.className = 'text-lg font-semibold text-slate-400 text-center';
+                      fallback.textContent = 'APRIL';
+                      parent.appendChild(fallback);
+                    }
+                  }}
+                />
               </div>
-              
+
               {/* ASSUREMA */}
-              <div className="flex items-center justify-center h-20 min-w-[120px]">
-                <div className="text-2xl font-bold text-green-600 tracking-wide">
-                  ASSUREMA
-                </div>
+              <div className="flex items-center justify-center h-16">
+                <img
+                  src="/partners/assurema-logo.svg"
+                  alt="ASSUREMA"
+                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) {
+                      const fallback = document.createElement('div');
+                      fallback.className = 'text-lg font-semibold text-slate-400 text-center';
+                      fallback.textContent = 'ASSUREMA';
+                      parent.appendChild(fallback);
+                    }
+                  }}
+                />
               </div>
-              
+
               {/* KEREIS */}
-              <div className="flex items-center justify-center h-20 min-w-[120px]">
-                <div className="text-2xl font-bold text-purple-600 tracking-wide">
-                  KEREIS
-                </div>
+              <div className="flex items-center justify-center h-16">
+                <img
+                  src="/partners/kereis-logo.svg"
+                  alt="KEREIS"
+                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) {
+                      const fallback = document.createElement('div');
+                      fallback.className = 'text-lg font-semibold text-slate-400 text-center';
+                      fallback.textContent = 'KEREIS';
+                      parent.appendChild(fallback);
+                    }
+                  }}
+                />
               </div>
-              
+
               {/* CEGEMA */}
-              <div className="flex items-center justify-center h-20 min-w-[120px]">
-                <div className="text-2xl font-bold text-orange-600 tracking-wide">
-                  CEGEMA
-                </div>
+              <div className="flex items-center justify-center h-16">
+                <img
+                  src="/partners/cegema-logo.svg"
+                  alt="CEGEMA"
+                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) {
+                      const fallback = document.createElement('div');
+                      fallback.className = 'text-lg font-semibold text-slate-400 text-center';
+                      fallback.textContent = 'CEGEMA';
+                      parent.appendChild(fallback);
+                    }
+                  }}
+                />
               </div>
-              
+
               {/* QBE */}
-              <div className="flex items-center justify-center h-20 min-w-[120px]">
-                <div className="text-2xl font-bold text-indigo-600 tracking-wide">
-                  QBE
-                </div>
+              <div className="flex items-center justify-center h-16">
+                <img
+                  src="/partners/qbe-logo.svg"
+                  alt="QBE"
+                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) {
+                      const fallback = document.createElement('div');
+                      fallback.className = 'text-lg font-semibold text-slate-400 text-center';
+                      fallback.textContent = 'QBE';
+                      parent.appendChild(fallback);
+                    }
+                  }}
+                />
               </div>
-              
-              {/* GROUPE AMI 3F */}
-              <div className="flex items-center justify-center h-20 min-w-[120px]">
-                <div className="text-2xl font-bold text-teal-600 tracking-wide">
-                  AMI 3F
-                </div>
+
+              {/* AMI 3F */}
+              <div className="flex items-center justify-center h-16">
+                <img
+                  src="/partners/ami3f-logo.svg"
+                  alt="AMI 3F"
+                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) {
+                      const fallback = document.createElement('div');
+                      fallback.className = 'text-lg font-semibold text-slate-400 text-center';
+                      fallback.textContent = 'AMI 3F';
+                      parent.appendChild(fallback);
+                    }
+                  }}
+                />
+              </div>
+
+              {/* APICIL */}
+              <div className="flex items-center justify-center h-16">
+                <img
+                  src="/partners/apicil-logo.svg"
+                  alt="APICIL"
+                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) {
+                      const fallback = document.createElement('div');
+                      fallback.className = 'text-lg font-semibold text-slate-400 text-center';
+                      fallback.textContent = 'APICIL';
+                      parent.appendChild(fallback);
+                    }
+                  }}
+                />
               </div>
             </div>
           </div>
