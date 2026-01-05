@@ -255,155 +255,59 @@ const HomePage: React.FC = () => {
           <div className="bg-white rounded-xl shadow-lg p-8 max-w-6xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 items-center">
               {/* ACHEEL */}
-              <div className="flex items-center justify-center h-16">
-                <img
-                  src="/partners/acheel-logo.svg"
-                  alt="ACHEEL"
-                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    const parent = e.currentTarget.parentElement;
-                    if (parent) {
-                      const fallback = document.createElement('div');
-                      fallback.className = 'text-lg font-semibold text-slate-400 text-center';
-                      fallback.textContent = 'ACHEEL';
-                      parent.appendChild(fallback);
-                    }
-                  }}
-                />
+              <div className="flex items-center justify-center h-16" data-partner="acheel">
+                <div className="w-32 h-12 bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center">
+                  <span className="text-xs text-slate-400 font-medium">Logo à importer</span>
+                </div>
               </div>
 
               {/* APRIL */}
-              <div className="flex items-center justify-center h-16">
-                <img
-                  src="/partners/april-logo.svg"
-                  alt="APRIL"
-                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    const parent = e.currentTarget.parentElement;
-                    if (parent) {
-                      const fallback = document.createElement('div');
-                      fallback.className = 'text-lg font-semibold text-slate-400 text-center';
-                      fallback.textContent = 'APRIL';
-                      parent.appendChild(fallback);
-                    }
-                  }}
-                />
+              <div className="flex items-center justify-center h-16" data-partner="april">
+                <div className="w-32 h-12 bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center">
+                  <span className="text-xs text-slate-400 font-medium">Logo à importer</span>
+                </div>
               </div>
 
               {/* ASSUREMA */}
-              <div className="flex items-center justify-center h-16">
-                <img
-                  src="/partners/assurema-logo.svg"
-                  alt="ASSUREMA"
-                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    const parent = e.currentTarget.parentElement;
-                    if (parent) {
-                      const fallback = document.createElement('div');
-                      fallback.className = 'text-lg font-semibold text-slate-400 text-center';
-                      fallback.textContent = 'ASSUREMA';
-                      parent.appendChild(fallback);
-                    }
-                  }}
-                />
+              <div className="flex items-center justify-center h-16" data-partner="assurema">
+                <div className="w-32 h-12 bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center">
+                  <span className="text-xs text-slate-400 font-medium">Logo à importer</span>
+                </div>
               </div>
 
               {/* KEREIS */}
-              <div className="flex items-center justify-center h-16">
-                <img
-                  src="/partners/kereis-logo.svg"
-                  alt="KEREIS"
-                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    const parent = e.currentTarget.parentElement;
-                    if (parent) {
-                      const fallback = document.createElement('div');
-                      fallback.className = 'text-lg font-semibold text-slate-400 text-center';
-                      fallback.textContent = 'KEREIS';
-                      parent.appendChild(fallback);
-                    }
-                  }}
-                />
+              <div className="flex items-center justify-center h-16" data-partner="kereis">
+                <div className="w-32 h-12 bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center">
+                  <span className="text-xs text-slate-400 font-medium">Logo à importer</span>
+                </div>
               </div>
 
               {/* CEGEMA */}
-              <div className="flex items-center justify-center h-16">
-                <img
-                  src="/partners/cegema-logo.svg"
-                  alt="CEGEMA"
-                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    const parent = e.currentTarget.parentElement;
-                    if (parent) {
-                      const fallback = document.createElement('div');
-                      fallback.className = 'text-lg font-semibold text-slate-400 text-center';
-                      fallback.textContent = 'CEGEMA';
-                      parent.appendChild(fallback);
-                    }
-                  }}
-                />
+              <div className="flex items-center justify-center h-16" data-partner="cegema">
+                <div className="w-32 h-12 bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center">
+                  <span className="text-xs text-slate-400 font-medium">Logo à importer</span>
+                </div>
               </div>
 
               {/* QBE */}
-              <div className="flex items-center justify-center h-16">
-                <img
-                  src="/partners/qbe-logo.svg"
-                  alt="QBE"
-                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    const parent = e.currentTarget.parentElement;
-                    if (parent) {
-                      const fallback = document.createElement('div');
-                      fallback.className = 'text-lg font-semibold text-slate-400 text-center';
-                      fallback.textContent = 'QBE';
-                      parent.appendChild(fallback);
-                    }
-                  }}
-                />
+              <div className="flex items-center justify-center h-16" data-partner="qbe">
+                <div className="w-32 h-12 bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center">
+                  <span className="text-xs text-slate-400 font-medium">Logo à importer</span>
+                </div>
               </div>
 
               {/* AMI 3F */}
-              <div className="flex items-center justify-center h-16">
-                <img
-                  src="/partners/ami3f-logo.svg"
-                  alt="AMI 3F"
-                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    const parent = e.currentTarget.parentElement;
-                    if (parent) {
-                      const fallback = document.createElement('div');
-                      fallback.className = 'text-lg font-semibold text-slate-400 text-center';
-                      fallback.textContent = 'AMI 3F';
-                      parent.appendChild(fallback);
-                    }
-                  }}
-                />
+              <div className="flex items-center justify-center h-16" data-partner="ami3f">
+                <div className="w-32 h-12 bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center">
+                  <span className="text-xs text-slate-400 font-medium">Logo à importer</span>
+                </div>
               </div>
 
               {/* APICIL */}
-              <div className="flex items-center justify-center h-16">
-                <img
-                  src="/partners/apicil-logo.svg"
-                  alt="APICIL"
-                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    const parent = e.currentTarget.parentElement;
-                    if (parent) {
-                      const fallback = document.createElement('div');
-                      fallback.className = 'text-lg font-semibold text-slate-400 text-center';
-                      fallback.textContent = 'APICIL';
-                      parent.appendChild(fallback);
-                    }
-                  }}
-                />
+              <div className="flex items-center justify-center h-16" data-partner="apicil">
+                <div className="w-32 h-12 bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center">
+                  <span className="text-xs text-slate-400 font-medium">Logo à importer</span>
+                </div>
               </div>
             </div>
           </div>
