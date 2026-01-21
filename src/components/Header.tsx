@@ -80,7 +80,7 @@ const Header: React.FC = () => {
       {/* Main Header */}
       <header className="bg-white/98 backdrop-blur-sm shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-0.5 md:py-1">
+          <div className="flex justify-between items-center py-2 md:py-3">
             {/* Logo */}
             <Link to="/" className="flex items-center flex-shrink-0">
               <img
@@ -91,7 +91,7 @@ const Header: React.FC = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden md:flex items-center space-x-10 lg:space-x-12">
               {menuItems.map((menu) => (
                 <div
                   key={menu.name}
@@ -99,20 +99,19 @@ const Header: React.FC = () => {
                   onMouseEnter={() => handleMouseEnter(menu.name)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <button className="flex items-center gap-2 font-medium text-gray-700 hover:text-blue-700 transition-colors duration-200 py-1 text-sm">
-                    {menu.icon}
+                  <button className="flex items-center gap-2 font-semibold text-slate-800 hover:text-blue-700 transition-all duration-300 py-2 text-lg group">
                     {menu.name}
-                    <ChevronDown className="w-3.5 h-3.5" />
+                    <ChevronDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform duration-300" />
                   </button>
-                  
+
                   {/* Dropdown Menu */}
                   {activeDropdown === menu.name && (
-                    <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 py-4 z-50">
+                    <div className="absolute top-full left-0 mt-1 w-72 bg-white rounded-2xl shadow-2xl border border-gray-100 py-3 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                       {menu.items.map((item) => (
                         <Link
                           key={item.name}
                           to={item.path}
-                          className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-200"
+                          className="flex items-center gap-3 px-5 py-3 text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition-all duration-200 text-base font-medium"
                         >
                           {item.icon}
                           {item.name}
@@ -122,27 +121,30 @@ const Header: React.FC = () => {
                   )}
                 </div>
               ))}
-              
+
               {staticLinks.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`font-medium transition-colors duration-200 text-sm ${
+                  className={`font-semibold transition-all duration-300 text-lg py-2 relative group ${
                     isActive(item.path)
-                      ? 'text-blue-700 border-b-2 border-blue-700'
-                      : 'text-gray-700 hover:text-blue-700'
+                      ? 'text-blue-700'
+                      : 'text-slate-800 hover:text-blue-700'
                   }`}
                 >
                   {item.name}
+                  <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-blue-700 transform origin-left transition-transform duration-300 ${
+                    isActive(item.path) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                  }`}></span>
                 </Link>
               ))}
-              
+
               <Link
                 to="/devis"
-                className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-1.5 rounded-lg font-semibold transition-colors duration-200 flex items-center gap-2 text-sm"
+                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-3 rounded-full font-bold transition-all duration-300 flex items-center gap-2.5 text-lg shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5 ml-4"
               >
-                <Phone className="w-3.5 h-3.5" />
-                Devis gratuit
+                <Phone className="w-5 h-5" />
+                Demande de devis
               </Link>
             </nav>
 
@@ -152,7 +154,7 @@ const Header: React.FC = () => {
               className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
               aria-label="Menu"
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? <X className="w-6 h-6 text-slate-800" /> : <Menu className="w-6 h-6 text-slate-800" />}
             </button>
           </div>
         </div>
@@ -160,27 +162,43 @@ const Header: React.FC = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="lg:hidden bg-white border-t shadow-lg">
-            <div className="px-4 py-4 space-y-4 max-h-96 overflow-y-auto">
+            <div className="px-4 py-5 space-y-5 max-h-[80vh] overflow-y-auto">
+              {/* CTA en premier pour conversion mobile */}
+              <div className="pb-5 border-b border-gray-200">
+                <Link
+                  to="/devis"
+                  className="block bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-4 rounded-2xl font-bold text-center text-lg shadow-lg shadow-blue-500/30 hover:shadow-xl transition-all duration-300"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <div className="flex items-center justify-center gap-2.5 mb-1">
+                    <Phone className="w-5 h-5" />
+                    Demande de devis
+                  </div>
+                  <div className="text-xs font-normal text-blue-100">
+                    Réponse rapide • Sans engagement
+                  </div>
+                </Link>
+              </div>
+
               {menuItems.map((menu) => (
-                <div key={menu.name} className="space-y-2">
+                <div key={menu.name} className="space-y-3">
                   <button
                     onClick={() => setActiveDropdown(activeDropdown === menu.name ? null : menu.name)}
-                    className="flex items-center justify-between w-full py-2 font-medium text-gray-700 hover:text-blue-700"
+                    className="flex items-center justify-between w-full py-3 font-semibold text-slate-800 hover:text-blue-700 text-lg"
                   >
-                    <div className="flex items-center gap-2">
-                      {menu.icon}
+                    <div className="flex items-center gap-3">
                       {menu.name}
                     </div>
-                    <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === menu.name ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${activeDropdown === menu.name ? 'rotate-180' : ''}`} />
                   </button>
-                  
+
                   {activeDropdown === menu.name && (
-                    <div className="pl-6 space-y-2">
+                    <div className="pl-4 space-y-2 pb-2">
                       {menu.items.map((item) => (
                         <Link
                           key={item.name}
                           to={item.path}
-                          className="flex items-center gap-2 py-2 text-sm text-gray-600 hover:text-blue-700"
+                          className="flex items-center gap-3 py-3 text-base text-slate-700 hover:text-blue-700 font-medium transition-colors duration-200"
                           onClick={() => setIsMenuOpen(false)}
                         >
                           {item.icon}
@@ -191,38 +209,29 @@ const Header: React.FC = () => {
                   )}
                 </div>
               ))}
-              
+
               {staticLinks.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`block py-2 font-medium ${
-                    isActive(item.path) ? 'text-blue-700' : 'text-gray-700'
+                  className={`block py-3 font-semibold text-lg transition-colors duration-200 ${
+                    isActive(item.path) ? 'text-blue-700' : 'text-slate-800 hover:text-blue-700'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              
-              <div className="pt-4 border-t border-gray-200 space-y-2">
-                <Link
-                  to="/devis"
-                  className="block bg-blue-700 text-white px-4 py-3 rounded-lg font-semibold text-center"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  📞 Devis gratuit
-                </Link>
-              </div>
-              
+
               {/* Fixed Links */}
-              <div className="pt-4 border-t border-gray-200 space-y-2">
+              <div className="pt-4 border-t border-gray-200">
                 <Link
                   to="/espace-assure"
-                  className="block py-2 text-gray-700 font-medium"
+                  className="flex items-center gap-2 py-3 text-slate-700 font-semibold text-base hover:text-blue-700 transition-colors duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  🔐 Espace assuré
+                  <User className="w-5 h-5" />
+                  Espace assuré
                 </Link>
               </div>
             </div>
