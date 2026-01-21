@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
                 <img
                   src="/chatgpt_image_21_janv._2026,_14_24_38.png"
                   alt="LES ASSUREURS EXPERTS"
-                  className="h-16 w-auto object-contain"
+                  className="h-48 w-auto object-contain"
                 />
               </div>
               <p className="text-gray-600 text-sm leading-relaxed">
