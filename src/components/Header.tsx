@@ -80,13 +80,13 @@ const Header: React.FC = () => {
       {/* Main Header */}
       <header className="bg-white/98 backdrop-blur-sm shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-1 md:py-1">
+          <div className="flex justify-between items-center py-2 md:py-2">
             {/* Logo */}
             <Link to="/" className="flex items-center flex-shrink-0">
               <img
                 src="/chatgpt_image_21_janv._2026,_14_24_38.png"
                 alt="LES ASSUREURS EXPERTS"
-                className="h-28 w-auto object-contain md:h-36"
+                className="h-36 w-auto object-contain md:h-48"
               />
             </Link>
 
