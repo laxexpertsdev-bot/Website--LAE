@@ -1,76 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, Shield, Home, Car, Bike, Plane, Anchor, PiggyBank, Phone, ArrowRight, CheckCircle } from 'lucide-react';
+import { Phone, ArrowRight, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ComprehensiveInsuranceSection: React.FC = () => {
-  const insuranceTypes = [
-    {
-      icon: <Heart className="w-8 h-8 text-red-500" />,
-      title: "Mutuelle santé",
-      description: "Comparez nos formules santé adaptées à chaque profil : jeunes actifs, familles, seniors ou indépendants. Garanties personnalisées, remboursements rapides, téléconsultation incluse.",
-      color: "from-red-400 to-pink-500",
-      bgColor: "bg-red-50",
-      borderColor: "border-red-200"
-    },
-    {
-      icon: <Home className="w-8 h-8 text-blue-600" />,
-      title: "Assurance emprunteur",
-      description: "Obtenez une protection optimale pour votre prêt immobilier. Nous trouvons pour vous un contrat conforme à la loi Lemoine, souvent jusqu'à 50 % moins cher que celui de votre banque.",
-      color: "from-blue-400 to-blue-600",
-      bgColor: "bg-blue-50",
-      borderColor: "border-blue-200"
-    },
-    {
-      icon: <Car className="w-8 h-8 text-orange-500" />,
-      title: "Assurance auto",
-      description: "Roulez l'esprit tranquille avec nos contrats auto. Responsabilité civile, tous risques, assistance : vous choisissez le niveau de protection idéal, sans surpayer.",
-      color: "from-orange-400 to-red-500",
-      bgColor: "bg-orange-50",
-      borderColor: "border-orange-200"
-    },
-    {
-      icon: <Bike className="w-8 h-8 text-green-600" />,
-      title: "Assurance 2 roues",
-      description: "Protection complète pour vos deux-roues : motos, scooters, vélos électriques. Responsabilité, vol, assistance : roulez en toute sérénité.",
-      color: "from-green-400 to-emerald-500",
-      bgColor: "bg-green-50",
-      borderColor: "border-green-200"
-    },
-    {
-      icon: <Plane className="w-8 h-8 text-purple-600" />,
-      title: "Expatriés",
-      description: "Vous vivez ou travaillez à l'étranger ? Nos assurances santé internationales couvrent vos besoins médicaux, hospitaliers et administratifs partout dans le monde.",
-      color: "from-purple-400 to-violet-500",
-      bgColor: "bg-purple-50",
-      borderColor: "border-purple-200"
-    },
-    {
-      icon: <Shield className="w-8 h-8 text-teal-600" />,
-      title: "Prévoyance",
-      description: "Invalidité, arrêt de travail, décès : protégez vos revenus et ceux de votre famille avec nos solutions prévoyance personnalisées. Indispensable pour les indépendants et chefs d'entreprise.",
-      color: "from-teal-400 to-cyan-500",
-      bgColor: "bg-teal-50",
-      borderColor: "border-teal-200"
-    },
-    {
-      icon: <Anchor className="w-8 h-8 text-indigo-600" />,
-      title: "Assurance bateau",
-      description: "Une offre pensée pour les navigateurs d'aujourd'hui : voiliers, bateaux à moteur ou jetskis, avec ou sans skipper. Responsabilité, vol, avarie… on s'occupe de tout.",
-      color: "from-indigo-400 to-blue-500",
-      bgColor: "bg-indigo-50",
-      borderColor: "border-indigo-200"
-    },
-    {
-      icon: <PiggyBank className="w-8 h-8 text-amber-600" />,
-      title: "Épargne & patrimoine",
-      description: "Optimisez votre avenir avec nos solutions de Plan Épargne Retraite (PER) et assurance vie. Souplesse, rendement, fiscalité avantageuse : construisez votre indépendance financière dès maintenant.",
-      color: "from-amber-400 to-orange-500",
-      bgColor: "bg-amber-50",
-      borderColor: "border-amber-200"
-    }
-  ];
-
   const advantages = [
     "Des tarifs ultra-compétitifs",
     "Un conseiller dédié et disponible",
@@ -101,78 +34,6 @@ const ComprehensiveInsuranceSection: React.FC = () => {
               un professionnel, un expatrié ou un futur retraité, nous avons une solution claire, humaine et 
               avantageuse pour vous protéger, vous et vos proches.
             </p>
-          </div>
-        </motion.div>
-
-        {/* Expertise Coverage */}
-        <motion.div 
-          className="mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-2xl font-bold text-slate-900 mb-12 text-center">
-            🔐 Nos expertises couvrent tous les domaines clés
-          </h3>
-          
-          {/* Insurance Types Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {insuranceTypes.map((insurance, index) => (
-              <motion.div
-                key={index}
-                className={`${insurance.bgColor} ${insurance.borderColor} border-2 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 group hover:-translate-y-1`}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                {/* Icon */}
-                <div className={`bg-gradient-to-br ${insurance.color} p-4 rounded-xl mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110`}>
-                  <div className="text-white drop-shadow-lg">
-                    {insurance.icon}
-                  </div>
-                </div>
-                
-                {/* Content */}
-                <h4 className="text-xl font-bold text-slate-900 mb-3">
-                  {insurance.title}
-                </h4>
-                
-                <p className="text-slate-600 text-sm leading-relaxed mb-4">
-                  {insurance.description}
-                </p>
-                
-                {/* CTA Button */}
-                <div className="space-y-2">
-                  <Link
-                    to="/devis"
-                    className="inline-flex items-center gap-2 text-slate-900 hover:text-blue-700 font-medium transition-colors group"
-                  >
-                    Obtenir un devis
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                  <br />
-                  <Link
-                    to={
-                      insurance.title === 'Mutuelle santé' ? '/mutuelle-sante' :
-                      insurance.title === 'Assurance emprunteur' ? '/assurance-emprunteur' :
-                      insurance.title === 'Assurance auto' ? '/assurance-auto' :
-                      insurance.title === 'Assurance 2 roues' ? '/assurance-2-roues' :
-                      insurance.title === 'Expatriés & santé internationale' ? '/expatries' :
-                      insurance.title === 'Prévoyance individuelle' ? '/prevoyance' :
-                      insurance.title === 'Assurance bateau' ? '/assurance-bateau' :
-                      insurance.title === 'Épargne & patrimoine' ? '/per' :
-                      '/offres'
-                    }
-                    className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors group text-sm"
-                  >
-                  En savoir plus
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
           </div>
         </motion.div>
 
