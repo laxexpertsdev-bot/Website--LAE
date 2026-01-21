@@ -7,7 +7,6 @@ import InsuranceSection from '../components/InsuranceSection';
 import ComprehensiveInsuranceSection from '../components/ComprehensiveInsuranceSection';
 import InsuranceCarousel from '../components/InsuranceCarousel';
 import TarifCalculator from '../components/TarifCalculator';
-import SocialMediaBanner from '../components/SocialMediaBanner';
 
 const HomePage: React.FC = () => {
   // Lead magnet form state
@@ -436,9 +435,6 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* Social Media Banner */}
-      <SocialMediaBanner />
 
       {/* Comprehensive Insurance Section */}
       <ComprehensiveInsuranceSection />
