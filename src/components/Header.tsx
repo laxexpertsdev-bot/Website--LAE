@@ -80,13 +80,13 @@ const Header: React.FC = () => {
       {/* Main Header */}
       <header className="bg-white/98 backdrop-blur-sm shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-2 md:py-3">
+          <div className="flex justify-between items-center py-1 md:py-1">
             {/* Logo */}
-            <Link to="/" className="flex items-center flex-shrink-0 -my-1 md:-my-2">
+            <Link to="/" className="flex items-center flex-shrink-0">
               <img
                 src="/chatgpt_image_21_janv._2026,_14_24_38.png"
                 alt="LES ASSUREURS EXPERTS"
-                className="h-56 w-auto object-contain md:h-72"
+                className="h-28 w-auto object-contain md:h-36"
               />
             </Link>
 
@@ -99,10 +99,10 @@ const Header: React.FC = () => {
                   onMouseEnter={() => handleMouseEnter(menu.name)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <button className="flex items-center gap-2 font-medium text-gray-700 hover:text-blue-700 transition-colors duration-200 py-2">
+                  <button className="flex items-center gap-2 font-medium text-gray-700 hover:text-blue-700 transition-colors duration-200 py-1 text-sm">
                     {menu.icon}
                     {menu.name}
-                    <ChevronDown className="w-4 h-4" />
+                    <ChevronDown className="w-3.5 h-3.5" />
                   </button>
                   
                   {/* Dropdown Menu */}
@@ -127,7 +127,7 @@ const Header: React.FC = () => {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`font-medium transition-colors duration-200 ${
+                  className={`font-medium transition-colors duration-200 text-sm ${
                     isActive(item.path)
                       ? 'text-blue-700 border-b-2 border-blue-700'
                       : 'text-gray-700 hover:text-blue-700'
@@ -139,9 +139,9 @@ const Header: React.FC = () => {
               
               <Link
                 to="/devis"
-                className="bg-blue-700 hover:bg-blue-800 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-200 flex items-center gap-2"
+                className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-1.5 rounded-lg font-semibold transition-colors duration-200 flex items-center gap-2 text-sm"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-3.5 h-3.5" />
                 Devis gratuit
               </Link>
             </nav>
@@ -149,10 +149,10 @@ const Header: React.FC = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-3 hover:bg-gray-100 rounded-lg transition-colors"
+              className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
               aria-label="Menu"
             >
-              {isMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
