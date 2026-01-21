@@ -80,13 +80,13 @@ const Header: React.FC = () => {
       {/* Main Header */}
       <header className="bg-white/98 backdrop-blur-sm shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
+          <div className="flex justify-between items-center py-8 md:py-10">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3">
+            <Link to="/" className="flex items-center space-x-3 flex-shrink-0">
               <img
                 src="/chatgpt_image_21_janv._2026,_14_24_38.png"
                 alt="LES ASSUREURS EXPERTS"
-                className="h-28 w-auto object-contain md:h-36"
+                className="h-56 w-auto object-contain md:h-72"
               />
             </Link>
 
@@ -149,9 +149,10 @@ const Header: React.FC = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2"
+              className="md:hidden p-3 hover:bg-gray-100 rounded-lg transition-colors"
+              aria-label="Menu"
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
             </button>
           </div>
         </div>

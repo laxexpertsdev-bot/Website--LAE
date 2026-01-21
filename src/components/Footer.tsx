@@ -13,12 +13,12 @@ const Footer: React.FC = () => {
           <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
             
             {/* Logo et description */}
-            <div className="lg:col-span-1 space-y-4">
+            <div className="lg:col-span-1 space-y-6">
               <div className="flex items-center">
                 <img
                   src="/chatgpt_image_21_janv._2026,_14_24_38.png"
                   alt="LES ASSUREURS EXPERTS"
-                  className="h-48 w-auto object-contain"
+                  className="h-80 w-auto object-contain"
                 />
               </div>
               <p className="text-gray-600 text-sm leading-relaxed">
