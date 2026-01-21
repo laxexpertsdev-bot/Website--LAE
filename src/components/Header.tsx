@@ -83,10 +83,10 @@ const Header: React.FC = () => {
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3">
-              <img 
-                src="/Votre texte de paragraphe (500 x 250 px) (3).png" 
-                alt="LES ASSUREURS EXPERTS" 
-                className="h-24 w-auto object-contain md:h-28"
+              <img
+                src="/chatgpt_image_21_janv._2026,_14_24_38.png"
+                alt="LES ASSUREURS EXPERTS"
+                className="h-10 w-auto object-contain md:h-12"
               />
             </Link>
 

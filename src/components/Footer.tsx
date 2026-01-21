@@ -15,14 +15,14 @@ const Footer: React.FC = () => {
             {/* Logo et description */}
             <div className="lg:col-span-1 space-y-4">
               <div className="flex items-center">
-                <img 
-                  src="/Votre texte de paragraphe (500 x 250 px) (3).png" 
-                  alt="LES ASSUREURS EXPERTS" 
-                  className="h-12 w-auto object-contain"
+                <img
+                  src="/chatgpt_image_21_janv._2026,_14_24_38.png"
+                  alt="LES ASSUREURS EXPERTS"
+                  className="h-16 w-auto object-contain"
                 />
               </div>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Votre partenaire de confiance pour toutes vos assurances. 
+                Votre partenaire de confiance pour toutes vos assurances.
                 Une nouvelle vision du courtage, centrée sur vos besoins.
               </p>
             </div>
