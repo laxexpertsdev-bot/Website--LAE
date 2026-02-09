@@ -36,7 +36,7 @@ const MentionsLegalesPage: React.FC = () => {
               <li><strong>ORIAS :</strong> 25002995</li>
               <li><strong>Présidente :</strong> Rebecca ATIA</li>
               <li><strong>Email :</strong> contact@lesassureursexperts.fr</li>
-              <li><strong>Téléphone :</strong> 01 62 17 77 70</li>
+              <li><strong>Téléphone :</strong> 01 62 17 11 11</li>
             </ul>
 
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Hébergement</h2>

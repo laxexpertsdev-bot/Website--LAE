@@ -114,10 +114,10 @@ const Footer: React.FC = () => {
                 <div className="flex items-start gap-3">
                   <Phone className="w-[18px] h-[18px] text-blue-700 mt-0.5 flex-shrink-0" />
                   <a
-                    href="tel:0162177770"
+                    href="tel:+33162171111"
                     className="text-[15px] text-gray-600 hover:text-blue-700 transition-colors duration-200"
                   >
-                    01 62 17 77 70
+                    01 62 17 11 11
                   </a>
                 </div>
                 <div className="flex items-start gap-3">

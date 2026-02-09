@@ -724,9 +724,9 @@ const HomePage: React.FC = () => {
               <div className="bg-gray-50 p-6 rounded-lg mt-8">
                 <h4 className="font-semibold text-gray-900 mb-3">📞 Un Service Client d'Excellence</h4>
                 <p className="text-gray-700">
-                  Notre équipe est disponible du lundi au vendredi de 9h à 18h et le samedi de 9h à 13h 
-                  pour répondre à toutes vos questions. Vous pouvez nous joindre par téléphone au 
-                  01 62 17 77 70, par email à contact@lesassureursexperts.fr, ou via notre chat WhatsApp 
+                  Notre équipe est disponible du lundi au vendredi de 9h à 18h et le samedi de 9h à 13h
+                  pour répondre à toutes vos questions. Vous pouvez nous joindre par téléphone au
+                  01 62 17 11 11, par email à contact@lesassureursexperts.fr, ou via notre chat WhatsApp
                   pour une réponse immédiate.
                 </p>
               </div>
