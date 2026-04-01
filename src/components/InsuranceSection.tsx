@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, Shield, Home, Car, Bike, Plane, Anchor, ArrowRight, PiggyBank, Briefcase, HardHat } from 'lucide-react';
+import { Heart, Shield, Home, Car, Bike, Plane, Anchor, ArrowRight, PiggyBank, Briefcase, HardHat, Users, Flower2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const InsuranceSection: React.FC = () => {
@@ -97,6 +97,26 @@ const InsuranceSection: React.FC = () => {
       bgColor: 'bg-zinc-50',
       hoverColor: 'hover:bg-zinc-100',
       path: '/assurance-decennale'
+    },
+    {
+      name: 'Santé & Prévoyance Collective',
+      subtitle: 'Mutuelle d\'entreprise, prévoyance collective, protection des salariés',
+      icon: <Users className="w-8 h-8" />,
+      cta: 'Obtenir un tarif',
+      color: 'from-emerald-400 to-teal-600',
+      bgColor: 'bg-emerald-50',
+      hoverColor: 'hover:bg-emerald-100',
+      path: '/sante-prevoyance-collective'
+    },
+    {
+      name: 'Capital Obsèques',
+      subtitle: 'Anticiper les frais, protéger ses proches, solution simple et rapide',
+      icon: <Flower2 className="w-8 h-8" />,
+      cta: 'Demander un tarif',
+      color: 'from-rose-400 to-pink-600',
+      bgColor: 'bg-rose-50',
+      hoverColor: 'hover:bg-rose-100',
+      path: '/capital-obseques'
     }
   ];
 

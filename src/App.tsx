@@ -23,6 +23,8 @@ import GestionCookiesPage from './pages/GestionCookiesPage';
 import AssuranceHabitationPage from './pages/AssuranceHabitationPage';
 import AssuranceProfessionnellePage from './pages/AssuranceProfessionnellePage';
 import AssuranceDecennalePage from './pages/AssuranceDecennalePage';
+import SantePrevoyanceCollectivePage from './pages/SantePrevoyanceCollectivePage';
+import CapitalObsequesPage from './pages/CapitalObsequesPage';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import ExitIntentPopup from './components/ExitIntentPopup';
@@ -107,6 +109,8 @@ function App() {
             <Route path="/assurance-habitation" element={<AssuranceHabitationPage />} />
             <Route path="/assurance-professionnelle" element={<AssuranceProfessionnellePage />} />
             <Route path="/assurance-decennale" element={<AssuranceDecennalePage />} />
+            <Route path="/sante-prevoyance-collective" element={<SantePrevoyanceCollectivePage />} />
+            <Route path="/capital-obseques" element={<CapitalObsequesPage />} />
             <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
             <Route path="/politique-confidentialite" element={<PolitiqueConfidentialitePage />} />
             <Route path="/conditions-generales" element={<ConditionsGeneralesPage />} />
