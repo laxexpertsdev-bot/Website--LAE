@@ -72,10 +72,13 @@ const QuotePage: React.FC = () => {
               {insuranceTypes.map((type) => (
                 <button
                   key={type.value}
-                  onClick={() => setFormData({ ...formData, insuranceType: type.value })}
+                  onClick={() => {
+                    setFormData({ ...formData, insuranceType: type.value });
+                    setTimeout(() => setCurrentStep(2), 180);
+                  }}
                   className={`p-6 rounded-lg border-2 transition-all duration-200 text-left hover:shadow-lg ${
                     formData.insuranceType === type.value
-                      ? 'border-blue-500 bg-blue-50'
+                      ? 'border-blue-500 bg-blue-50 shadow-md'
                       : 'border-gray-200 hover:border-blue-300'
                   }`}
                 >
