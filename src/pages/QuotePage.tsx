@@ -267,6 +267,30 @@ const QuotePage: React.FC = () => {
                   />
                 </div>
               </div>
+
+              {/* OK button inside the form */}
+              <div className="max-w-2xl mx-auto mt-8">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (formData.firstName && formData.lastName && formData.phone && formData.email) {
+                      handleNext();
+                    }
+                  }}
+                  disabled={!(formData.firstName && formData.lastName && formData.phone && formData.email)}
+                  className={`w-full flex items-center justify-center gap-3 py-4 rounded-xl text-lg font-bold transition-all duration-200 min-h-[56px] ${
+                    formData.firstName && formData.lastName && formData.phone && formData.email
+                      ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-200 hover:shadow-blue-300 active:scale-[0.98]'
+                      : 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                  }`}
+                >
+                  <CheckCircle className="w-6 h-6" />
+                  OK &mdash; Continuer
+                </button>
+                {!(formData.firstName && formData.lastName && formData.phone && formData.email) && (
+                  <p className="text-center text-xs text-gray-400 mt-2">Remplissez tous les champs pour continuer</p>
+                )}
+              </div>
             </form>
           </div>
         );
