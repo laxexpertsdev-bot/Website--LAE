@@ -8,14 +8,14 @@ const insuranceTypes = [
   { name: 'Assurance emprunteur', icon: <Shield className="w-8 h-8" />, cta: 'Obtenir un tarif', color: 'from-blue-400 to-blue-600', bgColor: 'bg-blue-50', hoverColor: 'hover:bg-blue-100', path: '/assurance-emprunteur' },
   { name: 'Assurance 2 roues', icon: <Bike className="w-8 h-8" />, cta: 'Obtenir un tarif', color: 'from-green-400 to-emerald-500', bgColor: 'bg-green-50', hoverColor: 'hover:bg-green-100', path: '/assurance-2-roues' },
   { name: 'Expatriés', icon: <Plane className="w-8 h-8" />, cta: 'Obtenir un tarif', color: 'from-sky-400 to-cyan-500', bgColor: 'bg-sky-50', hoverColor: 'hover:bg-sky-100', path: '/expatries' },
-  { name: 'Assurance auto', icon: <Car className="w-8 h-8" />, cta: 'Demander un devis', color: 'from-orange-400 to-red-500', bgColor: 'bg-orange-50', hoverColor: 'hover:bg-orange-100', path: '/assurance-auto' },
-  { name: 'Prévoyance', icon: <Shield className="w-8 h-8" />, cta: 'Demander un devis', color: 'from-teal-400 to-cyan-500', bgColor: 'bg-teal-50', hoverColor: 'hover:bg-teal-100', path: '/prevoyance' },
+  { name: 'Assurance auto', icon: <Car className="w-8 h-8" />, cta: 'Obtenir un tarif', color: 'from-orange-400 to-red-500', bgColor: 'bg-orange-50', hoverColor: 'hover:bg-orange-100', path: '/assurance-auto' },
+  { name: 'Prévoyance', icon: <Shield className="w-8 h-8" />, cta: 'Obtenir un tarif', color: 'from-teal-400 to-cyan-500', bgColor: 'bg-teal-50', hoverColor: 'hover:bg-teal-100', path: '/prevoyance' },
   { name: 'Bateau', icon: <Anchor className="w-8 h-8" />, cta: 'Obtenir un tarif', color: 'from-blue-500 to-blue-700', bgColor: 'bg-blue-50', hoverColor: 'hover:bg-blue-100', path: '/assurance-bateau' },
   { name: 'Assurance patrimoine', subtitle: 'PER & Assurance vie sur-mesure', icon: <PiggyBank className="w-8 h-8" />, cta: 'Obtenir un tarif', color: 'from-amber-400 to-yellow-500', bgColor: 'bg-amber-50', hoverColor: 'hover:bg-amber-100', path: '/per' },
   { name: 'Assurance professionnelle', subtitle: 'RC Pro, multirisque professionnelle', icon: <Briefcase className="w-8 h-8" />, cta: 'Obtenir un tarif', color: 'from-slate-400 to-slate-600', bgColor: 'bg-slate-50', hoverColor: 'hover:bg-slate-100', path: '/assurance-professionnelle' },
   { name: 'Assurance décennale', subtitle: 'Garantie décennale, responsabilité construction', icon: <HardHat className="w-8 h-8" />, cta: 'Obtenir un tarif', color: 'from-zinc-400 to-gray-600', bgColor: 'bg-zinc-50', hoverColor: 'hover:bg-zinc-100', path: '/assurance-decennale' },
   { name: 'Santé & Prévoyance Collective', subtitle: "Mutuelle d'entreprise, prévoyance collective", icon: <Users className="w-8 h-8" />, cta: 'Obtenir un tarif', color: 'from-emerald-400 to-teal-600', bgColor: 'bg-emerald-50', hoverColor: 'hover:bg-emerald-100', path: '/sante-prevoyance-collective' },
-  { name: 'Capital Obsèques', subtitle: 'Anticiper les frais, protéger ses proches', icon: <Flower2 className="w-8 h-8" />, cta: 'Demander un tarif', color: 'from-rose-400 to-pink-600', bgColor: 'bg-rose-50', hoverColor: 'hover:bg-rose-100', path: '/capital-obseques' },
+  { name: 'Capital Obsèques', subtitle: 'Anticiper les frais, protéger ses proches', icon: <Flower2 className="w-8 h-8" />, cta: 'Obtenir un tarif', color: 'from-rose-400 to-pink-600', bgColor: 'bg-rose-50', hoverColor: 'hover:bg-rose-100', path: '/capital-obseques' },
 ];
 
 interface LeadFormData {
