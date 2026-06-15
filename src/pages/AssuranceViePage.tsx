@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, CheckCircle, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const AssuranceViePage: React.FC = () => {
   const coverageItems = [
@@ -35,6 +36,13 @@ const AssuranceViePage: React.FC = () => {
   ];
 
   return (
+    <>
+      <Helmet>
+        <title>Assurance Vie : Épargne & Transmission | Les Assureurs Experts</title>
+        <meta name="description" content="Faites fructifier votre épargne avec l'assurance vie : fonds euros, unités de compte, fiscalité allégée après 8 ans, transmission facilitée. Devis gratuit." />
+        <link rel="canonical" href="https://lesassureursexperts.fr/assurance-vie" />
+      </Helmet>
+
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
@@ -259,7 +267,7 @@ const AssuranceViePage: React.FC = () => {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* CTA Form */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-8">
+            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-24">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Phone className="w-6 h-6 text-rose-600" />
                 Simulation assurance vie
@@ -353,6 +361,7 @@ const AssuranceViePage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

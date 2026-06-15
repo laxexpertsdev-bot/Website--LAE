@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Plane, CheckCircle, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const ExpatriesPage: React.FC = () => {
   const coverageItems = [
@@ -35,6 +36,12 @@ const ExpatriesPage: React.FC = () => {
   ];
 
   return (
+    <>
+      <Helmet>
+        <title>Assurance Santé Expatriés : +150 Pays | Les Assureurs Experts</title>
+        <meta name="description" content="Assurance santé internationale pour expatriés, étudiants et digital nomads : hospitalisation, maternité, évacuation. Couverture dans plus de 150 pays." />
+        <link rel="canonical" href="https://lesassureursexperts.fr/expatries" />
+      </Helmet>
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
@@ -249,7 +256,7 @@ const ExpatriesPage: React.FC = () => {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* CTA Form */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-8">
+            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-24">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Phone className="w-6 h-6 text-purple-600" />
                 Devis expatrié gratuit
@@ -337,6 +344,7 @@ const ExpatriesPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

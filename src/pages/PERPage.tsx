@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { PiggyBank, CheckCircle, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const PERPage: React.FC = () => {
   const coverageItems = [
@@ -35,6 +36,12 @@ const PERPage: React.FC = () => {
   ];
 
   return (
+    <>
+      <Helmet>
+        <title>PER : Plan Épargne Retraite | Les Assureurs Experts</title>
+        <meta name="description" content="Préparez votre retraite en réduisant vos impôts : déduction jusqu'à 10 % des revenus, sortie en capital ou rente. Comparez les meilleurs PER avec un expert." />
+        <link rel="canonical" href="https://lesassureursexperts.fr/per" />
+      </Helmet>
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
@@ -222,7 +229,7 @@ const PERPage: React.FC = () => {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* CTA Form */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-8">
+            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-24">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Phone className="w-6 h-6 text-amber-600" />
                 Simulation PER gratuite
@@ -316,6 +323,7 @@ const PERPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

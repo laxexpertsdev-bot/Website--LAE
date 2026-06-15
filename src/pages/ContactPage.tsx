@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, MessageCircle } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -11,13 +12,13 @@ const ContactPage: React.FC = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Form will be handled by Formspree POST
-  };
-
   return (
+    <>
+      <Helmet>
+        <title>Contact : Courtier en Assurance à Paris | Les Assureurs Experts</title>
+        <meta name="description" content="Contactez nos experts en assurance par téléphone, email, WhatsApp ou formulaire. 138 Boulevard Haussmann, 75008 Paris. Réponse rapide du lundi au samedi." />
+        <link rel="canonical" href="https://lesassureursexperts.fr/contact" />
+      </Helmet>
     <div className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -56,7 +57,7 @@ const ContactPage: React.FC = () => {
                     <h3 className="font-semibold text-gray-900">Téléphone</h3>
                     <p className="text-gray-600">
                       <a href="tel:+33162171111" className="hover:text-blue-600 transition-colors">
-                        01 62 17 11 11
+                        +33 1 62 17 11 11
                       </a>
                     </p>
                   </div>
@@ -120,7 +121,7 @@ const ContactPage: React.FC = () => {
                 <Phone className="w-6 h-6" />
                 <div>
                   <p className="font-semibold">Appel direct</p>
-                  <p className="text-sm text-blue-100">01 62 17 11 11</p>
+                  <p className="text-sm text-blue-100">+33 1 62 17 11 11</p>
                 </div>
               </a>
             </div>
@@ -260,6 +261,7 @@ const ContactPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -5,7 +5,7 @@ import { Phone, Menu, X, ChevronDown, User, Building, Heart, Shield, Home, Car, 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [hoverTimeout, setHoverTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
 
   const menuItems = [
@@ -223,17 +223,6 @@ const Header: React.FC = () => {
                 </Link>
               ))}
 
-              {/* Fixed Links */}
-              <div className="pt-4 border-t border-gray-200">
-                <Link
-                  to="/espace-assure"
-                  className="flex items-center gap-2 py-3 text-slate-700 font-semibold text-base hover:text-blue-700 transition-colors duration-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <User className="w-5 h-5" />
-                  Espace assuré
-                </Link>
-              </div>
             </div>
           </div>
         )}

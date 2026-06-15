@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Bike, CheckCircle, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const Assurance2RouesPage: React.FC = () => {
   const coverageItems = [
@@ -35,6 +36,12 @@ const Assurance2RouesPage: React.FC = () => {
   ];
 
   return (
+    <>
+      <Helmet>
+        <title>Assurance Moto & Scooter dès 12€/mois | Les Assureurs Experts</title>
+        <meta name="description" content="Assurez votre moto, scooter ou 125 au meilleur prix : responsabilité civile, vol, équipements. Devis 2 roues gratuit sous 24h, courtier ORIAS agréé." />
+        <link rel="canonical" href="https://lesassureursexperts.fr/assurance-2-roues" />
+      </Helmet>
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
@@ -184,7 +191,7 @@ const Assurance2RouesPage: React.FC = () => {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* CTA Form */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-8">
+            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-24">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Phone className="w-6 h-6 text-green-600" />
                 Devis 2 roues gratuit
@@ -272,6 +279,7 @@ const Assurance2RouesPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
