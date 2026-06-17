@@ -94,18 +94,6 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Validation
-    if (!formData.insuranceType || !formData.fullName || !formData.phone || !formData.rgpdConsent) {
-      alert('Veuillez remplir tous les champs obligatoires et accepter les conditions.');
-      return;
-    }
-    
-    // Form will be handled by Formspree POST
-  };
-
   // Ne pas afficher si récemment fermé
   if (!shouldShowPopup()) {
     return null;
@@ -183,6 +171,11 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
                 <option value="assurance-bateau">Assurance bateau</option>
                 <option value="assurance-pro">Assurance professionnelle</option>
                 <option value="expatries">Expatriés</option>
+                <option value="per">Plan Épargne Retraite (PER)</option>
+                <option value="assurance-vie">Assurance vie</option>
+                <option value="assurance-decennale">Assurance décennale</option>
+                <option value="sante-prevoyance-collective">Santé & Prévoyance Collective</option>
+                <option value="capital-obseques">Capital Obsèques</option>
                 <option value="autre">Autre</option>
               </select>
             </div>
@@ -272,7 +265,7 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes slide-up {
           from {
             opacity: 0;

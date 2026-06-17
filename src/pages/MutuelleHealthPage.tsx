@@ -3,6 +3,37 @@ import { Link } from 'react-router-dom';
 import { Heart, CheckCircle, Users, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 
+const coverageItems = [
+  "Hospitalisation (chambre individuelle, frais de séjour)",
+  "Soins courants (médecins généralistes et spécialistes)",
+  "Optique (lunettes, lentilles, chirurgie)",
+  "Dentaire (soins, implants, prothèses)",
+  "Médecines douces (ostéopathie, acupuncture…)",
+  "Téléconsultation médicale"
+];
+
+const publicTypes = [
+  { public: "Étudiants", specificity: "Formules à petit prix" },
+  { public: "Jeunes actifs", specificity: "Garanties modulables + prévoyance" },
+  { public: "Familles", specificity: "Pack familial + forfaits enfants" },
+  { public: "Seniors", specificity: "Renforts optique/dentaire/hospital." },
+  { public: "Indépendants", specificity: "Déductible Madelin (TNS)" }
+];
+
+const priceExamples = [
+  { profile: "Jeune actif", price: "à partir de 18 €/mois" },
+  { profile: "Famille", price: "65–120 €/mois" },
+  { profile: "Senior", price: "85–150 €/mois selon les renforts" }
+];
+
+const advantages = [
+  "Accès à plus de 20 compagnies partenaires",
+  "Prix négociés, gestion simplifiée",
+  "Un conseiller humain qui vous suit",
+  "Des contrats évolutifs",
+  "Un devis clair en moins de 24h"
+];
+
 const MutuelleHealthPage: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -19,43 +50,6 @@ const MutuelleHealthPage: React.FC = () => {
       [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
     }));
   };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Form will be handled by Formspree POST
-  };
-
-  const coverageItems = [
-    "Hospitalisation (chambre individuelle, frais de séjour)",
-    "Soins courants (médecins généralistes et spécialistes)",
-    "Optique (lunettes, lentilles, chirurgie)",
-    "Dentaire (soins, implants, prothèses)",
-    "Médecines douces (ostéopathie, acupuncture…)",
-    "Téléconsultation médicale"
-  ];
-
-  const publicTypes = [
-    { public: "Étudiants", specificity: "Formules à petit prix" },
-    { public: "Jeunes actifs", specificity: "Garanties modulables + prévoyance" },
-    { public: "Familles", specificity: "Pack familial + forfaits enfants" },
-    { public: "Seniors", specificity: "Renforts optique/dentaire/hospital." },
-    { public: "Indépendants", specificity: "Déductible Madelin (TNS)" }
-  ];
-
-  const priceExamples = [
-    { profile: "Jeune actif", price: "à partir de 18 €/mois" },
-    { profile: "Famille", price: "65–120 €/mois" },
-    { profile: "Senior", price: "85–150 €/mois selon les renforts" }
-  ];
-
-  const advantages = [
-    "Accès à plus de 20 compagnies partenaires",
-    "Prix négociés, gestion simplifiée",
-    "Un conseiller humain qui vous suit",
-    "Des contrats évolutifs",
-    "Un devis clair en moins de 24h"
-  ];
 
   return (
     <>
@@ -258,7 +252,7 @@ const MutuelleHealthPage: React.FC = () => {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* CTA Form */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-8">
+            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-24">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Phone className="w-6 h-6 text-blue-600" />
                 Demandez votre devis mutuelle gratuit

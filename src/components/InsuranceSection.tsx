@@ -11,11 +11,11 @@ const insuranceTypes = [
   { name: 'Assurance auto', icon: <Car className="w-8 h-8" />, color: 'from-orange-400 to-red-500', bgColor: 'bg-orange-50', hoverColor: 'hover:bg-orange-100', path: '/assurance-auto' },
   { name: 'Prévoyance', icon: <Shield className="w-8 h-8" />, color: 'from-teal-400 to-cyan-500', bgColor: 'bg-teal-50', hoverColor: 'hover:bg-teal-100', path: '/prevoyance' },
   { name: 'Bateau', icon: <Anchor className="w-8 h-8" />, color: 'from-blue-500 to-blue-700', bgColor: 'bg-blue-50', hoverColor: 'hover:bg-blue-100', path: '/assurance-bateau' },
-  { name: 'Assurance patrimoine', subtitle: 'PER & Assurance vie sur-mesure', icon: <PiggyBank className="w-8 h-8" />, color: 'from-amber-400 to-yellow-500', bgColor: 'bg-amber-50', hoverColor: 'hover:bg-amber-100', path: '/per' },
-  { name: 'Assurance professionnelle', subtitle: 'RC Pro, multirisque professionnelle', icon: <Briefcase className="w-8 h-8" />, color: 'from-slate-400 to-slate-600', bgColor: 'bg-slate-50', hoverColor: 'hover:bg-slate-100', path: '/assurance-professionnelle' },
-  { name: 'Assurance décennale', subtitle: 'Garantie décennale, responsabilité construction', icon: <HardHat className="w-8 h-8" />, color: 'from-zinc-400 to-gray-600', bgColor: 'bg-zinc-50', hoverColor: 'hover:bg-zinc-100', path: '/assurance-decennale' },
-  { name: 'Santé & Prévoyance Collective', subtitle: "Mutuelle d'entreprise, prévoyance collective", icon: <Users className="w-8 h-8" />, color: 'from-emerald-400 to-teal-600', bgColor: 'bg-emerald-50', hoverColor: 'hover:bg-emerald-100', path: '/sante-prevoyance-collective' },
-  { name: 'Capital Obsèques', subtitle: 'Anticiper les frais, protéger ses proches', icon: <Flower2 className="w-8 h-8" />, color: 'from-rose-400 to-pink-600', bgColor: 'bg-rose-50', hoverColor: 'hover:bg-rose-100', path: '/capital-obseques' },
+  { name: 'Assurance patrimoine', icon: <PiggyBank className="w-8 h-8" />, color: 'from-amber-400 to-yellow-500', bgColor: 'bg-amber-50', hoverColor: 'hover:bg-amber-100', path: '/per' },
+  { name: 'Assurance professionnelle', icon: <Briefcase className="w-8 h-8" />, color: 'from-slate-400 to-slate-600', bgColor: 'bg-slate-50', hoverColor: 'hover:bg-slate-100', path: '/assurance-professionnelle' },
+  { name: 'Assurance décennale', icon: <HardHat className="w-8 h-8" />, color: 'from-zinc-400 to-gray-600', bgColor: 'bg-zinc-50', hoverColor: 'hover:bg-zinc-100', path: '/assurance-decennale' },
+  { name: 'Santé & Prévoyance Collective', icon: <Users className="w-8 h-8" />, color: 'from-emerald-400 to-teal-600', bgColor: 'bg-emerald-50', hoverColor: 'hover:bg-emerald-100', path: '/sante-prevoyance-collective' },
+  { name: 'Capital Obsèques', icon: <Flower2 className="w-8 h-8" />, color: 'from-rose-400 to-pink-600', bgColor: 'bg-rose-50', hoverColor: 'hover:bg-rose-100', path: '/capital-obseques' },
 ];
 
 interface LeadFormData {
@@ -140,10 +140,20 @@ const InsuranceSection: React.FC = () => {
               required
             >
               <option value="">Sélectionnez un type...</option>
-              <option value="Santé">Santé</option>
-              <option value="Santé TNS">Santé TNS</option>
-              <option value="Décennale">Décennale</option>
-              <option value="Patrimoine">Patrimoine</option>
+              <option value="Mutuelle santé">Mutuelle santé</option>
+              <option value="Assurance emprunteur">Assurance emprunteur</option>
+              <option value="Prévoyance">Prévoyance</option>
+              <option value="Expatriés">Expatriés</option>
+              <option value="Assurance auto">Assurance auto</option>
+              <option value="Assurance 2 roues">Assurance 2 roues</option>
+              <option value="Assurance bateau">Assurance bateau</option>
+              <option value="Assurance habitation">Assurance habitation</option>
+              <option value="Plan Épargne Retraite (PER)">Plan Épargne Retraite (PER)</option>
+              <option value="Assurance vie">Assurance vie</option>
+              <option value="Assurance professionnelle">Assurance professionnelle</option>
+              <option value="Assurance décennale">Assurance décennale</option>
+              <option value="Santé & Prévoyance Collective">Santé & Prévoyance Collective</option>
+              <option value="Capital Obsèques">Capital Obsèques</option>
               <option value="Autre">Autre</option>
             </select>
             {errors.besoin && <p className="text-red-500 text-xs mt-1">{errors.besoin}</p>}
@@ -359,13 +369,12 @@ const InsuranceSection: React.FC = () => {
               {insuranceTypes.map((insurance, index) => (
                 <motion.div
                   key={index}
-                  className={`group ${insurance.bgColor} ${insurance.hoverColor} rounded-2xl p-5 transition-all duration-300 hover:shadow-xl border border-gray-100 cursor-pointer`}
+                  className={`group ${insurance.bgColor} ${insurance.hoverColor} rounded-2xl p-5 transition-all duration-300 hover:shadow-xl border border-gray-100`}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.06 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -4, scale: 1.02 }}
-                  onClick={() => (window.location.href = insurance.path)}
                 >
                   <motion.div
                     className={`relative bg-gradient-to-br ${insurance.color} p-3 rounded-xl mb-3 shadow-lg group-hover:shadow-xl transition-all duration-300 w-fit`}
@@ -383,9 +392,6 @@ const InsuranceSection: React.FC = () => {
                   </motion.div>
                   <div className="space-y-3">
                     <h3 className="font-semibold text-slate-900 text-base leading-tight">{insurance.name}</h3>
-                    {'subtitle' in insurance && insurance.subtitle && (
-                      <p className="text-xs text-slate-500 leading-snug">{insurance.subtitle}</p>
-                    )}
                     <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                       <Link
                         to="/devis"

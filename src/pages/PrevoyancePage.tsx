@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, CheckCircle, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const PrevoyancePage: React.FC = () => {
   const coverageItems = [
@@ -35,6 +36,12 @@ const PrevoyancePage: React.FC = () => {
   ];
 
   return (
+    <>
+      <Helmet>
+        <title>Prévoyance Individuelle TNS & Salariés | Les Assureurs Experts</title>
+        <meta name="description" content="Protégez vos revenus et votre famille : capital décès, invalidité, arrêt de travail. Solutions prévoyance pour TNS, indépendants et cadres. Devis gratuit." />
+        <link rel="canonical" href="https://lesassureursexperts.fr/prevoyance" />
+      </Helmet>
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
@@ -214,7 +221,7 @@ const PrevoyancePage: React.FC = () => {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* CTA Form */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-8">
+            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-24">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Phone className="w-6 h-6 text-teal-600" />
                 Devis prévoyance gratuit
@@ -302,6 +309,7 @@ const PrevoyancePage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

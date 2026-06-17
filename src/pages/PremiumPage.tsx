@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Check, Crown, Phone, Calendar, Users, Gift, CreditCard, CheckCircle } from 'lucide-react';
+import { Crown, Phone, Calendar, Users, Gift, CreditCard, CheckCircle } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const PremiumPage: React.FC = () => {
   const [billingType, setBillingType] = useState<'monthly' | 'yearly'>('monthly');
@@ -34,13 +35,13 @@ const PremiumPage: React.FC = () => {
     }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Form will be handled by Formspree POST
-  };
-
   return (
+    <>
+      <Helmet>
+        <title>Abonnement Premium : Accompagnement VIP | Les Assureurs Experts</title>
+        <meta name="description" content="Rejoignez le Club Premium : conseiller dédié 6j/7, rendez-vous prioritaires, tarifs négociés pour toute la famille. Dès 7€/mois, résiliable à tout moment." />
+        <link rel="canonical" href="https://lesassureursexperts.fr/premium" />
+      </Helmet>
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -281,6 +282,7 @@ const PremiumPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

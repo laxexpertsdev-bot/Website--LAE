@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Home, ChevronRight, Cookie, Settings } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const GestionCookiesPage: React.FC = () => {
   const handleAcceptAll = () => {
@@ -22,6 +23,13 @@ const GestionCookiesPage: React.FC = () => {
   };
 
   return (
+    <>
+      <Helmet>
+        <title>Gestion des Cookies | Les Assureurs Experts</title>
+        <meta name="description" content="Gérez vos préférences de cookies sur le site Les Assureurs Experts : cookies nécessaires, analytiques et marketing. Modifiez vos choix à tout moment." />
+        <link rel="canonical" href="https://lesassureursexperts.fr/gestion-cookies" />
+      </Helmet>
+
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
@@ -158,6 +166,7 @@ const GestionCookiesPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

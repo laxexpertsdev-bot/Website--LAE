@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronRight, ChevronLeft, CheckCircle } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const TRANSITION_DELAY = 180;
 
@@ -13,6 +14,11 @@ const insuranceTypes = [
   { value: 'assurance-bateau', label: 'Assurance bateau', emoji: '⛵' },
   { value: 'per', label: 'Plan Épargne Retraite (PER)', emoji: '💰' },
   { value: 'assurance-vie', label: 'Assurance vie', emoji: '🛡️' },
+  { value: 'assurance-habitation', label: 'Assurance habitation', emoji: '🏡' },
+  { value: 'assurance-professionnelle', label: 'Assurance professionnelle', emoji: '💼' },
+  { value: 'assurance-decennale', label: 'Assurance décennale', emoji: '🏗️' },
+  { value: 'sante-prevoyance-collective', label: 'Santé & Prévoyance Collective', emoji: '👥' },
+  { value: 'capital-obseques', label: 'Capital Obsèques', emoji: '🕊️' },
 ];
 
 const coverageOptions = [
@@ -389,6 +395,12 @@ const QuotePage: React.FC = () => {
     : 'opacity-0 -translate-x-6';
 
   return (
+    <>
+      <Helmet>
+        <title>Devis Assurance Gratuit en 1 Minute | Les Assureurs Experts</title>
+        <meta name="description" content="Obtenez votre devis d'assurance personnalisé en 4 étapes : santé, auto, emprunteur, prévoyance… Réponse d'un expert sous 24h, gratuit et sans engagement." />
+        <link rel="canonical" href="https://lesassureursexperts.fr/devis" />
+      </Helmet>
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header & Progress */}
@@ -488,6 +500,7 @@ const QuotePage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
