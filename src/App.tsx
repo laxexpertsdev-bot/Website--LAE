@@ -32,6 +32,7 @@ const AssuranceProfessionnellePage = lazy(() => import('./pages/AssuranceProfess
 const AssuranceDecennalePage = lazy(() => import('./pages/AssuranceDecennalePage'));
 const SantePrevoyanceCollectivePage = lazy(() => import('./pages/SantePrevoyanceCollectivePage'));
 const CapitalObsequesPage = lazy(() => import('./pages/CapitalObsequesPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function App() {
   const [showExitPopup, setShowExitPopup] = useState(false);
@@ -112,6 +113,7 @@ function App() {
               <Route path="/politique-confidentialite" element={<PolitiqueConfidentialitePage />} />
               <Route path="/conditions-generales" element={<ConditionsGeneralesPage />} />
               <Route path="/gestion-cookies" element={<GestionCookiesPage />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>
         </main>
