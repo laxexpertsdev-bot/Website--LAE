@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Home, CheckCircle, Calculator, Phone, ArrowRight, ChevronRight, Shield } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const AssuranceEmprunteurPage: React.FC = () => {
   const coverageItems = [
@@ -29,6 +30,12 @@ const AssuranceEmprunteurPage: React.FC = () => {
   ];
 
   return (
+    <>
+      <Helmet>
+        <title>Assurance Emprunteur Loi Lemoine | Les Assureurs Experts</title>
+        <meta name="description" content="Changez d'assurance de prêt immobilier grâce à la loi Lemoine et économisez jusqu'à 15 000 €. Garanties équivalentes, devis gratuit, courtier ORIAS agréé." />
+        <link rel="canonical" href="https://lesassureursexperts.fr/assurance-emprunteur" />
+      </Helmet>
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
@@ -211,7 +218,7 @@ const AssuranceEmprunteurPage: React.FC = () => {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* CTA Form */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-8">
+            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-24">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Phone className="w-6 h-6 text-blue-600" />
                 Calculez vos économies
@@ -309,6 +316,7 @@ const AssuranceEmprunteurPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Vite temp config artifacts
+vite.config.*.timestamp-*.mjs
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -23,3 +26,8 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# Outils locaux & artefacts (non versionnés)
+.claude/
+graphify-out/
+*.tsbuildinfo

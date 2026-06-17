@@ -1,9 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Home, ChevronRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const MentionsLegalesPage: React.FC = () => {
   return (
+    <>
+      <Helmet>
+        <title>Mentions Légales | Les Assureurs Experts</title>
+        <meta name="description" content="Mentions légales du site Les Assureurs Experts : éditeur, hébergement, immatriculation ORIAS 25002995, RCS Paris 940 148 802." />
+        <link rel="canonical" href="https://lesassureursexperts.fr/mentions-legales" />
+      </Helmet>
+
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
@@ -36,7 +44,7 @@ const MentionsLegalesPage: React.FC = () => {
               <li><strong>ORIAS :</strong> 25002995</li>
               <li><strong>Présidente :</strong> Rebecca ATIA</li>
               <li><strong>Email :</strong> contact@lesassureursexperts.fr</li>
-              <li><strong>Téléphone :</strong> 01 62 17 11 11</li>
+              <li><strong>Téléphone :</strong> +33 1 62 17 11 11</li>
             </ul>
 
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Hébergement</h2>
@@ -88,6 +96,7 @@ const MentionsLegalesPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -1,9 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Home, ChevronRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const ConditionsGeneralesPage: React.FC = () => {
   return (
+    <>
+      <Helmet>
+        <title>Conditions Générales | Les Assureurs Experts</title>
+        <meta name="description" content="Conditions générales d'utilisation du site Les Assureurs Experts, courtier en assurance agréé ORIAS. Droits, obligations et modalités d'utilisation." />
+        <link rel="canonical" href="https://lesassureursexperts.fr/conditions-generales" />
+      </Helmet>
+
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
@@ -114,6 +122,7 @@ const ConditionsGeneralesPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

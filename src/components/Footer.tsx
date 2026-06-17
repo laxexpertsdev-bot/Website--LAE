@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, MessageCircle, Instagram, Facebook } from 'lucide-react';
+import { MapPin, Phone, Mail, MessageCircle, Instagram } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -117,7 +117,7 @@ const Footer: React.FC = () => {
                     href="tel:+33162171111"
                     className="text-[15px] text-gray-600 hover:text-blue-700 transition-colors duration-200"
                   >
-                    01 62 17 11 11
+                    +33 1 62 17 11 11
                   </a>
                 </div>
                 <div className="flex items-start gap-3">
@@ -163,28 +163,6 @@ const Footer: React.FC = () => {
                   aria-label="Instagram"
                 >
                   <Instagram className="w-[18px] h-[18px]" />
-                </a>
-                <a
-                  href="https://x.com/ContactAtia"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 hover:bg-slate-900 transition-all duration-300"
-                  aria-label="X"
-                >
-                  <img
-                    src="/x-logo-official.svg"
-                    alt="X Logo"
-                    className="w-[18px] h-[18px]"
-                  />
-                </a>
-                <a
-                  href="https://www.facebook.com/profile.php?id=61585792499102"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-blue-600 hover:text-white transition-all duration-300"
-                  aria-label="Facebook"
-                >
-                  <Facebook className="w-[18px] h-[18px]" />
                 </a>
               </div>
 

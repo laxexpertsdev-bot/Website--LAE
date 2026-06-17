@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Heart, Shield, Home, Car, Briefcase, Download, ArrowRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const OffersPage: React.FC = () => {
   const offers = [
@@ -74,6 +75,12 @@ const OffersPage: React.FC = () => {
   };
 
   return (
+    <>
+      <Helmet>
+        <title>Nos Solutions d'Assurance | Les Assureurs Experts</title>
+        <meta name="description" content="Découvrez nos offres d'assurance : santé, prévoyance, emprunteur, professionnelle, auto et habitation. Comparez et obtenez un devis gratuit sous 24h." />
+        <link rel="canonical" href="https://lesassureursexperts.fr/offres" />
+      </Helmet>
     <div className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -160,36 +167,8 @@ const OffersPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Sticky Form */}
-      <div className="fixed bottom-20 right-4 bg-white rounded-lg shadow-2xl p-4 border border-gray-200 z-30 max-w-xs">
-        <h3 className="font-semibold text-gray-900 mb-3">Devis rapide</h3>
-        <form className="space-y-2">
-          <select className="w-full px-3 py-2 border border-gray-300 rounded text-sm">
-            <option>Choisissez un type d'assurance...</option>
-            <option>Mutuelle santé</option>
-            <option>Assurance emprunteur</option>
-            <option>Assurance auto</option>
-            <option>Assurance 2 roues</option>
-            <option>Prévoyance</option>
-            <option>Expatriés</option>
-            <option>Assurance bateau</option>
-            <option>Plan Épargne Retraite (PER)</option>
-            <option>Assurance vie</option>
-          </select>
-          <input
-            type="tel"
-            placeholder="Téléphone"
-            className="w-full px-3 py-2 border border-gray-300 rounded text-sm"
-          />
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded text-sm font-semibold hover:bg-blue-700 transition-colors"
-          >
-            Être rappelé
-          </button>
-        </form>
-      </div>
     </div>
+    </>
   );
 };
 
