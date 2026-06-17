@@ -75,8 +75,21 @@ const CookieConsent: React.FC = () => {
   });
 
   useEffect(() => {
-    const consent = localStorage.getItem('cookieConsent');
-    if (!consent) {
+    // Ré-affiche la bannière si aucun consentement, consentement illisible,
+    // ou consentement expiré (> 13 mois — recommandation CNIL).
+    const THIRTEEN_MONTHS_MS = 13 * 30 * 24 * 60 * 60 * 1000;
+    const stored = localStorage.getItem('cookieConsent');
+    let needsConsent = true;
+    if (stored) {
+      try {
+        const { timestamp } = JSON.parse(stored);
+        needsConsent =
+          !timestamp || Date.now() - new Date(timestamp).getTime() > THIRTEEN_MONTHS_MS;
+      } catch {
+        needsConsent = true;
+      }
+    }
+    if (needsConsent) {
       setTimeout(() => setIsVisible(true), 500);
     }
   }, []);

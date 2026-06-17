@@ -1,9 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Home, ChevronRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const PolitiqueConfidentialitePage: React.FC = () => {
   return (
+    <>
+      <Helmet>
+        <title>Politique de Confidentialité | Les Assureurs Experts</title>
+        <meta name="description" content="Politique de confidentialité de Les Assureurs Experts : collecte, traitement et protection de vos données personnelles conformément au RGPD." />
+        <link rel="canonical" href="https://lesassureursexperts.fr/politique-confidentialite" />
+      </Helmet>
+
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
@@ -108,6 +116,7 @@ const PolitiqueConfidentialitePage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

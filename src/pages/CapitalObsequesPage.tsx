@@ -222,11 +222,11 @@ const CapitalObsequesPage: React.FC = () => {
                   Demander un tarif
                 </Link>
                 <a
-                  href="tel:0162171111"
+                  href="tel:+33162171111"
                   className="flex items-center justify-center gap-3 w-full bg-rose-800 text-white py-4 px-6 rounded-xl font-bold hover:bg-rose-900 transition-all duration-200"
                 >
                   <Phone className="w-5 h-5" />
-                  01 62 17 11 11
+                  +33 1 62 17 11 11
                 </a>
               </div>
 

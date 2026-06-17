@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { Calculator, TrendingDown, CheckCircle, Info, Phone } from 'lucide-react';
 
-// Endpoint pour envoi des données (à configurer)
-const ENDPOINT = "https://script.google.com/macros/s/XXXXXXXX/exec"; // NE PAS CHANGER, je remplacerai l'URL
-
 const TarifCalculator: React.FC = () => {
   const [formData, setFormData] = useState({
     type: '',
@@ -25,14 +22,22 @@ const TarifCalculator: React.FC = () => {
     telephone: '',
     email: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
+  // ⚠️ Valeurs provisoires (€/mois) à valider/ajuster avec de vraies données marché.
   const moyennes = {
     sante: { salarie: 45, tns: 55, retraite: 80, etudiant: 22 },
     emprunteur: { salarie: 28, tns: 34, retraite: 40, etudiant: 24 },
     auto: { salarie: 52, tns: 58, retraite: 48, etudiant: 72 },
     deuxRoues: { salarie: 26, tns: 30, retraite: 25, etudiant: 28 },
-    prevoyance: { salarie: 30, tns: 38, retraite: 42, etudiant: 20 }
+    prevoyance: { salarie: 30, tns: 38, retraite: 42, etudiant: 20 },
+    expatries: { salarie: 120, tns: 150, retraite: 180, etudiant: 90 },
+    bateau: { salarie: 40, tns: 45, retraite: 40, etudiant: 35 },
+    habitation: { salarie: 18, tns: 22, retraite: 20, etudiant: 15 },
+    per: { salarie: 100, tns: 150, retraite: 120, etudiant: 50 },
+    assuranceVie: { salarie: 100, tns: 150, retraite: 120, etudiant: 50 },
+    professionnelle: { salarie: 45, tns: 60, retraite: 45, etudiant: 30 },
+    decennale: { salarie: 150, tns: 200, retraite: 150, etudiant: 120 },
+    collective: { salarie: 40, tns: 45, retraite: 40, etudiant: 35 },
+    obseques: { salarie: 20, tns: 25, retraite: 30, etudiant: 15 }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -48,7 +53,7 @@ const TarifCalculator: React.FC = () => {
   const calcTarif = (e: React.FormEvent) => {
     e.preventDefault();
     
-    const { type, age, statut, cotisation } = formData;
+    const { type, statut, cotisation } = formData;
     const cotisationNum = parseFloat(cotisation);
     
     if (!moyennes[type as keyof typeof moyennes] || !moyennes[type as keyof typeof moyennes][statut as keyof typeof moyennes.sante]) {
@@ -82,12 +87,6 @@ const TarifCalculator: React.FC = () => {
     setTimeout(() => {
       document.getElementById('ae-result')?.scrollIntoView({ behavior: 'smooth' });
     }, 100);
-  };
-
-  const handleLeadSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Form will be handled by Formspree POST
   };
 
   const getResultIcon = () => {
@@ -147,6 +146,15 @@ const TarifCalculator: React.FC = () => {
                 <option value="auto">Assurance auto</option>
                 <option value="deuxRoues">Assurance 2 roues</option>
                 <option value="prevoyance">Prévoyance</option>
+                <option value="expatries">Expatriés</option>
+                <option value="bateau">Assurance bateau</option>
+                <option value="habitation">Assurance habitation</option>
+                <option value="per">Plan Épargne Retraite (PER)</option>
+                <option value="assuranceVie">Assurance vie</option>
+                <option value="professionnelle">Assurance professionnelle</option>
+                <option value="decennale">Assurance décennale</option>
+                <option value="collective">Santé & Prévoyance Collective</option>
+                <option value="obseques">Capital Obsèques</option>
               </select>
             </div>
 

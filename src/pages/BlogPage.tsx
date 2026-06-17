@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ExternalLink, Calendar, User, ArrowRight, Newspaper } from 'lucide-react';
+import { ExternalLink, Calendar, Newspaper } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const BlogPage: React.FC = () => {
   const articles = [
@@ -59,6 +60,12 @@ const BlogPage: React.FC = () => {
     : articles.filter(article => article.category === selectedCategory);
 
   return (
+    <>
+      <Helmet>
+        <title>Actualités Assurance : Vu dans la Presse | Les Assureurs Experts</title>
+        <meta name="description" content="Notre sélection d'articles de presse sur l'assurance : loi Lemoine, PER, mutuelle santé, prévoyance. Restez informé des évolutions du secteur." />
+        <link rel="canonical" href="https://lesassureursexperts.fr/blog" />
+      </Helmet>
     <div className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -178,31 +185,6 @@ const BlogPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Newsletter Signup */}
-        <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-white text-center">
-          <h2 className="text-2xl font-bold mb-4">
-            Restez informé des dernières actualités
-          </h2>
-          <p className="text-blue-100 mb-6">
-            Recevez notre sélection d'articles et nos conseils d'experts directement dans votre boîte mail.
-          </p>
-          
-          <form className="max-w-md mx-auto flex gap-4">
-            <input
-              type="email"
-              placeholder="Votre email"
-              className="flex-1 px-4 py-3 rounded-lg text-gray-900"
-              required
-            />
-            <button
-              type="submit"
-              className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
-            >
-              S'abonner
-            </button>
-          </form>
-        </div>
-
         {/* CTA Section */}
         <div className="mt-12 text-center">
           <h3 className="text-xl font-semibold text-gray-900 mb-4">
@@ -220,6 +202,7 @@ const BlogPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
