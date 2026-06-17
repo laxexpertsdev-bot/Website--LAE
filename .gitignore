@@ -26,3 +26,8 @@ vite.config.*.timestamp-*.mjs
 *.sln
 *.sw?
 .env
+
+# Outils locaux & artefacts (non versionnés)
+.claude/
+graphify-out/
+*.tsbuildinfo
