@@ -8,11 +8,13 @@ import ComprehensiveInsuranceSection from '../components/ComprehensiveInsuranceS
 import InsuranceCarousel from '../components/InsuranceCarousel';
 import TarifCalculator from '../components/TarifCalculator';
 import { Helmet } from 'react-helmet-async';
+import { submitLead, trackLeadConversion } from '../utils/lead';
 
 const HomePage: React.FC = () => {
   // Lead magnet form state
-  const [isSubmitted] = useState(false);
-  const [isLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const [honeypot, setHoneypot] = useState('');
   const [formData, setFormData] = useState({
     firstName: '',
@@ -26,6 +28,22 @@ const HomePage: React.FC = () => {
       ...prev,
       [name]: type === 'checkbox' ? checked : value
     }));
+  };
+
+  const handleLeadSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isLoading || !formData.consent) return;
+    if (honeypot) return; // bot détecté
+    setSubmitError(false);
+    setIsLoading(true);
+    const ok = await submitLead({ ...formData, _subject: 'Lead magnet — Guide « 10 erreurs à éviter »' });
+    setIsLoading(false);
+    if (ok) {
+      trackLeadConversion({ formLocation: 'lead_magnet_home' });
+      setIsSubmitted(true);
+    } else {
+      setSubmitError(true);
+    }
   };
 
   return (
@@ -280,11 +298,7 @@ const HomePage: React.FC = () => {
               <p className="text-lg">👉 Réservez votre bilan et recevez le guide par email en avant-première.</p>
             </div>
             {!isSubmitted ? (
-              <form
-                action="https://formspree.io/f/mblnydqy"
-                method="POST"
-                className="max-w-md mx-auto"
-              >
+              <form onSubmit={handleLeadSubmit} className="max-w-md mx-auto">
                 {/* Honeypot field for spam protection */}
                 <input
                   type="text"
@@ -351,6 +365,11 @@ const HomePage: React.FC = () => {
                     'Recevoir le guide'
                   )}
                 </button>
+                {submitError && (
+                  <p className="text-sm text-red-100 bg-red-500/20 border border-red-400/30 rounded-lg py-2 px-3 mt-3">
+                    Une erreur est survenue. Merci de réessayer.
+                  </p>
+                )}
               </form>
             ) : (
               <div className="max-w-md mx-auto text-center">
@@ -477,7 +496,7 @@ const HomePage: React.FC = () => {
             className="inline-flex items-center gap-3 bg-blue-700 hover:bg-blue-800 text-white px-12 py-5 rounded-xl text-xl font-bold transition-all duration-200 transform hover:scale-105 shadow-2xl"
           >
             <Phone className="w-6 h-6" />
-            Commencer mon devis maintenant
+            Obtenir mon devis gratuit
           </Link>
         </div>
       </section>

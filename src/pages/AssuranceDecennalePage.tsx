@@ -2,6 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { HardHat, CheckCircle, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import ProductLeadForm from '../components/ProductLeadForm';
+import FaqSection, { FaqItem } from '../components/FaqSection';
+import BreadcrumbJsonLd from '../components/BreadcrumbJsonLd';
+
+const faqItems: FaqItem[] = [
+  { q: "La garantie décennale est-elle obligatoire ?", a: "Oui. Tout constructeur (artisan, entreprise du BTP, maître d'œuvre) doit souscrire une assurance décennale avant le début des travaux. C'est une obligation légale." },
+  { q: "Que couvre l'assurance décennale ?", a: "Elle couvre pendant 10 ans les dommages qui compromettent la solidité de l'ouvrage ou le rendent impropre à sa destination (fissures graves, infiltrations, effondrement…)." },
+  { q: "Quels métiers sont concernés ?", a: "Maçons, plombiers, électriciens, charpentiers, couvreurs, terrassiers… La plupart des métiers du bâtiment intervenant sur le gros œuvre ou le second œuvre sont concernés." },
+  { q: "Quand dois-je souscrire la décennale ?", a: "Avant l'ouverture du chantier. L'attestation est souvent exigée par le client ou le maître d'ouvrage avant le démarrage des travaux." },
+  { q: "Combien coûte une assurance décennale ?", a: "Le tarif dépend du métier, du chiffre d'affaires, de l'expérience et des techniques utilisées. Nous comparons les assureurs spécialisés BTP pour optimiser votre cotisation." },
+];
 
 const AssuranceDecennalePage: React.FC = () => {
   const coverageItems = [
@@ -40,9 +51,9 @@ const AssuranceDecennalePage: React.FC = () => {
       <Helmet>
         <title>Assurance Décennale BTP | Devis Artisan & Construction | Les Assureurs Experts</title>
         <meta name="description" content="Assurance décennale obligatoire pour artisans et entreprises du BTP dès 60€/mois. Garantie 10 ans, couverture complète. Devis rapide et personnalisé." />
-        <meta name="keywords" content="assurance décennale, garantie décennale, assurance BTP, responsabilité construction, artisan bâtiment" />
         <link rel="canonical" href="https://lesassureursexperts.fr/assurance-decennale" />
       </Helmet>
+      <BreadcrumbJsonLd name="Assurance décennale" slug="assurance-decennale" />
 
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
@@ -204,6 +215,8 @@ const AssuranceDecennalePage: React.FC = () => {
                 ))}
               </div>
             </section>
+            {/* FAQ */}
+            <FaqSection items={faqItems} title="Assurance décennale : vos questions fréquentes" />
           </div>
 
           {/* Sidebar */}
@@ -219,66 +232,7 @@ const AssuranceDecennalePage: React.FC = () => {
                 Obtenez votre tarif adapté à votre métier du BTP.
               </p>
 
-              <form
-                action="https://formspree.io/f/mblnydqy"
-                method="POST"
-                className="space-y-4"
-              >
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="Prénom et Nom"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
-                  required
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Téléphone"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
-                  required
-                />
-                <input
-                  type="text"
-                  name="activity"
-                  placeholder="Votre métier (ex: plombier, maçon)"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
-                />
-                <select
-                  name="insuranceType"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
-                >
-                  <option value="assurance-decennale">Assurance décennale</option>
-                </select>
-
-                <div className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    id="consent"
-                    name="consent"
-                    className="w-5 h-5 text-orange-500 mt-0.5"
-                    required
-                  />
-                  <label htmlFor="consent" className="text-sm text-gray-600">
-                    J'accepte d'être contacté par Les Assureurs Experts.
-                  </label>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-orange-600 hover:bg-orange-700 text-white py-4 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2"
-                >
-                  <Phone className="w-5 h-5" />
-                  Obtenir mon devis
-                </button>
-              </form>
+              <ProductLeadForm insuranceType="assurance-decennale" insuranceLabel="Assurance décennale" />
             </div>
 
             {/* Related Links */}

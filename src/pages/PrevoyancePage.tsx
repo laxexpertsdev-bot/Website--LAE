@@ -2,6 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, CheckCircle, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import ProductLeadForm from '../components/ProductLeadForm';
+import FaqSection, { FaqItem } from '../components/FaqSection';
+import BreadcrumbJsonLd from '../components/BreadcrumbJsonLd';
+
+const faqItems: FaqItem[] = [
+  { q: "À quoi sert un contrat de prévoyance ?", a: "La prévoyance protège vos revenus et vos proches face aux accidents de la vie : arrêt de travail, invalidité ou décès. Elle complète les prestations souvent insuffisantes de la Sécurité sociale." },
+  { q: "Quelle différence entre prévoyance et mutuelle santé ?", a: "La mutuelle rembourse vos frais de santé (consultations, optique…). La prévoyance verse des indemnités ou un capital en cas d'arrêt de travail, d'invalidité ou de décès." },
+  { q: "La prévoyance est-elle déductible pour un TNS ?", a: "Oui, dans le cadre de la loi Madelin, les cotisations de prévoyance d'un travailleur non salarié sont déductibles du revenu imposable, sous conditions." },
+  { q: "Que signifient ITT, IPT et IPP ?", a: "Ce sont les garanties d'incapacité et d'invalidité : ITT (incapacité temporaire de travail), IPT (invalidité permanente totale) et IPP (invalidité permanente partielle). Nous vous expliquons chaque niveau." },
+  { q: "Y a-t-il un délai de carence ou une sélection médicale ?", a: "Selon le contrat, un questionnaire de santé et des délais de carence peuvent s'appliquer. Nous vous orientons vers les solutions adaptées à votre profil." },
+];
 
 const PrevoyancePage: React.FC = () => {
   const coverageItems = [
@@ -42,6 +53,7 @@ const PrevoyancePage: React.FC = () => {
         <meta name="description" content="Protégez vos revenus et votre famille : capital décès, invalidité, arrêt de travail. Solutions prévoyance pour TNS, indépendants et cadres. Devis gratuit." />
         <link rel="canonical" href="https://lesassureursexperts.fr/prevoyance" />
       </Helmet>
+      <BreadcrumbJsonLd name="Prévoyance" slug="prevoyance" />
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
@@ -216,6 +228,8 @@ const PrevoyancePage: React.FC = () => {
                 ))}
               </div>
             </section>
+            {/* FAQ */}
+            <FaqSection items={faqItems} title="Prévoyance : vos questions fréquentes" />
           </div>
 
           {/* Sidebar */}
@@ -231,60 +245,7 @@ const PrevoyancePage: React.FC = () => {
                 Évaluez vos besoins en 2 minutes.
               </p>
               
-              <form
-                action="https://formspree.io/f/mblnydqy"
-                method="POST"
-                className="space-y-4"
-              >
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="Prénom et Nom"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500"
-                  required
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Téléphone"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500"
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500"
-                  required
-                />
-                <select 
-                  name="insuranceType"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500"
-                >
-                  <option value="prevoyance">Prévoyance</option>
-                </select>
-                
-                <div className="flex items-start gap-3">
-                  <input 
-                    type="checkbox" 
-                    id="consent" 
-                    name="consent"
-                    className="w-5 h-5 text-teal-500 mt-0.5" 
-                    required 
-                  />
-                  <label htmlFor="consent" className="text-sm text-gray-600">
-                    J'accepte d'être contacté par Les Assureurs Experts.
-                  </label>
-                </div>
-                
-                <button
-                  type="submit"
-                  className="w-full bg-teal-600 hover:bg-teal-700 text-white py-4 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2"
-                >
-                  <Phone className="w-5 h-5" />
-                  Obtenir mon devis
-                </button>
-              </form>
+              <ProductLeadForm insuranceType="prevoyance" insuranceLabel="Prévoyance" />
             </div>
 
             {/* Related Links */}

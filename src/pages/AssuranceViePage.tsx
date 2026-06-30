@@ -2,6 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, CheckCircle, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import ProductLeadForm from '../components/ProductLeadForm';
+import FaqSection, { FaqItem } from '../components/FaqSection';
+import BreadcrumbJsonLd from '../components/BreadcrumbJsonLd';
+
+const faqItems: FaqItem[] = [
+  { q: "L'assurance vie, est-ce risqué ?", a: "Cela dépend des supports choisis. Le fonds en euros offre une garantie en capital, tandis que les unités de compte présentent un risque de perte mais un potentiel de rendement supérieur. Nous ajustons l'allocation à votre profil." },
+  { q: "Quelle fiscalité après 8 ans ?", a: "Après 8 ans de détention, vous bénéficiez d'un abattement annuel sur les gains (4 600 € pour une personne seule, 9 200 € pour un couple) lors des rachats. C'est l'un des grands avantages de l'assurance vie." },
+  { q: "Puis-je récupérer mon argent à tout moment ?", a: "Oui. Contrairement à une idée reçue, l'argent reste disponible : vous pouvez effectuer un rachat partiel ou total quand vous le souhaitez." },
+  { q: "Quelle différence entre fonds euros et unités de compte ?", a: "Le fonds en euros sécurise votre capital avec un rendement modéré. Les unités de compte (actions, immobilier…) visent un rendement plus élevé mais sans garantie en capital. Une allocation mixte est souvent recommandée." },
+  { q: "L'assurance vie est-elle utile pour la succession ?", a: "Oui. Elle permet de transmettre un capital dans un cadre fiscal avantageux, avec des abattements spécifiques par bénéficiaire désigné. Un conseiller vous accompagne." },
+];
 
 const AssuranceViePage: React.FC = () => {
   const coverageItems = [
@@ -42,6 +53,7 @@ const AssuranceViePage: React.FC = () => {
         <meta name="description" content="Faites fructifier votre épargne avec l'assurance vie : fonds euros, unités de compte, fiscalité allégée après 8 ans, transmission facilitée. Devis gratuit." />
         <link rel="canonical" href="https://lesassureursexperts.fr/assurance-vie" />
       </Helmet>
+      <BreadcrumbJsonLd name="Assurance vie" slug="assurance-vie" />
 
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
@@ -262,6 +274,8 @@ const AssuranceViePage: React.FC = () => {
                 ))}
               </div>
             </section>
+            {/* FAQ */}
+            <FaqSection items={faqItems} title="Assurance vie : vos questions fréquentes" />
           </div>
 
           {/* Sidebar */}
@@ -277,66 +291,7 @@ const AssuranceViePage: React.FC = () => {
                 Découvrez le potentiel de votre épargne.
               </p>
               
-              <form
-                action="https://formspree.io/f/mblnydqy"
-                method="POST"
-                className="space-y-4"
-              >
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="Prénom et Nom"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500"
-                  required
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Téléphone"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500"
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500"
-                  required
-                />
-                <input
-                  type="number"
-                  name="investmentAmount"
-                  placeholder="Montant à placer (€)"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500"
-                />
-                <select 
-                  name="insuranceType"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500"
-                >
-                  <option value="assurance-vie">Assurance vie</option>
-                </select>
-                
-                <div className="flex items-start gap-3">
-                  <input 
-                    type="checkbox" 
-                    id="consent" 
-                    name="consent"
-                    className="w-5 h-5 text-rose-500 mt-0.5" 
-                    required 
-                  />
-                  <label htmlFor="consent" className="text-sm text-gray-600">
-                    J'accepte d'être contacté par Les Assureurs Experts.
-                  </label>
-                </div>
-                
-                <button
-                  type="submit"
-                  className="w-full bg-rose-600 hover:bg-rose-700 text-white py-4 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2"
-                >
-                  <Calculator className="w-5 h-5" />
-                  Simuler mon placement
-                </button>
-              </form>
+              <ProductLeadForm insuranceType="assurance-vie" insuranceLabel="Assurance vie" submitLabel="Simuler mon placement" />
             </div>
 
             {/* Related Links */}

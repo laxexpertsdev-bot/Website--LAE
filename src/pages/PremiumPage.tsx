@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Crown, Phone, Calendar, Users, Gift, CreditCard, CheckCircle } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { submitLead, trackLeadConversion } from '../utils/lead';
 
 const PremiumPage: React.FC = () => {
   const [billingType, setBillingType] = useState<'monthly' | 'yearly'>('monthly');
@@ -11,6 +13,24 @@ const PremiumPage: React.FC = () => {
     phone: '',
     paymentMethod: 'card'
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isLoading) return;
+    setSubmitError(false);
+    setIsLoading(true);
+    const ok = await submitLead({ ...formData, billingType, _subject: 'Adhésion Club Premium' });
+    setIsLoading(false);
+    if (ok) {
+      trackLeadConversion({ formLocation: 'premium_club' });
+      setIsSubmitted(true);
+    } else {
+      setSubmitError(true);
+    }
+  };
 
   const features = [
     {
@@ -142,11 +162,18 @@ const PremiumPage: React.FC = () => {
               Rejoindre le Club Premium
             </h3>
 
-            <form
-              action="https://formspree.io/f/mblnydqy"
-              method="POST"
-              className="space-y-6"
-            >
+            {isSubmitted ? (
+              <div className="text-center py-12">
+                <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="w-8 h-8 text-green-600" />
+                </div>
+                <h4 className="text-xl font-bold text-gray-900 mb-2">Demande envoyée !</h4>
+                <p className="text-gray-600">
+                  Merci {formData.firstName}. Un conseiller vous recontacte pour finaliser votre adhésion au Club Premium.
+                </p>
+              </div>
+            ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
               <input type="hidden" name="billingType" value={billingType} />
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -242,22 +269,38 @@ const PremiumPage: React.FC = () => {
                   <input type="checkbox" id="terms" required className="w-4 h-4" />
                   <label htmlFor="terms" className="text-sm text-gray-600">
                     J'accepte les{' '}
-                    <a href="#" className="text-blue-600 hover:underline">
+                    <Link to="/conditions-generales" className="text-blue-600 hover:underline">
                       conditions générales
-                    </a>{' '}
+                    </Link>{' '}
                     et la{' '}
-                    <a href="#" className="text-blue-600 hover:underline">
+                    <Link to="/politique-confidentialite" className="text-blue-600 hover:underline">
                       politique de confidentialité
-                    </a>
+                    </Link>
                   </label>
                 </div>
 
+                {submitError && (
+                  <p className="text-sm text-red-600 mb-3">
+                    Une erreur est survenue. Réessayez ou appelez le 01 62 17 11 11.
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center gap-3"
+                  disabled={isLoading}
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center gap-3 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
-                  <Crown className="w-6 h-6" />
-                  Rejoindre le Club Premium
+                  {isLoading ? (
+                    <>
+                      <span className="w-6 h-6 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                      Envoi en cours...
+                    </>
+                  ) : (
+                    <>
+                      <Crown className="w-6 h-6" />
+                      Rejoindre le Club Premium
+                    </>
+                  )}
                 </button>
               </div>
 
@@ -265,6 +308,7 @@ const PremiumPage: React.FC = () => {
                 Résiliable à tout moment • Premier mois d'essai offert
               </p>
             </form>
+            )}
           </div>
         </div>
 

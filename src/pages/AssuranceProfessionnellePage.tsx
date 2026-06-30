@@ -2,6 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Briefcase, CheckCircle, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import ProductLeadForm from '../components/ProductLeadForm';
+import FaqSection, { FaqItem } from '../components/FaqSection';
+import BreadcrumbJsonLd from '../components/BreadcrumbJsonLd';
+
+const faqItems: FaqItem[] = [
+  { q: "Qu'est-ce que la RC Pro et est-elle obligatoire ?", a: "La responsabilité civile professionnelle couvre les dommages causés à des tiers dans le cadre de votre activité. Elle est obligatoire pour les professions réglementées (santé, droit, bâtiment…) et fortement conseillée pour les autres." },
+  { q: "Quelles activités pouvez-vous assurer ?", a: "Professions libérales, artisans, commerçants, consultants, métiers du numérique… Nous comparons des offres adaptées à chaque activité et à ses risques spécifiques." },
+  { q: "La RC Pro couvre-t-elle les dommages immatériels ?", a: "Selon le contrat, oui : erreurs, omissions et préjudices financiers causés à un client peuvent être couverts. Nous vérifions l'étendue des garanties selon votre activité." },
+  { q: "Puis-je ajouter une protection cyber ?", a: "Oui. Face à la hausse des cyberattaques, une garantie cyber-risques (données, rançongiciels, interruption d'activité) peut compléter votre contrat. Demandez-nous conseil." },
+  { q: "Combien coûte une assurance professionnelle ?", a: "Le tarif dépend de votre métier, de votre chiffre d'affaires et des garanties choisies. Nous négocions pour obtenir le meilleur rapport couverture/prix." },
+];
 
 const AssuranceProfessionnellePage: React.FC = () => {
   const coverageItems = [
@@ -40,9 +51,9 @@ const AssuranceProfessionnellePage: React.FC = () => {
       <Helmet>
         <title>Assurance Professionnelle RC Pro | Devis Expert | Les Assureurs Experts</title>
         <meta name="description" content="Assurance professionnelle dès 15€/mois. RC Pro, cyber-risques, protection juridique. Devis adapté à votre métier. Courtier ORIAS spécialisé." />
-        <meta name="keywords" content="assurance professionnelle, RC pro, responsabilité civile professionnelle, assurance métier, cyber risques" />
         <link rel="canonical" href="https://lesassureursexperts.fr/assurance-professionnelle" />
       </Helmet>
+      <BreadcrumbJsonLd name="Assurance professionnelle" slug="assurance-professionnelle" />
       
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
@@ -188,6 +199,8 @@ const AssuranceProfessionnellePage: React.FC = () => {
                 ))}
               </div>
             </section>
+            {/* FAQ */}
+            <FaqSection items={faqItems} title="Assurance professionnelle : vos questions fréquentes" />
           </div>
 
           {/* Sidebar */}
@@ -203,66 +216,7 @@ const AssuranceProfessionnellePage: React.FC = () => {
                 Obtenez votre tarif adapté à votre activité.
               </p>
               
-              <form
-                action="https://formspree.io/f/mblnydqy"
-                method="POST"
-                className="space-y-4"
-              >
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="Prénom et Nom"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
-                  required
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Téléphone"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
-                  required
-                />
-                <input
-                  type="text"
-                  name="activity"
-                  placeholder="Votre activité"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
-                />
-                <select 
-                  name="insuranceType"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
-                >
-                  <option value="assurance-professionnelle">Assurance professionnelle</option>
-                </select>
-                
-                <div className="flex items-start gap-3">
-                  <input 
-                    type="checkbox" 
-                    id="consent" 
-                    name="consent"
-                    className="w-5 h-5 text-indigo-500 mt-0.5" 
-                    required 
-                  />
-                  <label htmlFor="consent" className="text-sm text-gray-600">
-                    J'accepte d'être contacté par Les Assureurs Experts.
-                  </label>
-                </div>
-                
-                <button
-                  type="submit"
-                  className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-4 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2"
-                >
-                  <Phone className="w-5 h-5" />
-                  Obtenir mon devis
-                </button>
-              </form>
+              <ProductLeadForm insuranceType="assurance-professionnelle" insuranceLabel="Assurance professionnelle" />
             </div>
 
             {/* Related Links */}

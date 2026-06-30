@@ -2,6 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Anchor, CheckCircle, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import ProductLeadForm from '../components/ProductLeadForm';
+import FaqSection, { FaqItem } from '../components/FaqSection';
+import BreadcrumbJsonLd from '../components/BreadcrumbJsonLd';
+
+const faqItems: FaqItem[] = [
+  { q: "Quels bateaux peut-on assurer ?", a: "Voiliers, bateaux à moteur, semi-rigides, jet-skis… Nous assurons la plupart des embarcations de plaisance, selon leur valeur, leur usage et leur zone de navigation." },
+  { q: "L'assurance bateau est-elle obligatoire ?", a: "La responsabilité civile n'est pas légalement obligatoire pour tous les bateaux, mais elle est fortement recommandée et souvent exigée (ports, locations). Nous vous conseillons la couverture adaptée." },
+  { q: "La zone de navigation influence-t-elle le tarif ?", a: "Oui. La prime dépend de la zone (côtière, hauturière, eaux intérieures), de la puissance et de la valeur du bateau. Nous comparons les offres selon votre programme de navigation." },
+  { q: "Mon matériel et mes équipements sont-ils couverts ?", a: "Selon la formule, l'électronique de bord, les voiles, le moteur et certains équipements peuvent être garantis. Nous détaillons les options avant souscription." },
+  { q: "Suis-je couvert pour le transport et l'hivernage ?", a: "De nombreuses formules couvrent le bateau à terre, lors du transport sur remorque et pendant l'hivernage. Demandez-nous une simulation adaptée." },
+];
 
 const AssuranceBateauPage: React.FC = () => {
   const coverageItems = [
@@ -42,6 +53,7 @@ const AssuranceBateauPage: React.FC = () => {
         <meta name="description" content="Assurez votre voilier, bateau à moteur ou jet-ski : responsabilité civile, avaries, vol, assistance marine. Devis bateau gratuit sous 24h, courtier ORIAS." />
         <link rel="canonical" href="https://lesassureursexperts.fr/assurance-bateau" />
       </Helmet>
+      <BreadcrumbJsonLd name="Assurance bateau" slug="assurance-bateau" />
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
@@ -211,6 +223,8 @@ const AssuranceBateauPage: React.FC = () => {
                 ))}
               </div>
             </section>
+            {/* FAQ */}
+            <FaqSection items={faqItems} title="Assurance bateau : vos questions fréquentes" />
           </div>
 
           {/* Sidebar */}
@@ -226,60 +240,7 @@ const AssuranceBateauPage: React.FC = () => {
                 Obtenez votre tarif en 2 minutes.
               </p>
               
-              <form
-                action="https://formspree.io/f/mblnydqy"
-                method="POST"
-                className="space-y-4"
-              >
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="Prénom et Nom"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
-                  required
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Téléphone"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
-                  required
-                />
-                <select 
-                  name="insuranceType"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
-                >
-                  <option value="assurance-bateau">Assurance bateau</option>
-                </select>
-                
-                <div className="flex items-start gap-3">
-                  <input 
-                    type="checkbox" 
-                    id="consent" 
-                    name="consent"
-                    className="w-5 h-5 text-indigo-500 mt-0.5" 
-                    required 
-                  />
-                  <label htmlFor="consent" className="text-sm text-gray-600">
-                    J'accepte d'être contacté par Les Assureurs Experts.
-                  </label>
-                </div>
-                
-                <button
-                  type="submit"
-                  className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-4 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2"
-                >
-                  <Phone className="w-5 h-5" />
-                  Obtenir mon devis
-                </button>
-              </form>
+              <ProductLeadForm insuranceType="assurance-bateau" insuranceLabel="Assurance bateau" />
             </div>
 
             {/* Related Links */}

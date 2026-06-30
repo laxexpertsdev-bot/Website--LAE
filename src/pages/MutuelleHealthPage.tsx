@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Heart, CheckCircle, Users, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import ProductLeadForm from '../components/ProductLeadForm';
+import FaqSection, { FaqItem } from '../components/FaqSection';
+import BreadcrumbJsonLd from '../components/BreadcrumbJsonLd';
 
 const coverageItems = [
   "Hospitalisation (chambre individuelle, frais de séjour)",
@@ -35,31 +38,23 @@ const advantages = [
 ];
 
 const MutuelleHealthPage: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    insuranceType: 'mutuelle-sante',
-    consent: false
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value, type } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
-    }));
-  };
+  const faqItems: FaqItem[] = [
+    { q: "Quelle différence entre mutuelle et complémentaire santé ?", a: "Dans le langage courant, les deux désignent la même chose : un contrat qui rembourse tout ou partie des frais de santé non pris en charge par la Sécurité sociale (optique, dentaire, hospitalisation…)." },
+    { q: "Y a-t-il un délai de carence avant d'être remboursé ?", a: "Cela dépend du contrat. Certaines garanties (optique, dentaire, maternité) peuvent comporter un délai d'attente. Nous vous indiquons clairement ces délais avant toute souscription." },
+    { q: "Puis-je changer de mutuelle à tout moment ?", a: "Oui. Après un an d'engagement, vous pouvez résilier votre mutuelle à tout moment (résiliation infra-annuelle). Nous nous chargeons des démarches de résiliation." },
+    { q: "La mutuelle est-elle déductible pour un indépendant (TNS) ?", a: "Oui, dans le cadre de la loi Madelin, les cotisations d'une complémentaire santé peuvent être déduites du revenu imposable, sous conditions. Un conseiller vous accompagne." },
+    { q: "Comment sont calculés les remboursements ?", a: "Les remboursements s'expriment en pourcentage de la base de la Sécurité sociale ou en forfaits (€). Nous vous aidons à comparer les niveaux de garanties réels, pas seulement les pourcentages affichés." },
+  ];
 
   return (
     <>
       <Helmet>
         <title>Mutuelle Santé Pas Chère | Comparateur Expert | Les Assureurs Experts</title>
         <meta name="description" content="Trouvez votre mutuelle santé idéale dès 18€/mois. Comparateur expert, devis gratuit, famille/senior/étudiant. Courtier ORIAS agréé." />
-        <meta name="keywords" content="mutuelle santé, assurance santé, complémentaire santé, mutuelle famille, mutuelle senior" />
         <link rel="canonical" href="https://lesassureursexperts.fr/mutuelle-sante" />
       </Helmet>
-      
+      <BreadcrumbJsonLd name="Mutuelle santé" slug="mutuelle-sante" />
+
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
@@ -247,6 +242,8 @@ const MutuelleHealthPage: React.FC = () => {
                 ))}
               </div>
             </section>
+            {/* FAQ */}
+            <FaqSection items={faqItems} title="Mutuelle santé : vos questions fréquentes" />
           </div>
 
           {/* Sidebar */}
@@ -262,74 +259,7 @@ const MutuelleHealthPage: React.FC = () => {
                 Remplissez notre formulaire rapide : réponse personnalisée sous 24h.
               </p>
               
-              <form
-                action="https://formspree.io/f/mblnydqy"
-                method="POST"
-                className="space-y-4"
-              >
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  placeholder="Prénom et Nom"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  placeholder="Téléphone"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  placeholder="Email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-                <select 
-                  name="insuranceType"
-                  value={formData.insuranceType}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="mutuelle-sante">Mutuelle santé</option>
-                </select>
-                
-                <div className="flex items-start gap-3">
-                   <input 
-                     type="checkbox" 
-                     id="consent" 
-                     name="consent"
-                     checked={formData.consent}
-                     onChange={handleInputChange}
-                     className="w-5 h-5 text-blue-600 mt-0.5" 
-                     required 
-                   />
-                  <label htmlFor="consent" className="text-sm text-gray-600">
-                    J'accepte d'être contacté par Les Assureurs Experts. Mes données restent confidentielles.
-                  </label>
-                </div>
-                
-                <button
-                  type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2"
-                >
-                  <Phone className="w-5 h-5" />
-                  Être rappelé sous 24h
-                </button>
-                
-                <p className="text-center text-sm text-gray-500">
-                  100% gratuit et sans engagement
-                </p>
-              </form>
+              <ProductLeadForm insuranceType="mutuelle-sante" insuranceLabel="Mutuelle santé" submitLabel="Être rappelé sous 24h" />
             </div>
 
             {/* Related Links */}
