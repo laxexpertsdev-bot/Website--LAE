@@ -2,6 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Flower2, CheckCircle, Calculator, Phone, ArrowRight, Home, ChevronRight, Heart, Shield, Users } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import FaqSection, { FaqItem } from '../components/FaqSection';
+import BreadcrumbJsonLd from '../components/BreadcrumbJsonLd';
+
+const faqItems: FaqItem[] = [
+  { q: "À quoi sert un contrat obsèques ?", a: "Il permet de financer à l'avance vos funérailles et/ou d'en organiser les modalités, afin de soulager vos proches du poids financier et organisationnel au moment du décès." },
+  { q: "Quelle différence entre contrat en capital et en prestations ?", a: "Le contrat en capital verse une somme à un bénéficiaire pour financer les obsèques. Le contrat en prestations organise concrètement les funérailles avec un opérateur funéraire. Nous vous expliquons les deux." },
+  { q: "Y a-t-il une sélection médicale ?", a: "La plupart des contrats obsèques sont accessibles sans questionnaire médical, parfois avec un délai de carence en cas de décès par maladie les premières années. Nous vous indiquons les conditions." },
+  { q: "Le capital est-il revalorisé dans le temps ?", a: "Selon le contrat, le capital peut être revalorisé pour suivre l'évolution du coût des obsèques. Nous comparons les offres sur ce critère important." },
+  { q: "Que se passe-t-il si je déménage ou change d'avis ?", a: "Le contrat vous suit. Vous pouvez faire évoluer les bénéficiaires ou vos volontés. Un conseiller vous accompagne pour toute modification." },
+];
 
 const CapitalObsequesPage: React.FC = () => {
   const coverageItems = [
@@ -48,9 +58,9 @@ const CapitalObsequesPage: React.FC = () => {
       <Helmet>
         <title>Assurance Capital Obsèques | Protection Famille | Les Assureurs Experts</title>
         <meta name="description" content="Assurance obsèques dès 12€/mois. Capital garanti, versement rapide, souscription simplifiée. Protégez vos proches des frais d'obsèques." />
-        <meta name="keywords" content="assurance obsèques, capital obsèques, prévoyance obsèques, frais funéraires, protection famille" />
         <link rel="canonical" href="https://lesassureursexperts.fr/capital-obseques" />
       </Helmet>
+      <BreadcrumbJsonLd name="Capital Obsèques" slug="capital-obseques" />
 
     <div className="min-h-screen bg-gray-50">
       <div className="bg-white border-b">
@@ -190,6 +200,9 @@ const CapitalObsequesPage: React.FC = () => {
                 ))}
               </div>
             </section>
+
+            {/* FAQ */}
+            <FaqSection items={faqItems} title="Capital obsèques : vos questions fréquentes" />
           </div>
 
           <div className="lg:col-span-1 space-y-6">
