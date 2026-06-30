@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { X, Phone } from 'lucide-react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { X, Phone, CheckCircle } from 'lucide-react';
+import { submitLead, trackLeadConversion } from '../utils/lead';
 
 interface ExitIntentPopupProps {
   isOpen: boolean;
@@ -14,16 +15,19 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
     email: '',
     rgpdConsent: false
   });
-  
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+
   const dialogRef = useRef<HTMLDivElement>(null);
   const firstFocusableRef = useRef<HTMLHeadingElement>(null);
 
   // Gestion de la fermeture avec sessionStorage 24h
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     sessionStorage.setItem('popupClosed', 'true');
     sessionStorage.setItem('popupClosedTime', Date.now().toString());
     onClose();
-  };
+  }, [onClose]);
 
   // Vérifier si le popup doit être affiché (24h)
   const shouldShowPopup = () => {
@@ -85,12 +89,27 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen]);
+  }, [isOpen, handleClose]);
 
   // Fermeture sur clic overlay
   const handleOverlayClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
       handleClose();
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isLoading || !formData.rgpdConsent) return;
+    setSubmitError(false);
+    setIsLoading(true);
+    const ok = await submitLead({ ...formData, _subject: `Rappel demandé — ${formData.insuranceType || 'non précisé'}` });
+    setIsLoading(false);
+    if (ok) {
+      trackLeadConversion({ formLocation: 'exit_popup', insuranceType: formData.insuranceType });
+      setIsSubmitted(true);
+    } else {
+      setSubmitError(true);
     }
   };
 
@@ -144,11 +163,16 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
           </div>
 
           {/* Formulaire simplifié */}
-          <form
-            action="https://formspree.io/f/mblnydqy"
-            method="POST"
-            className="space-y-3"
-          >
+          {isSubmitted ? (
+            <div className="text-center py-6">
+              <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-3">
+                <CheckCircle className="w-7 h-7 text-green-600" />
+              </div>
+              <h3 className="text-base font-bold text-gray-900 mb-1">Demande envoyée !</h3>
+              <p className="text-sm text-gray-600">Un conseiller vous rappelle sous 24h.</p>
+            </div>
+          ) : (
+          <form onSubmit={handleSubmit} className="space-y-3">
             {/* Type d'assurance */}
             <div>
               <label className="block text-xs font-medium text-gray-700 mb-1">
@@ -247,17 +271,34 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
             <div className="pt-3">
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold text-sm transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+                disabled={isLoading}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold text-sm transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
-                <Phone className="w-4 h-4" />
-                Être rappelé sous 24h
+                {isLoading ? (
+                  <>
+                    <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                    Envoi...
+                  </>
+                ) : (
+                  <>
+                    <Phone className="w-4 h-4" />
+                    Être rappelé sous 24h
+                  </>
+                )}
               </button>
-              
+
+              {submitError && (
+                <p className="text-center text-xs text-red-600 mt-2">
+                  Erreur lors de l'envoi. Réessayez ou appelez le 01 62 17 11 11.
+                </p>
+              )}
+
               <p className="text-center text-xs text-gray-500 mt-2">
                 100% gratuit et sans engagement
               </p>
             </div>
           </form>
+          )}
 
           <p className="text-xs text-gray-500 text-center mt-3">
             🔒 Vos données sont protégées et ne seront jamais revendues

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronRight, ChevronLeft, CheckCircle } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { submitLead, trackLeadConversion } from '../utils/lead';
 
 const TRANSITION_DELAY = 180;
 
@@ -35,6 +37,7 @@ interface FormData {
   phone: string;
   email: string;
   wantCallback: boolean;
+  consent: boolean;
 }
 
 const QuotePage: React.FC = () => {
@@ -42,6 +45,9 @@ const QuotePage: React.FC = () => {
   const [animating, setAnimating] = useState(false);
   const [slideDirection, setSlideDirection] = useState<'left' | 'right'>('left');
   const [visible, setVisible] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     insuranceType: '',
     currentlyInsured: '',
@@ -50,6 +56,7 @@ const QuotePage: React.FC = () => {
     phone: '',
     email: '',
     wantCallback: false,
+    consent: false,
   });
 
   const totalSteps = 4;
@@ -104,8 +111,27 @@ const QuotePage: React.FC = () => {
       case 1: return formData.insuranceType !== '';
       case 2: return formData.currentlyInsured !== '';
       case 3: return !!(formData.firstName && formData.lastName && formData.phone && formData.email);
-      case 4: return true;
+      case 4: return formData.consent;
       default: return false;
+    }
+  };
+
+  const handleSubmit = async () => {
+    if (isLoading || !formData.consent) return;
+    setSubmitError(false);
+    setIsLoading(true);
+    const selectedType = insuranceTypes.find((t) => t.value === formData.insuranceType)?.label;
+    const ok = await submitLead({
+      ...formData,
+      typeLabel: selectedType,
+      _subject: `Nouveau devis — ${selectedType ?? formData.insuranceType}`,
+    });
+    setIsLoading(false);
+    if (ok) {
+      trackLeadConversion({ formLocation: 'devis', insuranceType: formData.insuranceType });
+      setIsSubmitted(true);
+    } else {
+      setSubmitError(true);
     }
   };
 
@@ -214,15 +240,7 @@ const QuotePage: React.FC = () => {
               <h2 className="text-2xl font-bold text-gray-900">Vos coordonnées</h2>
               <p className="text-gray-500 text-sm mt-2">Remplissez le formulaire puis cliquez sur Suivant</p>
             </div>
-            <form
-              action="https://formspree.io/f/mblnydqy"
-              method="POST"
-              id="quote-form"
-            >
-              <input type="hidden" name="insuranceType" value={formData.insuranceType} />
-              <input type="hidden" name="currentlyInsured" value={formData.currentlyInsured} />
-              <input type="hidden" name="wantCallback" value={formData.wantCallback.toString()} />
-
+            <div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Prénom *</label>
@@ -274,30 +292,10 @@ const QuotePage: React.FC = () => {
                 </div>
               </div>
 
-              {/* OK button inside the form */}
-              <div className="max-w-2xl mx-auto mt-8">
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (formData.firstName && formData.lastName && formData.phone && formData.email) {
-                      handleNext();
-                    }
-                  }}
-                  disabled={!(formData.firstName && formData.lastName && formData.phone && formData.email)}
-                  className={`w-full flex items-center justify-center gap-3 py-4 rounded-xl text-lg font-bold transition-all duration-200 min-h-[56px] ${
-                    formData.firstName && formData.lastName && formData.phone && formData.email
-                      ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-200 hover:shadow-blue-300 active:scale-[0.98]'
-                      : 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                  }`}
-                >
-                  <CheckCircle className="w-6 h-6" />
-                  OK &mdash; Continuer
-                </button>
-                {!(formData.firstName && formData.lastName && formData.phone && formData.email) && (
-                  <p className="text-center text-xs text-gray-400 mt-2">Remplissez tous les champs pour continuer</p>
-                )}
-              </div>
-            </form>
+              {!(formData.firstName && formData.lastName && formData.phone && formData.email) && (
+                <p className="text-center text-xs text-gray-400 mt-6">Remplissez tous les champs, puis cliquez sur « Suivant ».</p>
+              )}
+            </div>
           </div>
         );
 
@@ -379,6 +377,32 @@ const QuotePage: React.FC = () => {
                   </div>
                 </label>
               </div>
+
+              {/* Consentement RGPD (obligatoire) */}
+              <label className="flex items-start gap-3 cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  checked={formData.consent}
+                  onChange={(e) => setFormData((prev) => ({ ...prev, consent: e.target.checked }))}
+                  className="mt-1 w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                  required
+                />
+                <span className="text-sm text-gray-600 leading-relaxed">
+                  J'accepte d'être recontacté par Les Assureurs Experts au sujet de ma demande. Mes données
+                  restent confidentielles et ne sont jamais revendues.{' '}
+                  <Link to="/politique-confidentialite" className="text-blue-600 underline hover:text-blue-700">
+                    Politique de confidentialité
+                  </Link>
+                  .
+                </span>
+              </label>
+
+              {submitError && (
+                <p className="text-center text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg py-3 px-4">
+                  Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous appeler au{' '}
+                  <a href="tel:+33162171111" className="font-semibold underline">01 62 17 11 11</a>.
+                </p>
+              )}
             </div>
           </div>
         );
@@ -403,6 +427,33 @@ const QuotePage: React.FC = () => {
       </Helmet>
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {isSubmitted ? (
+          <div className="bg-white rounded-2xl shadow-xl p-10 text-center max-w-xl mx-auto">
+            <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-5">
+              <CheckCircle className="w-9 h-9 text-green-600" />
+            </div>
+            <h1 className="text-2xl font-bold text-gray-900 mb-3">Demande envoyée avec succès !</h1>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              Merci {formData.firstName}. Un conseiller expert vous recontacte sous 24h ouvrées pour
+              établir votre devis personnalisé. Besoin d'une réponse immédiate ?
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <a
+                href="tel:+33162171111"
+                className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Appeler le 01 62 17 11 11
+              </a>
+              <Link
+                to="/"
+                className="inline-flex items-center justify-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
+              >
+                Retour à l'accueil
+              </Link>
+            </div>
+          </div>
+        ) : (
+        <>
         {/* Header & Progress */}
         <div className="mb-10">
           <div className="flex items-center justify-between mb-4">
@@ -477,12 +528,26 @@ const QuotePage: React.FC = () => {
             </button>
           ) : (
             <button
-              form="quote-form"
-              type="submit"
-              className="flex items-center gap-2 px-8 py-3 rounded-xl font-semibold bg-green-600 text-white hover:bg-green-700 transition-colors shadow-md shadow-green-200"
+              type="button"
+              onClick={handleSubmit}
+              disabled={!formData.consent || isLoading}
+              className={`flex items-center gap-2 px-8 py-3 rounded-xl font-semibold transition-colors shadow-md ${
+                !formData.consent
+                  ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                  : 'bg-green-600 text-white hover:bg-green-700 shadow-green-200'
+              }`}
             >
-              <CheckCircle className="w-5 h-5" />
-              Valider ma demande
+              {isLoading ? (
+                <>
+                  <div className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                  Envoi en cours...
+                </>
+              ) : (
+                <>
+                  <CheckCircle className="w-5 h-5" />
+                  Valider ma demande
+                </>
+              )}
             </button>
           )}
         </div>
@@ -498,6 +563,8 @@ const QuotePage: React.FC = () => {
             <span>Conformité RGPD</span>
           </div>
         </div>
+        </>
+        )}
       </div>
     </div>
     </>

@@ -2,6 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Home, CheckCircle, Calculator, Phone, ArrowRight, ChevronRight, Shield } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import ProductLeadForm from '../components/ProductLeadForm';
+import FaqSection, { FaqItem } from '../components/FaqSection';
+import BreadcrumbJsonLd from '../components/BreadcrumbJsonLd';
+
+const faqItems: FaqItem[] = [
+  { q: "L'assurance habitation est-elle obligatoire ?", a: "Elle est obligatoire pour les locataires et en copropriété. Pour un propriétaire occupant d'une maison individuelle, elle est fortement recommandée pour couvrir les sinistres majeurs." },
+  { q: "Que couvre une multirisque habitation (MRH) ?", a: "Généralement : incendie, dégâts des eaux, vol, bris de glace, catastrophes naturelles et responsabilité civile vie privée. Les garanties et plafonds varient selon les contrats." },
+  { q: "Locataire ou propriétaire : quelles différences ?", a: "Le locataire doit a minima couvrir les risques locatifs. Le propriétaire (occupant ou bailleur) a intérêt à couvrir le bâti et, le cas échéant, les loyers impayés. Nous adaptons la formule." },
+  { q: "Mes objets de valeur sont-ils couverts ?", a: "Selon le contrat, les objets de valeur peuvent être couverts jusqu'à un plafond, parfois avec une déclaration spécifique. Nous vérifions ces limites avec vous." },
+  { q: "Comment est calculée la prime d'assurance habitation ?", a: "Elle dépend de la surface, du nombre de pièces, de la localisation, du statut (locataire/propriétaire) et des garanties choisies. Nous comparons pour optimiser le rapport garanties/prix." },
+];
 
 const AssuranceHabitationPage: React.FC = () => {
   const coverageItems = [
@@ -40,9 +51,9 @@ const AssuranceHabitationPage: React.FC = () => {
       <Helmet>
         <title>Assurance Habitation Pas Chère | Devis Gratuit | Les Assureurs Experts</title>
         <meta name="description" content="Assurance habitation dès 8€/mois. Devis gratuit en 5 minutes. Propriétaire ou locataire, trouvez la meilleure protection pour votre logement." />
-        <meta name="keywords" content="assurance habitation, assurance logement, multirisque habitation, assurance propriétaire, assurance locataire" />
         <link rel="canonical" href="https://lesassureursexperts.fr/assurance-habitation" />
       </Helmet>
+      <BreadcrumbJsonLd name="Assurance habitation" slug="assurance-habitation" />
       
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
@@ -189,6 +200,8 @@ const AssuranceHabitationPage: React.FC = () => {
                 ))}
               </div>
             </section>
+            {/* FAQ */}
+            <FaqSection items={faqItems} title="Assurance habitation : vos questions fréquentes" />
           </div>
 
           {/* Sidebar */}
@@ -204,60 +217,7 @@ const AssuranceHabitationPage: React.FC = () => {
                 Obtenez votre tarif personnalisé en 2 minutes.
               </p>
               
-              <form
-                action="https://formspree.io/f/mblnydqy"
-                method="POST"
-                className="space-y-4"
-              >
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="Prénom et Nom"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Téléphone"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-                <select 
-                  name="insuranceType"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="assurance-habitation">Assurance habitation</option>
-                </select>
-                
-                <div className="flex items-start gap-3">
-                  <input 
-                    type="checkbox" 
-                    id="consent" 
-                    name="consent"
-                    className="w-5 h-5 text-blue-500 mt-0.5" 
-                    required 
-                  />
-                  <label htmlFor="consent" className="text-sm text-gray-600">
-                    J'accepte d'être contacté par Les Assureurs Experts.
-                  </label>
-                </div>
-                
-                <button
-                  type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2"
-                >
-                  <Phone className="w-5 h-5" />
-                  Obtenir mon devis
-                </button>
-              </form>
+              <ProductLeadForm insuranceType="assurance-habitation" insuranceLabel="Assurance habitation" />
             </div>
 
             {/* Related Links */}

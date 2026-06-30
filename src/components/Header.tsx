@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Phone, Menu, X, ChevronDown, User, Building, Heart, Shield, Home, Car, Bike, Plane, Anchor, PiggyBank, Briefcase, HardHat, Globe } from 'lucide-react';
+import { Phone, Menu, X, ChevronDown, User, Building, Heart, Shield, Home, Car, Bike, Plane, Anchor, PiggyBank, Briefcase, HardHat, Globe, Users, Flower2, Landmark } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,13 +13,14 @@ const Header: React.FC = () => {
       name: 'Particuliers',
       icon: <User className="w-4 h-4" />,
       items: [
-        { name: 'Santé', path: '/mutuelle-sante', icon: <Heart className="w-4 h-4" /> },
-        { name: 'Emprunteur', path: '/assurance-emprunteur', icon: <Home className="w-4 h-4" /> },
+        { name: 'Mutuelle santé', path: '/mutuelle-sante', icon: <Heart className="w-4 h-4" /> },
+        { name: 'Assurance emprunteur', path: '/assurance-emprunteur', icon: <Landmark className="w-4 h-4" /> },
+        { name: 'Habitation', path: '/assurance-habitation', icon: <Home className="w-4 h-4" /> },
         { name: 'Prévoyance', path: '/prevoyance', icon: <Shield className="w-4 h-4" /> },
-        { name: 'Expatriés', path: '/expatries', icon: <Plane className="w-4 h-4" /> },
         { name: 'Auto', path: '/assurance-auto', icon: <Car className="w-4 h-4" /> },
         { name: '2 Roues', path: '/assurance-2-roues', icon: <Bike className="w-4 h-4" /> },
-        { name: 'Bateau', path: '/assurance-bateau', icon: <Anchor className="w-4 h-4" /> }
+        { name: 'Bateau', path: '/assurance-bateau', icon: <Anchor className="w-4 h-4" /> },
+        { name: 'Expatriés', path: '/expatries', icon: <Plane className="w-4 h-4" /> }
       ]
     },
     {
@@ -27,22 +28,25 @@ const Header: React.FC = () => {
       icon: <PiggyBank className="w-4 h-4" />,
       items: [
         { name: 'PER (Plan Épargne Retraite)', path: '/per', icon: <PiggyBank className="w-4 h-4" /> },
-        { name: 'Assurance Vie', path: '/assurance-vie', icon: <Shield className="w-4 h-4" /> }
+        { name: 'Assurance Vie', path: '/assurance-vie', icon: <Shield className="w-4 h-4" /> },
+        { name: 'Capital Obsèques', path: '/capital-obseques', icon: <Flower2 className="w-4 h-4" /> }
       ]
     },
     {
       name: 'Pro & Entreprises',
       icon: <Building className="w-4 h-4" />,
       items: [
-        { name: 'Chefs d\'entreprise / TNS', path: '/prevoyance', icon: <Briefcase className="w-4 h-4" /> },
-        { name: 'Salariés', path: '/mutuelle-sante', icon: <User className="w-4 h-4" /> },
-        { name: 'Construction / BTP', path: '/prevoyance', icon: <HardHat className="w-4 h-4" /> },
-        { name: 'International', path: '/expatries', icon: <Globe className="w-4 h-4" /> }
+        { name: 'Assurance professionnelle (RC Pro)', path: '/assurance-professionnelle', icon: <Briefcase className="w-4 h-4" /> },
+        { name: 'Décennale / BTP', path: '/assurance-decennale', icon: <HardHat className="w-4 h-4" /> },
+        { name: 'Santé & Prévoyance collective', path: '/sante-prevoyance-collective', icon: <Users className="w-4 h-4" /> },
+        { name: 'Prévoyance dirigeant / TNS', path: '/prevoyance', icon: <Shield className="w-4 h-4" /> },
+        { name: 'Expatriés / International', path: '/expatries', icon: <Globe className="w-4 h-4" /> }
       ]
     }
   ];
 
   const staticLinks = [
+    { name: 'Nos assurances', path: '/offres' },
     { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' }
   ];
@@ -139,12 +143,19 @@ const Header: React.FC = () => {
                 </Link>
               ))}
 
-              <Link
-                to="/devis"
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-3 rounded-full font-bold transition-all duration-300 flex items-center gap-2.5 text-lg shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5 ml-4"
+              <a
+                href="tel:+33162171111"
+                className="hidden lg:flex items-center gap-2 font-bold text-blue-700 hover:text-blue-800 transition-colors text-lg ml-4"
               >
                 <Phone className="w-5 h-5" />
-                Demande de devis
+                01 62 17 11 11
+              </a>
+
+              <Link
+                to="/devis"
+                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-7 py-3 rounded-full font-bold transition-all duration-300 flex items-center gap-2.5 text-lg shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5 ml-2"
+              >
+                Devis gratuit
               </Link>
             </nav>
 
@@ -164,20 +175,24 @@ const Header: React.FC = () => {
           <div className="lg:hidden bg-white border-t shadow-lg">
             <div className="px-4 py-5 space-y-5 max-h-[80vh] overflow-y-auto">
               {/* CTA en premier pour conversion mobile */}
-              <div className="pb-5 border-b border-gray-200">
+              <div className="pb-5 border-b border-gray-200 space-y-3">
                 <Link
                   to="/devis"
                   className="block bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-4 rounded-2xl font-bold text-center text-lg shadow-lg shadow-blue-500/30 hover:shadow-xl transition-all duration-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <div className="flex items-center justify-center gap-2.5 mb-1">
-                    <Phone className="w-5 h-5" />
-                    Demande de devis
-                  </div>
+                  <div className="mb-1">Devis gratuit</div>
                   <div className="text-xs font-normal text-blue-100">
                     Réponse rapide • Sans engagement
                   </div>
                 </Link>
+                <a
+                  href="tel:+33162171111"
+                  className="flex items-center justify-center gap-2.5 border-2 border-blue-600 text-blue-700 px-6 py-3.5 rounded-2xl font-bold text-lg hover:bg-blue-50 transition-colors"
+                >
+                  <Phone className="w-5 h-5" />
+                  01 62 17 11 11
+                </a>
               </div>
 
               {menuItems.map((menu) => (

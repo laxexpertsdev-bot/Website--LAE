@@ -268,7 +268,7 @@ const InsuranceCarousel: React.FC = () => {
                           to="/devis"
                           className={`inline-flex items-center gap-3 bg-gradient-to-r ${insuranceCards[currentSlide].color} text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg`}
                         >
-                          Demander un devis
+                          Devis gratuit
                           <ArrowRight className="w-5 h-5" />
                         </Link>
                         <Link
