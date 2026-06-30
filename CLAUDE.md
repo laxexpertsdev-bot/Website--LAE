@@ -23,6 +23,9 @@ strictly necessary.
 - Work on the **`dev`** branch. The active repo is the **private** repo
   `laxexpertsdev-bot/Website--LAE` (branches: `Master` (default/production), `main`, `dev`,
   `Bolt-Rudy`). The old `iaformaplus/Les-Assurreurs-Experts-website` repo is **deprecated**.
+- **Git remote `origin`** points to `https://github.com/laxexpertsdev-bot/Website--LAE.git` —
+  always use `git push origin <branch>`. The remotes `newrepo` and `lae-bot` exist but `origin`
+  is canonical. Never push to the old `iaformaplus` remote.
 - Access is via the **`sitekept`** GitHub account (collaborator on `laxexpertsdev-bot/Website--LAE`).
   `gh` has both `sitekept` and `Orhakerem` configured — ensure `sitekept` is active
   (`gh auth switch -u sitekept`) for git/`gh` operations.
