@@ -14,15 +14,18 @@ strictly necessary.
 
 ## Workflow & scope
 
-- **Development only.** Do **not** deploy, configure hosting, or run release steps — the user
-  owns deployment and CI/CD.
-- Work on the **`dev`** branch. The remote `origin` is the **private** repo
-  `iaformaplus/Les-Assurreurs-Experts-website` (default branch `Master`; other branches: `main`,
-  `Bolt-Rudy`). Local `dev` tracks `origin/dev`.
-- Access is via the **`sitekept`** GitHub account (collaborator on the `iaformaplus` repo). `gh`
-  has both `sitekept` and `Orhakerem` configured — ensure `sitekept` is active
-  (`gh auth switch -u sitekept`) for git/`gh` operations, since the repo is invisible to
-  `Orhakerem`.
+- **Development only.** Do **not** deploy or run release steps — the user owns deployment.
+- **Hosting: Vercel.** The site is deployed on **Vercel** (framework preset Vite, output `dist`),
+  building from the **`Master`** branch. SPA client-routing fallback is `vercel.json` (rewrites
+  everything to `/index.html`). DNS is managed at Squarespace/Google Cloud DNS; the **apex
+  (non-www) `lesassureursexperts.fr` is the primary domain** and `www` 308-redirects to it.
+  (Historic note: the site was previously on Netlify/Bolt — that setup is retired.)
+- Work on the **`dev`** branch. The active repo is the **private** repo
+  `laxexpertsdev-bot/Website--LAE` (branches: `Master` (default/production), `main`, `dev`,
+  `Bolt-Rudy`). The old `iaformaplus/Les-Assurreurs-Experts-website` repo is **deprecated**.
+- Access is via the **`sitekept`** GitHub account (collaborator on `laxexpertsdev-bot/Website--LAE`).
+  `gh` has both `sitekept` and `Orhakerem` configured — ensure `sitekept` is active
+  (`gh auth switch -u sitekept`) for git/`gh` operations.
 - The **user manages PRs and merges** into other branches — don't open PRs, push, or merge
   unless explicitly asked. Make changes locally and verify with `npm run build` / `npm run lint`.
 
@@ -54,14 +57,16 @@ verification gates are `npm run build` (tsc via Vite) and `npm run lint`.
   global/persistent UI element: `Header`, `Footer`, `WhatsAppButton`, `ExitIntentPopup`,
   `CookieConsent`, `ScrollToTop`, `InternalReviewBanner`, `SocialMediaBanner`. It also owns the
   exit-popup trigger logic (shows after 10s, at 50% scroll, or on mouse-leave; suppressed via
-  `sessionStorage.popupClosed`).
+  `sessionStorage.popupClosed`). All page components are **lazy-loaded** via `React.lazy()` and
+  wrapped in a single `<Suspense>` boundary — follow the existing `const XxxPage = React.lazy(...)`
+  pattern at the top of `App.tsx` when adding a new route.
 - **`src/pages/`** (~24 files) — one component per route. Most are insurance-product landing
   pages with French URL slugs (e.g. `/mutuelle-sante`, `/assurance-auto`, `/per`) plus legal
   pages (`/mentions-legales`, etc.). Each page renders its own `<Helmet>` block (title /
   description / canonical).
 - **`src/components/`** (~13 files) — shared building blocks (`Header`, `Footer`, hero,
   carousels, calculators, popups, banners).
-- **`public/`** — static assets, plus `_redirects`, `robots.txt`, `sitemap.xml`, `site.webmanifest`.
+- **`public/`** — static assets, plus `robots.txt`, `sitemap.xml`, `site.webmanifest`.
 
 ### Conventions & gotchas (read before editing)
 
@@ -70,18 +75,23 @@ verification gates are `npm run build` (tsc via Vite) and `npm run lint`.
   shared form util and no env var. To change the endpoint you must edit **every** occurrence
   (`grep -rn formspree src/`). Forms `POST` directly to Formspree; the `handleSubmit` handlers
   are mostly no-ops.
+- **Hardcoded contact details:** Phone `+33 1 62 17 11 11`, WhatsApp `wa.me/33651883151`,
+  address `138 Boulevard Haussmann 75008 Paris`, and ORIAS `25002995` are duplicated across
+  multiple page/component files with no shared constants. Use `grep -rn` to find all occurrences
+  before changing any of these.
 - **Adding a new page is a multi-file change.** A new route must be wired in **all** of:
   1. create `src/pages/XxxPage.tsx` (include a `<Helmet>` block),
   2. add the `<Route>` in `src/App.tsx`,
   3. add the nav entry in `src/components/Header.tsx` (`menuItems` / `staticLinks`),
   4. add the `<url>` entry in `public/sitemap.xml` (it is **static**, not generated).
 - **SEO is split:** global defaults + Organization JSON-LD live in `index.html`; per-page
-  overrides live in each page's `<Helmet>`. Keep canonical URLs pointing at
-  `https://lesassureursexperts.fr/...`.
-- **Deployment is out of scope** (the user handles it). FYI only: `public/_redirects`
-  (`/*  /index.html  200`) is the SPA client-routing fallback — don't delete it, but don't
-  manage hosting/deploy config.
-- **Dismissable UI uses web storage:** `InternalReviewBanner`/popups persist dismissal via
-  `localStorage`/`sessionStorage` (e.g. `reviewBannerHidden`, `popupClosed`).
+  overrides live in each page's `<Helmet>`. Keep canonical URLs pointing at the **non-www apex**
+  `https://lesassureursexperts.fr/...` (this matches the primary domain on Vercel).
+- **SPA routing fallback is `vercel.json`** (root): rewrites all paths to `/index.html` so deep
+  routes (e.g. `/mutuelle-sante`) resolve on reload. Don't delete it. Deployment/hosting config
+  itself is owned by the user.
+- **Dismissable UI uses web storage:** `CookieConsent` persists via `localStorage` (13-month
+  CNIL expiry); `ExitIntentPopup` uses `sessionStorage` key `popupClosed` (clears on tab close);
+  `InternalReviewBanner` uses `localStorage` key `reviewBannerHidden`.
 - Header links to `/espace-assure`, which has **no matching route** in `App.tsx` — it's a
   placeholder; don't assume every nav link resolves.

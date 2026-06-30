@@ -94,6 +94,15 @@ const CookieConsent: React.FC = () => {
     }
   }, []);
 
+  const updateGtagConsent = (analytics: boolean, marketing: boolean) => {
+    if (typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', {
+        analytics_storage: analytics ? 'granted' : 'denied',
+        ad_storage: marketing ? 'granted' : 'denied',
+      });
+    }
+  };
+
   const acceptAll = () => {
     localStorage.setItem('cookieConsent', JSON.stringify({
       necessary: true,
@@ -101,6 +110,7 @@ const CookieConsent: React.FC = () => {
       marketing: true,
       timestamp: new Date().toISOString()
     }));
+    updateGtagConsent(true, true);
     setIsVisible(false);
   };
 
@@ -111,6 +121,7 @@ const CookieConsent: React.FC = () => {
       marketing: false,
       timestamp: new Date().toISOString()
     }));
+    updateGtagConsent(false, false);
     setIsVisible(false);
   };
 
@@ -119,6 +130,7 @@ const CookieConsent: React.FC = () => {
       ...preferences,
       timestamp: new Date().toISOString()
     }));
+    updateGtagConsent(preferences.analytics, preferences.marketing);
     setIsVisible(false);
   };
 
