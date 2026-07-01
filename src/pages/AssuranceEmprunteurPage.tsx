@@ -2,6 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Home, CheckCircle, Calculator, Phone, ArrowRight, ChevronRight, Shield } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import ProductLeadForm from '../components/ProductLeadForm';
+import FaqSection, { FaqItem } from '../components/FaqSection';
+import BreadcrumbJsonLd from '../components/BreadcrumbJsonLd';
+
+const faqItems: FaqItem[] = [
+  { q: "Suis-je obligé de prendre l'assurance de ma banque ?", a: "Non. La loi vous autorise à choisir librement votre assurance emprunteur (délégation d'assurance), dès lors que les garanties sont au moins équivalentes à celles exigées par la banque." },
+  { q: "Qu'est-ce que la loi Lemoine change ?", a: "Depuis 2022, la loi Lemoine permet de changer d'assurance emprunteur à tout moment et sans frais, et supprime le questionnaire médical pour de nombreux prêts. C'est l'occasion d'économiser plusieurs milliers d'euros." },
+  { q: "Combien puis-je économiser en changeant d'assurance de prêt ?", a: "Les économies dépendent de votre profil et du capital restant dû, mais atteignent fréquemment plusieurs milliers d'euros sur la durée du prêt, surtout pour les emprunteurs jeunes et non-fumeurs." },
+  { q: "Le changement va-t-il retarder mon crédit ?", a: "Non. Nous gérons les démarches avec votre banque et l'envoi de la demande de substitution. Votre prêt n'est pas impacté." },
+  { q: "Quelles garanties sont exigées (décès, PTIA, ITT…) ?", a: "La banque impose un niveau de garanties (décès, PTIA, et souvent ITT/IPT/IPP). Nous vérifions l'équivalence des garanties pour que votre dossier soit accepté." },
+];
 
 const AssuranceEmprunteurPage: React.FC = () => {
   const coverageItems = [
@@ -36,6 +47,7 @@ const AssuranceEmprunteurPage: React.FC = () => {
         <meta name="description" content="Changez d'assurance de prêt immobilier grâce à la loi Lemoine et économisez jusqu'à 15 000 €. Garanties équivalentes, devis gratuit, courtier ORIAS agréé." />
         <link rel="canonical" href="https://lesassureursexperts.fr/assurance-emprunteur" />
       </Helmet>
+      <BreadcrumbJsonLd name="Assurance emprunteur" slug="assurance-emprunteur" />
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
@@ -213,6 +225,8 @@ const AssuranceEmprunteurPage: React.FC = () => {
                 ))}
               </div>
             </section>
+            {/* FAQ */}
+            <FaqSection items={faqItems} title="Assurance emprunteur : vos questions fréquentes" />
           </div>
 
           {/* Sidebar */}
@@ -228,70 +242,7 @@ const AssuranceEmprunteurPage: React.FC = () => {
                 Obtenez votre simulation personnalisée en 2 minutes.
               </p>
               
-              <form
-                action="https://formspree.io/f/mblnydqy"
-                method="POST"
-                className="space-y-4"
-              >
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="Prénom et Nom"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Téléphone"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-                <input
-                  type="number"
-                  name="loanAmount"
-                  placeholder="Montant du prêt (€)"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                />
-                <select 
-                  name="insuranceType"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="assurance-emprunteur">Assurance emprunteur</option>
-                </select>
-                
-                <div className="flex items-start gap-3">
-                  <input 
-                    type="checkbox" 
-                    id="consent" 
-                    name="consent"
-                    className="w-5 h-5 text-blue-600 mt-0.5" 
-                    required 
-                  />
-                  <label htmlFor="consent" className="text-sm text-gray-600">
-                    J'accepte d'être contacté par Les Assureurs Experts. Mes données restent confidentielles.
-                  </label>
-                </div>
-                
-                <button
-                  type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2"
-                >
-                  <Calculator className="w-5 h-5" />
-                  Calculer mes économies
-                </button>
-                
-                <p className="text-center text-sm text-gray-500">
-                  100% gratuit et sans engagement
-                </p>
-              </form>
+              <ProductLeadForm insuranceType="assurance-emprunteur" insuranceLabel="Assurance emprunteur" submitLabel="Calculer mes économies" />
             </div>
 
             {/* Related Links */}

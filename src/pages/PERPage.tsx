@@ -1,7 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PiggyBank, CheckCircle, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
+import { PiggyBank, CheckCircle, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import ProductLeadForm from '../components/ProductLeadForm';
+import FaqSection, { FaqItem } from '../components/FaqSection';
+import BreadcrumbJsonLd from '../components/BreadcrumbJsonLd';
+
+const faqItems: FaqItem[] = [
+  { q: "Qu'est-ce que le PER et à quoi sert-il ?", a: "Le Plan d'Épargne Retraite est un produit d'épargne long terme qui permet de se constituer un complément de revenu pour la retraite, tout en réduisant son impôt sur le revenu pendant la phase d'épargne." },
+  { q: "Combien puis-je déduire de mes impôts avec un PER ?", a: "Les versements sont déductibles du revenu imposable dans la limite d'un plafond annuel lié à vos revenus. L'économie dépend de votre tranche marginale d'imposition ; nous réalisons une simulation personnalisée." },
+  { q: "Puis-je récupérer mon argent avant la retraite ?", a: "Le PER est en principe bloqué jusqu'à la retraite, sauf cas de déblocage anticipé prévus par la loi (achat de la résidence principale, accidents de la vie…)." },
+  { q: "Capital ou rente : que choisir à la sortie ?", a: "À la retraite, vous pouvez choisir une sortie en capital, en rente viagère, ou un mix des deux. Le choix dépend de vos objectifs ; un conseiller vous accompagne." },
+  { q: "Le PER est-il adapté si je suis indépendant (TNS) ?", a: "Oui, le PER est particulièrement intéressant pour les TNS et les contribuables fortement imposés, grâce à la déductibilité des versements. Demandez une étude personnalisée." },
+];
 
 const PERPage: React.FC = () => {
   const coverageItems = [
@@ -42,6 +53,7 @@ const PERPage: React.FC = () => {
         <meta name="description" content="Préparez votre retraite en réduisant vos impôts : déduction jusqu'à 10 % des revenus, sortie en capital ou rente. Comparez les meilleurs PER avec un expert." />
         <link rel="canonical" href="https://lesassureursexperts.fr/per" />
       </Helmet>
+      <BreadcrumbJsonLd name="PER (Plan Épargne Retraite)" slug="per" />
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
@@ -224,6 +236,8 @@ const PERPage: React.FC = () => {
                 ))}
               </div>
             </section>
+            {/* FAQ */}
+            <FaqSection items={faqItems} title="PER : vos questions fréquentes" />
           </div>
 
           {/* Sidebar */}
@@ -239,66 +253,7 @@ const PERPage: React.FC = () => {
                 Calculez vos économies d'impôt en 2 minutes.
               </p>
               
-              <form
-                action="https://formspree.io/f/mblnydqy"
-                method="POST"
-                className="space-y-4"
-              >
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="Prénom et Nom"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500"
-                  required
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Téléphone"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500"
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500"
-                  required
-                />
-                <input
-                  type="number"
-                  name="annualIncome"
-                  placeholder="Revenus annuels (€)"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500"
-                />
-                <select 
-                  name="insuranceType"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500"
-                >
-                  <option value="per">Plan Épargne Retraite (PER)</option>
-                </select>
-                
-                <div className="flex items-start gap-3">
-                  <input 
-                    type="checkbox" 
-                    id="consent" 
-                    name="consent"
-                    className="w-5 h-5 text-amber-500 mt-0.5" 
-                    required 
-                  />
-                  <label htmlFor="consent" className="text-sm text-gray-600">
-                    J'accepte d'être contacté par Les Assureurs Experts.
-                  </label>
-                </div>
-                
-                <button
-                  type="submit"
-                  className="w-full bg-amber-600 hover:bg-amber-700 text-white py-4 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2"
-                >
-                  <Calculator className="w-5 h-5" />
-                  Calculer mes économies
-                </button>
-              </form>
+              <ProductLeadForm insuranceType="per" insuranceLabel="Plan Épargne Retraite (PER)" submitLabel="Calculer mes économies" />
             </div>
 
             {/* Related Links */}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Heart, Shield, Car, Bike, Plane, Anchor, ArrowRight, PiggyBank, Briefcase, HardHat, Users, Flower2, CheckCircle, Lock } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { submitLead, trackLeadConversion } from '../utils/lead';
 
 const insuranceTypes = [
   { name: 'Mutuelle santé', icon: <Heart className="w-8 h-8" />, color: 'from-red-400 to-pink-500', bgColor: 'bg-red-50', hoverColor: 'hover:bg-red-100', path: '/mutuelle-sante' },
@@ -29,6 +30,7 @@ interface LeadFormData {
   code_postal: string;
   date_naissance: string;
   message: string;
+  consent: boolean;
 }
 
 const INITIAL_FORM: LeadFormData = {
@@ -42,6 +44,7 @@ const INITIAL_FORM: LeadFormData = {
   code_postal: '',
   date_naissance: '',
   message: '',
+  consent: false,
 };
 
 interface FormErrors {
@@ -50,6 +53,7 @@ interface FormErrors {
   prenom?: string;
   email?: string;
   telephone?: string;
+  consent?: string;
 }
 
 const InsuranceSection: React.FC = () => {
@@ -67,6 +71,7 @@ const InsuranceSection: React.FC = () => {
       next.email = 'Adresse email invalide.';
     if (!formData.telephone.trim() || !/^(\+33|0033|0)[1-9](\d{8})$/.test(formData.telephone.replace(/\s/g, '')))
       next.telephone = 'Format France invalide (ex: 06 12 34 56 78).';
+    if (!formData.consent) next.consent = "Veuillez accepter d'être recontacté.";
     setErrors(next);
     return Object.keys(next).length === 0;
   };
@@ -81,21 +86,13 @@ const InsuranceSection: React.FC = () => {
     e.preventDefault();
     if (!validate()) return;
     setIsLoading(true);
-    try {
-      const response = await fetch('https://formspree.io/f/mblnydqy', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(formData),
-      });
-      if (response.ok) {
-        setIsSubmitted(true);
-      } else {
-        alert("Erreur lors de l'envoi. Veuillez réessayer.");
-      }
-    } catch {
+    const ok = await submitLead({ ...formData, _subject: `Nouvelle demande — ${formData.besoin}` });
+    setIsLoading(false);
+    if (ok) {
+      trackLeadConversion({ formLocation: 'home_section', insuranceType: formData.besoin });
+      setIsSubmitted(true);
+    } else {
       alert("Erreur lors de l'envoi. Veuillez réessayer.");
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -304,6 +301,30 @@ const InsuranceSection: React.FC = () => {
             />
           </div>
 
+          {/* Consentement RGPD */}
+          <div>
+            <label className="flex items-start gap-2.5 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                name="consent"
+                checked={formData.consent}
+                onChange={(e) => {
+                  setFormData((prev) => ({ ...prev, consent: e.target.checked }));
+                  setErrors((prev) => ({ ...prev, consent: undefined }));
+                }}
+                className="mt-0.5 w-4 h-4 rounded border-gray-300 text-[#002D62] focus:ring-[#002D62]"
+              />
+              <span className="text-xs text-gray-600 leading-relaxed">
+                J'accepte d'être recontacté par Les Assureurs Experts au sujet de ma demande.{' '}
+                <Link to="/politique-confidentialite" className="underline hover:text-[#002D62]">
+                  Politique de confidentialité
+                </Link>
+                .
+              </span>
+            </label>
+            {errors.consent && <p className="text-red-500 text-xs mt-1">{errors.consent}</p>}
+          </div>
+
           {/* CTA */}
           <button
             type="submit"
@@ -398,7 +419,7 @@ const InsuranceSection: React.FC = () => {
                         onClick={(e) => e.stopPropagation()}
                         className="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-slate-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 shadow-md hover:shadow-lg"
                       >
-                        Obtenir un tarif
+                        Devis gratuit
                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </motion.div>

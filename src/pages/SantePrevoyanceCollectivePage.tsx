@@ -2,6 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Users, CheckCircle, Calculator, Phone, ArrowRight, Home, ChevronRight, Shield, Building2, HeartPulse } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import FaqSection, { FaqItem } from '../components/FaqSection';
+import BreadcrumbJsonLd from '../components/BreadcrumbJsonLd';
+
+const faqItems: FaqItem[] = [
+  { q: "Qu'est-ce qu'une mutuelle d'entreprise obligatoire ?", a: "Depuis 2016, tout employeur du secteur privé doit proposer une complémentaire santé collective à ses salariés et financer au moins 50 % de la cotisation. Nous vous aidons à choisir un contrat conforme et compétitif." },
+  { q: "Quelle différence entre santé et prévoyance collective ?", a: "La santé collective rembourse les frais de soins des salariés. La prévoyance collective les protège en cas d'arrêt de travail, d'invalidité ou de décès. Les deux peuvent être mises en place ensemble." },
+  { q: "La prévoyance est-elle obligatoire pour les salariés ?", a: "La prévoyance est obligatoire pour les cadres (convention de 1947 / ANI). Pour les non-cadres, elle dépend de la convention collective applicable. Nous vérifions vos obligations." },
+  { q: "Quels avantages fiscaux et sociaux pour l'entreprise ?", a: "Les cotisations patronales bénéficient, sous conditions, d'exonérations sociales et fiscales. C'est un levier d'attractivité RH tout en optimisant les charges. Un conseiller vous accompagne." },
+  { q: "Comment mettre en place un contrat collectif ?", a: "Via une décision unilatérale de l'employeur (DUE), un accord de branche ou un accord d'entreprise. Nous gérons la conformité, la comparaison des assureurs et la mise en place." },
+];
 
 const SantePrevoyanceCollectivePage: React.FC = () => {
   const coverageItems = [
@@ -47,9 +57,9 @@ const SantePrevoyanceCollectivePage: React.FC = () => {
       <Helmet>
         <title>Santé & Prévoyance Collective Entreprise | Mutuelle Obligatoire | Les Assureurs Experts</title>
         <meta name="description" content="Mutuelle entreprise obligatoire et prévoyance collective. Protection des salariés, respect des obligations légales, avantages fiscaux. Devis personnalisé." />
-        <meta name="keywords" content="mutuelle entreprise, prévoyance collective, santé collective, assurance groupe, mutuelle obligatoire, prévoyance salariés" />
         <link rel="canonical" href="https://lesassureursexperts.fr/sante-prevoyance-collective" />
       </Helmet>
+      <BreadcrumbJsonLd name="Santé & Prévoyance Collective" slug="sante-prevoyance-collective" />
 
     <div className="min-h-screen bg-gray-50">
       <div className="bg-white border-b">
@@ -187,6 +197,9 @@ const SantePrevoyanceCollectivePage: React.FC = () => {
                 ))}
               </div>
             </section>
+
+            {/* FAQ */}
+            <FaqSection items={faqItems} title="Santé & prévoyance collective : vos questions fréquentes" />
           </div>
 
           <div className="lg:col-span-1 space-y-6">

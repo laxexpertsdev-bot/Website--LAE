@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check, Phone } from 'lucide-react';
+import { ArrowRight, Check, Phone, Users, ShieldCheck, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const HeroBanner: React.FC = () => {
@@ -56,7 +56,8 @@ const HeroBanner: React.FC = () => {
               </h1>
               
               <p className="text-xl text-slate-600 leading-relaxed">
-                Les Assureurs Experts, un nouveau cabinet de courtage digital à votre écoute 7j/7.
+                Cabinet de courtage indépendant : nous comparons les offres de plus de 20 assureurs
+                partenaires pour vous trouver la meilleure couverture au juste prix.
               </p>
             </div>
 
@@ -96,6 +97,27 @@ const HeroBanner: React.FC = () => {
                 Obtenir mon devis gratuit
                 <ArrowRight className="w-5 h-5" />
               </Link>
+            </motion.div>
+
+            {/* Barre de confiance */}
+            <motion.div
+              className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-4 border-t border-slate-200"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+            >
+              <span className="flex items-center gap-2 text-sm text-slate-600">
+                <Users className="w-5 h-5 text-blue-700 flex-shrink-0" />
+                <span><strong className="text-slate-900">+ de 2 500</strong> clients accompagnés</span>
+              </span>
+              <span className="flex items-center gap-2 text-sm text-slate-600">
+                <ShieldCheck className="w-5 h-5 text-blue-700 flex-shrink-0" />
+                <span>Courtier agréé <strong className="text-slate-900">ORIAS 25002995</strong></span>
+              </span>
+              <span className="flex items-center gap-2 text-sm text-slate-600">
+                <Clock className="w-5 h-5 text-blue-700 flex-shrink-0" />
+                <span>Réponse sous 24h</span>
+              </span>
             </motion.div>
           </motion.div>
 
@@ -155,7 +177,7 @@ const HeroBanner: React.FC = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-slate-900">Conseiller dédié</p>
-                    <p className="text-sm text-slate-600">Disponible 7j/7</p>
+                    <p className="text-sm text-slate-600">Du lundi au samedi</p>
                   </div>
                 </div>
               </motion.div>

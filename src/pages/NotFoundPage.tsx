@@ -39,7 +39,7 @@ export default function NotFoundPage() {
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold border-2 transition-colors hover:bg-gray-50"
               style={{ borderColor: '#002D62', color: '#002D62' }}
             >
-              <FileText className="w-5 h-5" /> Obtenir un tarif
+              <FileText className="w-5 h-5" /> Devis gratuit
             </Link>
           </div>
         </div>

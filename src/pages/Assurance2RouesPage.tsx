@@ -2,6 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Bike, CheckCircle, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import ProductLeadForm from '../components/ProductLeadForm';
+import FaqSection, { FaqItem } from '../components/FaqSection';
+import BreadcrumbJsonLd from '../components/BreadcrumbJsonLd';
+
+const faqItems: FaqItem[] = [
+  { q: "Le permis est-il obligatoire pour assurer un 2 roues ?", a: "Pour un scooter 50 cm³, le BSR / permis AM suffit. Au-delà, le permis correspondant (A1, A2 ou A) est requis. Nous adaptons l'offre à votre situation." },
+  { q: "Mon équipement (casque, blouson) est-il couvert ?", a: "Certaines formules incluent une garantie « équipement du pilote ». Nous vous indiquons les contrats qui couvrent casque et vêtements de protection." },
+  { q: "Puis-je n'assurer ma moto qu'au tiers ?", a: "Oui, la responsabilité civile (au tiers) est le minimum légal. Vous pouvez ajouter vol, incendie et dommages selon la valeur de votre véhicule." },
+  { q: "Existe-t-il une formule hivernage / petit rouleur ?", a: "Oui. Des formules adaptées réduisent la cotisation lorsque la moto roule peu ou est remisée l'hiver. Demandez-nous une simulation." },
+  { q: "Les jeunes conducteurs 2 roues sont-ils acceptés ?", a: "Oui. Nous comparons les assureurs acceptant les jeunes conducteurs et les profils récents, avec des tarifs adaptés." },
+];
 
 const Assurance2RouesPage: React.FC = () => {
   const coverageItems = [
@@ -42,6 +53,7 @@ const Assurance2RouesPage: React.FC = () => {
         <meta name="description" content="Assurez votre moto, scooter ou 125 au meilleur prix : responsabilité civile, vol, équipements. Devis 2 roues gratuit sous 24h, courtier ORIAS agréé." />
         <link rel="canonical" href="https://lesassureursexperts.fr/assurance-2-roues" />
       </Helmet>
+      <BreadcrumbJsonLd name="Assurance 2 roues" slug="assurance-2-roues" />
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
@@ -186,6 +198,8 @@ const Assurance2RouesPage: React.FC = () => {
                 ))}
               </div>
             </section>
+            {/* FAQ */}
+            <FaqSection items={faqItems} title="Assurance 2 roues : vos questions fréquentes" />
           </div>
 
           {/* Sidebar */}
@@ -201,60 +215,7 @@ const Assurance2RouesPage: React.FC = () => {
                 Obtenez votre tarif en 2 minutes.
               </p>
               
-              <form
-                action="https://formspree.io/f/mblnydqy"
-                method="POST"
-                className="space-y-4"
-              >
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="Prénom et Nom"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                  required
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Téléphone"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                  required
-                />
-                <select 
-                  name="insuranceType"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                >
-                  <option value="assurance-2-roues">Assurance 2 roues</option>
-                </select>
-                
-                <div className="flex items-start gap-3">
-                  <input 
-                    type="checkbox" 
-                    id="consent" 
-                    name="consent"
-                    className="w-5 h-5 text-green-500 mt-0.5" 
-                    required 
-                  />
-                  <label htmlFor="consent" className="text-sm text-gray-600">
-                    J'accepte d'être contacté par Les Assureurs Experts.
-                  </label>
-                </div>
-                
-                <button
-                  type="submit"
-                  className="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2"
-                >
-                  <Phone className="w-5 h-5" />
-                  Obtenir mon devis
-                </button>
-              </form>
+              <ProductLeadForm insuranceType="assurance-2-roues" insuranceLabel="Assurance 2 roues" />
             </div>
 
             {/* Related Links */}

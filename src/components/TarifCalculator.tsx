@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Calculator, TrendingDown, CheckCircle, Info, Phone } from 'lucide-react';
+import { submitLead, trackLeadConversion } from '../utils/lead';
 
 const TarifCalculator: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -20,8 +22,12 @@ const TarifCalculator: React.FC = () => {
   const [leadForm, setLeadForm] = useState({
     prenom: '',
     telephone: '',
-    email: ''
+    email: '',
+    consent: false
   });
+  const [leadLoading, setLeadLoading] = useState(false);
+  const [leadSubmitted, setLeadSubmitted] = useState(false);
+  const [leadError, setLeadError] = useState(false);
   // ⚠️ Valeurs provisoires (€/mois) à valider/ajuster avec de vraies données marché.
   const moyennes = {
     sante: { salarie: 45, tns: 55, retraite: 80, etudiant: 22 },
@@ -48,6 +54,31 @@ const TarifCalculator: React.FC = () => {
   const handleLeadInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setLeadForm(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleLeadSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (leadLoading || !leadForm.consent) return;
+    setLeadError(false);
+    setLeadLoading(true);
+    const ok = await submitLead({
+      firstName: leadForm.prenom,
+      phone: leadForm.telephone,
+      email: leadForm.email,
+      type: formData.type,
+      age: formData.age,
+      statut: formData.statut,
+      cotisation: formData.cotisation,
+      _subject: `Simulation tarif — ${formData.type}`,
+      message: `Demande simulation - Type: ${formData.type}, Âge: ${formData.age}, Statut: ${formData.statut}, Cotisation: ${formData.cotisation}€/mois`,
+    });
+    setLeadLoading(false);
+    if (ok) {
+      trackLeadConversion({ formLocation: 'tarif_calculator', insuranceType: formData.type });
+      setLeadSubmitted(true);
+    } else {
+      setLeadError(true);
+    }
   };
 
   const calcTarif = (e: React.FormEvent) => {
@@ -236,17 +267,18 @@ const TarifCalculator: React.FC = () => {
                 Souhaitez-vous recevoir une étude personnalisée gratuite ? Laissez-nous vos coordonnées :
               </p>
 
-              <form
-                action="https://formspree.io/f/mblnydqy"
-                method="POST"
-                className="space-y-4 max-w-md"
-              >
-                <input type="hidden" name="type" value={formData.type} />
-                <input type="hidden" name="age" value={formData.age} />
-                <input type="hidden" name="statut" value={formData.statut} />
-                <input type="hidden" name="cotisation" value={formData.cotisation} />
-                <input type="hidden" name="message" value={`Demande simulation - Type: ${formData.type}, Âge: ${formData.age}, Statut: ${formData.statut}, Cotisation: ${formData.cotisation}€/mois`} />
-                
+              {leadSubmitted ? (
+                <div className="text-center py-6 bg-green-50 border border-green-200 rounded-lg">
+                  <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-3">
+                    <CheckCircle className="w-7 h-7 text-green-600" />
+                  </div>
+                  <p className="font-semibold text-gray-900">Demande envoyée !</p>
+                  <p className="text-sm text-gray-600 mt-1">
+                    Un conseiller vous recontacte sous 24h avec votre étude personnalisée.
+                  </p>
+                </div>
+              ) : (
+              <form onSubmit={handleLeadSubmit} className="space-y-4 max-w-md">
                 <input
                   type="text"
                   name="firstName"
@@ -274,14 +306,46 @@ const TarifCalculator: React.FC = () => {
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
                 />
+                <label className="flex items-start gap-2.5 cursor-pointer select-none">
+                  <input
+                    type="checkbox"
+                    checked={leadForm.consent}
+                    onChange={(e) => setLeadForm((prev) => ({ ...prev, consent: e.target.checked }))}
+                    required
+                    className="mt-0.5 w-4 h-4 rounded border-gray-300 text-green-600 focus:ring-green-500"
+                  />
+                  <span className="text-xs text-gray-600 leading-relaxed">
+                    J'accepte d'être recontacté par Les Assureurs Experts.{' '}
+                    <Link to="/politique-confidentialite" className="underline hover:text-green-700">
+                      Politique de confidentialité
+                    </Link>
+                    .
+                  </span>
+                </label>
+                {leadError && (
+                  <p className="text-sm text-red-600">
+                    Erreur lors de l'envoi. Réessayez ou appelez le 01 62 17 11 11.
+                  </p>
+                )}
                 <button
                   type="submit"
-                  className="w-full bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-3 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+                  disabled={leadLoading}
+                  className="w-full bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-3 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  <Phone className="w-5 h-5" />
-                  Recevoir ma simulation gratuite
+                  {leadLoading ? (
+                    <>
+                      <span className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                      Envoi en cours...
+                    </>
+                  ) : (
+                    <>
+                      <Phone className="w-5 h-5" />
+                      Recevoir ma simulation gratuite
+                    </>
+                  )}
                 </button>
               </form>
+              )}
 
               <p className="text-xs text-gray-500 mt-4">
                 🔒 Vos données sont protégées et ne seront jamais revendues

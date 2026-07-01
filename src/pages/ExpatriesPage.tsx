@@ -2,6 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Plane, CheckCircle, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import ProductLeadForm from '../components/ProductLeadForm';
+import FaqSection, { FaqItem } from '../components/FaqSection';
+import BreadcrumbJsonLd from '../components/BreadcrumbJsonLd';
+
+const faqItems: FaqItem[] = [
+  { q: "Qu'est-ce qu'une assurance santé expatrié ?", a: "C'est une couverture santé internationale adaptée aux personnes vivant ou travaillant à l'étranger, en complément ou en remplacement de la CFE, avec prise en charge des soins dans le pays de résidence." },
+  { q: "Quelle différence entre la CFE et une assurance privée ?", a: "La CFE (Caisse des Français de l'Étranger) maintient un socle de remboursements sur la base française. Une assurance privée complète ces remboursements au réel, souvent indispensable dans les pays à coûts médicaux élevés." },
+  { q: "Suis-je couvert dans le monde entier ?", a: "Selon le contrat, la couverture peut être mondiale ou exclure certains pays (USA/Canada souvent en option). Nous vérifions la zone de couverture selon votre pays d'expatriation." },
+  { q: "Puis-je être assuré sans questionnaire médical ?", a: "Cela dépend du contrat et de l'âge. Certaines offres limitent la sélection médicale. Nous vous orientons vers les solutions adaptées à votre profil." },
+  { q: "L'assurance couvre-t-elle le rapatriement ?", a: "La plupart des formules expatriés incluent l'assistance rapatriement. Nous vous indiquons les garanties d'assistance et leurs plafonds avant souscription." },
+];
 
 const ExpatriesPage: React.FC = () => {
   const coverageItems = [
@@ -42,6 +53,7 @@ const ExpatriesPage: React.FC = () => {
         <meta name="description" content="Assurance santé internationale pour expatriés, étudiants et digital nomads : hospitalisation, maternité, évacuation. Couverture dans plus de 150 pays." />
         <link rel="canonical" href="https://lesassureursexperts.fr/expatries" />
       </Helmet>
+      <BreadcrumbJsonLd name="Assurance expatriés" slug="expatries" />
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
@@ -251,6 +263,8 @@ const ExpatriesPage: React.FC = () => {
                 ))}
               </div>
             </section>
+            {/* FAQ */}
+            <FaqSection items={faqItems} title="Assurance expatriés : vos questions fréquentes" />
           </div>
 
           {/* Sidebar */}
@@ -266,60 +280,7 @@ const ExpatriesPage: React.FC = () => {
                 Obtenez votre tarif en 2 minutes.
               </p>
               
-              <form
-                action="https://formspree.io/f/mblnydqy"
-                method="POST"
-                className="space-y-4"
-              >
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="Prénom et Nom"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
-                  required
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Téléphone"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
-                  required
-                />
-                <select 
-                  name="insuranceType"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
-                >
-                  <option value="expatries">Assurance expatriés</option>
-                </select>
-                
-                <div className="flex items-start gap-3">
-                  <input 
-                    type="checkbox" 
-                    id="consent" 
-                    name="consent"
-                    className="w-5 h-5 text-purple-500 mt-0.5" 
-                    required 
-                  />
-                  <label htmlFor="consent" className="text-sm text-gray-600">
-                    J'accepte d'être contacté par Les Assureurs Experts.
-                  </label>
-                </div>
-                
-                <button
-                  type="submit"
-                  className="w-full bg-purple-600 hover:bg-purple-700 text-white py-4 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2"
-                >
-                  <Phone className="w-5 h-5" />
-                  Obtenir mon devis
-                </button>
-              </form>
+              <ProductLeadForm insuranceType="expatries" insuranceLabel="Assurance expatriés" />
             </div>
 
             {/* Related Links */}

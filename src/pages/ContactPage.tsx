@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, MessageCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { MapPin, Phone, Mail, Clock, Send, MessageCircle, CheckCircle } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { submitLead, trackLeadConversion } from '../utils/lead';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -9,8 +11,27 @@ const ContactPage: React.FC = () => {
     email: '',
     phone: '',
     subject: '',
-    message: ''
+    message: '',
+    consent: false
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isLoading || !formData.consent) return;
+    setSubmitError(false);
+    setIsLoading(true);
+    const ok = await submitLead({ ...formData, _subject: `Contact — ${formData.subject || 'message'}` });
+    setIsLoading(false);
+    if (ok) {
+      trackLeadConversion({ formLocation: 'contact', insuranceType: formData.subject });
+      setIsSubmitted(true);
+    } else {
+      setSubmitError(true);
+    }
+  };
 
   return (
     <>
@@ -132,12 +153,19 @@ const ContactPage: React.FC = () => {
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
               Envoyez-nous un message
             </h2>
-            
-            <form
-              action="https://formspree.io/f/mblnydqy"
-              method="POST"
-              className="space-y-6"
-            >
+
+            {isSubmitted ? (
+              <div className="text-center py-12">
+                <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="w-8 h-8 text-green-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Message envoyé !</h3>
+                <p className="text-gray-600">
+                  Merci {formData.firstName}. Notre équipe vous répond dans les meilleurs délais.
+                </p>
+              </div>
+            ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -228,14 +256,48 @@ const ContactPage: React.FC = () => {
                 ></textarea>
               </div>
 
+              <label className="flex items-start gap-3 cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  checked={formData.consent}
+                  onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
+                  required
+                  className="mt-1 w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                />
+                <span className="text-sm text-gray-600 leading-relaxed">
+                  J'accepte que mes données soient utilisées pour traiter ma demande.{' '}
+                  <Link to="/politique-confidentialite" className="text-blue-600 underline hover:text-blue-700">
+                    Politique de confidentialité
+                  </Link>
+                  .
+                </span>
+              </label>
+
+              {submitError && (
+                <p className="text-sm text-red-600">
+                  Une erreur est survenue. Réessayez ou appelez le 01 62 17 11 11.
+                </p>
+              )}
+
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center gap-3"
+                disabled={isLoading}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center gap-3 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
-                <Send className="w-5 h-5" />
-                Envoyer le message
+                {isLoading ? (
+                  <>
+                    <span className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                    Envoi en cours...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5" />
+                    Envoyer le message
+                  </>
+                )}
               </button>
             </form>
+            )}
 
             <p className="text-sm text-gray-500 text-center mt-6">
               🔒 Vos données personnelles sont protégées conformément au RGPD

@@ -2,8 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Car, CheckCircle, Calculator, Phone, ArrowRight, Home, ChevronRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import ProductLeadForm from '../components/ProductLeadForm';
+import FaqSection, { FaqItem } from '../components/FaqSection';
+import BreadcrumbJsonLd from '../components/BreadcrumbJsonLd';
 
 const AssuranceAutoPage: React.FC = () => {
+  const faqItems: FaqItem[] = [
+    { q: "Quels documents pour assurer ma voiture ?", a: "Votre permis de conduire, la carte grise du véhicule et votre relevé d'information (bonus-malus) de votre assureur précédent. Nous nous occupons du reste." },
+    { q: "Puis-je assurer un jeune conducteur sans surcoût excessif ?", a: "Oui. Nous comparons les assureurs qui proposent des tarifs adaptés aux jeunes conducteurs et à la conduite accompagnée, pour limiter la surprime." },
+    { q: "Quelle différence entre au tiers et tous risques ?", a: "L'assurance au tiers couvre les dommages causés à autrui (responsabilité civile, obligatoire). La formule tous risques couvre aussi vos propres dommages, même en cas d'accident responsable." },
+    { q: "Combien de temps pour être assuré et recevoir ma carte verte ?", a: "Une fois votre devis validé, l'attestation provisoire peut être émise le jour même. La carte verte définitive vous est ensuite transmise par l'assureur." },
+    { q: "Puis-je changer d'assurance auto en cours d'année ?", a: "Oui. Grâce à la loi Hamon, vous pouvez résilier votre contrat à tout moment après un an d'engagement, et nous gérons les démarches de résiliation pour vous." },
+  ];
   const coverageItems = [
     "Responsabilité civile (obligatoire)",
     "Dommages tous accidents",
@@ -40,10 +50,10 @@ const AssuranceAutoPage: React.FC = () => {
       <Helmet>
         <title>Devis Assurance Auto Expert et Rapide | Les Assureurs Experts</title>
         <meta name="description" content="Obtenez votre devis assurance auto personnalisé en 2 minutes. Courtier ORIAS, tarifs négociés, jeunes conducteurs acceptés. Économisez jusqu'à 30% !" />
-        <meta name="keywords" content="devis assurance auto, assurance voiture, courtier auto, comparateur assurance auto, jeunes conducteurs" />
         <link rel="canonical" href="https://lesassureursexperts.fr/assurance-auto" />
       </Helmet>
-      
+      <BreadcrumbJsonLd name="Assurance auto" slug="assurance-auto" />
+
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
@@ -188,6 +198,9 @@ const AssuranceAutoPage: React.FC = () => {
                 ))}
               </div>
             </section>
+
+            {/* FAQ */}
+            <FaqSection items={faqItems} title="Assurance auto : vos questions fréquentes" />
           </div>
 
           {/* Sidebar */}
@@ -203,60 +216,7 @@ const AssuranceAutoPage: React.FC = () => {
                 Obtenez votre tarif personnalisé en 2 minutes.
               </p>
               
-              <form
-                action="https://formspree.io/f/mblnydqy"
-                method="POST"
-                className="space-y-4"
-              >
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="Prénom et Nom"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
-                  required
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Téléphone"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
-                  required
-                />
-                <select 
-                  name="insuranceType"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
-                >
-                  <option value="assurance-auto">Assurance auto</option>
-                </select>
-                
-                <div className="flex items-start gap-3">
-                  <input 
-                    type="checkbox" 
-                    id="consent" 
-                    name="consent"
-                    className="w-5 h-5 text-orange-500 mt-0.5" 
-                    required 
-                  />
-                  <label htmlFor="consent" className="text-sm text-gray-600">
-                    J'accepte d'être contacté par Les Assureurs Experts.
-                  </label>
-                </div>
-                
-                <button
-                  type="submit"
-                  className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2"
-                >
-                  <Phone className="w-5 h-5" />
-                  Obtenir mon devis
-                </button>
-              </form>
+              <ProductLeadForm insuranceType="assurance-auto" insuranceLabel="Assurance auto" />
             </div>
 
             {/* Related Links */}
