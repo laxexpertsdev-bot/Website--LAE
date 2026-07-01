@@ -2,23 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Home, ChevronRight, Cookie, Settings } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { saveCookieConsent } from '../utils/cookieConsent';
 
 const GestionCookiesPage: React.FC = () => {
   const handleAcceptAll = () => {
-    localStorage.setItem('cookieConsent', JSON.stringify({
+    saveCookieConsent({
       necessary: true,
       analytics: true,
       marketing: true
-    }));
+    });
     alert('Préférences enregistrées : tous les cookies acceptés');
   };
 
   const handleRejectAll = () => {
-    localStorage.setItem('cookieConsent', JSON.stringify({
+    saveCookieConsent({
       necessary: true,
       analytics: false,
       marketing: false
-    }));
+    });
     alert('Préférences enregistrées : seuls les cookies nécessaires sont acceptés');
   };
 
