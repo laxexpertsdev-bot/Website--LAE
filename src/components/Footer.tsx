@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, MessageCircle, Instagram } from 'lucide-react';
+import { MapPin, Phone, Mail, MessageCircle, Instagram, Facebook } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -163,6 +163,15 @@ const Footer: React.FC = () => {
                   aria-label="Instagram"
                 >
                   <Instagram className="w-[18px] h-[18px]" />
+                </a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61577561022616"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-blue-600 hover:text-white transition-all duration-300"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-[18px] h-[18px]" />
                 </a>
               </div>
 
