@@ -84,7 +84,7 @@ const Header: React.FC = () => {
       {/* Main Header */}
       <header className="bg-white/98 backdrop-blur-sm shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-2">
+          <div className="flex justify-between items-center gap-x-8 py-2">
             {/* Logo */}
             <Link to="/" className="flex items-center flex-shrink-0">
               <img
@@ -95,7 +95,7 @@ const Header: React.FC = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-10 lg:space-x-12">
+            <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
               {menuItems.map((menu) => (
                 <div
                   key={menu.name}
@@ -145,7 +145,7 @@ const Header: React.FC = () => {
 
               <a
                 href="tel:+33162171111"
-                className="hidden lg:flex items-center gap-2 font-bold text-blue-700 hover:text-blue-800 transition-colors text-lg ml-4"
+                className="hidden xl:flex items-center gap-2 font-bold text-blue-700 hover:text-blue-800 transition-colors text-lg ml-4 flex-shrink-0 whitespace-nowrap"
               >
                 <Phone className="w-5 h-5" />
                 01 62 17 11 11
@@ -153,7 +153,7 @@ const Header: React.FC = () => {
 
               <Link
                 to="/devis"
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-7 py-3 rounded-full font-bold transition-all duration-300 flex items-center gap-2.5 text-lg shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5 ml-2"
+                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-7 py-3 rounded-full font-bold transition-all duration-300 inline-flex items-center justify-center text-lg shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5 ml-2 flex-shrink-0"
               >
                 Devis gratuit
               </Link>
