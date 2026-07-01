@@ -109,109 +109,105 @@ const ReviewForm: React.FC = () => {
 
   return (
     <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
-      <div className="px-7 py-5" style={{ backgroundColor: '#002D62' }}>
-        <h3 className="text-xl font-bold text-white leading-snug">
+      <div className="px-6 py-4" style={{ backgroundColor: '#002D62' }}>
+        <h3 className="text-lg font-bold text-white leading-snug">
           Laissez un avis sur notre site
         </h3>
-        <p className="text-blue-200 text-sm mt-1">
+        <p className="text-blue-200 text-sm mt-0.5">
           Votre retour est précieux — il sera publié après modération.
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} noValidate className="p-7">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
-          {/* Colonne gauche : identité + note */}
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
-                Votre note <span className="text-red-500">*</span>
-              </label>
-              <div className="flex items-center gap-1" role="radiogroup" aria-label="Note sur 5">
-                {[1, 2, 3, 4, 5].map((value) => {
-                  const active = (hoverNote || note) >= value;
-                  return (
-                    <button
-                      key={value}
-                      type="button"
-                      onClick={() => {
-                        setNote(value);
-                        setErrors((prev) => ({ ...prev, note: undefined }));
-                      }}
-                      onMouseEnter={() => setHoverNote(value)}
-                      onMouseLeave={() => setHoverNote(0)}
-                      className="p-1 rounded focus:outline-none focus:ring-2 focus:ring-[#002D62]/30"
-                      role="radio"
-                      aria-checked={note === value}
-                      aria-label={`${value} étoile${value > 1 ? 's' : ''}`}
-                    >
-                      <Star
-                        className={`w-7 h-7 transition-colors ${
-                          active ? 'text-yellow-400 fill-current' : 'text-gray-300'
-                        }`}
-                      />
-                    </button>
-                  );
-                })}
-              </div>
-              {errors.note && <p className="text-red-500 text-xs mt-1">{errors.note}</p>}
+      <form onSubmit={handleSubmit} noValidate className="p-5">
+        <div className="flex flex-col lg:flex-row lg:items-start gap-4">
+          {/* Note */}
+          <div className="lg:shrink-0">
+            <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+              Note <span className="text-red-500">*</span>
+            </label>
+            <div className="flex items-center gap-0.5 h-[46px]" role="radiogroup" aria-label="Note sur 5">
+              {[1, 2, 3, 4, 5].map((value) => {
+                const active = (hoverNote || note) >= value;
+                return (
+                  <button
+                    key={value}
+                    type="button"
+                    onClick={() => {
+                      setNote(value);
+                      setErrors((prev) => ({ ...prev, note: undefined }));
+                    }}
+                    onMouseEnter={() => setHoverNote(value)}
+                    onMouseLeave={() => setHoverNote(0)}
+                    className="p-0.5 rounded focus:outline-none focus:ring-2 focus:ring-[#002D62]/30"
+                    role="radio"
+                    aria-checked={note === value}
+                    aria-label={`${value} étoile${value > 1 ? 's' : ''}`}
+                  >
+                    <Star
+                      className={`w-6 h-6 transition-colors ${
+                        active ? 'text-yellow-400 fill-current' : 'text-gray-300'
+                      }`}
+                    />
+                  </button>
+                );
+              })}
             </div>
-
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
-                  Prénom <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="prenom"
-                  value={formData.prenom}
-                  onChange={handleChange}
-                  placeholder="Jean"
-                  autoComplete="given-name"
-                  className={`${inputBase} ${errors.prenom ? 'border-red-400' : 'border-gray-300'}`}
-                />
-                {errors.prenom && <p className="text-red-500 text-xs mt-1">{errors.prenom}</p>}
-              </div>
-              <div>
-                <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
-                  Nom <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="nom"
-                  value={formData.nom}
-                  onChange={handleChange}
-                  placeholder="Dupont"
-                  autoComplete="family-name"
-                  className={`${inputBase} ${errors.nom ? 'border-red-400' : 'border-gray-300'}`}
-                />
-                {errors.nom && <p className="text-red-500 text-xs mt-1">{errors.nom}</p>}
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
-                Adresse email <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="vous@email.fr"
-                autoComplete="email"
-                className={`${inputBase} ${errors.email ? 'border-red-400' : 'border-gray-300'}`}
-              />
-              <p className="text-gray-400 text-xs mt-1">
-                Votre email ne sera jamais affiché publiquement — il nous sert uniquement à
-                vérifier votre avis.
-              </p>
-              {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
-            </div>
+            {errors.note && <p className="text-red-500 text-xs mt-1">{errors.note}</p>}
           </div>
 
-          {/* Colonne droite : avis */}
-          <div className="flex flex-col">
+          {/* Prénom */}
+          <div className="lg:w-32 lg:shrink-0">
+            <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+              Prénom <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="prenom"
+              value={formData.prenom}
+              onChange={handleChange}
+              placeholder="Jean"
+              autoComplete="given-name"
+              className={`${inputBase} ${errors.prenom ? 'border-red-400' : 'border-gray-300'}`}
+            />
+            {errors.prenom && <p className="text-red-500 text-xs mt-1">{errors.prenom}</p>}
+          </div>
+
+          {/* Nom */}
+          <div className="lg:w-32 lg:shrink-0">
+            <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+              Nom <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="nom"
+              value={formData.nom}
+              onChange={handleChange}
+              placeholder="Dupont"
+              autoComplete="family-name"
+              className={`${inputBase} ${errors.nom ? 'border-red-400' : 'border-gray-300'}`}
+            />
+            {errors.nom && <p className="text-red-500 text-xs mt-1">{errors.nom}</p>}
+          </div>
+
+          {/* Email */}
+          <div className="lg:w-48 lg:shrink-0">
+            <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+              Email <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="vous@email.fr"
+              autoComplete="email"
+              className={`${inputBase} ${errors.email ? 'border-red-400' : 'border-gray-300'}`}
+            />
+            {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+          </div>
+
+          {/* Avis */}
+          <div className="flex-1 lg:min-w-0">
             <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
               Votre avis <span className="text-red-500">*</span>
             </label>
@@ -220,60 +216,66 @@ const ReviewForm: React.FC = () => {
               value={formData.texte}
               onChange={handleChange}
               placeholder="Partagez votre expérience avec Les Assureurs Experts..."
-              className={`${inputBase} resize-none flex-1 min-h-[132px] lg:min-h-0 ${
+              rows={1}
+              className={`${inputBase} resize-none h-[46px] lg:h-auto ${
                 errors.texte ? 'border-red-400' : 'border-gray-300'
               }`}
             />
             {errors.texte && <p className="text-red-500 text-xs mt-1">{errors.texte}</p>}
           </div>
+
+          {/* Bouton d'envoi */}
+          <div className="lg:shrink-0 lg:self-end">
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="w-full lg:w-auto lg:min-w-[180px] h-[46px] px-6 rounded-lg text-white text-sm font-bold tracking-wide transition-all duration-200 hover:brightness-110 active:scale-[0.98] shadow-lg disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              style={{ backgroundColor: '#ff6600' }}
+            >
+              {isLoading ? (
+                <>
+                  <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                  Envoi...
+                </>
+              ) : (
+                'Envoyer mon avis'
+              )}
+            </button>
+          </div>
         </div>
 
-        {/* Consentement + soumission, pleine largeur */}
-        <div className="mt-5 pt-5 border-t border-gray-100 flex flex-col lg:flex-row lg:items-start gap-4">
-          <div className="flex-1">
-            <label className="flex items-start gap-2.5 cursor-pointer select-none">
-              <input
-                type="checkbox"
-                name="consent"
-                checked={formData.consent}
-                onChange={(e) => {
-                  setFormData((prev) => ({ ...prev, consent: e.target.checked }));
-                  setErrors((prev) => ({ ...prev, consent: undefined }));
-                }}
-                className="mt-0.5 w-4 h-4 rounded border-gray-300 text-[#002D62] focus:ring-[#002D62]"
-              />
-              <span className="text-xs text-gray-600 leading-relaxed">
-                J'accepte que mon avis (prénom, initiale du nom et note) soit publié sur le site
-                après modération.{' '}
-                <Link to="/politique-confidentialite" className="underline hover:text-[#002D62]">
-                  Politique de confidentialité
-                </Link>
-                .
-              </span>
-            </label>
-            {errors.consent && <p className="text-red-500 text-xs mt-1">{errors.consent}</p>}
-            {submitError && (
-              <p className="text-sm text-red-600 mt-2">
-                Une erreur est survenue lors de l'envoi. Merci de réessayer.
-              </p>
-            )}
-          </div>
-
-          <button
-            type="submit"
-            disabled={isLoading}
-            className="w-full lg:w-auto lg:min-w-[220px] py-4 px-8 rounded-xl text-white text-base font-bold tracking-wide transition-all duration-200 hover:brightness-110 active:scale-[0.98] shadow-lg disabled:opacity-60 disabled:cursor-not-allowed min-h-[56px] flex items-center justify-center gap-2 shrink-0"
-            style={{ backgroundColor: '#ff6600' }}
-          >
-            {isLoading ? (
-              <>
-                <span className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
-                Envoi en cours...
-              </>
-            ) : (
-              'Envoyer mon avis'
-            )}
-          </button>
+        {/* Consentement + email + erreurs, pleine largeur */}
+        <div className="mt-3 pt-3 border-t border-gray-100">
+          <p className="text-gray-400 text-xs mb-2">
+            Votre email ne sera jamais affiché publiquement — il nous sert uniquement à vérifier
+            votre avis.
+          </p>
+          <label className="flex items-start gap-2.5 cursor-pointer select-none">
+            <input
+              type="checkbox"
+              name="consent"
+              checked={formData.consent}
+              onChange={(e) => {
+                setFormData((prev) => ({ ...prev, consent: e.target.checked }));
+                setErrors((prev) => ({ ...prev, consent: undefined }));
+              }}
+              className="mt-0.5 w-4 h-4 rounded border-gray-300 text-[#002D62] focus:ring-[#002D62]"
+            />
+            <span className="text-xs text-gray-600 leading-relaxed">
+              J'accepte que mon avis (prénom, initiale du nom et note) soit publié sur le site
+              après modération.{' '}
+              <Link to="/politique-confidentialite" className="underline hover:text-[#002D62]">
+                Politique de confidentialité
+              </Link>
+              .
+            </span>
+          </label>
+          {errors.consent && <p className="text-red-500 text-xs mt-1">{errors.consent}</p>}
+          {submitError && (
+            <p className="text-sm text-red-600 mt-2">
+              Une erreur est survenue lors de l'envoi. Merci de réessayer.
+            </p>
+          )}
         </div>
       </form>
     </div>
