@@ -95,7 +95,7 @@ const Header: React.FC = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
+            <nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
               {menuItems.map((menu) => (
                 <div
                   key={menu.name}
@@ -145,15 +145,15 @@ const Header: React.FC = () => {
 
               <a
                 href="tel:+33162171111"
-                className="hidden xl:flex items-center gap-2 font-bold text-blue-700 hover:text-blue-800 transition-colors text-lg ml-4 flex-shrink-0 whitespace-nowrap"
+                aria-label="Appeler le 01 62 17 11 11"
+                className="hidden lg:flex items-center justify-center text-blue-700 hover:text-blue-800 transition-colors flex-shrink-0"
               >
                 <Phone className="w-5 h-5" />
-                01 62 17 11 11
               </a>
 
               <Link
                 to="/devis"
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-7 py-3 rounded-full font-bold transition-all duration-300 inline-flex items-center justify-center text-lg shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5 ml-2 flex-shrink-0"
+                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-7 py-3 rounded-full font-bold transition-all duration-300 inline-flex items-center justify-center text-lg shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5 flex-shrink-0"
               >
                 Devis gratuit
               </Link>
