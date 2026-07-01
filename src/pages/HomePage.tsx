@@ -7,6 +7,8 @@ import InsuranceSection from '../components/InsuranceSection';
 import ComprehensiveInsuranceSection from '../components/ComprehensiveInsuranceSection';
 import InsuranceCarousel from '../components/InsuranceCarousel';
 import TarifCalculator from '../components/TarifCalculator';
+import ReviewForm from '../components/ReviewForm';
+import { reviews } from '../data/reviews';
 import { Helmet } from 'react-helmet-async';
 import { submitLead, trackLeadConversion } from '../utils/lead';
 
@@ -115,61 +117,48 @@ const HomePage: React.FC = () => {
               💬 Vos retours comptent pour nous
             </h2>
             <p className="text-xl text-slate-600 mb-2">
-              Exemples anonymisés de messages reçus après souscription ou accompagnement
+              Les avis de nos clients, vérifiés et publiés après modération
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-slate-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                ))}
+            {reviews.map((review, index) => (
+              <div
+                key={index}
+                className="bg-slate-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <div className="flex mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`w-5 h-5 ${
+                        i < review.note ? 'text-yellow-400 fill-current' : 'text-gray-300'
+                      }`}
+                    />
+                  ))}
+                </div>
+                <p className="text-slate-700 mb-6 italic text-lg leading-relaxed">
+                  "{review.texte}"
+                </p>
+                <div>
+                  <p className="font-bold text-slate-900 text-lg">
+                    {review.prenom} {review.nomInitiale}
+                  </p>
+                  {review.lieu && <p className="text-sm text-blue-600">{review.lieu}</p>}
+                </div>
               </div>
-              <p className="text-slate-700 mb-6 italic text-lg leading-relaxed">
-                "Service fluide et très rapide. On m'a aidée à comprendre toutes les garanties avant de signer."
-              </p>
-              <div>
-                <p className="font-bold text-slate-900 text-lg">Assurée santé – famille</p>
-                <p className="text-sm text-blue-600">Région PACA</p>
-              </div>
-            </div>
-            
-            <div className="bg-slate-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                ))}
-              </div>
-              <p className="text-slate-700 mb-6 italic text-lg leading-relaxed">
-                "Ma RC Pro est sur mesure. Je recommande le service, surtout pour les indépendants comme moi."
-              </p>
-              <div>
-                <p className="font-bold text-slate-900 text-lg">Profession libérale</p>
-                <p className="text-sm text-blue-600">Paris</p>
-              </div>
-            </div>
-            
-            <div className="bg-slate-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                ))}
-              </div>
-              <p className="text-slate-700 mb-6 italic text-lg leading-relaxed">
-                "J'ai pu économiser 300 € par an sur mon assurance emprunteur. Je ne savais pas que c'était possible avant de comparer."
-              </p>
-              <div>
-                <p className="font-bold text-slate-900 text-lg">Jeune propriétaire</p>
-                <p className="text-sm text-blue-600">Lyon</p>
-              </div>
-            </div>
+            ))}
           </div>
-          
+
+          {/* Formulaire : laisser un avis */}
+          <div className="max-w-2xl mx-auto mt-16">
+            <ReviewForm />
+          </div>
+
           {/* Mention légale */}
           <div className="text-center mt-8">
             <p className="text-sm text-gray-500 italic">
-              🔒 Ces témoignages sont anonymisés et illustratifs. Ils ne constituent pas une promesse de résultat, chaque situation étant unique.
+              🔒 Les avis sont vérifiés et publiés après modération. Chaque situation étant unique, ils ne constituent pas une promesse de résultat.
             </p>
           </div>
         </div>
