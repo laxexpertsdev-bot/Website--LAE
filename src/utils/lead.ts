@@ -6,6 +6,7 @@ export const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mblnydqy';
 
 interface DataLayerWindow {
   dataLayer?: Record<string, unknown>[];
+  gtag?: (...args: unknown[]) => void;
 }
 
 export interface LeadTrackPayload {
@@ -16,18 +17,22 @@ export interface LeadTrackPayload {
 }
 
 /**
- * Pousse un event de conversion `generate_lead` dans le dataLayer (GA4 via GTM).
+ * Envoie l'event de conversion `generate_lead` :
+ * - directement à GA4 via `gtag()` (déjà chargé dans index.html avec G-7B368ES2C5),
+ *   ce qui ne nécessite aucune configuration Google Tag Manager ;
+ * - et dans le dataLayer pour un éventuel conteneur GTM configuré plus tard.
  * Sans effet côté SSR / si window indisponible.
  */
 export function trackLeadConversion(payload: LeadTrackPayload): void {
   if (typeof window === 'undefined') return;
   const w = window as unknown as DataLayerWindow;
-  w.dataLayer = w.dataLayer || [];
-  w.dataLayer.push({
-    event: 'generate_lead',
+  const eventParams = {
     form_location: payload.formLocation,
     insurance_type: payload.insuranceType ?? null,
-  });
+  };
+  w.gtag?.('event', 'generate_lead', eventParams);
+  w.dataLayer = w.dataLayer || [];
+  w.dataLayer.push({ event: 'generate_lead', ...eventParams });
 }
 
 /**
