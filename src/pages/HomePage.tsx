@@ -151,7 +151,7 @@ const HomePage: React.FC = () => {
           </div>
 
           {/* Formulaire : laisser un avis */}
-          <div className="max-w-2xl mx-auto mt-16">
+          <div className="max-w-4xl mx-auto mt-16">
             <ReviewForm />
           </div>
 
