@@ -11,7 +11,7 @@ const InsuranceCarousel: React.FC = () => {
     {
       id: 1,
       title: "Mutuelle santé",
-      image: "https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=534",
       alt: "Famille souriante chez le médecin - Mutuelle santé",
       color: "from-blue-500 to-blue-600",
       bgColor: "bg-blue-50",
@@ -28,7 +28,7 @@ const InsuranceCarousel: React.FC = () => {
     {
       id: 2,
       title: "Assurance emprunteur",
-      image: "https://images.pexels.com/photos/7578966/pexels-photo-7578966.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/7578966/pexels-photo-7578966.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=534",
       alt: "Couple recevant les clés de leur appartement - Assurance emprunteur",
       color: "from-orange-500 to-red-500",
       bgColor: "bg-orange-50",
@@ -45,7 +45,7 @@ const InsuranceCarousel: React.FC = () => {
     {
       id: 3,
       title: "Assurance auto",
-      image: "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=534",
       alt: "Jeune conducteur souriant dans sa voiture - Assurance auto",
       color: "from-green-500 to-emerald-600",
       bgColor: "bg-green-50",
@@ -62,7 +62,7 @@ const InsuranceCarousel: React.FC = () => {
     {
       id: 4,
       title: "Assurance 2 roues",
-      image: "https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=534",
       alt: "Scooter moderne en ville - Assurance 2 roues",
       color: "from-purple-500 to-violet-600",
       bgColor: "bg-purple-50",
@@ -79,7 +79,7 @@ const InsuranceCarousel: React.FC = () => {
     {
       id: 5,
       title: "Prévoyance individuelle",
-      image: "https://images.pexels.com/photos/5327921/pexels-photo-5327921.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/5327921/pexels-photo-5327921.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=534",
       alt: "Chef d'entreprise confiant - Prévoyance individuelle",
       color: "from-teal-500 to-cyan-600",
       bgColor: "bg-teal-50",
@@ -96,7 +96,7 @@ const InsuranceCarousel: React.FC = () => {
     {
       id: 6,
       title: "Expatriés & santé internationale",
-      image: "https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=534",
       alt: "Couple d'expatriés à l'étranger - Assurance internationale",
       color: "from-indigo-500 to-blue-600",
       bgColor: "bg-indigo-50",
@@ -113,7 +113,7 @@ const InsuranceCarousel: React.FC = () => {
     {
       id: 7,
       title: "Assurance bateau",
-      image: "https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=534",
       alt: "Voilier naviguant en mer - Assurance bateau",
       color: "from-cyan-500 to-blue-500",
       bgColor: "bg-cyan-50",
@@ -130,7 +130,7 @@ const InsuranceCarousel: React.FC = () => {
     {
       id: 8,
       title: "PER – Plan Épargne Retraite",
-      image: "https://images.pexels.com/photos/5327580/pexels-photo-5327580.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/5327580/pexels-photo-5327580.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=534",
       alt: "Senior consultant son plan retraite - PER",
       color: "from-amber-500 to-orange-500",
       bgColor: "bg-amber-50",
@@ -147,7 +147,7 @@ const InsuranceCarousel: React.FC = () => {
     {
       id: 9,
       title: "Assurance vie",
-      image: "https://images.pexels.com/photos/5327647/pexels-photo-5327647.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/5327647/pexels-photo-5327647.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=534",
       alt: "Couple souriant consultant leur placement - Assurance vie",
       color: "from-rose-500 to-pink-600",
       bgColor: "bg-rose-50",
@@ -224,7 +224,7 @@ const InsuranceCarousel: React.FC = () => {
               >
                 <div className="grid lg:grid-cols-2 min-h-[600px]">
                   {/* Image Section */}
-                  <div className="relative overflow-hidden">
+                  <div className="relative overflow-hidden aspect-[3/2] lg:aspect-auto">
                     <img
                       src={insuranceCards[currentSlide].image}
                       alt={insuranceCards[currentSlide].alt}
