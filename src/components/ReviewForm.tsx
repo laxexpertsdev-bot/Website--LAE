@@ -4,7 +4,7 @@ import { Star, CheckCircle } from 'lucide-react';
 import { submitLead, trackLeadConversion } from '../utils/lead';
 
 // Adresse recevant une copie du rapport d'avis (en plus du compte Formspree).
-const REVIEW_CC = 'laexpertsdev@gmail.com';
+const REVIEW_CC = 'laxexpertsdev@gmail.com';
 
 interface ReviewFormData {
   prenom: string;
