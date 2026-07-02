@@ -28,7 +28,7 @@ const TarifCalculator: React.FC = () => {
   const [leadLoading, setLeadLoading] = useState(false);
   const [leadSubmitted, setLeadSubmitted] = useState(false);
   const [leadError, setLeadError] = useState(false);
-  // ⚠️ Valeurs provisoires (€/mois) à valider/ajuster avec de vraies données marché.
+  // Valeurs provisoires (€/mois) à valider/ajuster avec de vraies données marché.
   const moyennes = {
     sante: { salarie: 45, tns: 55, retraite: 80, etudiant: 22 },
     emprunteur: { salarie: 28, tns: 34, retraite: 40, etudiant: 24 },
@@ -98,13 +98,13 @@ const TarifCalculator: React.FC = () => {
     let resultType: 'success' | 'warning' | 'info' = 'info';
 
     if (ecart > 10) {
-      message = `📉 Vous payez environ ${ecart.toFixed(0)} € de plus que la moyenne pour votre profil.`;
+      message = `Vous payez environ ${ecart.toFixed(0)} € de plus que la moyenne pour votre profil.`;
       resultType = 'warning';
     } else if (ecart < -10) {
-      message = `✅ Votre cotisation est inférieure à la moyenne. Bravo !`;
+      message = `Votre cotisation est inférieure à la moyenne. Bravo !`;
       resultType = 'success';
     } else {
-      message = `ℹ️ Vous êtes dans la moyenne pour votre profil.`;
+      message = `ℹVous êtes dans la moyenne pour votre profil.`;
       resultType = 'info';
     }
 
@@ -144,7 +144,7 @@ const TarifCalculator: React.FC = () => {
 
   return (
     <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
+      <div className="bg-white rounded-lg shadow-xl border border-gray-100 p-8">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
             <Calculator className="w-12 h-12 text-blue-600" />
@@ -169,7 +169,7 @@ const TarifCalculator: React.FC = () => {
                 value={formData.type}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               >
                 <option value="">— Sélectionnez —</option>
                 <option value="sante">Mutuelle santé</option>
@@ -201,7 +201,7 @@ const TarifCalculator: React.FC = () => {
                 value={formData.age}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
 
@@ -214,7 +214,7 @@ const TarifCalculator: React.FC = () => {
                 value={formData.statut}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               >
                 <option value="">— Sélectionnez —</option>
                 <option value="salarie">Salarié</option>
@@ -235,7 +235,7 @@ const TarifCalculator: React.FC = () => {
                 value={formData.cotisation}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
           </div>
@@ -243,7 +243,7 @@ const TarifCalculator: React.FC = () => {
           <div className="text-center">
             <button
               type="submit"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-lg transition-colors duration-200 flex items-center gap-2 mx-auto"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-md transition-colors duration-200 flex items-center gap-2 mx-auto"
             >
               <Calculator className="w-5 h-5" />
               Calculer
@@ -253,7 +253,7 @@ const TarifCalculator: React.FC = () => {
 
         {result.show && (
           <div id="ae-result" className="mt-8 pt-8 border-t border-gray-200">
-            <div className={`${getResultBgColor()} border rounded-lg p-6 mb-6`}>
+            <div className={`${getResultBgColor()} border rounded-md p-6 mb-6`}>
               <div className="flex items-center gap-3 mb-2">
                 {getResultIcon()}
                 <p className="font-semibold text-lg text-gray-900">
@@ -262,13 +262,13 @@ const TarifCalculator: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-lg p-6">
+            <div className="bg-gray-50 rounded-md p-6">
               <p className="text-gray-700 mb-6">
                 Souhaitez-vous recevoir une étude personnalisée gratuite ? Laissez-nous vos coordonnées :
               </p>
 
               {leadSubmitted ? (
-                <div className="text-center py-6 bg-green-50 border border-green-200 rounded-lg">
+                <div className="text-center py-6 bg-green-50 border border-green-200 rounded-md">
                   <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-3">
                     <CheckCircle className="w-7 h-7 text-green-600" />
                   </div>
@@ -286,7 +286,7 @@ const TarifCalculator: React.FC = () => {
                   value={leadForm.prenom}
                   onChange={handleLeadInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500"
                 />
                 <input
                   type="tel"
@@ -295,7 +295,7 @@ const TarifCalculator: React.FC = () => {
                   value={leadForm.telephone}
                   onChange={handleLeadInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500"
                 />
                 <input
                   type="email"
@@ -304,7 +304,7 @@ const TarifCalculator: React.FC = () => {
                   value={leadForm.email}
                   onChange={handleLeadInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500"
                 />
                 <label className="flex items-start gap-2.5 cursor-pointer select-none">
                   <input
@@ -330,7 +330,7 @@ const TarifCalculator: React.FC = () => {
                 <button
                   type="submit"
                   disabled={leadLoading}
-                  className="w-full bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-3 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="w-full bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-3 rounded-md transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {leadLoading ? (
                     <>
@@ -348,7 +348,7 @@ const TarifCalculator: React.FC = () => {
               )}
 
               <p className="text-xs text-gray-500 mt-4">
-                🔒 Vos données sont protégées et ne seront jamais revendues
+                Vos données sont protégées et ne seront jamais revendues
               </p>
             </div>
           </div>

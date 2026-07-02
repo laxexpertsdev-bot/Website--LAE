@@ -99,7 +99,7 @@ const OffersPage: React.FC = () => {
           {offers.map((offer, index) => (
             <div 
               key={index} 
-              className={`bg-white rounded-2xl p-8 border-2 ${getColorClasses(offer.color)} transition-all duration-300 hover:shadow-xl group`}
+              className={`bg-white rounded-lg p-8 border-2 ${getColorClasses(offer.color)} transition-all duration-300 hover:shadow-xl group`}
             >
               <div className="flex items-start gap-6">
                 <div className="flex-shrink-0 transform group-hover:scale-110 transition-transform duration-200">
@@ -137,7 +137,7 @@ const OffersPage: React.FC = () => {
                       </button>
                       <Link
                         to="/devis"
-                        className={`${getButtonClasses(offer.color)} text-white px-6 py-2 rounded-lg font-semibold transition-all duration-200 hover:transform hover:scale-105 flex items-center gap-2`}
+                        className={`${getButtonClasses(offer.color)} text-white px-6 py-2 rounded-md font-semibold transition-all duration-200 hover:transform hover:scale-105 flex items-center gap-2`}
                       >
                         Obtenir un devis
                         <ArrowRight className="w-4 h-4" />
@@ -151,7 +151,7 @@ const OffersPage: React.FC = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-blue-700 rounded-2xl p-8 text-center text-white">
+        <div className="bg-blue-700 rounded-lg p-8 text-center text-white">
           <h2 className="text-2xl font-bold mb-4">
             Besoin d'aide pour choisir ?
           </h2>
@@ -160,7 +160,7 @@ const OffersPage: React.FC = () => {
           </p>
           <Link
             to="/contact"
-            className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200"
+            className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-md font-semibold transition-colors duration-200"
           >
             Parler à un expert maintenant
           </Link>

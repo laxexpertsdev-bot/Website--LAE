@@ -92,15 +92,15 @@ const SantePrevoyanceCollectivePage: React.FC = () => {
             </p>
 
             <div className="grid md:grid-cols-3 gap-4 mt-8">
-              <div className="flex items-center gap-3 bg-emerald-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-emerald-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-emerald-600" />
                 <span className="font-semibold">Obligatoire depuis 2016</span>
               </div>
-              <div className="flex items-center gap-3 bg-green-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-green-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-green-600" />
                 <span className="font-semibold">Avantages fiscaux</span>
               </div>
-              <div className="flex items-center gap-3 bg-blue-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-blue-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-blue-600" />
                 <span className="font-semibold">Gestion simplifiée</span>
               </div>
@@ -110,14 +110,14 @@ const SantePrevoyanceCollectivePage: React.FC = () => {
 
         <div className="grid lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2 space-y-12">
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Shield className="w-8 h-8 text-emerald-600" />
                 Garanties santé & prévoyance collective
               </h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {coverageItems.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3 p-4 bg-emerald-50 rounded-lg hover:bg-emerald-100 transition-colors">
+                  <div key={index} className="flex items-start gap-3 p-4 bg-emerald-50 rounded-md hover:bg-emerald-100 transition-colors">
                     <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700">{item}</span>
                   </div>
@@ -125,14 +125,14 @@ const SantePrevoyanceCollectivePage: React.FC = () => {
               </div>
             </section>
 
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Building2 className="w-8 h-8 text-blue-600" />
                 Obligations légales de l'employeur
               </h2>
               <div className="space-y-4">
                 {legalObligations.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-600">
+                  <div key={index} className="flex items-start gap-3 p-4 bg-blue-50 rounded-md border-l-4 border-blue-600">
                     <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700">{item}</span>
                   </div>
@@ -146,13 +146,13 @@ const SantePrevoyanceCollectivePage: React.FC = () => {
               </div>
             </section>
 
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 Solutions adaptées à votre structure
               </h2>
               <div className="space-y-4">
                 {companyTypes.map((item, index) => (
-                  <div key={index} className="p-5 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors border border-gray-200">
+                  <div key={index} className="p-5 bg-gray-50 rounded-md hover:bg-gray-100 transition-colors border border-gray-200">
                     <div className="flex justify-between items-start">
                       <div>
                         <h3 className="font-bold text-gray-900 text-lg mb-2">{item.type}</h3>
@@ -165,14 +165,14 @@ const SantePrevoyanceCollectivePage: React.FC = () => {
               </div>
             </section>
 
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Calculator className="w-8 h-8 text-green-600" />
                 Exemples de tarifs indicatifs
               </h2>
               <div className="space-y-4">
                 {priceExamples.map((example, index) => (
-                  <div key={index} className="flex justify-between items-center p-5 bg-green-50 rounded-lg border border-green-200">
+                  <div key={index} className="flex justify-between items-center p-5 bg-green-50 rounded-md border border-green-200">
                     <span className="font-medium text-gray-900">{example.profile}</span>
                     <span className="text-green-700 font-bold text-lg">{example.price}</span>
                   </div>
@@ -183,7 +183,7 @@ const SantePrevoyanceCollectivePage: React.FC = () => {
               </p>
             </section>
 
-            <section className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl shadow-xl p-8 text-white">
+            <section className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-lg shadow-xl p-8 text-white">
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
                 <HeartPulse className="w-8 h-8" />
                 Pourquoi choisir nos solutions collectives ?
@@ -203,7 +203,7 @@ const SantePrevoyanceCollectivePage: React.FC = () => {
           </div>
 
           <div className="lg:col-span-1 space-y-6">
-            <div className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl shadow-xl p-8 text-white sticky top-24">
+            <div className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-lg shadow-xl p-8 text-white sticky top-24">
               <h3 className="text-2xl font-bold mb-6">Obtenir un devis personnalisé</h3>
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-3">
@@ -227,13 +227,13 @@ const SantePrevoyanceCollectivePage: React.FC = () => {
               <div className="space-y-4">
                 <Link
                   to="/devis"
-                  className="block w-full bg-white text-emerald-700 text-center py-4 px-6 rounded-xl font-bold text-lg hover:bg-emerald-50 transition-all duration-200 transform hover:scale-105 shadow-lg"
+                  className="block w-full bg-white text-emerald-700 text-center py-4 px-6 rounded-lg font-bold text-lg hover:bg-emerald-50 transition-all duration-200 transform hover:scale-105 shadow-lg"
                 >
                   Obtenir un devis
                 </Link>
                 <a
                   href="tel:+33162171111"
-                  className="flex items-center justify-center gap-3 w-full bg-emerald-800 text-white py-4 px-6 rounded-xl font-bold hover:bg-emerald-900 transition-all duration-200"
+                  className="flex items-center justify-center gap-3 w-full bg-emerald-800 text-white py-4 px-6 rounded-lg font-bold hover:bg-emerald-900 transition-all duration-200"
                 >
                   <Phone className="w-5 h-5" />
                   +33 1 62 17 11 11
@@ -247,7 +247,7 @@ const SantePrevoyanceCollectivePage: React.FC = () => {
           </div>
         </div>
 
-        <section className="mt-16 bg-white rounded-2xl shadow-lg p-8">
+        <section className="mt-16 bg-white rounded-lg shadow-lg p-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Santé & Prévoyance Collective : ce qu'il faut savoir
           </h2>

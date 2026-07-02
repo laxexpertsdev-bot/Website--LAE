@@ -105,7 +105,7 @@ const BlogPage: React.FC = () => {
         {/* Articles Grid */}
         <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
           {filteredArticles.map((article, index) => (
-            <article key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group">
+            <article key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group">
               <div className="relative">
                 <img
                   src={article.image}
@@ -166,7 +166,7 @@ const BlogPage: React.FC = () => {
         </div>
 
         {/* Disclaimer */}
-        <div className="bg-blue-50 border border-blue-200 rounded-2xl p-8 mb-12">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-8 mb-12">
           <div className="flex items-start gap-4">
             <div className="bg-blue-600 rounded-full p-2 flex-shrink-0">
               <Newspaper className="w-6 h-6 text-white" />
@@ -195,7 +195,7 @@ const BlogPage: React.FC = () => {
           </p>
           <Link
             to="/devis"
-            className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200"
+            className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-md font-semibold transition-colors duration-200"
           >
             Obtenir mon devis gratuit
           </Link>

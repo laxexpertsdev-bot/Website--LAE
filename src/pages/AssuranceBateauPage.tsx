@@ -87,15 +87,15 @@ const AssuranceBateauPage: React.FC = () => {
             </p>
             
             <div className="grid md:grid-cols-3 gap-4 mt-8">
-              <div className="flex items-center gap-3 bg-indigo-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-indigo-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-indigo-600" />
                 <span className="font-semibold">Skipper pro ou plaisancier</span>
               </div>
-              <div className="flex items-center gap-3 bg-blue-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-blue-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-blue-600" />
                 <span className="font-semibold">Extension compétitions</span>
               </div>
-              <div className="flex items-center gap-3 bg-cyan-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-cyan-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-cyan-600" />
                 <span className="font-semibold">Déclaration en ligne</span>
               </div>
@@ -107,7 +107,7 @@ const AssuranceBateauPage: React.FC = () => {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-12">
             {/* Coverage Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                 <Anchor className="w-8 h-8 text-indigo-600" />
                 Que couvre une assurance bateau ?
@@ -119,7 +119,7 @@ const AssuranceBateauPage: React.FC = () => {
               
               <div className="grid md:grid-cols-2 gap-4">
                 {coverageItems.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3 p-3 bg-indigo-50 rounded-lg">
+                  <div key={index} className="flex items-start gap-3 p-3 bg-indigo-50 rounded-md">
                     <CheckCircle className="w-5 h-5 text-indigo-600 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-800">{item}</span>
                   </div>
@@ -128,7 +128,7 @@ const AssuranceBateauPage: React.FC = () => {
             </section>
 
             {/* Boat Types Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-8">
                 Pour quel type d'embarcation ?
               </h2>
@@ -154,22 +154,22 @@ const AssuranceBateauPage: React.FC = () => {
             </section>
 
             {/* Navigation Zones Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Zones de navigation couvertes
               </h2>
               
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-blue-50 p-6 rounded-lg">
-                  <h3 className="font-semibold text-blue-900 mb-3">🏖️ Navigation côtière</h3>
+                <div className="bg-blue-50 p-6 rounded-md">
+                  <h3 className="font-semibold text-blue-900 mb-3">Navigation côtière</h3>
                   <p className="text-blue-800 text-sm">
                     Jusqu'à 6 milles des côtes françaises et européennes. 
                     Idéal pour la plaisance familiale et les sorties journalières.
                   </p>
                 </div>
                 
-                <div className="bg-indigo-50 p-6 rounded-lg">
-                  <h3 className="font-semibold text-indigo-900 mb-3">🌊 Navigation hauturière</h3>
+                <div className="bg-indigo-50 p-6 rounded-md">
+                  <h3 className="font-semibold text-indigo-900 mb-3">Navigation hauturière</h3>
                   <p className="text-indigo-800 text-sm">
                     Navigation sans limite de distance. Pour les grands voyages 
                     et la navigation océanique avec extension mondiale possible.
@@ -179,7 +179,7 @@ const AssuranceBateauPage: React.FC = () => {
             </section>
 
             {/* Pricing Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                 <Calculator className="w-8 h-8 text-green-600" />
                 Combien coûte une assurance bateau ?
@@ -196,11 +196,11 @@ const AssuranceBateauPage: React.FC = () => {
                 ))}
               </ul>
               
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">📌 Exemples de tarifs :</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Exemples de tarifs :</h3>
               
               <div className="grid md:grid-cols-3 gap-4">
                 {priceExamples.map((example, index) => (
-                  <div key={index} className="bg-green-50 p-4 rounded-lg text-center">
+                  <div key={index} className="bg-green-50 p-4 rounded-md text-center">
                     <p className="font-semibold text-gray-900">{example.profile}</p>
                     <p className="text-green-700 font-bold">{example.price}</p>
                   </div>
@@ -209,7 +209,7 @@ const AssuranceBateauPage: React.FC = () => {
             </section>
 
             {/* Why Choose Us Section */}
-            <section className="bg-gradient-to-r from-indigo-500 to-blue-600 rounded-2xl shadow-lg p-8 text-white">
+            <section className="bg-gradient-to-r from-indigo-500 to-blue-600 rounded-lg shadow-lg p-8 text-white">
               <h2 className="text-3xl font-bold mb-8">
                 Pourquoi choisir Les Assureurs Experts ?
               </h2>
@@ -230,7 +230,7 @@ const AssuranceBateauPage: React.FC = () => {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* CTA Form */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-24">
+            <div className="bg-white rounded-lg shadow-lg p-8 sticky top-24">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Phone className="w-6 h-6 text-indigo-600" />
                 Devis bateau gratuit
@@ -244,7 +244,7 @@ const AssuranceBateauPage: React.FC = () => {
             </div>
 
             {/* Related Links */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-white rounded-lg shadow-lg p-6">
               <h4 className="font-semibold text-gray-900 mb-4">Autres assurances</h4>
               <div className="space-y-3">
                 <Link to="/assurance-auto" className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors">

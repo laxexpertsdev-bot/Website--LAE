@@ -97,10 +97,10 @@ const InsuranceSection: React.FC = () => {
   };
 
   const inputBase =
-    'w-full px-4 py-3 rounded-lg border text-gray-900 text-base placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#002D62]/30 focus:border-[#002D62] transition-colors bg-white';
+    'w-full px-4 py-3 rounded-md border text-gray-900 text-base placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#002D62]/30 focus:border-[#002D62] transition-colors bg-white';
 
   const LeadForm = (
-    <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
+    <div className="bg-white rounded-lg shadow-2xl border border-gray-100 overflow-hidden">
       {/* Form header */}
       <div className="px-7 py-5" style={{ backgroundColor: '#002D62' }}>
         <h3 className="text-xl font-bold text-white leading-snug">
@@ -329,7 +329,7 @@ const InsuranceSection: React.FC = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-4 rounded-xl text-white text-base font-bold tracking-wide transition-all duration-200 hover:brightness-110 active:scale-[0.98] shadow-lg disabled:opacity-60 disabled:cursor-not-allowed min-h-[56px] flex items-center justify-center gap-2"
+            className="w-full py-4 rounded-lg text-white text-base font-bold tracking-wide transition-all duration-200 hover:brightness-110 active:scale-[0.98] shadow-lg disabled:opacity-60 disabled:cursor-not-allowed min-h-[56px] flex items-center justify-center gap-2"
             style={{ backgroundColor: '#ff6600' }}
           >
             {isLoading ? (
@@ -390,34 +390,23 @@ const InsuranceSection: React.FC = () => {
               {insuranceTypes.map((insurance, index) => (
                 <motion.div
                   key={index}
-                  className={`group ${insurance.bgColor} ${insurance.hoverColor} rounded-2xl p-5 transition-all duration-300 hover:shadow-xl border border-gray-100`}
+                  className={`group ${insurance.bgColor} ${insurance.hoverColor} rounded-lg p-5 transition-all duration-300 hover:shadow-xl border border-gray-100`}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.06 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -4, scale: 1.02 }}
                 >
-                  <motion.div
-                    className={`relative bg-gradient-to-br ${insurance.color} p-3 rounded-xl mb-3 shadow-lg group-hover:shadow-xl transition-all duration-300 w-fit`}
-                    animate={{ y: [0, -3, 0] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: index * 0.2 }}
-                  >
-                    <motion.div
-                      className="text-white drop-shadow-lg"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-                    >
-                      {insurance.icon}
-                    </motion.div>
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </motion.div>
+                  <div className="w-fit p-3 rounded-lg mb-3 bg-white border border-gray-100 text-[#002D62]">
+                    {insurance.icon}
+                  </div>
                   <div className="space-y-3">
                     <h3 className="font-semibold text-slate-900 text-base leading-tight">{insurance.name}</h3>
                     <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                       <Link
                         to="/devis"
                         onClick={(e) => e.stopPropagation()}
-                        className="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-slate-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 shadow-md hover:shadow-lg"
+                        className="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-slate-700 text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 shadow-md hover:shadow-lg"
                       >
                         Devis gratuit
                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -441,7 +430,7 @@ const InsuranceSection: React.FC = () => {
               </p>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-xl text-base font-semibold transition-all duration-200 hover:scale-105 shadow-lg"
+                className="inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-lg text-base font-semibold transition-all duration-200 hover:scale-105 shadow-lg"
                 style={{ backgroundColor: '#002D62' }}
               >
                 Parler à un expert

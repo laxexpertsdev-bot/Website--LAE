@@ -87,15 +87,15 @@ const ExpatriesPage: React.FC = () => {
             </p>
             
             <div className="grid md:grid-cols-3 gap-4 mt-8">
-              <div className="flex items-center gap-3 bg-purple-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-purple-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-purple-600" />
                 <span className="font-semibold">Valable pour visa</span>
               </div>
-              <div className="flex items-center gap-3 bg-blue-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-blue-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-blue-600" />
                 <span className="font-semibold">Tarifs selon zones</span>
               </div>
-              <div className="flex items-center gap-3 bg-green-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-green-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-green-600" />
                 <span className="font-semibold">Réseau médical direct</span>
               </div>
@@ -107,7 +107,7 @@ const ExpatriesPage: React.FC = () => {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-12">
             {/* Coverage Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                 <Plane className="w-8 h-8 text-purple-600" />
                 Que couvre une assurance expatrié ?
@@ -119,7 +119,7 @@ const ExpatriesPage: React.FC = () => {
               
               <div className="grid md:grid-cols-2 gap-4">
                 {coverageItems.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg">
+                  <div key={index} className="flex items-start gap-3 p-3 bg-purple-50 rounded-md">
                     <CheckCircle className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-800">{item}</span>
                   </div>
@@ -128,7 +128,7 @@ const ExpatriesPage: React.FC = () => {
             </section>
 
             {/* Expat Profiles Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-8">
                 Pour quel profil d'expatrié ?
               </h2>
@@ -154,14 +154,14 @@ const ExpatriesPage: React.FC = () => {
             </section>
 
             {/* Zones Coverage Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Zones géographiques couvertes
               </h2>
               
               <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-blue-50 p-6 rounded-lg">
-                  <h3 className="font-semibold text-blue-900 mb-3">🇪🇺 Zone Europe</h3>
+                <div className="bg-blue-50 p-6 rounded-md">
+                  <h3 className="font-semibold text-blue-900 mb-3">Zone Europe</h3>
                   <p className="text-blue-800 text-sm mb-3">
                     Union européenne + Suisse, Norvège, Islande. 
                     Idéal pour études ou travail en Europe.
@@ -169,8 +169,8 @@ const ExpatriesPage: React.FC = () => {
                   <p className="text-blue-700 font-bold">Dès 35€/mois</p>
                 </div>
                 
-                <div className="bg-green-50 p-6 rounded-lg">
-                  <h3 className="font-semibold text-green-900 mb-3">🌍 Monde sans USA</h3>
+                <div className="bg-green-50 p-6 rounded-md">
+                  <h3 className="font-semibold text-green-900 mb-3">Monde sans USA</h3>
                   <p className="text-green-800 text-sm mb-3">
                     Couverture mondiale excepté États-Unis et Canada. 
                     Parfait pour l'Asie, Afrique, Amérique du Sud.
@@ -178,8 +178,8 @@ const ExpatriesPage: React.FC = () => {
                   <p className="text-green-700 font-bold">60-120€/mois</p>
                 </div>
                 
-                <div className="bg-purple-50 p-6 rounded-lg">
-                  <h3 className="font-semibold text-purple-900 mb-3">🌎 Monde entier</h3>
+                <div className="bg-purple-50 p-6 rounded-md">
+                  <h3 className="font-semibold text-purple-900 mb-3">Monde entier</h3>
                   <p className="text-purple-800 text-sm mb-3">
                     Couverture complète incluant États-Unis et Canada. 
                     Pour les grands voyageurs et expatriés USA.
@@ -190,13 +190,13 @@ const ExpatriesPage: React.FC = () => {
             </section>
 
             {/* Why Important Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Pourquoi une assurance expatrié est-elle indispensable ?
               </h2>
               
               <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg mb-6">
-                <h3 className="font-semibold text-red-900 mb-3">⚠️ Attention !</h3>
+                <h3 className="font-semibold text-red-900 mb-3">Attention !</h3>
                 <p className="text-red-800">
                   La Sécurité sociale française ne couvre pas ou très peu les soins à l'étranger. 
                   Une hospitalisation aux États-Unis peut coûter plusieurs dizaines de milliers d'euros.
@@ -210,7 +210,7 @@ const ExpatriesPage: React.FC = () => {
                   "Rapatriement sanitaire (jusqu'à 100 000€)",
                   "Assistance en langue française 24h/24"
                 ].map((reason, index) => (
-                  <div key={index} className="flex items-start gap-3 p-4 bg-purple-50 rounded-lg">
+                  <div key={index} className="flex items-start gap-3 p-4 bg-purple-50 rounded-md">
                     <CheckCircle className="w-6 h-6 text-purple-600 mt-0.5" />
                     <span className="text-gray-800 font-medium">{reason}</span>
                   </div>
@@ -219,7 +219,7 @@ const ExpatriesPage: React.FC = () => {
             </section>
 
             {/* Pricing Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                 <Calculator className="w-8 h-8 text-green-600" />
                 Combien coûte une assurance expatrié ?
@@ -236,11 +236,11 @@ const ExpatriesPage: React.FC = () => {
                 ))}
               </ul>
               
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">📌 Exemples par zone :</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Exemples par zone :</h3>
               
               <div className="grid md:grid-cols-3 gap-4">
                 {zoneExamples.map((example, index) => (
-                  <div key={index} className="bg-green-50 p-4 rounded-lg text-center">
+                  <div key={index} className="bg-green-50 p-4 rounded-md text-center">
                     <p className="font-semibold text-gray-900">{example.zone}</p>
                     <p className="text-green-700 font-bold">{example.price}</p>
                   </div>
@@ -249,7 +249,7 @@ const ExpatriesPage: React.FC = () => {
             </section>
 
             {/* Why Choose Us Section */}
-            <section className="bg-gradient-to-r from-purple-500 to-violet-600 rounded-2xl shadow-lg p-8 text-white">
+            <section className="bg-gradient-to-r from-purple-500 to-violet-600 rounded-lg shadow-lg p-8 text-white">
               <h2 className="text-3xl font-bold mb-8">
                 Pourquoi choisir Les Assureurs Experts ?
               </h2>
@@ -270,7 +270,7 @@ const ExpatriesPage: React.FC = () => {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* CTA Form */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-24">
+            <div className="bg-white rounded-lg shadow-lg p-8 sticky top-24">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Phone className="w-6 h-6 text-purple-600" />
                 Devis expatrié gratuit
@@ -284,7 +284,7 @@ const ExpatriesPage: React.FC = () => {
             </div>
 
             {/* Related Links */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-white rounded-lg shadow-lg p-6">
               <h4 className="font-semibold text-gray-900 mb-4">Autres assurances</h4>
               <div className="space-y-3">
                 <Link to="/mutuelle-sante" className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors">

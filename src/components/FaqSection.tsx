@@ -30,7 +30,7 @@ const FaqSection: React.FC<FaqSectionProps> = ({ items, title = 'Questions fréq
   };
 
   return (
-    <section className="bg-white rounded-2xl shadow-lg p-8">
+    <section className="bg-white rounded-lg shadow-lg p-8">
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>

@@ -88,15 +88,15 @@ const AssuranceDecennalePage: React.FC = () => {
             </p>
 
             <div className="grid md:grid-cols-3 gap-4 mt-8">
-              <div className="flex items-center gap-3 bg-orange-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-orange-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-orange-600" />
                 <span className="font-semibold">Obligation légale</span>
               </div>
-              <div className="flex items-center gap-3 bg-red-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-red-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-red-600" />
                 <span className="font-semibold">Garantie 10 ans</span>
               </div>
-              <div className="flex items-center gap-3 bg-blue-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-blue-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-blue-600" />
                 <span className="font-semibold">Dès 60€/mois</span>
               </div>
@@ -108,7 +108,7 @@ const AssuranceDecennalePage: React.FC = () => {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-12">
             {/* Coverage Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                 <HardHat className="w-8 h-8 text-orange-600" />
                 Que couvre l'assurance décennale ?
@@ -120,7 +120,7 @@ const AssuranceDecennalePage: React.FC = () => {
 
               <div className="grid md:grid-cols-2 gap-4">
                 {coverageItems.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3 p-3 bg-orange-50 rounded-lg">
+                  <div key={index} className="flex items-start gap-3 p-3 bg-orange-50 rounded-md">
                     <CheckCircle className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-800">{item}</span>
                   </div>
@@ -138,7 +138,7 @@ const AssuranceDecennalePage: React.FC = () => {
             </section>
 
             {/* Professional Types Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-8">
                 Pour quels professionnels du BTP ?
               </h2>
@@ -164,7 +164,7 @@ const AssuranceDecennalePage: React.FC = () => {
             </section>
 
             {/* Pricing Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                 <Calculator className="w-8 h-8 text-green-600" />
                 Combien coûte une assurance décennale ?
@@ -185,23 +185,23 @@ const AssuranceDecennalePage: React.FC = () => {
 
               <div className="grid md:grid-cols-3 gap-4">
                 {priceExamples.map((example, index) => (
-                  <div key={index} className="bg-green-50 p-4 rounded-lg text-center">
+                  <div key={index} className="bg-green-50 p-4 rounded-md text-center">
                     <p className="font-semibold text-gray-900">{example.profile}</p>
                     <p className="text-green-700 font-bold">{example.price}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-6 bg-blue-50 p-4 rounded-lg">
+              <div className="mt-6 bg-blue-50 p-4 rounded-md">
                 <p className="text-sm text-gray-700">
-                  💡 <strong>Astuce :</strong> Les tarifs peuvent être réduits si vous regroupez votre
+                  <strong>Astuce :</strong> Les tarifs peuvent être réduits si vous regroupez votre
                   décennale avec votre RC Pro et votre multirisque professionnelle.
                 </p>
               </div>
             </section>
 
             {/* Why Choose Us Section */}
-            <section className="bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl shadow-lg p-8 text-white">
+            <section className="bg-gradient-to-r from-orange-600 to-red-600 rounded-lg shadow-lg p-8 text-white">
               <h2 className="text-3xl font-bold mb-8">
                 Pourquoi choisir Les Assureurs Experts ?
               </h2>
@@ -222,7 +222,7 @@ const AssuranceDecennalePage: React.FC = () => {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* CTA Form */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-24">
+            <div className="bg-white rounded-lg shadow-lg p-8 sticky top-24">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Phone className="w-6 h-6 text-orange-600" />
                 Devis décennale gratuit
@@ -236,7 +236,7 @@ const AssuranceDecennalePage: React.FC = () => {
             </div>
 
             {/* Related Links */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-white rounded-lg shadow-lg p-6">
               <h4 className="font-semibold text-gray-900 mb-4">Autres assurances pro</h4>
               <div className="space-y-3">
                 <Link to="/assurance-professionnelle" className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors">
