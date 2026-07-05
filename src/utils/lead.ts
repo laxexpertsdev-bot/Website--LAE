@@ -51,3 +51,22 @@ export async function submitLead(data: Record<string, unknown>): Promise<boolean
     return false;
   }
 }
+
+/**
+ * Soumission spécifique au formulaire « Bilan assurance offert » de la homepage.
+ * Poste vers la fonction serverless Vercel `/api/bilan-lead`, qui envoie le guide PDF
+ * au prospect, un rapport aux adresses admin, et conserve le lead dans Formspree.
+ * Retourne true si la route a répondu OK (email prospect parti).
+ */
+export async function submitBilanLead(data: Record<string, unknown>): Promise<boolean> {
+  try {
+    const response = await fetch('/api/bilan-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(data),
+    });
+    return response.ok;
+  } catch {
+    return false;
+  }
+}

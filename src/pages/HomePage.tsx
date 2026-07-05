@@ -10,7 +10,7 @@ import TarifCalculator from '../components/TarifCalculator';
 import ReviewForm from '../components/ReviewForm';
 import { reviews } from '../data/reviews';
 import { Helmet } from 'react-helmet-async';
-import { submitLead, trackLeadConversion } from '../utils/lead';
+import { submitBilanLead, trackLeadConversion } from '../utils/lead';
 
 const HomePage: React.FC = () => {
   // Lead magnet form state
@@ -38,7 +38,7 @@ const HomePage: React.FC = () => {
     if (honeypot) return; // bot détecté
     setSubmitError(false);
     setIsLoading(true);
-    const ok = await submitLead({ ...formData, _subject: 'Lead magnet — Guide « 10 erreurs à éviter »' });
+    const ok = await submitBilanLead({ ...formData, website: honeypot });
     setIsLoading(false);
     if (ok) {
       trackLeadConversion({ formLocation: 'lead_magnet_home' });
