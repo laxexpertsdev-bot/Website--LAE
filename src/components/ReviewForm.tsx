@@ -230,7 +230,7 @@ const ReviewForm: React.FC = () => {
               type="submit"
               disabled={isLoading}
               className="w-full lg:w-auto lg:min-w-[180px] h-[46px] px-6 rounded-md text-white text-sm font-bold tracking-wide transition-all duration-200 hover:brightness-110 active:scale-[0.98] shadow-lg disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-              style={{ backgroundColor: '#ff6600' }}
+              style={{ backgroundColor: '#c85000' }}
             >
               {isLoading ? (
                 <>
@@ -246,7 +246,7 @@ const ReviewForm: React.FC = () => {
 
         {/* Consentement + email + erreurs, pleine largeur */}
         <div className="mt-3 pt-3 border-t border-gray-100">
-          <p className="text-gray-400 text-xs mb-2">
+          <p className="text-gray-500 text-xs mb-2">
             Votre email ne sera jamais affiché publiquement — il nous sert uniquement à vérifier
             votre avis.
           </p>
