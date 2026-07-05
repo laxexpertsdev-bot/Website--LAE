@@ -21,6 +21,7 @@ const WhatsAppButton: React.FC = () => {
       href="https://wa.me/33651883151"
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="Contacter par WhatsApp"
       className="fixed bottom-4 right-4 z-50 text-white rounded-full p-4 shadow-2xl transition-all duration-300 transform hover:scale-110 flex items-center gap-3 group"
       style={{
         background: '#25D366',

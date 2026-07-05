@@ -168,10 +168,11 @@ const ContactPage: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="contact-firstName" className="block text-sm font-medium text-gray-700 mb-2">
                     Prénom *
                   </label>
                   <input
+                    id="contact-firstName"
                     type="text"
                     name="firstName"
                     value={formData.firstName}
@@ -181,10 +182,11 @@ const ContactPage: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="contact-lastName" className="block text-sm font-medium text-gray-700 mb-2">
                     Nom *
                   </label>
                   <input
+                    id="contact-lastName"
                     type="text"
                     name="lastName"
                     value={formData.lastName}
@@ -197,10 +199,11 @@ const ContactPage: React.FC = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="contact-email" className="block text-sm font-medium text-gray-700 mb-2">
                     Email *
                   </label>
                   <input
+                    id="contact-email"
                     type="email"
                     name="email"
                     value={formData.email}
@@ -210,10 +213,11 @@ const ContactPage: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="contact-phone" className="block text-sm font-medium text-gray-700 mb-2">
                     Téléphone
                   </label>
                   <input
+                    id="contact-phone"
                     type="tel"
                     name="phone"
                     value={formData.phone}
@@ -224,10 +228,11 @@ const ContactPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="contact-subject" className="block text-sm font-medium text-gray-700 mb-2">
                   Type d'assurance ou sujet *
                 </label>
                 <select
+                  id="contact-subject"
                   name="subject"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
@@ -242,10 +247,11 @@ const ContactPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="contact-message" className="block text-sm font-medium text-gray-700 mb-2">
                   Message *
                 </label>
                 <textarea
+                  id="contact-message"
                   name="message"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}

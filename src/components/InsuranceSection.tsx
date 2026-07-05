@@ -126,10 +126,11 @@ const InsuranceSection: React.FC = () => {
         <form onSubmit={handleSubmit} noValidate className="px-7 py-6 space-y-4">
           {/* besoin */}
           <div>
-            <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+            <label htmlFor="insurance-besoin" className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
               Type d'assurance <span className="text-red-500">*</span>
             </label>
             <select
+              id="insurance-besoin"
               name="besoin"
               value={formData.besoin}
               onChange={handleChange}
@@ -158,10 +159,11 @@ const InsuranceSection: React.FC = () => {
 
           {/* contrat_actuel */}
           <div>
-            <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+            <label htmlFor="insurance-contrat-actuel" className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
               Contrat ou formule actuelle
             </label>
             <input
+              id="insurance-contrat-actuel"
               type="text"
               name="contrat_actuel"
               value={formData.contrat_actuel}
@@ -174,10 +176,11 @@ const InsuranceSection: React.FC = () => {
 
           {/* cotisation_actuelle */}
           <div>
-            <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+            <label htmlFor="insurance-cotisation-actuelle" className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
               Cotisation actuelle
             </label>
             <input
+              id="insurance-cotisation-actuelle"
               type="text"
               name="cotisation_actuelle"
               value={formData.cotisation_actuelle}
@@ -190,10 +193,11 @@ const InsuranceSection: React.FC = () => {
           {/* nom + prenom côte à côte */}
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+              <label htmlFor="insurance-nom" className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
                 Nom <span className="text-red-500">*</span>
               </label>
               <input
+                id="insurance-nom"
                 type="text"
                 name="nom"
                 value={formData.nom}
@@ -205,10 +209,11 @@ const InsuranceSection: React.FC = () => {
               {errors.nom && <p className="text-red-500 text-xs mt-1">{errors.nom}</p>}
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+              <label htmlFor="insurance-prenom" className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
                 Prénom <span className="text-red-500">*</span>
               </label>
               <input
+                id="insurance-prenom"
                 type="text"
                 name="prenom"
                 value={formData.prenom}
@@ -223,10 +228,11 @@ const InsuranceSection: React.FC = () => {
 
           {/* email */}
           <div>
-            <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+            <label htmlFor="insurance-email" className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
               Adresse email <span className="text-red-500">*</span>
             </label>
             <input
+              id="insurance-email"
               type="email"
               name="email"
               value={formData.email}
@@ -240,10 +246,11 @@ const InsuranceSection: React.FC = () => {
 
           {/* telephone */}
           <div>
-            <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+            <label htmlFor="insurance-telephone" className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
               Téléphone <span className="text-red-500">*</span>
             </label>
             <input
+              id="insurance-telephone"
               type="tel"
               name="telephone"
               value={formData.telephone}
@@ -258,10 +265,11 @@ const InsuranceSection: React.FC = () => {
           {/* code_postal + date_naissance côte à côte */}
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+              <label htmlFor="insurance-code-postal" className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
                 Code postal
               </label>
               <input
+                id="insurance-code-postal"
                 type="text"
                 name="code_postal"
                 value={formData.code_postal}
@@ -273,10 +281,11 @@ const InsuranceSection: React.FC = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+              <label htmlFor="insurance-date-naissance" className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
                 Date de naissance
               </label>
               <input
+                id="insurance-date-naissance"
                 type="date"
                 name="date_naissance"
                 value={formData.date_naissance}
@@ -288,10 +297,11 @@ const InsuranceSection: React.FC = () => {
 
           {/* message */}
           <div>
-            <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+            <label htmlFor="insurance-message" className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
               Message (optionnel)
             </label>
             <textarea
+              id="insurance-message"
               name="message"
               value={formData.message}
               onChange={handleChange}

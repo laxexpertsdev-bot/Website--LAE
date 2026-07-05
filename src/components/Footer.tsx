@@ -16,9 +16,9 @@ const Footer: React.FC = () => {
 
             {/* Navigation */}
             <div>
-              <h4 className="text-[17px] font-semibold text-gray-900 mb-5 tracking-tight">
+              <h3 className="text-[17px] font-semibold text-gray-900 mb-5 tracking-tight">
                 Navigation
-              </h4>
+              </h3>
               <ul className="space-y-3.5">
                 <li>
                   <Link
@@ -57,9 +57,9 @@ const Footer: React.FC = () => {
 
             {/* Informations légales */}
             <div>
-              <h4 className="text-[17px] font-semibold text-gray-900 mb-5 tracking-tight">
+              <h3 className="text-[17px] font-semibold text-gray-900 mb-5 tracking-tight">
                 Informations légales
-              </h4>
+              </h3>
               <ul className="space-y-3.5">
                 <li>
                   <Link
@@ -98,9 +98,9 @@ const Footer: React.FC = () => {
 
             {/* Contact */}
             <div>
-              <h4 className="text-[17px] font-semibold text-gray-900 mb-5 tracking-tight">
+              <h3 className="text-[17px] font-semibold text-gray-900 mb-5 tracking-tight">
                 Contact
-              </h4>
+              </h3>
               <div className="space-y-3.5">
                 <div className="flex items-start gap-3">
                   <Mail className="w-[18px] h-[18px] text-blue-700 mt-0.5 flex-shrink-0" />

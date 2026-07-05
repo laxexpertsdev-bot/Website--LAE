@@ -320,9 +320,9 @@ const InsuranceCarousel: React.FC = () => {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                index === currentSlide 
-                  ? 'bg-blue-600 w-8' 
+              className={`relative w-3 h-3 rounded-full transition-all duration-200 before:absolute before:-inset-[6px] before:content-[''] ${
+                index === currentSlide
+                  ? 'bg-blue-600 w-8'
                   : 'bg-gray-300 hover:bg-gray-400'
               }`}
               aria-label={`Aller au slide ${index + 1}`}
