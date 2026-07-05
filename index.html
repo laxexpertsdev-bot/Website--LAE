@@ -35,20 +35,51 @@
         wait_for_update: 500
       });
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7B368ES2C5"></script>
+    <!-- GTM/GA4 loaded lazily after first interaction or window load to keep them off the
+         critical rendering path. Consent Mode default above still runs immediately, so no
+         analytics/ad storage is used until CookieConsent grants it. -->
     <script>
-      gtag('js', new Date());
-      gtag('config', 'G-7B368ES2C5');
+      (function () {
+        var loaded = false;
+        function loadAnalytics() {
+          if (loaded) return;
+          loaded = true;
+
+          // gtag.js
+          var gtagScript = document.createElement('script');
+          gtagScript.async = true;
+          gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-7B368ES2C5';
+          document.head.appendChild(gtagScript);
+          gtag('js', new Date());
+          gtag('config', 'G-7B368ES2C5');
+
+          // GTM
+          (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s),
+              dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+          })(window, document, 'script', 'dataLayer', 'GTM-5XSPXVSP');
+
+          window.removeEventListener('scroll', loadAnalytics);
+          window.removeEventListener('click', loadAnalytics);
+          window.removeEventListener('touchstart', loadAnalytics);
+          window.removeEventListener('keydown', loadAnalytics);
+        }
+
+        window.addEventListener('scroll', loadAnalytics, { passive: true, once: true });
+        window.addEventListener('click', loadAnalytics, { once: true });
+        window.addEventListener('touchstart', loadAnalytics, { passive: true, once: true });
+        window.addEventListener('keydown', loadAnalytics, { once: true });
+        window.addEventListener('load', function () {
+          setTimeout(loadAnalytics, 3000);
+        });
+      })();
     </script>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5XSPXVSP');</script>
-    <!-- End Google Tag Manager -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",

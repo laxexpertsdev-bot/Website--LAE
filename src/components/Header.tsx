@@ -90,6 +90,8 @@ const Header: React.FC = () => {
               <img
                 src="/logo-assureurs-experts.png"
                 alt="LES ASSUREURS EXPERTS"
+                width="121"
+                height="128"
                 className="h-14 w-auto object-contain md:h-16"
               />
             </Link>

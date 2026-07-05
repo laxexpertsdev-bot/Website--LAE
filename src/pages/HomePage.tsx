@@ -181,6 +181,8 @@ const HomePage: React.FC = () => {
                 <img
                   src="/partners/logo_de_la_startup_acheel.png"
                   alt="ACHEEL"
+                  width="281"
+                  height="110"
                   className="h-[55px] w-auto object-contain"
                   loading="lazy"
                   decoding="async"
@@ -192,6 +194,8 @@ const HomePage: React.FC = () => {
                 <img
                   src="/partners/images.png"
                   alt="APRIL"
+                  width="110"
+                  height="110"
                   className="h-[55px] w-auto object-contain"
                   loading="lazy"
                   decoding="async"
@@ -203,6 +207,8 @@ const HomePage: React.FC = () => {
                 <img
                   src="/partners/images.jfif"
                   alt="ASSUREMA"
+                  width="154"
+                  height="110"
                   className="h-[55px] w-auto object-contain"
                   loading="lazy"
                   decoding="async"
@@ -214,6 +220,8 @@ const HomePage: React.FC = () => {
                 <img
                   src="/partners/kereis-france-logo-rvb-unboxed-860x484.png.webp"
                   alt="KEREIS"
+                  width="195"
+                  height="110"
                   className="h-[55px] w-auto object-contain"
                   loading="lazy"
                   decoding="async"
@@ -225,6 +233,8 @@ const HomePage: React.FC = () => {
                 <img
                   src="/partners/images_(4).png"
                   alt="CEGEMA"
+                  width="147"
+                  height="110"
                   className="h-[55px] w-auto object-contain"
                   loading="lazy"
                   decoding="async"
@@ -236,6 +246,8 @@ const HomePage: React.FC = () => {
                 <img
                   src="/partners/images_(3).png"
                   alt="QBE"
+                  width="110"
+                  height="110"
                   className="h-[55px] w-auto object-contain"
                   loading="lazy"
                   decoding="async"
@@ -247,6 +259,8 @@ const HomePage: React.FC = () => {
                 <img
                   src="/partners/images_(2).png"
                   alt="AMI 3F"
+                  width="96"
+                  height="110"
                   className="h-[55px] w-auto object-contain"
                   loading="lazy"
                   decoding="async"
@@ -258,6 +272,8 @@ const HomePage: React.FC = () => {
                 <img
                   src="/partners/images_(1).png"
                   alt="APICIL"
+                  width="141"
+                  height="110"
                   className="h-[55px] w-auto object-contain"
                   loading="lazy"
                   decoding="async"
