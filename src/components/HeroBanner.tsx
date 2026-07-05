@@ -91,7 +91,7 @@ const HeroBanner: React.FC = () => {
             >
               <Link
                 to="/devis"
-                className="inline-flex items-center gap-3 bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+                className="inline-flex items-center gap-3 bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-xl hover:shadow-2xl"
               >
                 <Phone className="w-6 h-6" />
                 Obtenir mon devis gratuit
@@ -130,7 +130,7 @@ const HeroBanner: React.FC = () => {
           >
             <div className="relative">
               {/* Image Slider */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[500px]">
+              <div className="relative rounded-xl overflow-hidden shadow-2xl h-[500px]">
                 {slides.map((slide, index) => (
                   <div
                     key={index}
@@ -167,7 +167,7 @@ const HeroBanner: React.FC = () => {
               
               {/* Floating Elements */}
               <motion.div 
-                className="absolute -top-6 -left-6 bg-white rounded-2xl p-4 shadow-xl"
+                className="absolute -top-6 -left-6 bg-white rounded-lg p-4 shadow-xl"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
@@ -183,7 +183,7 @@ const HeroBanner: React.FC = () => {
               </motion.div>
 
               <motion.div 
-                className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-4 shadow-xl"
+                className="absolute -bottom-6 -right-6 bg-white rounded-lg p-4 shadow-xl"
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
               >

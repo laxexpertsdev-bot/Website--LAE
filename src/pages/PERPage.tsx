@@ -88,15 +88,15 @@ const PERPage: React.FC = () => {
             </p>
             
             <div className="grid md:grid-cols-3 gap-4 mt-8">
-              <div className="flex items-center gap-3 bg-amber-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-amber-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-amber-600" />
                 <span className="font-semibold">Déduction jusqu'à 10%</span>
               </div>
-              <div className="flex items-center gap-3 bg-green-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-green-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-green-600" />
                 <span className="font-semibold">Sortie capital ou rente</span>
               </div>
-              <div className="flex items-center gap-3 bg-blue-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-blue-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-blue-600" />
                 <span className="font-semibold">Sans frais cachés</span>
               </div>
@@ -108,7 +108,7 @@ const PERPage: React.FC = () => {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-12">
             {/* Coverage Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                 <PiggyBank className="w-8 h-8 text-amber-600" />
                 Quels sont les avantages du PER ?
@@ -120,7 +120,7 @@ const PERPage: React.FC = () => {
               
               <div className="grid md:grid-cols-2 gap-4">
                 {coverageItems.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3 p-3 bg-amber-50 rounded-lg">
+                  <div key={index} className="flex items-start gap-3 p-3 bg-amber-50 rounded-md">
                     <CheckCircle className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-800">{item}</span>
                   </div>
@@ -129,7 +129,7 @@ const PERPage: React.FC = () => {
             </section>
 
             {/* Target Profiles Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-8">
                 Pour qui est-ce intéressant ?
               </h2>
@@ -155,32 +155,32 @@ const PERPage: React.FC = () => {
             </section>
 
             {/* Fiscal Advantages Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Avantages fiscaux du PER
               </h2>
               
               <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg mb-6">
-                <h3 className="font-semibold text-green-900 mb-3">💰 Déduction fiscale immédiate</h3>
+                <h3 className="font-semibold text-green-900 mb-3">Déduction fiscale immédiate</h3>
                 <p className="text-green-800">
                   Vos versements sur un PER sont déductibles de vos revenus imposables, 
                   dans la limite de 10% de vos revenus professionnels (avec plafond).
                 </p>
               </div>
               
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">📌 Exemples d'économies d'impôt :</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Exemples d'économies d'impôt :</h3>
               
               <div className="grid md:grid-cols-3 gap-4 mb-6">
                 {fiscalExamples.map((example, index) => (
-                  <div key={index} className="bg-green-50 p-4 rounded-lg text-center">
+                  <div key={index} className="bg-green-50 p-4 rounded-md text-center">
                     <p className="font-semibold text-gray-900">{example.income}</p>
                     <p className="text-green-700 font-bold text-sm">{example.saving}</p>
                   </div>
                 ))}
               </div>
               
-              <div className="bg-blue-50 p-6 rounded-lg">
-                <h4 className="font-semibold text-blue-900 mb-3">🔄 Fiscalité à la sortie</h4>
+              <div className="bg-blue-50 p-6 rounded-md">
+                <h4 className="font-semibold text-blue-900 mb-3">Fiscalité à la sortie</h4>
                 <p className="text-blue-800 text-sm">
                   À la retraite, seule la part correspondant aux versements déductibles sera imposée. 
                   Les plus-values sont exonérées d'impôt sur le revenu (mais soumises aux prélèvements sociaux).
@@ -189,7 +189,7 @@ const PERPage: React.FC = () => {
             </section>
 
             {/* How it Works Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-8">
                 Comment fonctionne le PER ?
               </h2>
@@ -222,7 +222,7 @@ const PERPage: React.FC = () => {
             </section>
 
             {/* Why Choose Us Section */}
-            <section className="bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl shadow-lg p-8 text-white">
+            <section className="bg-gradient-to-r from-amber-500 to-orange-500 rounded-lg shadow-lg p-8 text-white">
               <h2 className="text-3xl font-bold mb-8">
                 Pourquoi choisir Les Assureurs Experts ?
               </h2>
@@ -243,7 +243,7 @@ const PERPage: React.FC = () => {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* CTA Form */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-24">
+            <div className="bg-white rounded-lg shadow-lg p-8 sticky top-24">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Phone className="w-6 h-6 text-amber-600" />
                 Simulation PER gratuite
@@ -257,7 +257,7 @@ const PERPage: React.FC = () => {
             </div>
 
             {/* Related Links */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-white rounded-lg shadow-lg p-6">
               <h4 className="font-semibold text-gray-900 mb-4">Autres placements</h4>
               <div className="space-y-3">
                 <Link to="/assurance-vie" className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors">

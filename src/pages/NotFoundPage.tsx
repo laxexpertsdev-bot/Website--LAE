@@ -29,14 +29,14 @@ export default function NotFoundPage() {
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               to="/"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white font-semibold transition-colors hover:opacity-90"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md text-white font-semibold transition-colors hover:opacity-90"
               style={{ backgroundColor: '#002D62' }}
             >
               <Home className="w-5 h-5" /> Retour à l'accueil
             </Link>
             <Link
               to="/devis"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold border-2 transition-colors hover:bg-gray-50"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md font-semibold border-2 transition-colors hover:bg-gray-50"
               style={{ borderColor: '#002D62', color: '#002D62' }}
             >
               <FileText className="w-5 h-5" /> Devis gratuit

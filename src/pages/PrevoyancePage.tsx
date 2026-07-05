@@ -87,15 +87,15 @@ const PrevoyancePage: React.FC = () => {
             </p>
             
             <div className="grid md:grid-cols-3 gap-4 mt-8">
-              <div className="flex items-center gap-3 bg-teal-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-teal-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-teal-600" />
                 <span className="font-semibold">Protection complémentaire</span>
               </div>
-              <div className="flex items-center gap-3 bg-green-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-green-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-green-600" />
                 <span className="font-semibold">Rente jusqu'à 5 000€/mois</span>
               </div>
-              <div className="flex items-center gap-3 bg-blue-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-blue-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-blue-600" />
                 <span className="font-semibold">Déduction fiscale</span>
               </div>
@@ -107,7 +107,7 @@ const PrevoyancePage: React.FC = () => {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-12">
             {/* Coverage Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                 <Shield className="w-8 h-8 text-teal-600" />
                 Que couvre la prévoyance ?
@@ -119,7 +119,7 @@ const PrevoyancePage: React.FC = () => {
               
               <div className="grid md:grid-cols-2 gap-4">
                 {coverageItems.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3 p-3 bg-teal-50 rounded-lg">
+                  <div key={index} className="flex items-start gap-3 p-3 bg-teal-50 rounded-md">
                     <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-800">{item}</span>
                   </div>
@@ -128,7 +128,7 @@ const PrevoyancePage: React.FC = () => {
             </section>
 
             {/* Target Profiles Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-8">
                 Pour qui est-ce indispensable ?
               </h2>
@@ -154,13 +154,13 @@ const PrevoyancePage: React.FC = () => {
             </section>
 
             {/* Why Important Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Pourquoi la prévoyance est-elle essentielle ?
               </h2>
               
               <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg mb-6">
-                <h3 className="font-semibold text-red-900 mb-3">⚠️ Le saviez-vous ?</h3>
+                <h3 className="font-semibold text-red-900 mb-3">Le saviez-vous ?</h3>
                 <p className="text-red-800">
                   Les indépendants et TNS ne bénéficient que de faibles indemnités journalières 
                   de la Sécurité sociale. Sans prévoyance, un arrêt de travail peut mettre 
@@ -175,7 +175,7 @@ const PrevoyancePage: React.FC = () => {
                   "Continuité de votre activité professionnelle",
                   "Sérénité face aux aléas de la vie"
                 ].map((benefit, index) => (
-                  <div key={index} className="flex items-start gap-3 p-4 bg-teal-50 rounded-lg">
+                  <div key={index} className="flex items-start gap-3 p-4 bg-teal-50 rounded-md">
                     <CheckCircle className="w-6 h-6 text-teal-600 mt-0.5" />
                     <span className="text-gray-800 font-medium">{benefit}</span>
                   </div>
@@ -184,7 +184,7 @@ const PrevoyancePage: React.FC = () => {
             </section>
 
             {/* Pricing Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                 <Calculator className="w-8 h-8 text-green-600" />
                 Combien coûte une prévoyance ?
@@ -201,11 +201,11 @@ const PrevoyancePage: React.FC = () => {
                 ))}
               </ul>
               
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">📌 Exemples de tarifs :</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Exemples de tarifs :</h3>
               
               <div className="grid md:grid-cols-3 gap-4">
                 {priceExamples.map((example, index) => (
-                  <div key={index} className="bg-green-50 p-4 rounded-lg text-center">
+                  <div key={index} className="bg-green-50 p-4 rounded-md text-center">
                     <p className="font-semibold text-gray-900">{example.profile}</p>
                     <p className="text-green-700 font-bold">{example.price}</p>
                   </div>
@@ -214,7 +214,7 @@ const PrevoyancePage: React.FC = () => {
             </section>
 
             {/* Why Choose Us Section */}
-            <section className="bg-gradient-to-r from-teal-500 to-cyan-600 rounded-2xl shadow-lg p-8 text-white">
+            <section className="bg-gradient-to-r from-teal-500 to-cyan-600 rounded-lg shadow-lg p-8 text-white">
               <h2 className="text-3xl font-bold mb-8">
                 Pourquoi choisir Les Assureurs Experts ?
               </h2>
@@ -235,7 +235,7 @@ const PrevoyancePage: React.FC = () => {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* CTA Form */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-24">
+            <div className="bg-white rounded-lg shadow-lg p-8 sticky top-24">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Phone className="w-6 h-6 text-teal-600" />
                 Devis prévoyance gratuit
@@ -249,7 +249,7 @@ const PrevoyancePage: React.FC = () => {
             </div>
 
             {/* Related Links */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-white rounded-lg shadow-lg p-6">
               <h4 className="font-semibold text-gray-900 mb-4">Autres assurances</h4>
               <div className="space-y-3">
                 <Link to="/mutuelle-sante" className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors">

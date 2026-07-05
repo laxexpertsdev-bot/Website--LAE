@@ -60,9 +60,9 @@ const CookieConsent: React.FC = () => {
       aria-labelledby="cookie-title"
       aria-live="polite"
     >
-      <div className="pointer-events-auto max-h-[calc(100vh-7.5rem)] overflow-y-auto rounded-lg border border-gray-200 bg-white p-4 shadow-2xl sm:max-h-[calc(100vh-3rem)] sm:p-5">
+      <div className="pointer-events-auto max-h-[calc(100vh-7.5rem)] overflow-y-auto rounded-md border border-gray-200 bg-white p-4 shadow-2xl sm:max-h-[calc(100vh-3rem)] sm:p-5">
         <div className="flex items-start gap-3">
-          <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+          <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-blue-50 text-blue-600">
             <Cookie className="h-5 w-5" aria-hidden="true" />
           </span>
           <div className="min-w-0">
@@ -126,7 +126,7 @@ const CookieConsent: React.FC = () => {
               </button>
             </div>
 
-            <div className="rounded-lg border border-green-200 bg-green-50 p-3">
+            <div className="rounded-md border border-green-200 bg-green-50 p-3">
               <div className="flex items-center gap-2">
                 <h4 className="text-sm font-semibold text-gray-900">Cookies nécessaires</h4>
                 <Check className="h-4 w-4 text-green-600" aria-hidden="true" />
@@ -137,7 +137,7 @@ const CookieConsent: React.FC = () => {
             </div>
 
             <div className="space-y-3">
-              <div className="rounded-lg border border-gray-200 bg-white p-3">
+              <div className="rounded-md border border-gray-200 bg-white p-3">
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <h4 className="text-sm font-semibold text-gray-900">Cookies analytiques</h4>
@@ -160,7 +160,7 @@ const CookieConsent: React.FC = () => {
                 </div>
               </div>
 
-              <div className="rounded-lg border border-gray-200 bg-white p-3">
+              <div className="rounded-md border border-gray-200 bg-white p-3">
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <h4 className="text-sm font-semibold text-gray-900">Cookies marketing</h4>

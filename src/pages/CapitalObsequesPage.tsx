@@ -93,15 +93,15 @@ const CapitalObsequesPage: React.FC = () => {
             </p>
 
             <div className="grid md:grid-cols-3 gap-4 mt-8">
-              <div className="flex items-center gap-3 bg-rose-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-rose-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-rose-600" />
                 <span className="font-semibold">Dès 12€/mois</span>
               </div>
-              <div className="flex items-center gap-3 bg-pink-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-pink-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-pink-600" />
                 <span className="font-semibold">Sans questionnaire médical</span>
               </div>
-              <div className="flex items-center gap-3 bg-purple-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-purple-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-purple-600" />
                 <span className="font-semibold">Capital garanti</span>
               </div>
@@ -111,14 +111,14 @@ const CapitalObsequesPage: React.FC = () => {
 
         <div className="grid lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2 space-y-12">
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Shield className="w-8 h-8 text-rose-600" />
                 Garanties de l'assurance capital obsèques
               </h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {coverageItems.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3 p-4 bg-rose-50 rounded-lg hover:bg-rose-100 transition-colors">
+                  <div key={index} className="flex items-start gap-3 p-4 bg-rose-50 rounded-md hover:bg-rose-100 transition-colors">
                     <CheckCircle className="w-5 h-5 text-rose-600 flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700">{item}</span>
                   </div>
@@ -126,14 +126,14 @@ const CapitalObsequesPage: React.FC = () => {
               </div>
             </section>
 
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Heart className="w-8 h-8 text-pink-600" />
                 Ce qui est pris en charge
               </h2>
               <div className="space-y-4">
                 {whatIsCovered.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3 p-4 bg-pink-50 rounded-lg border-l-4 border-pink-600">
+                  <div key={index} className="flex items-start gap-3 p-4 bg-pink-50 rounded-md border-l-4 border-pink-600">
                     <CheckCircle className="w-5 h-5 text-pink-600 flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700">{item}</span>
                   </div>
@@ -147,14 +147,14 @@ const CapitalObsequesPage: React.FC = () => {
               </div>
             </section>
 
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Users className="w-8 h-8 text-purple-600" />
                 Solutions adaptées à chaque profil
               </h2>
               <div className="space-y-4">
                 {profileTypes.map((item, index) => (
-                  <div key={index} className="p-5 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors border border-gray-200">
+                  <div key={index} className="p-5 bg-gray-50 rounded-md hover:bg-gray-100 transition-colors border border-gray-200">
                     <div className="flex justify-between items-start">
                       <div>
                         <h3 className="font-bold text-gray-900 text-lg mb-2">{item.type}</h3>
@@ -167,14 +167,14 @@ const CapitalObsequesPage: React.FC = () => {
               </div>
             </section>
 
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Calculator className="w-8 h-8 text-green-600" />
                 Exemples de tarifs indicatifs
               </h2>
               <div className="space-y-4">
                 {priceExamples.map((example, index) => (
-                  <div key={index} className="flex justify-between items-center p-5 bg-green-50 rounded-lg border border-green-200">
+                  <div key={index} className="flex justify-between items-center p-5 bg-green-50 rounded-md border border-green-200">
                     <span className="font-medium text-gray-900">{example.profile}</span>
                     <span className="text-green-700 font-bold text-lg">{example.price}</span>
                   </div>
@@ -186,7 +186,7 @@ const CapitalObsequesPage: React.FC = () => {
               </p>
             </section>
 
-            <section className="bg-gradient-to-br from-rose-600 to-pink-700 rounded-2xl shadow-xl p-8 text-white">
+            <section className="bg-gradient-to-br from-rose-600 to-pink-700 rounded-lg shadow-xl p-8 text-white">
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
                 <Heart className="w-8 h-8" />
                 Pourquoi choisir notre assurance capital obsèques ?
@@ -206,7 +206,7 @@ const CapitalObsequesPage: React.FC = () => {
           </div>
 
           <div className="lg:col-span-1 space-y-6">
-            <div className="bg-gradient-to-br from-rose-600 to-pink-700 rounded-2xl shadow-xl p-8 text-white sticky top-24">
+            <div className="bg-gradient-to-br from-rose-600 to-pink-700 rounded-lg shadow-xl p-8 text-white sticky top-24">
               <h3 className="text-2xl font-bold mb-6">Demander un tarif personnalisé</h3>
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-3">
@@ -230,13 +230,13 @@ const CapitalObsequesPage: React.FC = () => {
               <div className="space-y-4">
                 <Link
                   to="/devis"
-                  className="block w-full bg-white text-rose-700 text-center py-4 px-6 rounded-xl font-bold text-lg hover:bg-rose-50 transition-all duration-200 transform hover:scale-105 shadow-lg"
+                  className="block w-full bg-white text-rose-700 text-center py-4 px-6 rounded-lg font-bold text-lg hover:bg-rose-50 transition-all duration-200 transform hover:scale-105 shadow-lg"
                 >
                   Demander un tarif
                 </Link>
                 <a
                   href="tel:+33162171111"
-                  className="flex items-center justify-center gap-3 w-full bg-rose-800 text-white py-4 px-6 rounded-xl font-bold hover:bg-rose-900 transition-all duration-200"
+                  className="flex items-center justify-center gap-3 w-full bg-rose-800 text-white py-4 px-6 rounded-lg font-bold hover:bg-rose-900 transition-all duration-200"
                 >
                   <Phone className="w-5 h-5" />
                   +33 1 62 17 11 11
@@ -250,7 +250,7 @@ const CapitalObsequesPage: React.FC = () => {
           </div>
         </div>
 
-        <section className="mt-16 bg-white rounded-2xl shadow-lg p-8">
+        <section className="mt-16 bg-white rounded-lg shadow-lg p-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Capital Obsèques : tout ce qu'il faut savoir
           </h2>

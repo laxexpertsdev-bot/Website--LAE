@@ -69,7 +69,7 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
         placeholder="Prénom et Nom"
         value={data.fullName}
         onChange={(e) => setData({ ...data, fullName: e.target.value })}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
         required
         autoComplete="name"
       />
@@ -79,7 +79,7 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
         placeholder="Téléphone"
         value={data.phone}
         onChange={(e) => setData({ ...data, phone: e.target.value })}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
         required
         autoComplete="tel"
       />
@@ -89,7 +89,7 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
         placeholder="Email"
         value={data.email}
         onChange={(e) => setData({ ...data, email: e.target.value })}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
         required
         autoComplete="email"
       />
@@ -120,7 +120,7 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-md font-semibold text-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {isLoading ? (
           <>
@@ -136,7 +136,7 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
       </button>
 
       <p className="text-xs text-gray-500 text-center">
-        🔒 Réponse sous 24h • Gratuit et sans engagement
+        Réponse sous 24h • Gratuit et sans engagement
       </p>
     </form>
   );

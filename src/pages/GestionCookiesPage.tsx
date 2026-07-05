@@ -47,7 +47,7 @@ const GestionCookiesPage: React.FC = () => {
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-white rounded-2xl shadow-lg p-8">
+        <div className="bg-white rounded-lg shadow-lg p-8">
           <div className="flex items-center gap-3 mb-8">
             <Cookie className="w-8 h-8 text-orange-500" />
             <h1 className="text-3xl font-bold text-gray-900">Gestion des cookies</h1>
@@ -64,8 +64,8 @@ const GestionCookiesPage: React.FC = () => {
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">Types de cookies utilisés</h2>
             
             <div className="space-y-6 mb-8">
-              <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                <h3 className="text-xl font-semibold text-green-900 mb-3">🔧 Cookies nécessaires</h3>
+              <div className="bg-green-50 border border-green-200 rounded-md p-6">
+                <h3 className="text-xl font-semibold text-green-900 mb-3">Cookies nécessaires</h3>
                 <p className="text-green-800 mb-3">
                   Ces cookies sont indispensables au fonctionnement du site et ne peuvent pas être désactivés.
                 </p>
@@ -76,8 +76,8 @@ const GestionCookiesPage: React.FC = () => {
                 </ul>
               </div>
 
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                <h3 className="text-xl font-semibold text-blue-900 mb-3">📊 Cookies analytiques</h3>
+              <div className="bg-blue-50 border border-blue-200 rounded-md p-6">
+                <h3 className="text-xl font-semibold text-blue-900 mb-3">Cookies analytiques</h3>
                 <p className="text-blue-800 mb-3">
                   Ces cookies nous aident à comprendre comment vous utilisez notre site pour l'améliorer.
                 </p>
@@ -88,8 +88,8 @@ const GestionCookiesPage: React.FC = () => {
                 </ul>
               </div>
 
-              <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
-                <h3 className="text-xl font-semibold text-purple-900 mb-3">🎯 Cookies marketing</h3>
+              <div className="bg-purple-50 border border-purple-200 rounded-md p-6">
+                <h3 className="text-xl font-semibold text-purple-900 mb-3">Cookies marketing</h3>
                 <p className="text-purple-800 mb-3">
                   Ces cookies permettent de personnaliser les publicités et de mesurer l'efficacité des campagnes.
                 </p>
@@ -108,7 +108,7 @@ const GestionCookiesPage: React.FC = () => {
               au fonctionnement du site.
             </p>
 
-            <div className="bg-gray-50 rounded-lg p-6 mb-8">
+            <div className="bg-gray-50 rounded-md p-6 mb-8">
               <div className="flex items-center gap-3 mb-4">
                 <Settings className="w-6 h-6 text-gray-600" />
                 <h3 className="text-lg font-semibold text-gray-900">Actions rapides</h3>
@@ -116,13 +116,13 @@ const GestionCookiesPage: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={handleAcceptAll}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-semibold transition-colors"
                 >
                   Accepter tous les cookies
                 </button>
                 <button
                   onClick={handleRejectAll}
-                  className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                  className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-md font-semibold transition-colors"
                 >
                   Refuser les cookies non nécessaires
                 </button>
@@ -153,7 +153,7 @@ const GestionCookiesPage: React.FC = () => {
               contact@lesassureursexperts.fr
             </p>
 
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mt-8">
+            <div className="bg-yellow-50 border border-yellow-200 rounded-md p-4 mt-8">
               <p className="text-yellow-800 text-sm">
                 <strong>Note :</strong> La désactivation de certains cookies peut affecter 
                 le fonctionnement optimal du site et votre expérience utilisateur.

@@ -88,15 +88,15 @@ const MutuelleHealthPage: React.FC = () => {
             </p>
             
             <div className="grid md:grid-cols-3 gap-4 mt-8">
-              <div className="flex items-center gap-3 bg-blue-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-blue-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-blue-600" />
                 <span className="font-semibold">Jeune actif ?</span>
               </div>
-              <div className="flex items-center gap-3 bg-green-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-green-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-green-600" />
                 <span className="font-semibold">Famille nombreuse ?</span>
               </div>
-              <div className="flex items-center gap-3 bg-purple-50 p-4 rounded-lg">
+              <div className="flex items-center gap-3 bg-purple-50 p-4 rounded-md">
                 <CheckCircle className="w-6 h-6 text-purple-600" />
                 <span className="font-semibold">Senior avec besoins renforcés ?</span>
               </div>
@@ -112,7 +112,7 @@ const MutuelleHealthPage: React.FC = () => {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-12">
             {/* Coverage Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                 <Heart className="w-8 h-8 text-red-500" />
                 Que couvre une mutuelle santé ?
@@ -124,7 +124,7 @@ const MutuelleHealthPage: React.FC = () => {
               
               <div className="grid md:grid-cols-2 gap-4">
                 {coverageItems.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3 p-3 bg-red-50 rounded-lg">
+                  <div key={index} className="flex items-start gap-3 p-3 bg-red-50 rounded-md">
                     <CheckCircle className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-800">{item}</span>
                   </div>
@@ -133,14 +133,14 @@ const MutuelleHealthPage: React.FC = () => {
             </section>
 
             {/* Difference Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Quelle est la différence entre mutuelle et assurance santé ?
               </h2>
               
               <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
                 <h3 className="font-semibold text-blue-900 mb-3 flex items-center gap-2">
-                  💡 Le saviez-vous ?
+                  Le saviez-vous ?
                 </h3>
                 <p className="text-blue-800">
                   Une mutuelle est souvent gérée à but non lucratif, une assurance santé est gérée par un assureur. 
@@ -150,7 +150,7 @@ const MutuelleHealthPage: React.FC = () => {
             </section>
 
             {/* Target Audience Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                 <Users className="w-8 h-8 text-blue-600" />
                 Pour qui ?
@@ -177,7 +177,7 @@ const MutuelleHealthPage: React.FC = () => {
             </section>
 
             {/* Pricing Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                 <Calculator className="w-8 h-8 text-green-600" />
                 Combien coûte une mutuelle ?
@@ -194,11 +194,11 @@ const MutuelleHealthPage: React.FC = () => {
                 ))}
               </ul>
               
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">📌 Exemples :</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Exemples :</h3>
               
               <div className="grid md:grid-cols-3 gap-4">
                 {priceExamples.map((example, index) => (
-                  <div key={index} className="bg-green-50 p-4 rounded-lg text-center">
+                  <div key={index} className="bg-green-50 p-4 rounded-md text-center">
                     <p className="font-semibold text-gray-900">{example.profile}</p>
                     <p className="text-green-700 font-bold">{example.price}</p>
                   </div>
@@ -207,7 +207,7 @@ const MutuelleHealthPage: React.FC = () => {
             </section>
 
             {/* How to Choose Section */}
-            <section className="bg-white rounded-2xl shadow-lg p-8">
+            <section className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-8">
                 Comment choisir sa mutuelle ?
               </h2>
@@ -219,7 +219,7 @@ const MutuelleHealthPage: React.FC = () => {
                   "Vérifiez la rapidité de remboursement",
                   "Demandez un devis comparatif"
                 ].map((tip, index) => (
-                  <div key={index} className="flex items-start gap-3 p-4 bg-blue-50 rounded-lg">
+                  <div key={index} className="flex items-start gap-3 p-4 bg-blue-50 rounded-md">
                     <CheckCircle className="w-6 h-6 text-blue-600 mt-0.5" />
                     <span className="text-gray-800 font-medium">{tip}</span>
                   </div>
@@ -228,7 +228,7 @@ const MutuelleHealthPage: React.FC = () => {
             </section>
 
             {/* Why Choose Us Section */}
-            <section className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl shadow-lg p-8 text-white">
+            <section className="bg-blue-700 rounded-lg shadow-lg p-8 text-white">
               <h2 className="text-3xl font-bold mb-8">
                 Pourquoi passer par Les Assureurs Experts ?
               </h2>
@@ -249,7 +249,7 @@ const MutuelleHealthPage: React.FC = () => {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* CTA Form */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-24">
+            <div className="bg-white rounded-lg shadow-lg p-8 sticky top-24">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Phone className="w-6 h-6 text-blue-600" />
                 Demandez votre devis mutuelle gratuit
@@ -263,7 +263,7 @@ const MutuelleHealthPage: React.FC = () => {
             </div>
 
             {/* Related Links */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-white rounded-lg shadow-lg p-6">
               <h4 className="font-semibold text-gray-900 mb-4">Autres assurances</h4>
               <div className="space-y-3">
                 <Link to="/assurance-emprunteur" className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors">

@@ -88,11 +88,11 @@ const ReviewForm: React.FC = () => {
   };
 
   const inputBase =
-    'w-full px-4 py-3 rounded-lg border text-gray-900 text-base placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#002D62]/30 focus:border-[#002D62] transition-colors bg-white';
+    'w-full px-4 py-3 rounded-md border text-gray-900 text-base placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#002D62]/30 focus:border-[#002D62] transition-colors bg-white';
 
   if (isSubmitted) {
     return (
-      <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 px-7 py-12 text-center">
+      <div className="bg-white rounded-lg shadow-2xl border border-gray-100 px-7 py-12 text-center">
         <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
           <CheckCircle className="w-8 h-8 text-green-600" />
         </div>
@@ -108,7 +108,7 @@ const ReviewForm: React.FC = () => {
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
+    <div className="bg-white rounded-lg shadow-2xl border border-gray-100 overflow-hidden">
       <div className="px-6 py-4" style={{ backgroundColor: '#002D62' }}>
         <h3 className="text-lg font-bold text-white leading-snug">
           Laissez un avis sur notre site
@@ -229,7 +229,7 @@ const ReviewForm: React.FC = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full lg:w-auto lg:min-w-[180px] h-[46px] px-6 rounded-lg text-white text-sm font-bold tracking-wide transition-all duration-200 hover:brightness-110 active:scale-[0.98] shadow-lg disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full lg:w-auto lg:min-w-[180px] h-[46px] px-6 rounded-md text-white text-sm font-bold tracking-wide transition-all duration-200 hover:brightness-110 active:scale-[0.98] shadow-lg disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               style={{ backgroundColor: '#ff6600' }}
             >
               {isLoading ? (

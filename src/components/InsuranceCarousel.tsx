@@ -201,7 +201,7 @@ const InsuranceCarousel: React.FC = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-            🎯 Découvrez nos solutions d'assurance en détail
+            Découvrez nos solutions d'assurance en détail
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Chaque assurance mérite une attention particulière. Explorez nos offres complètes 
@@ -212,7 +212,7 @@ const InsuranceCarousel: React.FC = () => {
         {/* Carousel Container */}
         <div className="relative">
           {/* Main Carousel */}
-          <div className="relative overflow-hidden rounded-3xl shadow-2xl bg-white">
+          <div className="relative overflow-hidden rounded-xl shadow-2xl bg-white">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentSlide}
@@ -266,7 +266,7 @@ const InsuranceCarousel: React.FC = () => {
                       <div className="flex flex-col sm:flex-row gap-4 pt-4">
                         <Link
                           to="/devis"
-                          className={`inline-flex items-center gap-3 bg-gradient-to-r ${insuranceCards[currentSlide].color} text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg`}
+                          className={`inline-flex items-center gap-3 bg-gradient-to-r ${insuranceCards[currentSlide].color} text-white px-6 py-3 rounded-md font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg`}
                         >
                           Devis gratuit
                           <ArrowRight className="w-5 h-5" />
@@ -284,7 +284,7 @@ const InsuranceCarousel: React.FC = () => {
                             currentSlide === 8 ? "/assurance-vie" :
                             "/offres"
                           }
-                          className="inline-flex items-center gap-3 bg-white border-2 border-gray-300 text-gray-700 hover:border-gray-400 px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+                          className="inline-flex items-center gap-3 bg-white border-2 border-gray-300 text-gray-700 hover:border-gray-400 px-6 py-3 rounded-md font-semibold transition-all duration-200"
                         >
                           Voir plus
                         </Link>
@@ -336,7 +336,7 @@ const InsuranceCarousel: React.FC = () => {
             onClick={() => setIsAutoPlaying(!isAutoPlaying)}
             className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
           >
-            {isAutoPlaying ? '⏸️ Pause' : '▶️ Lecture automatique'}
+            {isAutoPlaying ? '⏸Pause' : '▶Lecture automatique'}
           </button>
         </div>
       </div>
