@@ -154,7 +154,7 @@ const HeroBanner: React.FC = () => {
                     <button
                       key={index}
                       onClick={() => setCurrentSlide(index)}
-                      className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                      className={`relative w-2.5 h-2.5 rounded-full transition-all duration-300 before:absolute before:-inset-[7px] before:content-[''] ${
                         index === currentSlide
                           ? 'bg-white w-8'
                           : 'bg-white/50 hover:bg-white/75'
