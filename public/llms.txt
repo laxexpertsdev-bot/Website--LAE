@@ -1,0 +1,41 @@
+# Les Assureurs Experts
+
+> Les Assureurs Experts est un courtier en assurance agréé ORIAS (France) qui compare les
+> offres du marché et accompagne la souscription de mutuelle santé, assurance auto, 2-roues,
+> assurance emprunteur, prévoyance, assurance habitation, assurance vie, PER, assurance
+> professionnelle/décennale et autres contrats d'assurance pour particuliers et professionnels.
+> Site vitrine de génération de leads (pas de back-office ni d'espace client en ligne) ; les
+> devis et demandes de contact sont traités par des conseillers humains.
+
+## Pages principales
+
+- [Accueil](https://lesassureursexperts.fr/)
+- [Nos offres](https://lesassureursexperts.fr/offres)
+- [Demande de devis](https://lesassureursexperts.fr/devis)
+- [Offre Premium](https://lesassureursexperts.fr/premium)
+- [Blog](https://lesassureursexperts.fr/blog)
+- [Contact](https://lesassureursexperts.fr/contact)
+
+## Produits d'assurance
+
+- [Mutuelle santé](https://lesassureursexperts.fr/mutuelle-sante)
+- [Assurance emprunteur](https://lesassureursexperts.fr/assurance-emprunteur)
+- [Assurance auto](https://lesassureursexperts.fr/assurance-auto)
+- [Assurance 2-roues](https://lesassureursexperts.fr/assurance-2-roues)
+- [Assurance habitation](https://lesassureursexperts.fr/assurance-habitation)
+- [Prévoyance](https://lesassureursexperts.fr/prevoyance)
+- [Santé & prévoyance collective (entreprises)](https://lesassureursexperts.fr/sante-prevoyance-collective)
+- [Assurance bateau](https://lesassureursexperts.fr/assurance-bateau)
+- [Assurance des expatriés](https://lesassureursexperts.fr/expatries)
+- [PER (Plan d'Épargne Retraite)](https://lesassureursexperts.fr/per)
+- [Assurance vie](https://lesassureursexperts.fr/assurance-vie)
+- [Assurance professionnelle (RC Pro)](https://lesassureursexperts.fr/assurance-professionnelle)
+- [Assurance décennale](https://lesassureursexperts.fr/assurance-decennale)
+- [Capital obsèques](https://lesassureursexperts.fr/capital-obseques)
+
+## Informations légales
+
+- [Mentions légales](https://lesassureursexperts.fr/mentions-legales)
+- [Politique de confidentialité](https://lesassureursexperts.fr/politique-confidentialite)
+- [Conditions générales](https://lesassureursexperts.fr/conditions-generales)
+- [Gestion des cookies](https://lesassureursexperts.fr/gestion-cookies)
