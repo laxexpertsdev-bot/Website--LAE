@@ -161,10 +161,11 @@ const TarifCalculator: React.FC = () => {
         <form onSubmit={calcTarif} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="tarif-type" className="block text-sm font-medium text-gray-700 mb-2">
                 Type d'assurance *
               </label>
               <select
+                id="tarif-type"
                 name="type"
                 value={formData.type}
                 onChange={handleInputChange}
@@ -190,10 +191,11 @@ const TarifCalculator: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="tarif-age" className="block text-sm font-medium text-gray-700 mb-2">
                 Âge *
               </label>
               <input
+                id="tarif-age"
                 type="number"
                 name="age"
                 min="16"
@@ -206,10 +208,11 @@ const TarifCalculator: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="tarif-statut" className="block text-sm font-medium text-gray-700 mb-2">
                 Statut *
               </label>
               <select
+                id="tarif-statut"
                 name="statut"
                 value={formData.statut}
                 onChange={handleInputChange}
@@ -225,10 +228,11 @@ const TarifCalculator: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="tarif-cotisation" className="block text-sm font-medium text-gray-700 mb-2">
                 Cotisation actuelle (€/mois) *
               </label>
               <input
+                id="tarif-cotisation"
                 type="number"
                 name="cotisation"
                 placeholder="Ex : 75"
