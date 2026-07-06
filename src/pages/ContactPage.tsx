@@ -52,7 +52,7 @@ const ContactPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Contact Information */}
           <div className="space-y-8">
             <div className="bg-white rounded-lg shadow-lg p-8">

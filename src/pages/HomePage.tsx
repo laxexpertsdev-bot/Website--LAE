@@ -6,6 +6,7 @@ import HeroBanner from '../components/HeroBanner';
 import InsuranceSection from '../components/InsuranceSection';
 import ComprehensiveInsuranceSection from '../components/ComprehensiveInsuranceSection';
 import InsuranceCarousel from '../components/InsuranceCarousel';
+import PartnerCarousel from '../components/PartnerCarousel';
 import TarifCalculator from '../components/TarifCalculator';
 import ReviewForm from '../components/ReviewForm';
 import { reviews } from '../data/reviews';
@@ -165,130 +166,15 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Partners Section */}
-      <section className="py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-center text-xl font-bold text-slate-900 mb-12">
-            Nos partenaires assureurs
-          </h3>
-          <p className="text-center text-slate-600 mb-8">
-            Ils nous font confiance pour protéger nos clients au quotidien.
-          </p>
-          
-          <div className="bg-white rounded-lg shadow-lg p-8 max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 items-center">
-              {/* ACHEEL */}
-              <div className="flex items-center justify-center h-16" data-partner="acheel">
-                <img
-                  src="/partners/logo_de_la_startup_acheel.png"
-                  alt="ACHEEL"
-                  width="281"
-                  height="110"
-                  className="h-[55px] w-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              {/* APRIL */}
-              <div className="flex items-center justify-center h-16" data-partner="april">
-                <img
-                  src="/partners/images.png"
-                  alt="APRIL"
-                  width="110"
-                  height="110"
-                  className="h-[55px] w-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              {/* ASSUREMA */}
-              <div className="flex items-center justify-center h-16" data-partner="assurema">
-                <img
-                  src="/partners/images.jfif"
-                  alt="ASSUREMA"
-                  width="154"
-                  height="110"
-                  className="h-[55px] w-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              {/* KEREIS */}
-              <div className="flex items-center justify-center h-16" data-partner="kereis">
-                <img
-                  src="/partners/kereis-france-logo-rvb-unboxed-860x484.png.webp"
-                  alt="KEREIS"
-                  width="195"
-                  height="110"
-                  className="h-[55px] w-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              {/* CEGEMA */}
-              <div className="flex items-center justify-center h-16" data-partner="cegema">
-                <img
-                  src="/partners/images_(4).png"
-                  alt="CEGEMA"
-                  width="147"
-                  height="110"
-                  className="h-[55px] w-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              {/* QBE */}
-              <div className="flex items-center justify-center h-16" data-partner="qbe">
-                <img
-                  src="/partners/images_(3).png"
-                  alt="QBE"
-                  width="110"
-                  height="110"
-                  className="h-[55px] w-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              {/* AMI 3F */}
-              <div className="flex items-center justify-center h-16" data-partner="ami3f">
-                <img
-                  src="/partners/images_(2).png"
-                  alt="AMI 3F"
-                  width="96"
-                  height="110"
-                  className="h-[55px] w-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              {/* APICIL */}
-              <div className="flex items-center justify-center h-16" data-partner="apicil">
-                <img
-                  src="/partners/images_(1).png"
-                  alt="APICIL"
-                  width="141"
-                  height="110"
-                  className="h-[55px] w-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </div>
-          </div>
-          
-          <div className="text-center mt-8">
-            <p className="text-sm text-slate-500">
-              Et bien d'autres partenaires pour vous offrir les meilleures solutions
-            </p>
-          </div>
-        </div>
-      </section>
+      <PartnerCarousel
+        title="Nos partenaires assureurs"
+        subtitle="Ils nous font confiance pour protéger nos clients au quotidien."
+      />
+      <div className="bg-slate-50 py-8 text-center">
+        <p className="text-sm text-slate-500">
+          Et bien d'autres partenaires pour vous offrir les meilleures solutions
+        </p>
+      </div>
 
       {/* Lead Magnet Section */}
       <section className="py-20 bg-gradient-to-br from-blue-700 to-blue-800 text-white">

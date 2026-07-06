@@ -12,7 +12,7 @@ import PricingSection from './PricingSection';
 import StepsSection from './StepsSection';
 import AdvantagesSection from './AdvantagesSection';
 import CtaBand from './CtaBand';
-import TrustStrip from './TrustStrip';
+import PartnerCarousel from '../PartnerCarousel';
 import TestimonialsSection from './TestimonialsSection';
 import RelatedProducts from './RelatedProducts';
 import LeadFormCard from './LeadFormCard';
@@ -117,7 +117,10 @@ const ProductPageLayout: React.FC<ProductPageLayoutProps> = ({ data }) => {
         </div>
 
         {data.ctaBand && <CtaBand {...data.ctaBand} />}
-        <TrustStrip />
+        <PartnerCarousel
+          title="Nos partenaires assureurs"
+          subtitle="Ils nous font confiance pour protéger nos clients au quotidien."
+        />
         <TestimonialsSection />
         <RelatedProducts related={data.related} />
       </div>
