@@ -137,6 +137,13 @@ const Footer: React.FC = () => {
                     138 Boulevard Haussmann,<br />75008 Paris
                   </span>
                 </div>
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-[18px] h-[18px] text-blue-700 mt-0.5 flex-shrink-0" />
+                  <span className="text-[15px] text-gray-600 leading-relaxed">
+                    Couverture en France métropolitaine et dans les DOM-TOM :
+                    Île de la Réunion, Guadeloupe, Guyane, Martinique et Mayotte.
+                  </span>
+                </div>
               </div>
             </div>
 

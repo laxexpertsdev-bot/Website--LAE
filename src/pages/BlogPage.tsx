@@ -101,6 +101,10 @@ const BlogPage: React.FC = () => {
               Notre sélection d'articles de presse pour vous tenir informé des dernières actualités
               et évolutions du secteur de l'assurance.
             </p>
+            <p className="mt-3 max-w-prose text-gray-500">
+              Les Assureurs Experts vous accompagnent partout en France, y compris dans les
+              DOM-TOM : Île de la Réunion, Guadeloupe, Guyane, Martinique et Mayotte.
+            </p>
           </div>
 
           {/* Category Filters */}

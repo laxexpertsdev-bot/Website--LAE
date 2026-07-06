@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check, Phone, Users, ShieldCheck, Clock } from 'lucide-react';
+import { ArrowRight, Check, Phone, Users, ShieldCheck, Clock, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const HeroBanner: React.FC = () => {
@@ -117,6 +117,10 @@ const HeroBanner: React.FC = () => {
               <span className="flex items-center gap-2 text-sm text-slate-600">
                 <Clock className="w-5 h-5 text-blue-700 flex-shrink-0" />
                 <span>Réponse sous 24h</span>
+              </span>
+              <span className="flex items-center gap-2 text-sm text-slate-600">
+                <MapPin className="w-5 h-5 text-blue-700 flex-shrink-0" />
+                <span>Présent en <strong className="text-slate-900">France + DOM-TOM</strong></span>
               </span>
             </motion.div>
           </motion.div>

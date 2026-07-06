@@ -85,6 +85,10 @@ const OffersPage: React.FC = () => {
               Découvrez nos offres d'assurance adaptées à chaque besoin. Comparez, choisissez et
               souscrivez en quelques clics.
             </p>
+            <p className="mt-3 max-w-prose text-gray-500">
+              Nos solutions vous couvrent en France métropolitaine comme dans les DOM-TOM
+              (Île de la Réunion, Guadeloupe, Guyane, Martinique, Mayotte).
+            </p>
           </div>
 
           {/* Offers Grid */}
