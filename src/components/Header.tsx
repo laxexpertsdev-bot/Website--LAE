@@ -147,7 +147,7 @@ const Header: React.FC = () => {
 
               <a
                 href="tel:+33162171111"
-                aria-label="Appeler le 01 62 17 11 11"
+                aria-label="Appeler le +33 1 62 17 11 11"
                 className="hidden lg:flex items-center justify-center text-blue-700 hover:text-blue-800 transition-colors flex-shrink-0"
               >
                 <Phone className="w-5 h-5" />
@@ -193,7 +193,7 @@ const Header: React.FC = () => {
                   className="flex items-center justify-center gap-2.5 border-2 border-blue-600 text-blue-700 px-6 py-3.5 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
                 >
                   <Phone className="w-5 h-5" />
-                  01 62 17 11 11
+                  +33 1 62 17 11 11
                 </a>
               </div>
 

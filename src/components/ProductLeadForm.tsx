@@ -69,7 +69,7 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
         placeholder="Prénom et Nom"
         value={data.fullName}
         onChange={(e) => setData({ ...data, fullName: e.target.value })}
-        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-navy focus:border-brand-navy"
         required
         autoComplete="name"
       />
@@ -79,7 +79,7 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
         placeholder="Téléphone"
         value={data.phone}
         onChange={(e) => setData({ ...data, phone: e.target.value })}
-        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-navy focus:border-brand-navy"
         required
         autoComplete="tel"
       />
@@ -89,7 +89,7 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
         placeholder="Email"
         value={data.email}
         onChange={(e) => setData({ ...data, email: e.target.value })}
-        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-navy focus:border-brand-navy"
         required
         autoComplete="email"
       />
@@ -100,11 +100,11 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
           checked={data.consent}
           onChange={(e) => setData({ ...data, consent: e.target.checked })}
           required
-          className="mt-0.5 w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+          className="mt-0.5 w-4 h-4 rounded border-gray-300 text-brand-navy focus:ring-brand-navy"
         />
         <span className="text-xs text-gray-600 leading-relaxed">
           J'accepte d'être recontacté par Les Assureurs Experts au sujet de ma demande.{' '}
-          <Link to="/politique-confidentialite" className="text-blue-600 underline hover:text-blue-700">
+          <Link to="/politique-confidentialite" className="text-brand-navy underline hover:text-brand-accent">
             Politique de confidentialité
           </Link>
           .
@@ -113,14 +113,14 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
 
       {submitError && (
         <p className="text-sm text-red-600">
-          Une erreur est survenue. Réessayez ou appelez le 01 62 17 11 11.
+          Une erreur est survenue. Réessayez ou appelez le +33 1 62 17 11 11.
         </p>
       )}
 
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-md font-semibold text-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full bg-brand-accent hover:bg-brand-accentDark text-white py-4 rounded-md font-semibold text-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {isLoading ? (
           <>

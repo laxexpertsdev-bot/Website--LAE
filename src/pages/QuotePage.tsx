@@ -399,7 +399,7 @@ const QuotePage: React.FC = () => {
               {submitError && (
                 <p className="text-center text-sm text-red-600 bg-red-50 border border-red-200 rounded-md py-3 px-4">
                   Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous appeler au{' '}
-                  <a href="tel:+33162171111" className="font-semibold underline">01 62 17 11 11</a>.
+                  <a href="tel:+33162171111" className="font-semibold underline">+33 1 62 17 11 11</a>.
                 </p>
               )}
             </div>
@@ -441,7 +441,7 @@ const QuotePage: React.FC = () => {
                 href="tel:+33162171111"
                 className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
               >
-                Appeler le 01 62 17 11 11
+                Appeler le +33 1 62 17 11 11
               </a>
               <Link
                 to="/"

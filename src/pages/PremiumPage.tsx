@@ -281,7 +281,7 @@ const PremiumPage: React.FC = () => {
 
                 {submitError && (
                   <p className="text-sm text-red-600 mb-3">
-                    Une erreur est survenue. Réessayez ou appelez le 01 62 17 11 11.
+                    Une erreur est survenue. Réessayez ou appelez le +33 1 62 17 11 11.
                   </p>
                 )}
 

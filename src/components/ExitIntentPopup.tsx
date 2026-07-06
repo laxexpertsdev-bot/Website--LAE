@@ -289,7 +289,7 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
 
               {submitError && (
                 <p className="text-center text-xs text-red-600 mt-2">
-                  Erreur lors de l'envoi. Réessayez ou appelez le 01 62 17 11 11.
+                  Erreur lors de l'envoi. Réessayez ou appelez le +33 1 62 17 11 11.
                 </p>
               )}
 
