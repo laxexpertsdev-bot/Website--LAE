@@ -15,40 +15,40 @@ const articles = [
     externalUrl: "https://www.lemonde.fr/economie/article/2022/06/01/assurance-emprunteur-ce-que-change-la-loi-lemoine_6128456_3234.html"
   },
   {
-    title: "Prévoyance : pourquoi les indépendants sont mal couverts face aux accidents de la vie",
-    excerpt: "Les travailleurs non-salariés restent largement sous-assurés en cas d'arrêt de travail ou d'invalidité.",
+    title: "Prévoyance : pourquoi les indépendants doivent réauditer leur couverture en 2026",
+    excerpt: "La réforme de l'assiette sociale des travailleurs non-salariés change la donne : leurs contrats de prévoyance individuelle méritent d'être revus dès 2026.",
     image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
-    source: "Les Echos Entrepreneurs",
+    source: "France Épargne",
     category: "Prévoyance",
-    readTime: "7 min",
-    externalUrl: "https://business.lesechos.fr/entrepreneurs/assurance/0603456789012-prevoyance-pourquoi-les-independants-sont-mal-couverts-334567.php"
+    readTime: "5 min",
+    externalUrl: "https://www.france-epargne.fr/news/reforme-de-lassiette-sociale-des-independants-la-prevoyance-individuelle-a-reauditer-en-2026"
   },
   {
-    title: "Le PER, un placement fiscalement avantageux qui séduit de plus en plus de Français",
-    excerpt: "Le Plan Épargne Retraite attire grâce à sa souplesse et ses avantages fiscaux. Voici ce qu'il faut savoir avant de souscrire.",
+    title: "PER : la suppression d'un avantage fiscal bientôt actée ?",
+    excerpt: "Le Plan Épargne Retraite reste un placement attractif, mais certains de ses avantages fiscaux pourraient être revus par le prochain budget.",
     image: "https://images.pexels.com/photos/5327580/pexels-photo-5327580.jpeg?auto=compress&cs=tinysrgb&w=600",
-    source: "Capital.fr",
+    source: "Boursorama",
     category: "Épargne",
-    readTime: "6 min",
-    externalUrl: "https://www.capital.fr/votre-argent/le-per-un-placement-fiscalement-avantageux-qui-seduit-de-plus-en-plus-de-francais-1443825"
+    readTime: "5 min",
+    externalUrl: "https://www.boursorama.com/epargne/retraite/actualites/epargne-retraite-la-suppression-d-un-des-avantages-fiscaux-du-per-va-t-elle-bientot-etre-actee-5124f792c32c636aef9305f4c755e7d1"
   },
   {
-    title: "Mutuelle santé : comment fonctionne la réforme 100 % santé ?",
-    excerpt: "Depuis 2021, certaines lunettes, prothèses dentaires et auditives sont intégralement remboursées.",
+    title: "Mutuelles santé : pourquoi les cotisations vont encore augmenter en 2026",
+    excerpt: "Après plusieurs années de hausses successives, les complémentaires santé devraient de nouveau augmenter leurs tarifs en 2026, voire en 2027.",
     image: "https://images.pexels.com/photos/3845623/pexels-photo-3845623.jpeg?auto=compress&cs=tinysrgb&w=600",
-    source: "Service-Public.fr",
+    source: "Public Sénat",
     category: "Santé",
     readTime: "4 min",
-    externalUrl: "https://www.service-public.fr/particuliers/actualites/A14321"
+    externalUrl: "https://www.publicsenat.fr/actualites/sante/mutuelles-pourquoi-les-cotisations-des-assures-devraient-encore-augmenter-en-2026-voire-en-2027"
   },
   {
-    title: "Assurance vie : comment optimiser la fiscalité après 8 ans de contrat ?",
-    excerpt: "L'assurance vie reste le placement préféré des Français grâce à sa fiscalité douce à long terme.",
+    title: "Assurance vie : pourquoi 2026 change déjà vos stratégies patrimoniales",
+    excerpt: "Entre lois de finances et évolutions fiscales, l'assurance vie reste un pilier de la gestion de patrimoine, mais certaines stratégies doivent être reconfigurées.",
     image: "https://images.pexels.com/photos/5327647/pexels-photo-5327647.jpeg?auto=compress&cs=tinysrgb&w=600",
-    source: "Le Figaro Patrimoine",
+    source: "Club Patrimoine",
     category: "Patrimoine",
-    readTime: "8 min",
-    externalUrl: "https://www.lefigaro.fr/patrimoine/assurance-vie-comment-optimiser-la-fiscalite-apres-8-ans-de-contrat-20230315"
+    readTime: "6 min",
+    externalUrl: "https://www.clubpatrimoine.com/contenus/assurance-vie-post-lois-finances"
   }
 ];
 
