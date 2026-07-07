@@ -1,17 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, ArrowRight, CheckCircle } from 'lucide-react';
+import { Phone, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ComprehensiveInsuranceSection: React.FC = () => {
-  const advantages = [
-    "Des tarifs ultra-compétitifs",
-    "Un conseiller dédié et disponible",
-    "Des démarches simples et rapides",
-    "Un cabinet 100 % digital, 100 % humain",
-    "Des solutions flexibles, même en cas de changement de situation"
-  ];
-
   return (
     <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,35 +26,6 @@ const ComprehensiveInsuranceSection: React.FC = () => {
               un professionnel, un expatrié ou un futur retraité, nous avons une solution claire, humaine et 
               avantageuse pour vous protéger, vous et vos proches.
             </p>
-          </div>
-        </motion.div>
-
-        {/* Why Choose Us Section */}
-        <motion.div 
-          className="bg-white rounded-xl shadow-xl p-8 lg:p-12 mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-8 text-center">
-            Pourquoi choisir Les Assureurs Experts ?
-          </h3>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {advantages.map((advantage, index) => (
-              <motion.div
-                key={index}
-                className="flex items-center gap-4 p-4 bg-green-50 rounded-lg border border-green-200"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0" />
-                <span className="text-slate-800 font-medium">{advantage}</span>
-              </motion.div>
-            ))}
           </div>
         </motion.div>
 

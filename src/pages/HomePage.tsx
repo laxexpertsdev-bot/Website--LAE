@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Star, CheckCircle, Headphones as HeadphonesIcon, TrendingUp, Phone } from 'lucide-react';
+import { Star, CheckCircle, Headphones as HeadphonesIcon, TrendingUp, Phone, Zap, ShieldCheck, Settings2 } from 'lucide-react';
 import HeroBanner from '../components/HeroBanner';
 import InsuranceSection from '../components/InsuranceSection';
 import ComprehensiveInsuranceSection from '../components/ComprehensiveInsuranceSection';
@@ -104,6 +104,33 @@ const HomePage: React.FC = () => {
               <h3 className="text-2xl font-bold mb-4 text-slate-900">Tarifs compétitifs</h3>
               <p className="text-slate-600 leading-relaxed">
                 Négociation permanente avec nos partenaires pour vous offrir les meilleurs prix.
+              </p>
+            </div>
+            <div className="text-center p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <div className="bg-purple-50 w-20 h-20 rounded-lg flex items-center justify-center mx-auto mb-6">
+                <Zap className="w-10 h-10 text-purple-700" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-slate-900">Processus simplifié</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Souscrivez en quelques clics, avec un suivi en temps réel de votre dossier.
+              </p>
+            </div>
+            <div className="text-center p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <div className="bg-orange-50 w-20 h-20 rounded-lg flex items-center justify-center mx-auto mb-6">
+                <ShieldCheck className="w-10 h-10 text-orange-700" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-slate-900">Expertise certifiée</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Nos conseillers sont formés en continu aux évolutions réglementaires et aux nouveaux produits du marché.
+              </p>
+            </div>
+            <div className="text-center p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <div className="bg-teal-50 w-20 h-20 rounded-lg flex items-center justify-center mx-auto mb-6">
+                <Settings2 className="w-10 h-10 text-teal-700" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-slate-900">Solutions flexibles</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Des garanties qui s'adaptent à chaque changement de situation, sans engagement.
               </p>
             </div>
           </div>
@@ -310,41 +337,6 @@ const HomePage: React.FC = () => {
                 souscription, nous vous accompagnons humainement tout au long de la vie de vos contrats :
                 gestion des sinistres, évolution de vos besoins et renégociation de vos garanties.
               </p>
-
-              <h3 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
-                Pourquoi choisir Les Assureurs Experts ?
-              </h3>
-
-              <div className="grid md:grid-cols-2 gap-6 my-8">
-                <div className="bg-blue-50 p-6 rounded-md">
-                  <h4 className="font-semibold text-blue-900 mb-3">Accompagnement Personnalisé</h4>
-                  <p className="text-blue-800 text-sm">
-                    Chaque client bénéficie d'un conseiller dédié qui comprend ses besoins spécifiques et
-                    l'accompagne tout au long de sa relation avec nous.
-                  </p>
-                </div>
-                <div className="bg-green-50 p-6 rounded-md">
-                  <h4 className="font-semibold text-green-900 mb-3">Tarifs Négociés</h4>
-                  <p className="text-green-800 text-sm">
-                    Grâce à notre volume d'affaires et nos partenariats privilégiés, nous obtenons
-                    des tarifs préférentiels que nous répercutons directement à nos clients.
-                  </p>
-                </div>
-                <div className="bg-purple-50 p-6 rounded-md">
-                  <h4 className="font-semibold text-purple-900 mb-3">Processus Simplifié</h4>
-                  <p className="text-purple-800 text-sm">
-                    Fini les démarches complexes ! Notre plateforme digitale vous permet de souscrire
-                    en quelques clics, avec un suivi en temps réel de votre dossier.
-                  </p>
-                </div>
-                <div className="bg-orange-50 p-6 rounded-md">
-                  <h4 className="font-semibold text-orange-900 mb-3">Expertise Certifiée</h4>
-                  <p className="text-orange-800 text-sm">
-                    Nos conseillers sont formés en permanence aux évolutions réglementaires et
-                    aux nouveaux produits du marché de l'assurance.
-                  </p>
-                </div>
-              </div>
 
               <h3 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
                 Nos domaines d'expertise
