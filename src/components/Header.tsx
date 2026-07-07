@@ -90,12 +90,14 @@ const Header: React.FC = () => {
               <img
                 src="/logo-assureurs-experts.png"
                 alt="LES ASSUREURS EXPERTS"
+                width="121"
+                height="128"
                 className="h-14 w-auto object-contain md:h-16"
               />
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
+            <nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
               {menuItems.map((menu) => (
                 <div
                   key={menu.name}
@@ -110,7 +112,7 @@ const Header: React.FC = () => {
 
                   {/* Dropdown Menu */}
                   {activeDropdown === menu.name && (
-                    <div className="absolute top-full left-0 mt-1 w-72 bg-white rounded-2xl shadow-2xl border border-gray-100 py-3 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                    <div className="absolute top-full left-0 mt-1 w-72 bg-white rounded-lg shadow-2xl border border-gray-100 py-3 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                       {menu.items.map((item) => (
                         <Link
                           key={item.name}
@@ -145,15 +147,15 @@ const Header: React.FC = () => {
 
               <a
                 href="tel:+33162171111"
-                className="hidden xl:flex items-center gap-2 font-bold text-blue-700 hover:text-blue-800 transition-colors text-lg ml-4 flex-shrink-0 whitespace-nowrap"
+                aria-label="Appeler le +33 1 62 17 11 11"
+                className="hidden lg:flex items-center justify-center text-blue-700 hover:text-blue-800 transition-colors flex-shrink-0"
               >
                 <Phone className="w-5 h-5" />
-                01 62 17 11 11
               </a>
 
               <Link
                 to="/devis"
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-7 py-3 rounded-full font-bold transition-all duration-300 inline-flex items-center justify-center text-lg shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5 ml-2 flex-shrink-0"
+                className="bg-blue-700 hover:bg-blue-800 text-white px-7 py-3 rounded-full font-bold transition-all duration-300 inline-flex items-center justify-center text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex-shrink-0"
               >
                 Devis gratuit
               </Link>
@@ -162,7 +164,7 @@ const Header: React.FC = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              className="md:hidden p-2 hover:bg-gray-100 rounded-md transition-colors"
               aria-label="Menu"
             >
               {isMenuOpen ? <X className="w-6 h-6 text-slate-800" /> : <Menu className="w-6 h-6 text-slate-800" />}
@@ -178,7 +180,7 @@ const Header: React.FC = () => {
               <div className="pb-5 border-b border-gray-200 space-y-3">
                 <Link
                   to="/devis"
-                  className="block bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-4 rounded-2xl font-bold text-center text-lg shadow-lg shadow-blue-500/30 hover:shadow-xl transition-all duration-300"
+                  className="block bg-blue-700 text-white px-6 py-4 rounded-lg font-bold text-center text-lg shadow-lg hover:shadow-xl transition-all duration-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <div className="mb-1">Devis gratuit</div>
@@ -188,10 +190,10 @@ const Header: React.FC = () => {
                 </Link>
                 <a
                   href="tel:+33162171111"
-                  className="flex items-center justify-center gap-2.5 border-2 border-blue-600 text-blue-700 px-6 py-3.5 rounded-2xl font-bold text-lg hover:bg-blue-50 transition-colors"
+                  className="flex items-center justify-center gap-2.5 border-2 border-blue-600 text-blue-700 px-6 py-3.5 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
                 >
                   <Phone className="w-5 h-5" />
-                  01 62 17 11 11
+                  +33 1 62 17 11 11
                 </a>
               </div>
 

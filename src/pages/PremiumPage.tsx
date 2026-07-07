@@ -81,7 +81,7 @@ const PremiumPage: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Features */}
           <div className="space-y-8">
-            <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-8 rounded-2xl">
+            <div className="bg-blue-700 text-white p-8 rounded-lg">
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
                 <Crown className="w-8 h-8 text-yellow-400" />
                 Avantages Premium
@@ -90,7 +90,7 @@ const PremiumPage: React.FC = () => {
               <div className="space-y-6">
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-start gap-4">
-                    <div className="bg-white/20 p-2 rounded-lg">
+                    <div className="bg-white/20 p-2 rounded-md">
                       {feature.icon}
                     </div>
                     <div>
@@ -106,7 +106,7 @@ const PremiumPage: React.FC = () => {
                 <div className="flex items-center gap-4 mb-4">
                   <button
                     onClick={() => setBillingType('monthly')}
-                    className={`px-4 py-2 rounded-lg transition-colors ${
+                    className={`px-4 py-2 rounded-md transition-colors ${
                       billingType === 'monthly'
                         ? 'bg-white text-blue-700'
                         : 'bg-blue-500 text-white hover:bg-blue-400'
@@ -116,7 +116,7 @@ const PremiumPage: React.FC = () => {
                   </button>
                   <button
                     onClick={() => setBillingType('yearly')}
-                    className={`px-4 py-2 rounded-lg transition-colors ${
+                    className={`px-4 py-2 rounded-md transition-colors ${
                       billingType === 'yearly'
                         ? 'bg-white text-blue-700'
                         : 'bg-blue-500 text-white hover:bg-blue-400'
@@ -142,7 +142,7 @@ const PremiumPage: React.FC = () => {
             </div>
 
             {/* Social Proof */}
-            <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+            <div className="bg-green-50 p-6 rounded-md border border-green-200">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                 <span className="font-semibold text-green-800">
@@ -157,7 +157,7 @@ const PremiumPage: React.FC = () => {
           </div>
 
           {/* Subscription Form */}
-          <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="bg-white rounded-lg shadow-xl p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
               Rejoindre le Club Premium
             </h3>
@@ -186,7 +186,7 @@ const PremiumPage: React.FC = () => {
                     name="firstName"
                     value={formData.firstName}
                     onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
@@ -199,7 +199,7 @@ const PremiumPage: React.FC = () => {
                     name="lastName"
                     value={formData.lastName}
                     onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
@@ -214,7 +214,7 @@ const PremiumPage: React.FC = () => {
                   name="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
                   required
                 />
               </div>
@@ -228,7 +228,7 @@ const PremiumPage: React.FC = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
                   required
                 />
               </div>
@@ -239,7 +239,7 @@ const PremiumPage: React.FC = () => {
                   Mode de paiement
                 </label>
                 <div className="space-y-3">
-                  <label className="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                  <label className="flex items-center gap-3 p-3 border rounded-md cursor-pointer hover:bg-gray-50">
                     <input
                       type="radio"
                       name="paymentMethod"
@@ -250,7 +250,7 @@ const PremiumPage: React.FC = () => {
                     <CreditCard className="w-5 h-5 text-gray-600" />
                     <span>Carte bancaire (Stripe sécurisé)</span>
                   </label>
-                  <label className="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                  <label className="flex items-center gap-3 p-3 border rounded-md cursor-pointer hover:bg-gray-50">
                     <input
                       type="radio"
                       name="paymentMethod"
@@ -258,7 +258,7 @@ const PremiumPage: React.FC = () => {
                       checked={formData.paymentMethod === 'sepa'}
                       onChange={(e) => setFormData({ ...formData, paymentMethod: e.target.value })}
                     />
-                    <span className="text-xl">🏦</span>
+                    <span className="text-xl"></span>
                     <span>Prélèvement SEPA</span>
                   </label>
                 </div>
@@ -281,14 +281,14 @@ const PremiumPage: React.FC = () => {
 
                 {submitError && (
                   <p className="text-sm text-red-600 mb-3">
-                    Une erreur est survenue. Réessayez ou appelez le 01 62 17 11 11.
+                    Une erreur est survenue. Réessayez ou appelez le +33 1 62 17 11 11.
                   </p>
                 )}
 
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center gap-3 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="w-full bg-blue-700 text-white py-4 rounded-md font-semibold text-lg hover:bg-blue-800 transition-colors duration-200 shadow-md flex items-center justify-center gap-3 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {isLoading ? (
                     <>
@@ -314,7 +314,7 @@ const PremiumPage: React.FC = () => {
 
         {/* Guarantee */}
         <div className="mt-12 text-center">
-          <div className="bg-green-100 border border-green-300 rounded-lg p-6 max-w-md mx-auto">
+          <div className="bg-green-100 border border-green-300 rounded-md p-6 max-w-md mx-auto">
             <CheckCircle className="w-8 h-8 text-green-600 mx-auto mb-3" />
             <h3 className="font-semibold text-green-800 mb-2">
               Garantie satisfait ou remboursé

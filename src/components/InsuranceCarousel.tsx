@@ -11,7 +11,7 @@ const InsuranceCarousel: React.FC = () => {
     {
       id: 1,
       title: "Mutuelle santé",
-      image: "https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=534",
       alt: "Famille souriante chez le médecin - Mutuelle santé",
       color: "from-blue-500 to-blue-600",
       bgColor: "bg-blue-50",
@@ -28,7 +28,7 @@ const InsuranceCarousel: React.FC = () => {
     {
       id: 2,
       title: "Assurance emprunteur",
-      image: "https://images.pexels.com/photos/7578966/pexels-photo-7578966.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/7578966/pexels-photo-7578966.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=534",
       alt: "Couple recevant les clés de leur appartement - Assurance emprunteur",
       color: "from-orange-500 to-red-500",
       bgColor: "bg-orange-50",
@@ -45,7 +45,7 @@ const InsuranceCarousel: React.FC = () => {
     {
       id: 3,
       title: "Assurance auto",
-      image: "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=534",
       alt: "Jeune conducteur souriant dans sa voiture - Assurance auto",
       color: "from-green-500 to-emerald-600",
       bgColor: "bg-green-50",
@@ -62,7 +62,7 @@ const InsuranceCarousel: React.FC = () => {
     {
       id: 4,
       title: "Assurance 2 roues",
-      image: "https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=534",
       alt: "Scooter moderne en ville - Assurance 2 roues",
       color: "from-purple-500 to-violet-600",
       bgColor: "bg-purple-50",
@@ -79,7 +79,7 @@ const InsuranceCarousel: React.FC = () => {
     {
       id: 5,
       title: "Prévoyance individuelle",
-      image: "https://images.pexels.com/photos/5327921/pexels-photo-5327921.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/5327921/pexels-photo-5327921.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=534",
       alt: "Chef d'entreprise confiant - Prévoyance individuelle",
       color: "from-teal-500 to-cyan-600",
       bgColor: "bg-teal-50",
@@ -96,7 +96,7 @@ const InsuranceCarousel: React.FC = () => {
     {
       id: 6,
       title: "Expatriés & santé internationale",
-      image: "https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=534",
       alt: "Couple d'expatriés à l'étranger - Assurance internationale",
       color: "from-indigo-500 to-blue-600",
       bgColor: "bg-indigo-50",
@@ -113,7 +113,7 @@ const InsuranceCarousel: React.FC = () => {
     {
       id: 7,
       title: "Assurance bateau",
-      image: "https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=534",
       alt: "Voilier naviguant en mer - Assurance bateau",
       color: "from-cyan-500 to-blue-500",
       bgColor: "bg-cyan-50",
@@ -130,7 +130,7 @@ const InsuranceCarousel: React.FC = () => {
     {
       id: 8,
       title: "PER – Plan Épargne Retraite",
-      image: "https://images.pexels.com/photos/5327580/pexels-photo-5327580.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/5327580/pexels-photo-5327580.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=534",
       alt: "Senior consultant son plan retraite - PER",
       color: "from-amber-500 to-orange-500",
       bgColor: "bg-amber-50",
@@ -147,7 +147,7 @@ const InsuranceCarousel: React.FC = () => {
     {
       id: 9,
       title: "Assurance vie",
-      image: "https://images.pexels.com/photos/5327647/pexels-photo-5327647.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/5327647/pexels-photo-5327647.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=534",
       alt: "Couple souriant consultant leur placement - Assurance vie",
       color: "from-rose-500 to-pink-600",
       bgColor: "bg-rose-50",
@@ -201,7 +201,7 @@ const InsuranceCarousel: React.FC = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-            🎯 Découvrez nos solutions d'assurance en détail
+            Découvrez nos solutions d'assurance en détail
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Chaque assurance mérite une attention particulière. Explorez nos offres complètes 
@@ -212,7 +212,7 @@ const InsuranceCarousel: React.FC = () => {
         {/* Carousel Container */}
         <div className="relative">
           {/* Main Carousel */}
-          <div className="relative overflow-hidden rounded-3xl shadow-2xl bg-white">
+          <div className="relative overflow-hidden rounded-xl shadow-2xl bg-white">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentSlide}
@@ -224,7 +224,7 @@ const InsuranceCarousel: React.FC = () => {
               >
                 <div className="grid lg:grid-cols-2 min-h-[600px]">
                   {/* Image Section */}
-                  <div className="relative overflow-hidden">
+                  <div className="relative overflow-hidden aspect-[3/2] lg:aspect-auto">
                     <img
                       src={insuranceCards[currentSlide].image}
                       alt={insuranceCards[currentSlide].alt}
@@ -266,7 +266,7 @@ const InsuranceCarousel: React.FC = () => {
                       <div className="flex flex-col sm:flex-row gap-4 pt-4">
                         <Link
                           to="/devis"
-                          className={`inline-flex items-center gap-3 bg-gradient-to-r ${insuranceCards[currentSlide].color} text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg`}
+                          className={`inline-flex items-center gap-3 bg-gradient-to-r ${insuranceCards[currentSlide].color} text-white px-6 py-3 rounded-md font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg`}
                         >
                           Devis gratuit
                           <ArrowRight className="w-5 h-5" />
@@ -284,7 +284,7 @@ const InsuranceCarousel: React.FC = () => {
                             currentSlide === 8 ? "/assurance-vie" :
                             "/offres"
                           }
-                          className="inline-flex items-center gap-3 bg-white border-2 border-gray-300 text-gray-700 hover:border-gray-400 px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+                          className="inline-flex items-center gap-3 bg-white border-2 border-gray-300 text-gray-700 hover:border-gray-400 px-6 py-3 rounded-md font-semibold transition-all duration-200"
                         >
                           Voir plus
                         </Link>
@@ -320,9 +320,9 @@ const InsuranceCarousel: React.FC = () => {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                index === currentSlide 
-                  ? 'bg-blue-600 w-8' 
+              className={`relative w-3 h-3 rounded-full transition-all duration-200 before:absolute before:-inset-[6px] before:content-[''] ${
+                index === currentSlide
+                  ? 'bg-blue-600 w-8'
                   : 'bg-gray-300 hover:bg-gray-400'
               }`}
               aria-label={`Aller au slide ${index + 1}`}
@@ -336,7 +336,7 @@ const InsuranceCarousel: React.FC = () => {
             onClick={() => setIsAutoPlaying(!isAutoPlaying)}
             className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
           >
-            {isAutoPlaying ? '⏸️ Pause' : '▶️ Lecture automatique'}
+            {isAutoPlaying ? '⏸Pause' : '▶Lecture automatique'}
           </button>
         </div>
       </div>

@@ -7,8 +7,17 @@ import tseslint from 'typescript-eslint';
 export default tseslint.config(
   { ignores: ['dist'] },
   {
+    // Fonctions serverless Vercel : environnement Node (process, etc.), pas navigateur.
+    files: ['api/**/*.ts'],
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ['**/*.{ts,tsx}'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.node,
+    },
+  },
+  {
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ['src/**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,

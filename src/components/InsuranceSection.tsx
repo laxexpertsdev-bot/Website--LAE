@@ -97,10 +97,10 @@ const InsuranceSection: React.FC = () => {
   };
 
   const inputBase =
-    'w-full px-4 py-3 rounded-lg border text-gray-900 text-base placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#002D62]/30 focus:border-[#002D62] transition-colors bg-white';
+    'w-full px-4 py-3 rounded-md border text-gray-900 text-base placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#002D62]/30 focus:border-[#002D62] transition-colors bg-white';
 
   const LeadForm = (
-    <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
+    <div className="bg-white rounded-lg shadow-2xl border border-gray-100 overflow-hidden">
       {/* Form header */}
       <div className="px-7 py-5" style={{ backgroundColor: '#002D62' }}>
         <h3 className="text-xl font-bold text-white leading-snug">
@@ -126,10 +126,11 @@ const InsuranceSection: React.FC = () => {
         <form onSubmit={handleSubmit} noValidate className="px-7 py-6 space-y-4">
           {/* besoin */}
           <div>
-            <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+            <label htmlFor="insurance-besoin" className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
               Type d'assurance <span className="text-red-500">*</span>
             </label>
             <select
+              id="insurance-besoin"
               name="besoin"
               value={formData.besoin}
               onChange={handleChange}
@@ -158,10 +159,11 @@ const InsuranceSection: React.FC = () => {
 
           {/* contrat_actuel */}
           <div>
-            <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+            <label htmlFor="insurance-contrat-actuel" className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
               Contrat ou formule actuelle
             </label>
             <input
+              id="insurance-contrat-actuel"
               type="text"
               name="contrat_actuel"
               value={formData.contrat_actuel}
@@ -174,10 +176,11 @@ const InsuranceSection: React.FC = () => {
 
           {/* cotisation_actuelle */}
           <div>
-            <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+            <label htmlFor="insurance-cotisation-actuelle" className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
               Cotisation actuelle
             </label>
             <input
+              id="insurance-cotisation-actuelle"
               type="text"
               name="cotisation_actuelle"
               value={formData.cotisation_actuelle}
@@ -190,10 +193,11 @@ const InsuranceSection: React.FC = () => {
           {/* nom + prenom côte à côte */}
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+              <label htmlFor="insurance-nom" className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
                 Nom <span className="text-red-500">*</span>
               </label>
               <input
+                id="insurance-nom"
                 type="text"
                 name="nom"
                 value={formData.nom}
@@ -205,10 +209,11 @@ const InsuranceSection: React.FC = () => {
               {errors.nom && <p className="text-red-500 text-xs mt-1">{errors.nom}</p>}
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+              <label htmlFor="insurance-prenom" className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
                 Prénom <span className="text-red-500">*</span>
               </label>
               <input
+                id="insurance-prenom"
                 type="text"
                 name="prenom"
                 value={formData.prenom}
@@ -223,10 +228,11 @@ const InsuranceSection: React.FC = () => {
 
           {/* email */}
           <div>
-            <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+            <label htmlFor="insurance-email" className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
               Adresse email <span className="text-red-500">*</span>
             </label>
             <input
+              id="insurance-email"
               type="email"
               name="email"
               value={formData.email}
@@ -240,10 +246,11 @@ const InsuranceSection: React.FC = () => {
 
           {/* telephone */}
           <div>
-            <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+            <label htmlFor="insurance-telephone" className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
               Téléphone <span className="text-red-500">*</span>
             </label>
             <input
+              id="insurance-telephone"
               type="tel"
               name="telephone"
               value={formData.telephone}
@@ -258,10 +265,11 @@ const InsuranceSection: React.FC = () => {
           {/* code_postal + date_naissance côte à côte */}
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+              <label htmlFor="insurance-code-postal" className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
                 Code postal
               </label>
               <input
+                id="insurance-code-postal"
                 type="text"
                 name="code_postal"
                 value={formData.code_postal}
@@ -273,10 +281,11 @@ const InsuranceSection: React.FC = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+              <label htmlFor="insurance-date-naissance" className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
                 Date de naissance
               </label>
               <input
+                id="insurance-date-naissance"
                 type="date"
                 name="date_naissance"
                 value={formData.date_naissance}
@@ -288,10 +297,11 @@ const InsuranceSection: React.FC = () => {
 
           {/* message */}
           <div>
-            <label className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
+            <label htmlFor="insurance-message" className="block text-sm font-semibold mb-1.5" style={{ color: '#002D62' }}>
               Message (optionnel)
             </label>
             <textarea
+              id="insurance-message"
               name="message"
               value={formData.message}
               onChange={handleChange}
@@ -329,7 +339,7 @@ const InsuranceSection: React.FC = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-4 rounded-xl text-white text-base font-bold tracking-wide transition-all duration-200 hover:brightness-110 active:scale-[0.98] shadow-lg disabled:opacity-60 disabled:cursor-not-allowed min-h-[56px] flex items-center justify-center gap-2"
+            className="w-full py-4 rounded-lg text-white text-base font-bold tracking-wide transition-all duration-200 hover:brightness-110 active:scale-[0.98] shadow-lg disabled:opacity-60 disabled:cursor-not-allowed min-h-[56px] flex items-center justify-center gap-2"
             style={{ backgroundColor: '#ff6600' }}
           >
             {isLoading ? (
@@ -390,34 +400,23 @@ const InsuranceSection: React.FC = () => {
               {insuranceTypes.map((insurance, index) => (
                 <motion.div
                   key={index}
-                  className={`group ${insurance.bgColor} ${insurance.hoverColor} rounded-2xl p-5 transition-all duration-300 hover:shadow-xl border border-gray-100`}
+                  className={`group ${insurance.bgColor} ${insurance.hoverColor} rounded-lg p-5 transition-all duration-300 hover:shadow-xl border border-gray-100`}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.06 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -4, scale: 1.02 }}
                 >
-                  <motion.div
-                    className={`relative bg-gradient-to-br ${insurance.color} p-3 rounded-xl mb-3 shadow-lg group-hover:shadow-xl transition-all duration-300 w-fit`}
-                    animate={{ y: [0, -3, 0] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: index * 0.2 }}
-                  >
-                    <motion.div
-                      className="text-white drop-shadow-lg"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-                    >
-                      {insurance.icon}
-                    </motion.div>
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </motion.div>
+                  <div className="w-fit p-3 rounded-lg mb-3 bg-white border border-gray-100 text-[#002D62]">
+                    {insurance.icon}
+                  </div>
                   <div className="space-y-3">
                     <h3 className="font-semibold text-slate-900 text-base leading-tight">{insurance.name}</h3>
                     <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                       <Link
                         to="/devis"
                         onClick={(e) => e.stopPropagation()}
-                        className="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-slate-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 shadow-md hover:shadow-lg"
+                        className="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-slate-700 text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 shadow-md hover:shadow-lg"
                       >
                         Devis gratuit
                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -441,7 +440,7 @@ const InsuranceSection: React.FC = () => {
               </p>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-xl text-base font-semibold transition-all duration-200 hover:scale-105 shadow-lg"
+                className="inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-lg text-base font-semibold transition-all duration-200 hover:scale-105 shadow-lg"
                 style={{ backgroundColor: '#002D62' }}
               >
                 Parler à un expert

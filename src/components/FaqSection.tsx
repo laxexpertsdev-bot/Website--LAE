@@ -10,13 +10,15 @@ export interface FaqItem {
 interface FaqSectionProps {
   items: FaqItem[];
   title?: string;
+  /** Ancre optionnelle (ex. 'faq') pour la sous-nav intra-page. */
+  id?: string;
 }
 
 /**
  * Section FAQ en accordéon + données structurées schema.org FAQPage (rich snippets Google).
  * Le JSON-LD est injecté via react-helmet-async, donc utilisable depuis n'importe quelle page.
  */
-const FaqSection: React.FC<FaqSectionProps> = ({ items, title = 'Questions fréquentes' }) => {
+const FaqSection: React.FC<FaqSectionProps> = ({ items, title = 'Questions fréquentes', id }) => {
   const [open, setOpen] = useState<number | null>(0);
 
   const jsonLd = {
@@ -30,12 +32,12 @@ const FaqSection: React.FC<FaqSectionProps> = ({ items, title = 'Questions fréq
   };
 
   return (
-    <section className="bg-white rounded-2xl shadow-lg p-8">
+    <section id={id} className="scroll-mt-28">
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
-      <h2 className="text-3xl font-bold text-gray-900 mb-6">{title}</h2>
-      <div className="divide-y divide-gray-200">
+      <h2 className="text-2xl font-semibold text-brand-navy sm:text-3xl mb-4">{title}</h2>
+      <div className="divide-y divide-hairline border-t border-hairline">
         {items.map((it, i) => (
           <div key={i}>
             <button
@@ -44,14 +46,14 @@ const FaqSection: React.FC<FaqSectionProps> = ({ items, title = 'Questions fréq
               className="w-full flex items-center justify-between gap-4 py-4 text-left"
               aria-expanded={open === i}
             >
-              <span className="font-semibold text-gray-900">{it.q}</span>
+              <span className="font-semibold text-brand-navy">{it.q}</span>
               <ChevronDown
-                className={`w-5 h-5 flex-shrink-0 text-blue-600 transition-transform duration-200 ${
+                className={`w-5 h-5 flex-shrink-0 text-brand-accent transition-transform duration-200 ${
                   open === i ? 'rotate-180' : ''
                 }`}
               />
             </button>
-            {open === i && <p className="pb-4 -mt-1 text-gray-700 leading-relaxed">{it.a}</p>}
+            {open === i && <p className="pb-5 -mt-1 text-gray-600 leading-relaxed">{it.a}</p>}
           </div>
         ))}
       </div>

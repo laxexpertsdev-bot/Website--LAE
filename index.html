@@ -6,6 +6,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Polices « éditoriales premium » : Fraunces (titres serif) + Inter (corps/UI).
+         preconnect pour ouvrir tôt la connexion, display=swap pour éviter le FOIT. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap">
     <title>Les Assureurs Experts | Mutuelle & Assurances 2026</title>
     <meta name="description" content="Courtier en assurance agréé ORIAS. Comparez et économisez sur votre mutuelle santé, assurance auto, emprunteur, prévoyance. Devis gratuit sous 24h. ✅ Tarifs négociés ✅ Conseiller dédié">
     <link rel="canonical" href="https://lesassureursexperts.fr/">
@@ -35,20 +40,51 @@
         wait_for_update: 500
       });
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7B368ES2C5"></script>
+    <!-- GTM/GA4 loaded lazily after first interaction or window load to keep them off the
+         critical rendering path. Consent Mode default above still runs immediately, so no
+         analytics/ad storage is used until CookieConsent grants it. -->
     <script>
-      gtag('js', new Date());
-      gtag('config', 'G-7B368ES2C5');
+      (function () {
+        var loaded = false;
+        function loadAnalytics() {
+          if (loaded) return;
+          loaded = true;
+
+          // gtag.js
+          var gtagScript = document.createElement('script');
+          gtagScript.async = true;
+          gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-7B368ES2C5';
+          document.head.appendChild(gtagScript);
+          gtag('js', new Date());
+          gtag('config', 'G-7B368ES2C5');
+
+          // GTM
+          (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s),
+              dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+          })(window, document, 'script', 'dataLayer', 'GTM-5XSPXVSP');
+
+          window.removeEventListener('scroll', loadAnalytics);
+          window.removeEventListener('click', loadAnalytics);
+          window.removeEventListener('touchstart', loadAnalytics);
+          window.removeEventListener('keydown', loadAnalytics);
+        }
+
+        window.addEventListener('scroll', loadAnalytics, { passive: true, once: true });
+        window.addEventListener('click', loadAnalytics, { once: true });
+        window.addEventListener('touchstart', loadAnalytics, { passive: true, once: true });
+        window.addEventListener('keydown', loadAnalytics, { once: true });
+        window.addEventListener('load', function () {
+          setTimeout(loadAnalytics, 3000);
+        });
+      })();
     </script>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5XSPXVSP');</script>
-    <!-- End Google Tag Manager -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",

@@ -7,20 +7,20 @@ import { submitLead, trackLeadConversion } from '../utils/lead';
 const TRANSITION_DELAY = 180;
 
 const insuranceTypes = [
-  { value: 'mutuelle-sante', label: 'Mutuelle santé', emoji: '🏥' },
-  { value: 'assurance-emprunteur', label: 'Assurance emprunteur', emoji: '🏠' },
-  { value: 'assurance-auto', label: 'Assurance auto', emoji: '🚗' },
-  { value: 'assurance-2-roues', label: 'Assurance 2 roues', emoji: '🛵' },
-  { value: 'prevoyance', label: 'Prévoyance', emoji: '🛡️' },
-  { value: 'expatries', label: 'Expatriés', emoji: '✈️' },
-  { value: 'assurance-bateau', label: 'Assurance bateau', emoji: '⛵' },
-  { value: 'per', label: 'Plan Épargne Retraite (PER)', emoji: '💰' },
-  { value: 'assurance-vie', label: 'Assurance vie', emoji: '🛡️' },
-  { value: 'assurance-habitation', label: 'Assurance habitation', emoji: '🏡' },
-  { value: 'assurance-professionnelle', label: 'Assurance professionnelle', emoji: '💼' },
-  { value: 'assurance-decennale', label: 'Assurance décennale', emoji: '🏗️' },
-  { value: 'sante-prevoyance-collective', label: 'Santé & Prévoyance Collective', emoji: '👥' },
-  { value: 'capital-obseques', label: 'Capital Obsèques', emoji: '🕊️' },
+  { value: 'mutuelle-sante', label: 'Mutuelle santé' },
+  { value: 'assurance-emprunteur', label: 'Assurance emprunteur' },
+  { value: 'assurance-auto', label: 'Assurance auto' },
+  { value: 'assurance-2-roues', label: 'Assurance 2 roues' },
+  { value: 'prevoyance', label: 'Prévoyance' },
+  { value: 'expatries', label: 'Expatriés' },
+  { value: 'assurance-bateau', label: 'Assurance bateau' },
+  { value: 'per', label: 'Plan Épargne Retraite (PER)' },
+  { value: 'assurance-vie', label: 'Assurance vie' },
+  { value: 'assurance-habitation', label: 'Assurance habitation' },
+  { value: 'assurance-professionnelle', label: 'Assurance professionnelle' },
+  { value: 'assurance-decennale', label: 'Assurance décennale' },
+  { value: 'sante-prevoyance-collective', label: 'Santé & Prévoyance Collective' },
+  { value: 'capital-obseques', label: 'Capital Obsèques' },
 ];
 
 const coverageOptions = [
@@ -159,14 +159,13 @@ const QuotePage: React.FC = () => {
                 <button
                   key={type.value}
                   onClick={() => handleSelectSingle('insuranceType', type.value, 2)}
-                  className={`p-5 rounded-xl border-2 transition-all duration-200 text-left hover:shadow-md group ${
+                  className={`p-5 rounded-lg border-2 transition-all duration-200 text-left hover:shadow-md group ${
                     formData.insuranceType === type.value
                       ? 'border-blue-500 bg-blue-50 shadow-md scale-[1.01]'
                       : 'border-gray-200 hover:border-blue-300 hover:bg-gray-50'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">{type.emoji}</span>
                     <span className="font-semibold text-gray-900 group-hover:text-blue-700 transition-colors">
                       {type.label}
                     </span>
@@ -197,7 +196,7 @@ const QuotePage: React.FC = () => {
                 <button
                   key={option.value}
                   onClick={() => handleSelectSingle('currentlyInsured', option.value, 3)}
-                  className={`w-full p-5 rounded-xl border-2 transition-all duration-200 text-left hover:shadow-md group flex items-center gap-4 ${
+                  className={`w-full p-5 rounded-lg border-2 transition-all duration-200 text-left hover:shadow-md group flex items-center gap-4 ${
                     formData.currentlyInsured === option.value
                       ? 'border-blue-500 bg-blue-50 shadow-md'
                       : 'border-gray-200 hover:border-blue-300 hover:bg-gray-50'
@@ -249,7 +248,7 @@ const QuotePage: React.FC = () => {
                     name="firstName"
                     value={formData.firstName}
                     onChange={(e) => setFormData((prev) => ({ ...prev, firstName: e.target.value }))}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow"
                     required
                     autoComplete="given-name"
                   />
@@ -261,7 +260,7 @@ const QuotePage: React.FC = () => {
                     name="lastName"
                     value={formData.lastName}
                     onChange={(e) => setFormData((prev) => ({ ...prev, lastName: e.target.value }))}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow"
                     required
                     autoComplete="family-name"
                   />
@@ -273,7 +272,7 @@ const QuotePage: React.FC = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow"
                     required
                     autoComplete="tel"
                   />
@@ -285,7 +284,7 @@ const QuotePage: React.FC = () => {
                     name="email"
                     value={formData.email}
                     onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow"
                     required
                     autoComplete="email"
                   />
@@ -311,7 +310,7 @@ const QuotePage: React.FC = () => {
             </div>
 
             <div className="max-w-xl mx-auto space-y-6">
-              <div className="bg-blue-50 border border-blue-100 p-6 rounded-xl">
+              <div className="bg-blue-50 border border-blue-100 p-6 rounded-lg">
                 <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
                   <CheckCircle className="w-5 h-5 text-blue-500" />
                   Votre demande
@@ -346,7 +345,7 @@ const QuotePage: React.FC = () => {
                 </dl>
               </div>
 
-              <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
                 <label className="flex items-start gap-4 cursor-pointer select-none">
                   <div className="relative mt-0.5">
                     <input
@@ -398,9 +397,9 @@ const QuotePage: React.FC = () => {
               </label>
 
               {submitError && (
-                <p className="text-center text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg py-3 px-4">
+                <p className="text-center text-sm text-red-600 bg-red-50 border border-red-200 rounded-md py-3 px-4">
                   Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous appeler au{' '}
-                  <a href="tel:+33162171111" className="font-semibold underline">01 62 17 11 11</a>.
+                  <a href="tel:+33162171111" className="font-semibold underline">+33 1 62 17 11 11</a>.
                 </p>
               )}
             </div>
@@ -428,7 +427,7 @@ const QuotePage: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {isSubmitted ? (
-          <div className="bg-white rounded-2xl shadow-xl p-10 text-center max-w-xl mx-auto">
+          <div className="bg-white rounded-lg shadow-xl p-10 text-center max-w-xl mx-auto">
             <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-5">
               <CheckCircle className="w-9 h-9 text-green-600" />
             </div>
@@ -440,13 +439,13 @@ const QuotePage: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
                 href="tel:+33162171111"
-                className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
               >
-                Appeler le 01 62 17 11 11
+                Appeler le +33 1 62 17 11 11
               </a>
               <Link
                 to="/"
-                className="inline-flex items-center justify-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
+                className="inline-flex items-center justify-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
               >
                 Retour à l'accueil
               </Link>
@@ -487,7 +486,7 @@ const QuotePage: React.FC = () => {
         </div>
 
         {/* Form Content with transition */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-8 overflow-hidden">
+        <div className="bg-white rounded-lg shadow-xl p-8 mb-8 overflow-hidden">
           <div
             className={`transition-all duration-200 ease-out ${slideClass}`}
           >
@@ -500,7 +499,7 @@ const QuotePage: React.FC = () => {
           <button
             onClick={handlePrevious}
             disabled={currentStep === 1 || animating}
-            className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
+            className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
               currentStep === 1 || animating
                 ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
                 : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 shadow-sm'
@@ -515,11 +514,11 @@ const QuotePage: React.FC = () => {
             <button
               onClick={handleNext}
               disabled={!isStepValid() || animating}
-              className={`flex items-center gap-2 px-8 py-3 rounded-xl font-semibold transition-all duration-200 shadow-sm ${
+              className={`flex items-center gap-2 px-8 py-3 rounded-lg font-semibold transition-all duration-200 shadow-sm ${
                 !isStepValid() || animating
                   ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
                   : stepNeedsNextButton()
-                  ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-blue-200 shadow-md'
+                  ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-md'
                   : 'bg-gray-100 text-gray-500 hover:bg-gray-200 text-sm'
               }`}
             >
@@ -531,10 +530,10 @@ const QuotePage: React.FC = () => {
               type="button"
               onClick={handleSubmit}
               disabled={!formData.consent || isLoading}
-              className={`flex items-center gap-2 px-8 py-3 rounded-xl font-semibold transition-colors shadow-md ${
+              className={`flex items-center gap-2 px-8 py-3 rounded-lg font-semibold transition-colors shadow-md ${
                 !formData.consent
                   ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                  : 'bg-green-600 text-white hover:bg-green-700 shadow-green-200'
+                  : 'bg-green-600 text-white hover:bg-green-700'
               }`}
             >
               {isLoading ? (

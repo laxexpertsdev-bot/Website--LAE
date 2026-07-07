@@ -1,14 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Star, CheckCircle, Headphones as HeadphonesIcon, TrendingUp, Phone } from 'lucide-react';
+import { Star, CheckCircle, Headphones as HeadphonesIcon, TrendingUp, Phone, Zap, ShieldCheck, Settings2 } from 'lucide-react';
 import HeroBanner from '../components/HeroBanner';
 import InsuranceSection from '../components/InsuranceSection';
 import ComprehensiveInsuranceSection from '../components/ComprehensiveInsuranceSection';
 import InsuranceCarousel from '../components/InsuranceCarousel';
+import PartnerCarousel from '../components/PartnerCarousel';
 import TarifCalculator from '../components/TarifCalculator';
+import ReviewForm from '../components/ReviewForm';
+import { reviews } from '../data/reviews';
 import { Helmet } from 'react-helmet-async';
-import { submitLead, trackLeadConversion } from '../utils/lead';
+import { submitBilanLead, trackLeadConversion } from '../utils/lead';
 
 const HomePage: React.FC = () => {
   // Lead magnet form state
@@ -36,7 +39,7 @@ const HomePage: React.FC = () => {
     if (honeypot) return; // bot détecté
     setSubmitError(false);
     setIsLoading(true);
-    const ok = await submitLead({ ...formData, _subject: 'Lead magnet — Guide « 10 erreurs à éviter »' });
+    const ok = await submitBilanLead({ ...formData, website: honeypot });
     setIsLoading(false);
     if (ok) {
       trackLeadConversion({ formLocation: 'lead_magnet_home' });
@@ -76,31 +79,58 @@ const HomePage: React.FC = () => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group">
-              <div className="bg-gradient-to-br from-blue-500 to-blue-600 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <CheckCircle className="w-10 h-10 text-white" />
+            <div className="text-center p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <div className="bg-blue-50 w-20 h-20 rounded-lg flex items-center justify-center mx-auto mb-6">
+                <CheckCircle className="w-10 h-10 text-blue-700" />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-slate-900">100% en ligne</h3>
               <p className="text-slate-600 leading-relaxed">
                 Souscrivez vos assurances depuis chez vous, 24h/24, 7j/7. Processus simplifié et sécurisé.
               </p>
             </div>
-            <div className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group">
-              <div className="bg-gradient-to-br from-green-500 to-green-600 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <HeadphonesIcon className="w-10 h-10 text-white" />
+            <div className="text-center p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <div className="bg-green-50 w-20 h-20 rounded-lg flex items-center justify-center mx-auto mb-6">
+                <HeadphonesIcon className="w-10 h-10 text-green-700" />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-slate-900">Conseiller dédié</h3>
               <p className="text-slate-600 leading-relaxed">
                 Un expert personnel vous accompagne dans tous vos projets d'assurance.
               </p>
             </div>
-            <div className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group">
-              <div className="bg-gradient-to-br from-amber-500 to-orange-500 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <TrendingUp className="w-10 h-10 text-white" />
+            <div className="text-center p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <div className="bg-amber-50 w-20 h-20 rounded-lg flex items-center justify-center mx-auto mb-6">
+                <TrendingUp className="w-10 h-10 text-amber-700" />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-slate-900">Tarifs compétitifs</h3>
               <p className="text-slate-600 leading-relaxed">
                 Négociation permanente avec nos partenaires pour vous offrir les meilleurs prix.
+              </p>
+            </div>
+            <div className="text-center p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <div className="bg-purple-50 w-20 h-20 rounded-lg flex items-center justify-center mx-auto mb-6">
+                <Zap className="w-10 h-10 text-purple-700" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-slate-900">Processus simplifié</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Souscrivez en quelques clics, avec un suivi en temps réel de votre dossier.
+              </p>
+            </div>
+            <div className="text-center p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <div className="bg-orange-50 w-20 h-20 rounded-lg flex items-center justify-center mx-auto mb-6">
+                <ShieldCheck className="w-10 h-10 text-orange-700" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-slate-900">Expertise certifiée</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Nos conseillers sont formés en continu aux évolutions réglementaires et aux nouveaux produits du marché.
+              </p>
+            </div>
+            <div className="text-center p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <div className="bg-teal-50 w-20 h-20 rounded-lg flex items-center justify-center mx-auto mb-6">
+                <Settings2 className="w-10 h-10 text-teal-700" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-slate-900">Solutions flexibles</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Des garanties qui s'adaptent à chaque changement de situation, sans engagement.
               </p>
             </div>
           </div>
@@ -112,190 +142,78 @@ const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
-              💬 Vos retours comptent pour nous
+              Vos retours comptent pour nous
             </h2>
             <p className="text-xl text-slate-600 mb-2">
-              Exemples anonymisés de messages reçus après souscription ou accompagnement
+              Les avis de nos clients, vérifiés et publiés après modération
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-slate-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                ))}
+            {reviews.map((review, index) => (
+              <div
+                key={index}
+                className="bg-slate-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <div className="flex mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`w-5 h-5 ${
+                        i < review.note ? 'text-yellow-400 fill-current' : 'text-gray-300'
+                      }`}
+                    />
+                  ))}
+                </div>
+                <p className="text-slate-700 mb-6 italic text-lg leading-relaxed">
+                  "{review.texte}"
+                </p>
+                <div>
+                  <p className="font-bold text-slate-900 text-lg">
+                    {review.prenom} {review.nomInitiale}
+                  </p>
+                  {review.lieu && <p className="text-sm text-blue-600">{review.lieu}</p>}
+                </div>
               </div>
-              <p className="text-slate-700 mb-6 italic text-lg leading-relaxed">
-                "Service fluide et très rapide. On m'a aidée à comprendre toutes les garanties avant de signer."
-              </p>
-              <div>
-                <p className="font-bold text-slate-900 text-lg">Assurée santé – famille</p>
-                <p className="text-sm text-blue-600">Région PACA</p>
-              </div>
-            </div>
-            
-            <div className="bg-slate-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                ))}
-              </div>
-              <p className="text-slate-700 mb-6 italic text-lg leading-relaxed">
-                "Ma RC Pro est sur mesure. Je recommande le service, surtout pour les indépendants comme moi."
-              </p>
-              <div>
-                <p className="font-bold text-slate-900 text-lg">Profession libérale</p>
-                <p className="text-sm text-blue-600">Paris</p>
-              </div>
-            </div>
-            
-            <div className="bg-slate-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                ))}
-              </div>
-              <p className="text-slate-700 mb-6 italic text-lg leading-relaxed">
-                "J'ai pu économiser 300 € par an sur mon assurance emprunteur. Je ne savais pas que c'était possible avant de comparer."
-              </p>
-              <div>
-                <p className="font-bold text-slate-900 text-lg">Jeune propriétaire</p>
-                <p className="text-sm text-blue-600">Lyon</p>
-              </div>
-            </div>
+            ))}
           </div>
-          
+
+          {/* Formulaire : laisser un avis */}
+          <div className="mt-8">
+            <ReviewForm />
+          </div>
+
           {/* Mention légale */}
           <div className="text-center mt-8">
             <p className="text-sm text-gray-500 italic">
-              🔒 Ces témoignages sont anonymisés et illustratifs. Ils ne constituent pas une promesse de résultat, chaque situation étant unique.
+              Les avis sont vérifiés et publiés après modération. Chaque situation étant unique, ils ne constituent pas une promesse de résultat.
             </p>
           </div>
         </div>
       </section>
 
       {/* Partners Section */}
-      <section className="py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-center text-xl font-bold text-slate-900 mb-12">
-            Nos partenaires assureurs
-          </h3>
-          <p className="text-center text-slate-600 mb-8">
-            Ils nous font confiance pour protéger nos clients au quotidien.
-          </p>
-          
-          <div className="bg-white rounded-xl shadow-lg p-8 max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 items-center">
-              {/* ACHEEL */}
-              <div className="flex items-center justify-center h-16" data-partner="acheel">
-                <img
-                  src="/partners/logo_de_la_startup_acheel.png"
-                  alt="ACHEEL"
-                  className="h-[55px] w-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              {/* APRIL */}
-              <div className="flex items-center justify-center h-16" data-partner="april">
-                <img
-                  src="/partners/images.png"
-                  alt="APRIL"
-                  className="h-[55px] w-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              {/* ASSUREMA */}
-              <div className="flex items-center justify-center h-16" data-partner="assurema">
-                <img
-                  src="/partners/images.jfif"
-                  alt="ASSUREMA"
-                  className="h-[55px] w-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              {/* KEREIS */}
-              <div className="flex items-center justify-center h-16" data-partner="kereis">
-                <img
-                  src="/partners/kereis-france-logo-rvb-unboxed-860x484.png.webp"
-                  alt="KEREIS"
-                  className="h-[55px] w-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              {/* CEGEMA */}
-              <div className="flex items-center justify-center h-16" data-partner="cegema">
-                <img
-                  src="/partners/images_(4).png"
-                  alt="CEGEMA"
-                  className="h-[55px] w-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              {/* QBE */}
-              <div className="flex items-center justify-center h-16" data-partner="qbe">
-                <img
-                  src="/partners/images_(3).png"
-                  alt="QBE"
-                  className="h-[55px] w-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              {/* AMI 3F */}
-              <div className="flex items-center justify-center h-16" data-partner="ami3f">
-                <img
-                  src="/partners/images_(2).png"
-                  alt="AMI 3F"
-                  className="h-[55px] w-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              {/* APICIL */}
-              <div className="flex items-center justify-center h-16" data-partner="apicil">
-                <img
-                  src="/partners/images_(1).png"
-                  alt="APICIL"
-                  className="h-[55px] w-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </div>
-          </div>
-          
-          <div className="text-center mt-8">
-            <p className="text-sm text-slate-500">
-              Et bien d'autres partenaires pour vous offrir les meilleures solutions
-            </p>
-          </div>
-        </div>
-      </section>
+      <PartnerCarousel
+        title="Nos partenaires assureurs"
+        subtitle="Ils nous font confiance pour protéger nos clients au quotidien."
+      />
+      <div className="bg-slate-50 py-8 text-center">
+        <p className="text-sm text-slate-500">
+          Et bien d'autres partenaires pour vous offrir les meilleures solutions
+        </p>
+      </div>
 
       {/* Lead Magnet Section */}
       <section className="py-20 bg-gradient-to-br from-blue-700 to-blue-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-12">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-12">
             <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-              🎁 Bilan assurance offert
+              Bilan assurance offert
             </h2>
             <div className="text-xl mb-8 text-blue-100 leading-relaxed space-y-2">
               <p>Recevez gratuitement notre mini-guide exclusif :</p>
               <p className="font-semibold text-white">"Les 10 erreurs à éviter en assurance"</p>
-              <p className="text-lg">👉 Réservez votre bilan et recevez le guide par email en avant-première.</p>
+              <p className="text-lg">Réservez votre bilan et recevez le guide par email en avant-première.</p>
             </div>
             {!isSubmitted ? (
               <form onSubmit={handleLeadSubmit} className="max-w-md mx-auto">
@@ -319,7 +237,7 @@ const HomePage: React.FC = () => {
                       value={formData.firstName}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-white/20 bg-white/10 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/50 backdrop-blur-sm"
+                      className="w-full px-4 py-3 rounded-md border border-white/20 bg-white/10 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/50 backdrop-blur-sm"
                     />
                   </div>
                   <div>
@@ -330,7 +248,7 @@ const HomePage: React.FC = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-white/20 bg-white/10 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/50 backdrop-blur-sm"
+                      className="w-full px-4 py-3 rounded-md border border-white/20 bg-white/10 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/50 backdrop-blur-sm"
                     />
                   </div>
                 </div>
@@ -354,7 +272,7 @@ const HomePage: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full bg-white text-blue-700 px-8 py-4 rounded-lg text-lg font-bold hover:bg-blue-50 transition-all duration-200 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full bg-white text-blue-700 px-8 py-4 rounded-md text-lg font-bold hover:bg-blue-50 transition-all duration-200 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {isLoading ? (
                     <>
@@ -366,14 +284,14 @@ const HomePage: React.FC = () => {
                   )}
                 </button>
                 {submitError && (
-                  <p className="text-sm text-red-100 bg-red-500/20 border border-red-400/30 rounded-lg py-2 px-3 mt-3">
+                  <p className="text-sm text-red-100 bg-red-500/20 border border-red-400/30 rounded-md py-2 px-3 mt-3">
                     Une erreur est survenue. Merci de réessayer.
                   </p>
                 )}
               </form>
             ) : (
               <div className="max-w-md mx-auto text-center">
-                <div className="bg-green-500/20 border border-green-400/30 rounded-lg p-6 backdrop-blur-sm">
+                <div className="bg-green-500/20 border border-green-400/30 rounded-md p-6 backdrop-blur-sm">
                   <CheckCircle className="w-12 h-12 text-green-400 mx-auto mb-4" />
                   <h3 className="text-xl font-bold text-white mb-2">Merci !</h3>
                   <p className="text-green-100">
@@ -403,7 +321,7 @@ const HomePage: React.FC = () => {
             <div className="space-y-6 text-gray-700 leading-relaxed">
               <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
                 <h3 className="text-xl font-semibold text-blue-900 mb-3">
-                  🏛️ Courtier agréé ORIAS 25002995
+                  Courtier agréé ORIAS 25002995
                 </h3>
                 <p className="text-blue-800">
                   Courtier en assurance indépendant agréé par l'ORIAS sous le numéro 25002995, nous
@@ -419,41 +337,6 @@ const HomePage: React.FC = () => {
                 souscription, nous vous accompagnons humainement tout au long de la vie de vos contrats :
                 gestion des sinistres, évolution de vos besoins et renégociation de vos garanties.
               </p>
-
-              <h3 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
-                Pourquoi choisir Les Assureurs Experts ?
-              </h3>
-
-              <div className="grid md:grid-cols-2 gap-6 my-8">
-                <div className="bg-blue-50 p-6 rounded-lg">
-                  <h4 className="font-semibold text-blue-900 mb-3">🎯 Accompagnement Personnalisé</h4>
-                  <p className="text-blue-800 text-sm">
-                    Chaque client bénéficie d'un conseiller dédié qui comprend ses besoins spécifiques et
-                    l'accompagne tout au long de sa relation avec nous.
-                  </p>
-                </div>
-                <div className="bg-green-50 p-6 rounded-lg">
-                  <h4 className="font-semibold text-green-900 mb-3">💰 Tarifs Négociés</h4>
-                  <p className="text-green-800 text-sm">
-                    Grâce à notre volume d'affaires et nos partenariats privilégiés, nous obtenons
-                    des tarifs préférentiels que nous répercutons directement à nos clients.
-                  </p>
-                </div>
-                <div className="bg-purple-50 p-6 rounded-lg">
-                  <h4 className="font-semibold text-purple-900 mb-3">⚡ Processus Simplifié</h4>
-                  <p className="text-purple-800 text-sm">
-                    Fini les démarches complexes ! Notre plateforme digitale vous permet de souscrire
-                    en quelques clics, avec un suivi en temps réel de votre dossier.
-                  </p>
-                </div>
-                <div className="bg-orange-50 p-6 rounded-lg">
-                  <h4 className="font-semibold text-orange-900 mb-3">🛡️ Expertise Certifiée</h4>
-                  <p className="text-orange-800 text-sm">
-                    Nos conseillers sont formés en permanence aux évolutions réglementaires et
-                    aux nouveaux produits du marché de l'assurance.
-                  </p>
-                </div>
-              </div>
 
               <h3 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
                 Nos domaines d'expertise
@@ -493,7 +376,7 @@ const HomePage: React.FC = () => {
           </p>
           <Link
             to="/devis"
-            className="inline-flex items-center gap-3 bg-blue-700 hover:bg-blue-800 text-white px-12 py-5 rounded-xl text-xl font-bold transition-all duration-200 transform hover:scale-105 shadow-2xl"
+            className="inline-flex items-center gap-3 bg-blue-700 hover:bg-blue-800 text-white px-12 py-5 rounded-lg text-xl font-bold transition-all duration-200 transform hover:scale-105 shadow-2xl"
           >
             <Phone className="w-6 h-6" />
             Obtenir mon devis gratuit

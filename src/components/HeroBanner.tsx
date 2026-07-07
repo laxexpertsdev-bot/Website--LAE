@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check, Phone, Users, ShieldCheck, Clock } from 'lucide-react';
+import { ArrowRight, Check, Phone, Users, ShieldCheck, Clock, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const HeroBanner: React.FC = () => {
@@ -91,7 +91,7 @@ const HeroBanner: React.FC = () => {
             >
               <Link
                 to="/devis"
-                className="inline-flex items-center gap-3 bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+                className="inline-flex items-center gap-3 bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-xl hover:shadow-2xl"
               >
                 <Phone className="w-6 h-6" />
                 Obtenir mon devis gratuit
@@ -118,6 +118,10 @@ const HeroBanner: React.FC = () => {
                 <Clock className="w-5 h-5 text-blue-700 flex-shrink-0" />
                 <span>Réponse sous 24h</span>
               </span>
+              <span className="flex items-center gap-2 text-sm text-slate-600">
+                <MapPin className="w-5 h-5 text-blue-700 flex-shrink-0" />
+                <span>Présent en <strong className="text-slate-900">France + DOM-TOM</strong></span>
+              </span>
             </motion.div>
           </motion.div>
 
@@ -130,7 +134,7 @@ const HeroBanner: React.FC = () => {
           >
             <div className="relative">
               {/* Image Slider */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[500px]">
+              <div className="relative rounded-xl overflow-hidden shadow-2xl h-[500px]">
                 {slides.map((slide, index) => (
                   <div
                     key={index}
@@ -154,7 +158,7 @@ const HeroBanner: React.FC = () => {
                     <button
                       key={index}
                       onClick={() => setCurrentSlide(index)}
-                      className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                      className={`relative w-2.5 h-2.5 rounded-full transition-all duration-300 before:absolute before:-inset-[7px] before:content-[''] ${
                         index === currentSlide
                           ? 'bg-white w-8'
                           : 'bg-white/50 hover:bg-white/75'
@@ -167,7 +171,7 @@ const HeroBanner: React.FC = () => {
               
               {/* Floating Elements */}
               <motion.div 
-                className="absolute -top-6 -left-6 bg-white rounded-2xl p-4 shadow-xl"
+                className="absolute -top-6 -left-6 bg-white rounded-lg p-4 shadow-xl"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
@@ -183,7 +187,7 @@ const HeroBanner: React.FC = () => {
               </motion.div>
 
               <motion.div 
-                className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-4 shadow-xl"
+                className="absolute -bottom-6 -right-6 bg-white rounded-lg p-4 shadow-xl"
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
               >

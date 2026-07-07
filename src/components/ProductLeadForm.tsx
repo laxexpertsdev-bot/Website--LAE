@@ -10,6 +10,12 @@ interface ProductLeadFormProps {
   insuranceLabel: string;
   /** Texte du bouton de soumission. */
   submitLabel?: string;
+  /**
+   * Région ciblée pour les landing pages de campagne géo (ex: 'Paris').
+   * Quand fournie, elle est jointe au lead Formspree et à l'event GA4,
+   * et le `form_location` bascule sur `region_<insuranceType>`.
+   */
+  region?: string;
 }
 
 /**
@@ -21,6 +27,7 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
   insuranceType,
   insuranceLabel,
   submitLabel = 'Obtenir mon devis',
+  region,
 }) => {
   const [data, setData] = useState({ fullName: '', phone: '', email: '', consent: false });
   const [isLoading, setIsLoading] = useState(false);
@@ -36,11 +43,16 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
       ...data,
       insuranceType,
       typeLabel: insuranceLabel,
-      _subject: `Devis ${insuranceLabel}`,
+      ...(region ? { region } : {}),
+      _subject: region ? `Devis ${insuranceLabel} — ${region}` : `Devis ${insuranceLabel}`,
     });
     setIsLoading(false);
     if (ok) {
-      trackLeadConversion({ formLocation: `product_${insuranceType}`, insuranceType });
+      trackLeadConversion({
+        formLocation: region ? `region_${insuranceType}` : `product_${insuranceType}`,
+        insuranceType,
+        region,
+      });
       setIsSubmitted(true);
     } else {
       setSubmitError(true);
@@ -69,7 +81,7 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
         placeholder="Prénom et Nom"
         value={data.fullName}
         onChange={(e) => setData({ ...data, fullName: e.target.value })}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-navy focus:border-brand-navy"
         required
         autoComplete="name"
       />
@@ -79,7 +91,7 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
         placeholder="Téléphone"
         value={data.phone}
         onChange={(e) => setData({ ...data, phone: e.target.value })}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-navy focus:border-brand-navy"
         required
         autoComplete="tel"
       />
@@ -89,7 +101,7 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
         placeholder="Email"
         value={data.email}
         onChange={(e) => setData({ ...data, email: e.target.value })}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-navy focus:border-brand-navy"
         required
         autoComplete="email"
       />
@@ -100,11 +112,11 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
           checked={data.consent}
           onChange={(e) => setData({ ...data, consent: e.target.checked })}
           required
-          className="mt-0.5 w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+          className="mt-0.5 w-4 h-4 rounded border-gray-300 text-brand-navy focus:ring-brand-navy"
         />
         <span className="text-xs text-gray-600 leading-relaxed">
           J'accepte d'être recontacté par Les Assureurs Experts au sujet de ma demande.{' '}
-          <Link to="/politique-confidentialite" className="text-blue-600 underline hover:text-blue-700">
+          <Link to="/politique-confidentialite" className="text-brand-navy underline hover:text-brand-accent">
             Politique de confidentialité
           </Link>
           .
@@ -113,14 +125,14 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
 
       {submitError && (
         <p className="text-sm text-red-600">
-          Une erreur est survenue. Réessayez ou appelez le 01 62 17 11 11.
+          Une erreur est survenue. Réessayez ou appelez le +33 1 62 17 11 11.
         </p>
       )}
 
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full bg-brand-accent hover:bg-brand-accentDark text-white py-4 rounded-md font-semibold text-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {isLoading ? (
           <>
@@ -136,7 +148,7 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
       </button>
 
       <p className="text-xs text-gray-500 text-center">
-        🔒 Réponse sous 24h • Gratuit et sans engagement
+        Réponse sous 24h • Gratuit et sans engagement
       </p>
     </form>
   );

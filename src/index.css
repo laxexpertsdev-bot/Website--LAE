@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply font-sans text-ink bg-white antialiased;
+  }
+  /* Titres en serif (Fraunces) — registre éditorial premium. */
+  h1,
+  h2,
+  h3 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  /* CTA canoniques réutilisables (remplacent les bg-blue-600/700 dispersés). */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-brand-accent px-6 py-3.5
+      font-semibold text-white transition-colors hover:bg-brand-accentDark
+      focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2
+      disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-brand-navy
+      bg-white px-6 py-3.5 font-semibold text-brand-navy transition-colors hover:bg-brand-navy hover:text-white
+      focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2;
+  }
+}
+
 @layer utilities {
   @keyframes fade-in {
     from {

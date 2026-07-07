@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, MessageCircle, Instagram } from 'lucide-react';
+import { MapPin, Phone, Mail, MessageCircle, Instagram, Facebook } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -16,9 +16,9 @@ const Footer: React.FC = () => {
 
             {/* Navigation */}
             <div>
-              <h4 className="text-[17px] font-semibold text-gray-900 mb-5 tracking-tight">
+              <h3 className="text-[17px] font-semibold text-gray-900 mb-5 tracking-tight">
                 Navigation
-              </h4>
+              </h3>
               <ul className="space-y-3.5">
                 <li>
                   <Link
@@ -57,9 +57,9 @@ const Footer: React.FC = () => {
 
             {/* Informations légales */}
             <div>
-              <h4 className="text-[17px] font-semibold text-gray-900 mb-5 tracking-tight">
+              <h3 className="text-[17px] font-semibold text-gray-900 mb-5 tracking-tight">
                 Informations légales
-              </h4>
+              </h3>
               <ul className="space-y-3.5">
                 <li>
                   <Link
@@ -98,9 +98,9 @@ const Footer: React.FC = () => {
 
             {/* Contact */}
             <div>
-              <h4 className="text-[17px] font-semibold text-gray-900 mb-5 tracking-tight">
+              <h3 className="text-[17px] font-semibold text-gray-900 mb-5 tracking-tight">
                 Contact
-              </h4>
+              </h3>
               <div className="space-y-3.5">
                 <div className="flex items-start gap-3">
                   <Mail className="w-[18px] h-[18px] text-blue-700 mt-0.5 flex-shrink-0" />
@@ -137,6 +137,13 @@ const Footer: React.FC = () => {
                     138 Boulevard Haussmann,<br />75008 Paris
                   </span>
                 </div>
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-[18px] h-[18px] text-blue-700 mt-0.5 flex-shrink-0" />
+                  <span className="text-[15px] text-gray-600 leading-relaxed">
+                    Couverture en France métropolitaine et dans les DOM-TOM :
+                    Île de la Réunion, Guadeloupe, Guyane, Martinique et Mayotte.
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -163,6 +170,15 @@ const Footer: React.FC = () => {
                   aria-label="Instagram"
                 >
                   <Instagram className="w-[18px] h-[18px]" />
+                </a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61577561022616"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-blue-600 hover:text-white transition-all duration-300"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-[18px] h-[18px]" />
                 </a>
               </div>
 
