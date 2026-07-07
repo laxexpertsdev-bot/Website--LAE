@@ -9,13 +9,15 @@ interface LeadFormCardProps {
   title: string;
   intro: string;
   submitLabel: string;
+  /** Région ciblée (landing pages de campagne géo). Transmise au tracking du lead. */
+  region?: string;
 }
 
 /**
  * Carte de conversion (ancre #devis) : réassurance + ProductLeadForm réutilisé tel quel
  * (tracking GA4 `generate_lead` préservé). Sticky sur desktop via le layout.
  */
-const LeadFormCard: React.FC<LeadFormCardProps> = ({ slug, label, title, intro, submitLabel }) => (
+const LeadFormCard: React.FC<LeadFormCardProps> = ({ slug, label, title, intro, submitLabel, region }) => (
   <div
     id="devis"
     className="scroll-mt-28 rounded-2xl border border-hairline bg-white p-6 shadow-soft sm:p-8"
@@ -24,7 +26,7 @@ const LeadFormCard: React.FC<LeadFormCardProps> = ({ slug, label, title, intro, 
     <p className="mt-2 text-sm text-gray-600">{intro}</p>
 
     <div className="mt-5">
-      <ProductLeadForm insuranceType={slug} insuranceLabel={label} submitLabel={submitLabel} />
+      <ProductLeadForm insuranceType={slug} insuranceLabel={label} submitLabel={submitLabel} region={region} />
     </div>
 
     <ul className="mt-5 space-y-2 border-t border-hairline pt-5 text-xs text-gray-500">
