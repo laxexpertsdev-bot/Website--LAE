@@ -8,7 +8,7 @@ import ProductHero from './ProductHero';
 import Section from './Section';
 import AdvantagesSection from './AdvantagesSection';
 import StepsSection from './StepsSection';
-import TrustStrip from './TrustStrip';
+import PartnerCarousel from '../PartnerCarousel';
 import TestimonialsSection from './TestimonialsSection';
 import LeadFormCard from './LeadFormCard';
 import MobileStickyCta from './MobileStickyCta';
@@ -141,7 +141,10 @@ const RegionPageLayout: React.FC<RegionPageLayoutProps> = ({ data }) => {
           </div>
         </div>
 
-        <TrustStrip />
+        <PartnerCarousel
+          title="Nos partenaires assureurs"
+          subtitle="Ils nous font confiance pour protéger nos clients au quotidien."
+        />
         <TestimonialsSection />
       </div>
 
