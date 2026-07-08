@@ -86,6 +86,6 @@ export const assuranceBateau: ProductPageData = {
   form: {
     title: 'Devis bateau gratuit',
     intro: 'Obtenez votre tarif en 2 minutes.',
-    submitLabel: 'Obtenir mon devis',
+    submitLabel: 'Soumettre',
   },
 };

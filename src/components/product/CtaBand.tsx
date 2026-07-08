@@ -1,6 +1,6 @@
 import React from 'react';
 import { Phone } from 'lucide-react';
-import { PHONE_DISPLAY, PHONE_TEL } from './constants';
+import { PHONE_TEL } from './constants';
 
 interface CtaBandProps {
   title: string;
@@ -24,7 +24,7 @@ const CtaBand: React.FC<CtaBandProps> = ({ title, text }) => (
           className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/40 px-6 py-3.5 font-semibold text-white transition-colors hover:bg-white/10"
         >
           <Phone className="h-5 w-5" />
-          {PHONE_DISPLAY}
+          Nous appeler
         </a>
       </div>
     </div>

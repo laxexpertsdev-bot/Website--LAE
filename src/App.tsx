@@ -8,6 +8,7 @@ import CookieConsent from './components/CookieConsent';
 import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import { regions } from './data/regions';
+import { productRegions } from './data/product-regions';
 
 // Pages chargées à la demande (code splitting) — réduit le bundle initial.
 const OffersPage = lazy(() => import('./pages/OffersPage'));
@@ -34,6 +35,7 @@ const AssuranceDecennalePage = lazy(() => import('./pages/AssuranceDecennalePage
 const SantePrevoyanceCollectivePage = lazy(() => import('./pages/SantePrevoyanceCollectivePage'));
 const CapitalObsequesPage = lazy(() => import('./pages/CapitalObsequesPage'));
 const RegionLandingPage = lazy(() => import('./pages/RegionLandingPage'));
+const ProductRegionPage = lazy(() => import('./pages/ProductRegionPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function App() {
@@ -118,6 +120,10 @@ function App() {
               {/* Landing pages régionales de campagne (générées depuis le registre, /<slug>). */}
               {regions.map((r) => (
                 <Route key={r.slug} path={`/${r.slug}`} element={<RegionLandingPage data={r} />} />
+              ))}
+              {/* Pages produit × région de campagne géo, noindex (générées depuis le registre, /<produit>/<ville>). */}
+              {productRegions.map((r) => (
+                <Route key={r.slug} path={`/${r.slug}`} element={<ProductRegionPage data={r} />} />
               ))}
               <Route path="*" element={<NotFoundPage />} />
             </Routes>

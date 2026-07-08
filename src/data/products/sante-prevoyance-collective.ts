@@ -92,6 +92,6 @@ export const santePrevoyanceCollective: ProductPageData = {
   form: {
     title: 'Obtenir un devis personnalisé',
     intro: 'Analyse de vos besoins, comparaison multi-assureurs, mise en place simplifiée.',
-    submitLabel: 'Être rappelé sous 24h',
+    submitLabel: 'Soumettre',
   },
 };

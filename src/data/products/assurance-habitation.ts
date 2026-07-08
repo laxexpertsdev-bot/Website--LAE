@@ -93,6 +93,6 @@ export const assuranceHabitation: ProductPageData = {
   form: {
     title: 'Devis habitation gratuit',
     intro: 'Obtenez votre tarif personnalisé en 2 minutes.',
-    submitLabel: 'Obtenir mon devis',
+    submitLabel: 'Soumettre',
   },
 };

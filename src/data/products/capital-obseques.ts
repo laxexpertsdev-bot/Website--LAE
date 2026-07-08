@@ -92,6 +92,6 @@ export const capitalObseques: ProductPageData = {
   form: {
     title: 'Demander un tarif personnalisé',
     intro: 'Réponse rapide, accompagnement bienveillant.',
-    submitLabel: 'Être rappelé sous 24h',
+    submitLabel: 'Soumettre',
   },
 };

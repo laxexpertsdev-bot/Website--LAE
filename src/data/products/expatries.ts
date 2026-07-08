@@ -96,6 +96,6 @@ export const expatries: ProductPageData = {
   form: {
     title: 'Devis expatrié gratuit',
     intro: 'Obtenez votre tarif en 2 minutes.',
-    submitLabel: 'Obtenir mon devis',
+    submitLabel: 'Soumettre',
   },
 };

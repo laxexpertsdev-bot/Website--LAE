@@ -83,6 +83,6 @@ export const assuranceAuto: ProductPageData = {
   form: {
     title: 'Devis auto gratuit',
     intro: 'Obtenez votre tarif personnalisé en 2 minutes.',
-    submitLabel: 'Obtenir mon devis',
+    submitLabel: 'Soumettre',
   },
 };

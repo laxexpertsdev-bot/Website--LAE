@@ -94,6 +94,6 @@ export const assuranceVie: ProductPageData = {
   form: {
     title: 'Simulation assurance vie',
     intro: 'Découvrez le potentiel de votre épargne.',
-    submitLabel: 'Simuler mon placement',
+    submitLabel: 'Soumettre',
   },
 };

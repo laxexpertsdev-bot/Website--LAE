@@ -83,6 +83,6 @@ export const assurance2Roues: ProductPageData = {
   form: {
     title: 'Devis 2 roues gratuit',
     intro: 'Obtenez votre tarif en 2 minutes.',
-    submitLabel: 'Obtenir mon devis',
+    submitLabel: 'Soumettre',
   },
 };
