@@ -19,6 +19,7 @@ import LeadFormCard from './LeadFormCard';
 import MobileStickyCta from './MobileStickyCta';
 import { SITE_ORIGIN } from './constants';
 import type { ProductPageData } from './types';
+import { useSuppressExitPopup } from '../../context/ExitPopupContext';
 
 interface ProductPageLayoutProps {
   data: ProductPageData;
@@ -30,6 +31,8 @@ interface ProductPageLayoutProps {
  *   export default () => <ProductPageLayout data={xxx} />;
  */
 const ProductPageLayout: React.FC<ProductPageLayoutProps> = ({ data }) => {
+  useSuppressExitPopup();
+
   const canonical = `${SITE_ORIGIN}/${data.slug}`;
   const ogImage = data.seo.ogImage ?? `${SITE_ORIGIN}/les-assureurs-experts-logo.png`;
 
