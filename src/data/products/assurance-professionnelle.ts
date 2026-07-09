@@ -88,6 +88,6 @@ export const assuranceProfessionnelle: ProductPageData = {
   form: {
     title: 'Devis professionnel gratuit',
     intro: 'Obtenez votre tarif adapté à votre activité.',
-    submitLabel: 'Obtenir mon devis',
+    submitLabel: 'Soumettre',
   },
 };

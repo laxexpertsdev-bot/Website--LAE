@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Phone, ShieldCheck, Users, Clock } from 'lucide-react';
 import type { KeyFigure } from './types';
-import { PHONE_DISPLAY, PHONE_TEL, ORIAS } from './constants';
+import { PHONE_TEL, ORIAS } from './constants';
 
 interface ProductHeroProps {
   eyebrow: string;
@@ -29,7 +29,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({ eyebrow, h1, intro, keyFigure
     <div className="mt-8">
       <a href={`tel:${PHONE_TEL}`} className="btn-secondary text-base">
         <Phone className="h-5 w-5" />
-        Parler à un conseiller {PHONE_DISPLAY}
+        Parler à un conseiller
       </a>
     </div>
 

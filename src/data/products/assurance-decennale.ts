@@ -27,7 +27,7 @@ export const assuranceDecennale: ProductPageData = {
   keyFigures: [
     { value: 'Obligation légale', label: 'Article 1792 du Code civil' },
     { value: 'Garantie 10 ans', label: 'Après réception des travaux' },
-    { value: 'Dès 60 €/mois', label: 'Tarif de départ' },
+    { value: 'Dès 60 €/mois', label: 'Tarif de départ' },
   ],
   coverage: {
     title: "Que couvre l'assurance décennale ?",
@@ -97,6 +97,6 @@ export const assuranceDecennale: ProductPageData = {
   form: {
     title: 'Devis décennale gratuit',
     intro: 'Obtenez votre tarif adapté à votre métier du BTP.',
-    submitLabel: 'Obtenir mon devis',
+    submitLabel: 'Soumettre',
   },
 };

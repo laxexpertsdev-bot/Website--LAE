@@ -25,7 +25,7 @@ export const mutuelleSante: ProductPageData = {
     },
   },
   keyFigures: [
-    { value: 'dès 18 €/mois', label: 'Pour un jeune actif' },
+    { value: 'dès 18 €/mois', label: 'Pour un jeune actif' },
     { value: '20+ assureurs', label: 'Comparés pour vous' },
     { value: 'sous 24h', label: 'Devis personnalisé' },
   ],
@@ -102,6 +102,6 @@ export const mutuelleSante: ProductPageData = {
   form: {
     title: 'Demandez votre devis mutuelle gratuit',
     intro: 'Réponse personnalisée sous 24h, sans engagement.',
-    submitLabel: 'Être rappelé sous 24h',
+    submitLabel: 'Soumettre',
   },
 };

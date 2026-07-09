@@ -25,7 +25,7 @@ export const assuranceEmprunteur: ProductPageData = {
     },
   },
   keyFigures: [
-    { value: '8 000 à 15 000 €', label: "Économies moyennes constatées" },
+    { value: '8 000 à 15 000 €', label: "Économies moyennes constatées" },
     { value: 'À tout moment', label: 'Résiliation loi Lemoine' },
     { value: 'Sous 48h', label: 'Réponse rapide' },
   ],
@@ -81,6 +81,6 @@ export const assuranceEmprunteur: ProductPageData = {
   form: {
     title: 'Calculez vos économies',
     intro: 'Obtenez votre simulation personnalisée en 2 minutes.',
-    submitLabel: 'Calculer mes économies',
+    submitLabel: 'Soumettre',
   },
 };

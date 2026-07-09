@@ -102,6 +102,6 @@ export const per: ProductPageData = {
   form: {
     title: 'Simulation PER gratuite',
     intro: "Calculez vos économies d'impôt en 2 minutes.",
-    submitLabel: 'Calculer mes économies',
+    submitLabel: 'Soumettre',
   },
 };

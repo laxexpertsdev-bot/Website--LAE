@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, CheckCircle } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 import { submitLead, trackLeadConversion } from '../utils/lead';
 
 interface ProductLeadFormProps {
@@ -20,23 +20,23 @@ interface ProductLeadFormProps {
 
 /**
  * Formulaire de lead partagé pour les pages produits.
- * Soumet via fetch (utils/lead), affiche un écran de succès, pousse l'event GA4,
- * et impose un consentement RGPD avec lien vers la politique de confidentialité.
+ * Soumet via fetch (utils/lead), affiche un écran de succès, pousse l'event GA4.
+ * Le consentement RGPD est informatif (implicite à la soumission), pas une case à cocher.
  */
 const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
   insuranceType,
   insuranceLabel,
-  submitLabel = 'Obtenir mon devis',
+  submitLabel = 'Soumettre',
   region,
 }) => {
-  const [data, setData] = useState({ fullName: '', phone: '', email: '', consent: false });
+  const [data, setData] = useState({ fullName: '', phone: '', email: '' });
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (isLoading || !data.consent) return;
+    if (isLoading) return;
     setSubmitError(false);
     setIsLoading(true);
     const ok = await submitLead({
@@ -94,6 +94,9 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
         className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-navy focus:border-brand-navy"
         required
         autoComplete="tel"
+        maxLength={20}
+        pattern="^(?:(?:\+33|0033)[\s.\-]?[1-9]|0[1-9])(?:[\s.\-]?\d{2}){4}$"
+        title="Numéro de téléphone français valide (ex: 06 12 34 56 78 ou +33 6 12 34 56 78)"
       />
       <input
         type="email"
@@ -104,24 +107,18 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
         className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-navy focus:border-brand-navy"
         required
         autoComplete="email"
+        pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+        title="Adresse email valide (ex: nom@domaine.fr)"
       />
 
-      <label className="flex items-start gap-3 cursor-pointer select-none">
-        <input
-          type="checkbox"
-          checked={data.consent}
-          onChange={(e) => setData({ ...data, consent: e.target.checked })}
-          required
-          className="mt-0.5 w-4 h-4 rounded border-gray-300 text-brand-navy focus:ring-brand-navy"
-        />
-        <span className="text-xs text-gray-600 leading-relaxed">
-          J'accepte d'être recontacté par Les Assureurs Experts au sujet de ma demande.{' '}
-          <Link to="/politique-confidentialite" className="text-brand-navy underline hover:text-brand-accent">
-            Politique de confidentialité
-          </Link>
-          .
-        </span>
-      </label>
+      <p className="text-xs text-gray-500 leading-relaxed">
+        En soumettant ce formulaire, j'accepte d'être recontacté(e) par Les Assureurs Experts au
+        sujet de ma demande.{' '}
+        <Link to="/politique-confidentialite" className="text-brand-navy underline hover:text-brand-accent">
+          Politique de confidentialité
+        </Link>
+        .
+      </p>
 
       {submitError && (
         <p className="text-sm text-red-600">
@@ -140,10 +137,7 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
             Envoi en cours...
           </>
         ) : (
-          <>
-            <Phone className="w-5 h-5" />
-            {submitLabel}
-          </>
+          submitLabel
         )}
       </button>
 

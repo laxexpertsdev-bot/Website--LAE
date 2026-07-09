@@ -98,6 +98,6 @@ export const paris: RegionPageData = {
   form: {
     title: 'Devis assurance à Paris — gratuit',
     intro: 'Recevez votre tarif personnalisé sous 24h. Un conseiller parisien vous rappelle.',
-    submitLabel: 'Obtenir mon devis',
+    submitLabel: 'Soumettre',
   },
 };

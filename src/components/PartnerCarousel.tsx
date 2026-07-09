@@ -18,14 +18,20 @@ const PartnerCarousel: React.FC<PartnerCarouselProps> = ({ title, subtitle }) =>
 
     <div className="group overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
       <div className="flex w-max animate-marquee gap-16 group-hover:[animation-play-state:paused] motion-reduce:animate-none motion-reduce:flex-wrap motion-reduce:justify-center motion-reduce:gap-x-10 motion-reduce:gap-y-6">
+        {/* Assets normalisés (canvas 320×120 uniforme) : le rendu est identique pour tous. */}
         {[...PARTNERS, ...PARTNERS].map((partner, i) => (
-          <div key={`${partner.name}-${i}`} className="flex h-9 w-auto shrink-0 items-center">
+          <div
+            key={`${partner.name}-${i}`}
+            className="flex h-10 w-24 shrink-0 items-center justify-center sm:h-12 sm:w-32"
+          >
             <img
               src={partner.logo}
               alt={partner.name}
+              width={320}
+              height={120}
               loading="lazy"
               decoding="async"
-              className="h-8 w-auto object-contain sm:h-9"
+              className="h-full w-full object-contain"
             />
           </div>
         ))}

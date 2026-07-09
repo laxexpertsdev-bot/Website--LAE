@@ -19,6 +19,7 @@ import LeadFormCard from './LeadFormCard';
 import MobileStickyCta from './MobileStickyCta';
 import { SITE_ORIGIN } from './constants';
 import type { ProductPageData } from './types';
+import { useSuppressExitPopup } from '../../context/ExitPopupContext';
 
 interface ProductPageLayoutProps {
   data: ProductPageData;
@@ -30,6 +31,8 @@ interface ProductPageLayoutProps {
  *   export default () => <ProductPageLayout data={xxx} />;
  */
 const ProductPageLayout: React.FC<ProductPageLayoutProps> = ({ data }) => {
+  useSuppressExitPopup();
+
   const canonical = `${SITE_ORIGIN}/${data.slug}`;
   const ogImage = data.seo.ogImage ?? `${SITE_ORIGIN}/les-assureurs-experts-logo.png`;
 
@@ -38,6 +41,7 @@ const ProductPageLayout: React.FC<ProductPageLayoutProps> = ({ data }) => {
       <Helmet>
         <title>{data.seo.title}</title>
         <meta name="description" content={data.seo.description} />
+        {data.region && <meta name="robots" content="noindex, follow" />}
         <link rel="canonical" href={canonical} />
         <meta property="og:title" content={data.seo.title} />
         <meta property="og:description" content={data.seo.description} />
@@ -45,8 +49,13 @@ const ProductPageLayout: React.FC<ProductPageLayoutProps> = ({ data }) => {
         <meta property="og:type" content="website" />
         <meta property="og:image" content={ogImage} />
       </Helmet>
-      <BreadcrumbJsonLd name={data.label} slug={data.slug} />
-      <ProductServiceJsonLd name={data.label} slug={data.slug} description={data.seo.description} />
+      {/* Variante géo (data.region) : page noindex de campagne → pas de JSON-LD. */}
+      {!data.region && (
+        <>
+          <BreadcrumbJsonLd name={data.label} slug={data.slug} />
+          <ProductServiceJsonLd name={data.label} slug={data.slug} description={data.seo.description} />
+        </>
+      )}
 
       <div className="min-h-screen bg-white pb-20 md:pb-0">
         {/* Fil d'Ariane — flotte sous la navbar principale au scroll */}
@@ -81,11 +90,12 @@ const ProductPageLayout: React.FC<ProductPageLayoutProps> = ({ data }) => {
               <aside className="lg:col-start-3 lg:row-span-2 lg:row-start-1">
                 <div className="lg:sticky lg:top-40">
                   <LeadFormCard
-                    slug={data.slug}
+                    slug={data.insuranceType ?? data.slug}
                     label={data.label}
                     title={data.form.title}
                     intro={data.form.intro}
                     submitLabel={data.form.submitLabel}
+                    region={data.region}
                   />
                 </div>
               </aside>

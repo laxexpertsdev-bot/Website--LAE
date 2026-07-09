@@ -25,8 +25,8 @@ export const prevoyance: ProductPageData = {
     },
   },
   keyFigures: [
-    { value: 'Jusqu\'à 5 000 €/mois', label: 'Rente possible' },
-    { value: 'Jusqu\'à 500 000 €', label: 'Capital décès' },
+    { value: 'Jusqu\'à 5 000 €/mois', label: 'Rente possible' },
+    { value: 'Jusqu\'à 500 000 €', label: 'Capital décès' },
     { value: 'Dès le 1er jour', label: "Versement en cas d'arrêt" },
   ],
   coverage: {
@@ -88,6 +88,6 @@ export const prevoyance: ProductPageData = {
   form: {
     title: 'Devis prévoyance gratuit',
     intro: 'Évaluez vos besoins en 2 minutes.',
-    submitLabel: 'Obtenir mon devis',
+    submitLabel: 'Soumettre',
   },
 };
