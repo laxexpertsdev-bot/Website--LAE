@@ -7,20 +7,20 @@ import { submitLead, trackLeadConversion } from '../utils/lead';
 const TRANSITION_DELAY = 180;
 
 const insuranceTypes = [
-  { value: 'mutuelle-sante', label: 'Mutuelle santé' },
-  { value: 'assurance-emprunteur', label: 'Assurance emprunteur' },
-  { value: 'assurance-auto', label: 'Assurance auto' },
-  { value: 'assurance-2-roues', label: 'Assurance 2 roues' },
-  { value: 'prevoyance', label: 'Prévoyance' },
-  { value: 'expatries', label: 'Expatriés' },
-  { value: 'assurance-bateau', label: 'Assurance bateau' },
-  { value: 'per', label: 'Plan Épargne Retraite (PER)' },
-  { value: 'assurance-vie', label: 'Assurance vie' },
-  { value: 'assurance-habitation', label: 'Assurance habitation' },
-  { value: 'assurance-professionnelle', label: 'Assurance professionnelle' },
-  { value: 'assurance-decennale', label: 'Assurance décennale' },
-  { value: 'sante-prevoyance-collective', label: 'Santé & Prévoyance Collective' },
-  { value: 'capital-obseques', label: 'Capital Obsèques' },
+  { value: 'mutuelle-sante', label: 'Mutuelle santé', emoji: '🩺' },
+  { value: 'assurance-emprunteur', label: 'Assurance emprunteur', emoji: '🏦' },
+  { value: 'assurance-auto', label: 'Assurance auto', emoji: '🚗' },
+  { value: 'assurance-2-roues', label: 'Assurance 2 roues', emoji: '🏍️' },
+  { value: 'prevoyance', label: 'Prévoyance', emoji: '🛡️' },
+  { value: 'expatries', label: 'Expatriés', emoji: '✈️' },
+  { value: 'assurance-bateau', label: 'Assurance bateau', emoji: '⛵' },
+  { value: 'per', label: 'Plan Épargne Retraite (PER)', emoji: '📈' },
+  { value: 'assurance-vie', label: 'Assurance vie', emoji: '💰' },
+  { value: 'assurance-habitation', label: 'Assurance habitation', emoji: '🏠' },
+  { value: 'assurance-professionnelle', label: 'Assurance professionnelle', emoji: '💼' },
+  { value: 'assurance-decennale', label: 'Assurance décennale', emoji: '🏗️' },
+  { value: 'sante-prevoyance-collective', label: 'Santé & Prévoyance Collective', emoji: '👥' },
+  { value: 'capital-obseques', label: 'Capital Obsèques', emoji: '🕊️' },
 ];
 
 const coverageOptions = [
@@ -36,7 +36,6 @@ interface FormData {
   lastName: string;
   phone: string;
   email: string;
-  wantCallback: boolean;
   consent: boolean;
 }
 
@@ -55,7 +54,6 @@ const QuotePage: React.FC = () => {
     lastName: '',
     phone: '',
     email: '',
-    wantCallback: false,
     consent: false,
   });
 
@@ -123,6 +121,7 @@ const QuotePage: React.FC = () => {
     const selectedType = insuranceTypes.find((t) => t.value === formData.insuranceType)?.label;
     const ok = await submitLead({
       ...formData,
+      wantCallback: true,
       typeLabel: selectedType,
       _subject: `Nouveau devis — ${selectedType ?? formData.insuranceType}`,
     });
@@ -166,6 +165,7 @@ const QuotePage: React.FC = () => {
                   }`}
                 >
                   <div className="flex items-center gap-3">
+                    <span className="text-2xl leading-none" aria-hidden="true">{type.emoji}</span>
                     <span className="font-semibold text-gray-900 group-hover:text-blue-700 transition-colors">
                       {type.label}
                     </span>
@@ -302,14 +302,44 @@ const QuotePage: React.FC = () => {
         return (
           <div className="space-y-6">
             <div className="text-center mb-8">
-              <span className="inline-block bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">
-                Dernière étape
-              </span>
-              <h2 className="text-2xl font-bold text-gray-900">Récapitulatif & rappel</h2>
+              <h2 className="text-2xl font-bold text-gray-900">Dernière étape</h2>
               <p className="text-gray-500 text-sm mt-2">Vérifiez vos informations avant de valider</p>
             </div>
 
             <div className="max-w-xl mx-auto space-y-6">
+              {/* Consentement RGPD (obligatoire) */}
+              <label className="flex items-start gap-3 cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  checked={formData.consent}
+                  onChange={(e) => setFormData((prev) => ({ ...prev, consent: e.target.checked }))}
+                  className="mt-1 w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                  required
+                />
+                <span className="text-sm text-gray-600 leading-relaxed">
+                  J'accepte d'être recontacté par Les Assureurs Experts au sujet de ma demande. Mes données
+                  restent confidentielles et ne sont jamais revendues.{' '}
+                  <Link to="/politique-confidentialite" className="text-blue-600 underline hover:text-blue-700">
+                    Politique de confidentialité
+                  </Link>
+                  .
+                </span>
+              </label>
+
+              <div>
+                {renderSubmitButton()}
+                <p className="text-center text-xs text-gray-400 mt-3">
+                  Gratuit et sans engagement · Réponse d'un expert sous 2h ouvrées
+                </p>
+              </div>
+
+              {submitError && (
+                <p className="text-center text-sm text-red-600 bg-red-50 border border-red-200 rounded-md py-3 px-4">
+                  Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous appeler au{' '}
+                  <a href="tel:+33162171111" className="font-semibold underline">+33 1 62 17 11 11</a>.
+                </p>
+              )}
+
               <div className="bg-blue-50 border border-blue-100 p-6 rounded-lg">
                 <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
                   <CheckCircle className="w-5 h-5 text-blue-500" />
@@ -344,64 +374,6 @@ const QuotePage: React.FC = () => {
                   </div>
                 </dl>
               </div>
-
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
-                <label className="flex items-start gap-4 cursor-pointer select-none">
-                  <div className="relative mt-0.5">
-                    <input
-                      type="checkbox"
-                      checked={formData.wantCallback}
-                      onChange={(e) => setFormData((prev) => ({ ...prev, wantCallback: e.target.checked }))}
-                      className="sr-only"
-                    />
-                    <div
-                      className={`w-6 h-6 rounded border-2 transition-all duration-150 flex items-center justify-center ${
-                        formData.wantCallback
-                          ? 'bg-blue-500 border-blue-500'
-                          : 'bg-white border-gray-300 hover:border-blue-400'
-                      }`}
-                    >
-                      {formData.wantCallback && (
-                        <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                      )}
-                    </div>
-                  </div>
-                  <div>
-                    <span className="font-semibold text-gray-900 block">Oui, je souhaite être rappelé par un expert</span>
-                    <span className="text-sm text-gray-500 mt-0.5 block">
-                      Nous vous contacterons sous 2h ouvrées pour établir votre devis personnalisé.
-                    </span>
-                  </div>
-                </label>
-              </div>
-
-              {/* Consentement RGPD (obligatoire) */}
-              <label className="flex items-start gap-3 cursor-pointer select-none">
-                <input
-                  type="checkbox"
-                  checked={formData.consent}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, consent: e.target.checked }))}
-                  className="mt-1 w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                  required
-                />
-                <span className="text-sm text-gray-600 leading-relaxed">
-                  J'accepte d'être recontacté par Les Assureurs Experts au sujet de ma demande. Mes données
-                  restent confidentielles et ne sont jamais revendues.{' '}
-                  <Link to="/politique-confidentialite" className="text-blue-600 underline hover:text-blue-700">
-                    Politique de confidentialité
-                  </Link>
-                  .
-                </span>
-              </label>
-
-              {submitError && (
-                <p className="text-center text-sm text-red-600 bg-red-50 border border-red-200 rounded-md py-3 px-4">
-                  Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous appeler au{' '}
-                  <a href="tel:+33162171111" className="font-semibold underline">+33 1 62 17 11 11</a>.
-                </p>
-              )}
             </div>
           </div>
         );
@@ -410,6 +382,31 @@ const QuotePage: React.FC = () => {
         return null;
     }
   };
+
+  const renderSubmitButton = () => (
+    <button
+      type="button"
+      onClick={handleSubmit}
+      disabled={!formData.consent || isLoading}
+      className={`w-full flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold transition-colors shadow-md ${
+        !formData.consent
+          ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+          : 'bg-green-600 text-white hover:bg-green-700'
+      }`}
+    >
+      {isLoading ? (
+        <>
+          <div className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+          Envoi en cours...
+        </>
+      ) : (
+        <>
+          <CheckCircle className="w-5 h-5" />
+          Valider ma demande
+        </>
+      )}
+    </button>
+  );
 
   const slideClass = visible
     ? 'opacity-100 translate-x-0'
@@ -509,8 +506,9 @@ const QuotePage: React.FC = () => {
             Précédent
           </button>
 
-          {/* Next button — primary for text steps, secondary hint for choice steps */}
-          {currentStep < totalSteps ? (
+          {/* Next button — primary for text steps, secondary hint for choice steps.
+              Step 4's submit CTA lives inside renderStep(), not here. */}
+          {currentStep < totalSteps && (
             <button
               onClick={handleNext}
               disabled={!isStepValid() || animating}
@@ -524,29 +522,6 @@ const QuotePage: React.FC = () => {
             >
               Suivant
               <ChevronRight className="w-5 h-5" />
-            </button>
-          ) : (
-            <button
-              type="button"
-              onClick={handleSubmit}
-              disabled={!formData.consent || isLoading}
-              className={`flex items-center gap-2 px-8 py-3 rounded-lg font-semibold transition-colors shadow-md ${
-                !formData.consent
-                  ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                  : 'bg-green-600 text-white hover:bg-green-700'
-              }`}
-            >
-              {isLoading ? (
-                <>
-                  <div className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
-                  Envoi en cours...
-                </>
-              ) : (
-                <>
-                  <CheckCircle className="w-5 h-5" />
-                  Valider ma demande
-                </>
-              )}
             </button>
           )}
         </div>
