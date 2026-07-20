@@ -9,6 +9,16 @@ export type CookieConsentPreferences = Omit<CookieConsentValue, 'timestamp'>;
 
 const COOKIE_CONSENT_STORAGE_KEY = 'cookieConsent';
 const THIRTEEN_MONTHS_MS = 13 * 30 * 24 * 60 * 60 * 1000;
+const CLARITY_PROJECT_ID = 'xphddgzqro';
+const CLARITY_SCRIPT_SRC = `https://www.clarity.ms/tag/${CLARITY_PROJECT_ID}`;
+
+type ClarityCommand = ((...args: unknown[]) => void) & {
+  q?: unknown[][];
+};
+
+interface ClarityWindow extends Window {
+  clarity?: ClarityCommand;
+}
 
 function parseCookieConsent(value: string): CookieConsentValue | null {
   try {
@@ -54,8 +64,48 @@ export function updateGtagConsent(analytics: boolean, marketing: boolean): void 
   }
 }
 
+/**
+ * Charge Microsoft Clarity une seule fois, après l'accord aux cookies analytiques.
+ * Le script est ajouté au <head> afin de conserver le comportement du snippet Clarity.
+ */
+export function loadClarity(marketing: boolean): void {
+  if (typeof window === 'undefined') return;
+
+  const clarityWindow = window as ClarityWindow;
+  if (!clarityWindow.clarity) {
+    const clarity: ClarityCommand = (...args) => {
+      clarity.q = clarity.q || [];
+      clarity.q.push(args);
+    };
+    clarityWindow.clarity = clarity;
+  }
+
+  clarityWindow.clarity('consentv2', {
+    analytics_Storage: 'granted',
+    ad_Storage: marketing ? 'granted' : 'denied',
+  });
+
+  if (document.querySelector(`script[src="${CLARITY_SCRIPT_SRC}"]`)) return;
+
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = CLARITY_SCRIPT_SRC;
+  script.dataset.clarityProject = CLARITY_PROJECT_ID;
+  document.head.appendChild(script);
+}
+
 export function applyCookieConsent(consent: CookieConsentPreferences): void {
   updateGtagConsent(consent.analytics, consent.marketing);
+  if (consent.analytics) {
+    loadClarity(consent.marketing);
+    return;
+  }
+
+  const clarityWindow = window as ClarityWindow;
+  clarityWindow.clarity?.('consentv2', {
+    analytics_Storage: 'denied',
+    ad_Storage: 'denied',
+  });
 }
 
 export function saveCookieConsent(consent: CookieConsentPreferences): CookieConsentValue {
