@@ -83,6 +83,7 @@ const GestionCookiesPage: React.FC = () => {
                 </p>
                 <ul className="text-blue-700 text-sm">
                   <li>• Google Analytics (statistiques de visite)</li>
+                  <li>• Microsoft Clarity (analyse des parcours et interactions)</li>
                   <li>• Mesure d'audience et de performance</li>
                   <li>• Analyse du comportement utilisateur</li>
                 </ul>
