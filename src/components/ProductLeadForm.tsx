@@ -10,12 +10,6 @@ interface ProductLeadFormProps {
   insuranceLabel: string;
   /** Texte du bouton de soumission. */
   submitLabel?: string;
-  /**
-   * Région ciblée pour les landing pages de campagne géo (ex: 'Paris').
-   * Quand fournie, elle est jointe au lead Formspree et à l'event GA4,
-   * et le `form_location` bascule sur `region_<insuranceType>`.
-   */
-  region?: string;
 }
 
 /**
@@ -27,7 +21,6 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
   insuranceType,
   insuranceLabel,
   submitLabel = 'Soumettre',
-  region,
 }) => {
   const [data, setData] = useState({ fullName: '', phone: '', email: '' });
   const [isLoading, setIsLoading] = useState(false);
@@ -43,15 +36,13 @@ const ProductLeadForm: React.FC<ProductLeadFormProps> = ({
       ...data,
       insuranceType,
       typeLabel: insuranceLabel,
-      ...(region ? { region } : {}),
-      _subject: region ? `Devis ${insuranceLabel} — ${region}` : `Devis ${insuranceLabel}`,
+      _subject: `Devis ${insuranceLabel}`,
     });
     setIsLoading(false);
     if (ok) {
       trackLeadConversion({
-        formLocation: region ? `region_${insuranceType}` : `product_${insuranceType}`,
+        formLocation: `product_${insuranceType}`,
         insuranceType,
-        region,
       });
       setIsSubmitted(true);
     } else {

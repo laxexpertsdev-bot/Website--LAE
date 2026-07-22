@@ -14,8 +14,6 @@ export interface LeadTrackPayload {
   formLocation: string;
   /** Type d'assurance sélectionné, si disponible. */
   insuranceType?: string;
-  /** Région ciblée (landing pages de campagne géo, ex: 'Paris'). */
-  region?: string;
 }
 
 /**
@@ -31,7 +29,6 @@ export function trackLeadConversion(payload: LeadTrackPayload): void {
   const eventParams = {
     form_location: payload.formLocation,
     insurance_type: payload.insuranceType ?? null,
-    region: payload.region ?? null,
   };
   w.gtag?.('event', 'generate_lead', eventParams);
   w.dataLayer = w.dataLayer || [];

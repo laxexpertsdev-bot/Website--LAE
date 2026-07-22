@@ -12,18 +12,6 @@ export interface ProductPageData {
   /** Libellé lisible, ex. 'Mutuelle santé'. */
   label: string;
 
-  /**
-   * Variante géo (page produit × région, ex. 'Paris'). Optionnel.
-   * Quand défini : la page passe en `noindex, follow`, transmet la région au tracking
-   * du lead, et n'émet pas le JSON-LD (cf. ProductPageLayout). Voir buildProductRegion.
-   */
-  region?: string;
-  /**
-   * Id « machine » du produit pour le tracking (ex. 'mutuelle-sante'), utile quand le
-   * `slug` contient une région (ex. 'mutuelle-sante/paris'). Fallback : `slug`.
-   */
-  insuranceType?: string;
-
   seo: {
     title: string;
     description: string;
