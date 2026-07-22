@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -33,6 +33,7 @@ const AssuranceProfessionnellePage = lazy(() => import('./pages/AssuranceProfess
 const AssuranceDecennalePage = lazy(() => import('./pages/AssuranceDecennalePage'));
 const SantePrevoyanceCollectivePage = lazy(() => import('./pages/SantePrevoyanceCollectivePage'));
 const CapitalObsequesPage = lazy(() => import('./pages/CapitalObsequesPage'));
+const LpMutuelleSantePage = lazy(() => import('./pages/LpMutuelleSantePage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 const ExitPopupController: React.FC = () => {
@@ -91,49 +92,64 @@ const ExitPopupController: React.FC = () => {
   return <ExitIntentPopup isOpen={showExitPopup} onClose={() => setShowExitPopup(false)} />;
 };
 
+/**
+ * Coquille du site : route table + UI globale. Extrait en composant enfant du <Router>
+ * pour pouvoir lire useLocation() (nécessaire pour savoir si on est sur une landing page
+ * de campagne `/lp/*`, qui a son propre Header/Footer allégés — voir isCampaignLp).
+ */
+const SiteShell: React.FC = () => {
+  const location = useLocation();
+  const isCampaignLp = location.pathname.startsWith('/lp/');
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {!isCampaignLp && <Header />}
+      <main>
+        <Suspense fallback={<div className="min-h-screen" />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/offres" element={<OffersPage />} />
+            <Route path="/devis" element={<QuotePage />} />
+            <Route path="/premium" element={<PremiumPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/mutuelle-sante" element={<MutuelleHealthPage />} />
+            <Route path="/assurance-emprunteur" element={<AssuranceEmprunteurPage />} />
+            <Route path="/assurance-auto" element={<AssuranceAutoPage />} />
+            <Route path="/assurance-2-roues" element={<Assurance2RouesPage />} />
+            <Route path="/prevoyance" element={<PrevoyancePage />} />
+            <Route path="/assurance-bateau" element={<AssuranceBateauPage />} />
+            <Route path="/expatries" element={<ExpatriesPage />} />
+            <Route path="/per" element={<PERPage />} />
+            <Route path="/assurance-vie" element={<AssuranceViePage />} />
+            <Route path="/assurance-habitation" element={<AssuranceHabitationPage />} />
+            <Route path="/assurance-professionnelle" element={<AssuranceProfessionnellePage />} />
+            <Route path="/assurance-decennale" element={<AssuranceDecennalePage />} />
+            <Route path="/sante-prevoyance-collective" element={<SantePrevoyanceCollectivePage />} />
+            <Route path="/capital-obseques" element={<CapitalObsequesPage />} />
+            <Route path="/lp/mutuelle-sante" element={<LpMutuelleSantePage />} />
+            <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
+            <Route path="/politique-confidentialite" element={<PolitiqueConfidentialitePage />} />
+            <Route path="/conditions-generales" element={<ConditionsGeneralesPage />} />
+            <Route path="/gestion-cookies" element={<GestionCookiesPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
+      </main>
+      {!isCampaignLp && <Footer />}
+      <WhatsAppButton />
+      <ExitPopupController />
+      <CookieConsent />
+    </div>
+  );
+};
+
 function App() {
   return (
     <ExitPopupProvider>
       <Router>
         <ScrollToTop />
-        <div className="min-h-screen bg-gray-50">
-          <Header />
-          <main>
-            <Suspense fallback={<div className="min-h-screen" />}>
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/offres" element={<OffersPage />} />
-                <Route path="/devis" element={<QuotePage />} />
-                <Route path="/premium" element={<PremiumPage />} />
-                <Route path="/blog" element={<BlogPage />} />
-                <Route path="/contact" element={<ContactPage />} />
-                <Route path="/mutuelle-sante" element={<MutuelleHealthPage />} />
-                <Route path="/assurance-emprunteur" element={<AssuranceEmprunteurPage />} />
-                <Route path="/assurance-auto" element={<AssuranceAutoPage />} />
-                <Route path="/assurance-2-roues" element={<Assurance2RouesPage />} />
-                <Route path="/prevoyance" element={<PrevoyancePage />} />
-                <Route path="/assurance-bateau" element={<AssuranceBateauPage />} />
-                <Route path="/expatries" element={<ExpatriesPage />} />
-                <Route path="/per" element={<PERPage />} />
-                <Route path="/assurance-vie" element={<AssuranceViePage />} />
-                <Route path="/assurance-habitation" element={<AssuranceHabitationPage />} />
-                <Route path="/assurance-professionnelle" element={<AssuranceProfessionnellePage />} />
-                <Route path="/assurance-decennale" element={<AssuranceDecennalePage />} />
-                <Route path="/sante-prevoyance-collective" element={<SantePrevoyanceCollectivePage />} />
-                <Route path="/capital-obseques" element={<CapitalObsequesPage />} />
-                <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
-                <Route path="/politique-confidentialite" element={<PolitiqueConfidentialitePage />} />
-                <Route path="/conditions-generales" element={<ConditionsGeneralesPage />} />
-                <Route path="/gestion-cookies" element={<GestionCookiesPage />} />
-                <Route path="*" element={<NotFoundPage />} />
-              </Routes>
-            </Suspense>
-          </main>
-          <Footer />
-          <WhatsAppButton />
-          <ExitPopupController />
-          <CookieConsent />
-        </div>
+        <SiteShell />
       </Router>
     </ExitPopupProvider>
   );

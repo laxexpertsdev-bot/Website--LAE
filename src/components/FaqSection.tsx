@@ -12,13 +12,21 @@ interface FaqSectionProps {
   title?: string;
   /** Ancre optionnelle (ex. 'faq') pour la sous-nav intra-page. */
   id?: string;
+  /** Injecte le JSON-LD FAQPage. Défaut true (comportement existant inchangé) — à mettre
+   * à false sur les pages `noindex` qui ne doivent émettre aucune donnée structurée. */
+  structuredData?: boolean;
 }
 
 /**
  * Section FAQ en accordéon + données structurées schema.org FAQPage (rich snippets Google).
  * Le JSON-LD est injecté via react-helmet-async, donc utilisable depuis n'importe quelle page.
  */
-const FaqSection: React.FC<FaqSectionProps> = ({ items, title = 'Questions fréquentes', id }) => {
+const FaqSection: React.FC<FaqSectionProps> = ({
+  items,
+  title = 'Questions fréquentes',
+  id,
+  structuredData = true,
+}) => {
   const [open, setOpen] = useState<number | null>(0);
 
   const jsonLd = {
@@ -33,9 +41,11 @@ const FaqSection: React.FC<FaqSectionProps> = ({ items, title = 'Questions fréq
 
   return (
     <section id={id} className="scroll-mt-28">
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-      </Helmet>
+      {structuredData && (
+        <Helmet>
+          <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        </Helmet>
+      )}
       <h2 className="text-2xl font-semibold text-brand-navy sm:text-3xl mb-4">{title}</h2>
       <div className="divide-y divide-hairline border-t border-hairline">
         {items.map((it, i) => (

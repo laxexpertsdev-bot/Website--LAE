@@ -36,6 +36,19 @@ export function trackLeadConversion(payload: LeadTrackPayload): void {
 }
 
 /**
+ * Suit la progression dans un formulaire multi-étapes (ex: passage à l'étape 2 d'un
+ * tunnel de lead). Même mécanique que trackLeadConversion (gtag + dataLayer).
+ */
+export function trackFormStep(step: number, formLocation: string): void {
+  if (typeof window === 'undefined') return;
+  const w = window as unknown as DataLayerWindow;
+  const eventParams = { step, form_location: formLocation };
+  w.gtag?.('event', 'form_step', eventParams);
+  w.dataLayer = w.dataLayer || [];
+  w.dataLayer.push({ event: 'form_step', ...eventParams });
+}
+
+/**
  * Envoie les données du lead à Formspree en JSON.
  * Retourne true si Formspree a accepté la soumission.
  */
