@@ -1,0 +1,70 @@
+name: Publier vers Master
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lae-publication-master
+  cancel-in-progress: false
+
+jobs:
+  publier:
+    if: github.repository == 'laxexpertsdev-bot/connect-your-code' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Recuperer la version choisie de Lovable
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          package-manager-cache: false
+
+      - name: Installer les dependances
+        run: npm ci
+
+      - name: Verifier le code
+        run: npm run lint
+
+      - name: Compiler le site
+        run: npm run build
+
+      - name: Envoyer vers Website--LAE / Master
+        env:
+          GH_TOKEN: ${{ secrets.LAE_SYNC_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::error::Le secret LAE_SYNC_TOKEN est manquant."
+            exit 1
+          fi
+
+          gh auth setup-git --hostname github.com
+          git remote add production https://github.com/laxexpertsdev-bot/Website--LAE.git
+          git fetch --no-tags production refs/heads/Master:refs/remotes/production/Master
+
+          if ! git merge-base --is-ancestor production/Master HEAD; then
+            echo "::error::Master contient des commits absents de cette version Lovable. Integrer ces commits dans connect-your-code/main avant de relancer."
+            exit 1
+          fi
+
+          git push production HEAD:refs/heads/Master
+
+          {
+            echo "### Transfert termine"
+            echo "Commit : $(git rev-parse HEAD)"
+            echo "Destination : laxexpertsdev-bot/Website--LAE, branche Master."
+            echo "Verifier ensuite le deploiement dans Vercel."
+          } >> "$GITHUB_STEP_SUMMARY"
