@@ -15,23 +15,16 @@ strictly necessary.
 
 ## Workflow & scope
 
-- **Development only.** Do **not** deploy or run release steps — the user owns deployment.
-- **Hosting: Vercel.** The site is deployed on **Vercel** (framework preset Vite, output `dist`),
-  building from the **`Master`** branch. SPA client-routing fallback is `vercel.json` (rewrites
-  everything to `/index.html`). DNS is managed at Squarespace/Google Cloud DNS; the **apex
-  (non-www) `lesassureursexperts.fr` is the primary domain** and `www` 308-redirects to it.
-  (Historic note: the site was previously on Netlify/Bolt — that setup is retired.)
-- Work on the **`dev`** branch. The active repo is the **private** repo
-  `laxexpertsdev-bot/Website--LAE` (branches: `Master` (default/production), `main`, `dev`,
-  `Bolt-Rudy`). The old `iaformaplus/Les-Assurreurs-Experts-website` repo is **deprecated**.
-- **Git remote `origin`** points to `https://github.com/laxexpertsdev-bot/Website--LAE.git` —
-  always use `git push origin <branch>`. The remotes `newrepo` and `lae-bot` exist but `origin`
-  is canonical. Never push to the old `iaformaplus` remote.
-- Access is via the **`sitekept`** GitHub account (collaborator on `laxexpertsdev-bot/Website--LAE`).
-  `gh` has both `sitekept` and `Orhakerem` configured — ensure `sitekept` is active
-  (`gh auth switch -u sitekept`) for git/`gh` operations.
-- The **user manages PRs and merges** into other branches — don't open PRs, push, or merge
-  unless explicitly asked. Make changes locally and verify with `npm run build` / `npm run lint`.
+- This is the Lovable editing copy of LAE. Read `AGENTS.md` and `README.md` first.
+- The connected repository is `laxexpertsdev-bot/connect-your-code`, branch `main`.
+  Preserve published history.
+- The original repository `laxexpertsdev-bot/Website--LAE` remains the production
+  source (Vercel, branch `Master`). Do not push there or change deployment/domain
+  configuration as part of work in this Lovable copy.
+- Retain React/Vite, the French content, design, URLs, SEO and consent behavior.
+- `api/bilan-lead.ts` requires Vercel and server-side environment variables;
+  the Vite/Lovable visual preview does not execute it.
+- Verify locally with `npm run build`, `npm run build:dev` and `npm run lint`.
 
 ## Commands
 
