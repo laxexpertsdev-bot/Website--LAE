@@ -30,3 +30,6 @@ export const PARTNERS: Partner[] = [
   { name: 'Utwin', logo: '/partners/utwin.webp' },
   { name: 'Alptis', logo: '/partners/alptis.webp' },
 ];
+
+/** Nombre de logos réellement affichés. Les textes du site doivent s'y aligner. */
+export const PARTNER_COUNT = PARTNERS.length;

@@ -1,4 +1,5 @@
 import type { CampaignLpData } from '../../components/campaign/types';
+import { PARTNER_COUNT } from '../partners';
 
 /**
  * Contenu de la landing page de campagne Google Ads /lp/mutuelle-sante.
@@ -12,18 +13,18 @@ export const mutuelleSanteLp: CampaignLpData = {
   label: 'Mutuelle santé',
 
   seo: {
-    title: 'Mutuelle Santé dès 18€/mois — Devis Gratuit sous 24h | Les Assureurs Experts',
+    title: 'Mutuelle Santé dès 29€/mois — Devis Gratuit sous 24h | Les Assureurs Experts',
     description:
-      'Comparez plus de 20 assureurs et recevez votre devis mutuelle santé personnalisé sous 24h. Courtier agréé ORIAS, sans engagement.',
+      `Comparez ${PARTNER_COUNT} assureurs et recevez votre devis mutuelle santé personnalisé sous 24h. Courtier agréé ORIAS, sans engagement.`,
   },
 
   hero: {
     eyebrow: 'Devis gratuit en 2 minutes',
-    h1: 'Une mutuelle santé mieux remboursée, dès 18€/mois',
+    h1: 'Une mutuelle santé mieux remboursée, dès 29€/mois',
     subtitle:
-      'Nous comparons plus de 20 assureurs pour vous et vous proposons la formule la plus adaptée à votre budget. Réponse personnalisée sous 24h, sans engagement.',
+      `Nous comparons ${PARTNER_COUNT} assureurs pour vous et vous proposons la formule la plus adaptée à votre budget. Réponse personnalisée sous 24h, sans engagement.`,
     benefits: [
-      'Comparatif de plus de 20 assureurs',
+      `Comparatif de ${PARTNER_COUNT} assureurs`,
       'Devis personnalisé sous 24h',
       'Aucun engagement, aucun frais',
     ],
@@ -36,8 +37,8 @@ export const mutuelleSanteLp: CampaignLpData = {
   },
 
   keyFigures: [
-    { value: 'dès 18 €/mois', label: 'Pour un jeune actif' },
-    { value: '20+ assureurs', label: 'Comparés pour vous' },
+    { value: 'dès 29 €/mois', label: 'Pour un jeune actif' },
+    { value: `${PARTNER_COUNT} assureurs`, label: 'Comparés pour vous' },
     { value: 'sous 24h', label: 'Devis personnalisé' },
     { value: '0 €', label: 'Comparatif sans engagement' },
   ],
@@ -97,7 +98,7 @@ export const mutuelleSanteLp: CampaignLpData = {
       title: 'Comment ça marche',
       steps: [
         { title: 'Vous répondez', text: 'Deux étapes, moins de 2 minutes, aucun document à fournir.' },
-        { title: 'Nous comparons', text: 'Plus de 20 assureurs partenaires passés au crible pour votre profil.' },
+        { title: 'Nous comparons', text: `${PARTNER_COUNT} assureurs partenaires passés au crible pour votre profil.` },
         { title: 'Vous recevez votre devis', text: 'Comparatif clair et personnalisé, par téléphone ou email, sous 24h.' },
         { title: 'Vous décidez', text: 'Sans engagement ni pression. Vous choisissez, ou pas.' },
       ],
@@ -130,7 +131,7 @@ export const mutuelleSanteLp: CampaignLpData = {
       },
       {
         q: 'Qui êtes-vous exactement ?',
-        a: "Les Assureurs Experts est un courtier en assurance agréé ORIAS (n°25002995), qui compare pour vous plus de 20 compagnies partenaires. Nous sommes rémunérés par les assureurs, jamais par vous.",
+        a: `Les Assureurs Experts est un courtier en assurance agréé ORIAS (n°25002995), qui compare pour vous ${PARTNER_COUNT} compagnies partenaires. Nous sommes rémunérés par les assureurs, jamais par vous.`,
       },
     ],
   },

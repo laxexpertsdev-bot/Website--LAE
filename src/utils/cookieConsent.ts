@@ -60,6 +60,8 @@ export function updateGtagConsent(analytics: boolean, marketing: boolean): void 
     window.gtag('consent', 'update', {
       analytics_storage: analytics ? 'granted' : 'denied',
       ad_storage: marketing ? 'granted' : 'denied',
+      ad_user_data: marketing ? 'granted' : 'denied',
+      ad_personalization: marketing ? 'granted' : 'denied',
     });
   }
 }

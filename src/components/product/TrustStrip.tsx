@@ -1,4 +1,5 @@
 import React from 'react';
+import { PARTNER_COUNT } from '../../data/partners';
 import { PARTNER_LOGOS } from './constants';
 
 /** Bandeau de logos partenaires (réassurance). Grayscale → couleur au survol, lazy-load. */
@@ -6,7 +7,7 @@ const TrustStrip: React.FC = () => (
   <section className="border-y border-hairline bg-white">
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <p className="text-center text-sm font-medium uppercase tracking-wide text-gray-500">
-        Nous comparons plus de 20 assureurs partenaires
+        Nous comparons {PARTNER_COUNT} assureurs partenaires
       </p>
       <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
         {PARTNER_LOGOS.map((logo) => (

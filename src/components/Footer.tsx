@@ -52,6 +52,14 @@ const Footer: React.FC = () => {
                     Contact
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/premium"
+                    className="text-[15px] text-gray-600 hover:text-blue-700 transition-colors duration-200 inline-block"
+                  >
+                    Club Premium
+                  </Link>
+                </li>
               </ul>
             </div>
 

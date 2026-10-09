@@ -100,7 +100,7 @@ const ReviewForm: React.FC = () => {
           Merci pour votre avis !
         </h4>
         <p className="text-gray-600 text-base leading-relaxed">
-          Votre avis a bien été envoyé. Il sera publié sur le site après vérification par notre
+          Votre avis a bien été envoyé. Il sera publié sur le site après modération par notre
           équipe.
         </p>
       </div>

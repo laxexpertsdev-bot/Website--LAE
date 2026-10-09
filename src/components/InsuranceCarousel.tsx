@@ -20,7 +20,7 @@ const InsuranceCarousel: React.FC = () => {
         benefits: [
           "Compatible 100 % santé",
           "Prise en charge rapide", 
-          "Dès 18€/mois"
+          "Dès 29€/mois"
         ],
         details: "Bénéficiez de contrats personnalisables, avec assistance, téléconsultation et carte digitale."
       }
