@@ -1,6 +1,15 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/:path(offres|devis|premium|blog|contact|mutuelle-sante|assurance-emprunteur|assurance-auto|assurance-2-roues|prevoyance|assurance-bateau|expatries|per|assurance-vie|assurance-habitation|assurance-professionnelle|assurance-decennale|sante-prevoyance-collective|capital-obseques|mentions-legales|politique-confidentialite|conditions-generales|gestion-cookies)",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/:path(offres|devis|premium|blog|contact|mutuelle-sante|assurance-emprunteur|assurance-auto|assurance-2-roues|prevoyance|assurance-bateau|expatries|per|assurance-vie|assurance-habitation|assurance-professionnelle|assurance-decennale|sante-prevoyance-collective|capital-obseques|mentions-legales|politique-confidentialite|conditions-generales|gestion-cookies)/",
+      "destination": "/index.html"
+    },
+    { "source": "/lp/mutuelle-sante", "destination": "/index.html" },
+    { "source": "/lp/mutuelle-sante/", "destination": "/index.html" }
   ],
   "headers": [
     {

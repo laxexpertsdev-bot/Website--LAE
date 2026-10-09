@@ -49,9 +49,12 @@ const MentionsLegalesPage: React.FC = () => {
 
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Hébergement</h2>
             <p className="mb-6">
-              Le site est hébergé par un prestataire technique professionnel garantissant 
-              la sécurité et la disponibilité des données.
+              Le site est hébergé par :
             </p>
+            <ul className="mb-6">
+              <li><strong>Raison sociale :</strong> Vercel Inc.</li>
+              <li><strong>Adresse :</strong> 340 S Lemon Ave #4133, Walnut, CA 91789, USA</li>
+            </ul>
 
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">3. Propriété intellectuelle</h2>
             <p className="mb-6">

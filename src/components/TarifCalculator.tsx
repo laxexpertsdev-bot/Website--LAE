@@ -104,7 +104,7 @@ const TarifCalculator: React.FC = () => {
       message = `Votre cotisation est inférieure à la moyenne. Bravo !`;
       resultType = 'success';
     } else {
-      message = `ℹVous êtes dans la moyenne pour votre profil.`;
+      message = `Vous êtes dans la moyenne pour votre profil.`;
       resultType = 'info';
     }
 

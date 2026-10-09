@@ -145,7 +145,7 @@ const GestionCookiesPage: React.FC = () => {
             <ul className="mb-6">
               <li><strong>Cookies de session :</strong> supprimés à la fermeture du navigateur</li>
               <li><strong>Cookies persistants :</strong> conservés jusqu'à 13 mois maximum</li>
-              <li><strong>Cookies analytiques :</strong> conservés 26 mois (Google Analytics)</li>
+              <li><strong>Cookies analytiques :</strong> conservés 13 mois (Google Analytics)</li>
             </ul>
 
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">Contact</h2>

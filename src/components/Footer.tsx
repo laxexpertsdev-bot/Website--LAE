@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="/blog"
+                    to="/#a-propos"
                     className="text-[15px] text-gray-600 hover:text-blue-700 transition-colors duration-200 inline-block"
                   >
                     À propos

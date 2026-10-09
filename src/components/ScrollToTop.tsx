@@ -5,12 +5,14 @@ const ScrollToTop: React.FC = () => {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    // Ne pas remonter si on navigue vers une ancre
     if (hash) {
-      return;
+      const id = decodeURIComponent(hash.slice(1));
+      const frame = window.requestAnimationFrame(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      return () => window.cancelAnimationFrame(frame);
     }
 
-    // Remonter en haut avec animation fluide
     window.scrollTo({
       top: 0,
       left: 0,
