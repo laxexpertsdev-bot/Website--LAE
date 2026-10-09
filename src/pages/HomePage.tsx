@@ -311,7 +311,7 @@ const HomePage: React.FC = () => {
       <TarifCalculator />
       
       {/* Contenu d'Autorité SEO - Section Expertise */}
-      <section className="py-20 bg-white">
+      <section id="a-propos" className="scroll-mt-24 py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
