@@ -45,13 +45,16 @@ const Header: React.FC = () => {
     }
   ];
 
-  const staticLinks = [
+  const staticLinks: { name: string; path: string; hint?: string }[] = [
     { name: 'Nos assurances', path: '/offres' },
-    { name: 'Blog', path: '/blog' },
+    { name: 'Blog', path: '/blog', hint: 'Conseils' },
     { name: 'Contact', path: '/contact' }
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) =>
+    path === '/blog'
+      ? location.pathname === '/blog' || location.pathname.startsWith('/blog/')
+      : location.pathname === path;
 
   const handleMouseEnter = (menuName: string) => {
     // Clear any existing timeout
@@ -139,6 +142,11 @@ const Header: React.FC = () => {
                   }`}
                 >
                   {item.name}
+                  {item.hint && (
+                    <span className="ml-1.5 hidden rounded-full bg-blue-50 px-2 py-0.5 align-middle text-[11px] font-semibold uppercase tracking-wide text-blue-700 xl:inline">
+                      {item.hint}
+                    </span>
+                  )}
                   <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-blue-700 transform origin-left transition-transform duration-300 ${
                     isActive(item.path) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                   }`}></span>
@@ -237,6 +245,9 @@ const Header: React.FC = () => {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
+                  {item.hint && (
+                    <span className="mt-0.5 block text-sm font-normal text-slate-500">{item.hint} pratiques</span>
+                  )}
                 </Link>
               ))}
 
