@@ -9,7 +9,9 @@
       "destination": "/index.html"
     },
     { "source": "/lp/mutuelle-sante", "destination": "/index.html" },
-    { "source": "/lp/mutuelle-sante/", "destination": "/index.html" }
+    { "source": "/lp/mutuelle-sante/", "destination": "/index.html" },
+    { "source": "/blog/:slug", "destination": "/index.html" },
+    { "source": "/blog/:slug/", "destination": "/index.html" }
   ],
   "headers": [
     {

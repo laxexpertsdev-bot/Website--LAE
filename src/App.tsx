@@ -14,6 +14,7 @@ const OffersPage = lazy(() => import('./pages/OffersPage'));
 const QuotePage = lazy(() => import('./pages/QuotePage'));
 const PremiumPage = lazy(() => import('./pages/PremiumPage'));
 const BlogPage = lazy(() => import('./pages/BlogPage'));
+const BlogArticlePage = lazy(() => import('./pages/BlogArticlePage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const MutuelleHealthPage = lazy(() => import('./pages/MutuelleHealthPage'));
 const AssuranceEmprunteurPage = lazy(() => import('./pages/AssuranceEmprunteurPage'));
@@ -112,6 +113,7 @@ const SiteShell: React.FC = () => {
             <Route path="/devis" element={<QuotePage />} />
             <Route path="/premium" element={<PremiumPage />} />
             <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<BlogArticlePage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/mutuelle-sante" element={<MutuelleHealthPage />} />
             <Route path="/assurance-emprunteur" element={<AssuranceEmprunteurPage />} />

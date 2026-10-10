@@ -205,7 +205,7 @@ const HomePage: React.FC = () => {
       </div>
 
       {/* Lead Magnet Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-700 to-blue-800 text-white">
+      <section id="bilan" className="scroll-mt-28 py-20 bg-gradient-to-br from-blue-700 to-blue-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-12">
             <h2 className="text-3xl lg:text-4xl font-bold mb-6">
