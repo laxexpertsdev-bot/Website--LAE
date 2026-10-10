@@ -78,31 +78,34 @@ const CookieConsent: React.FC = () => {
 
         {!showCustomize ? (
           <div className="mt-4 space-y-3">
-            <button
-              onClick={acceptAll}
-              className="w-full rounded-md bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
-              aria-label="Accepter tous les cookies"
-            >
-              Accepter tous les cookies
-            </button>
-
             <div className="grid grid-cols-2 gap-2">
               <button
+                type="button"
+                onClick={acceptAll}
+                className="rounded-md bg-blue-600 px-3 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                aria-label="Accepter tous les cookies"
+              >
+                Accepter
+              </button>
+
+              <button
+                type="button"
                 onClick={rejectAll}
-                className="rounded-md border border-gray-300 bg-white px-3 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-300"
+                className="rounded-md bg-blue-600 px-3 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
                 aria-label="Refuser les cookies non essentiels"
               >
                 Refuser
               </button>
-
-              <button
-                onClick={() => setShowCustomize(true)}
-                className="rounded-md border border-gray-300 bg-white px-3 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-300"
-                aria-label="Personnaliser les préférences de cookies"
-              >
-                Personnaliser
-              </button>
             </div>
+
+            <button
+              type="button"
+              onClick={() => setShowCustomize(true)}
+              className="w-full rounded-md border border-gray-300 bg-white px-3 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-300"
+              aria-label="Personnaliser les préférences de cookies"
+            >
+              Personnaliser
+            </button>
 
             <Link
               to="/gestion-cookies"
@@ -185,6 +188,7 @@ const CookieConsent: React.FC = () => {
             </div>
 
             <button
+              type="button"
               onClick={savePreferences}
               className="w-full rounded-md bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
             >

@@ -9,6 +9,7 @@ import InsuranceCarousel from '../components/InsuranceCarousel';
 import PartnerCarousel from '../components/PartnerCarousel';
 import TarifCalculator from '../components/TarifCalculator';
 import ReviewForm from '../components/ReviewForm';
+import { PARTNER_COUNT } from '../data/partners';
 import { reviews } from '../data/reviews';
 import { Helmet } from 'react-helmet-async';
 import { submitBilanLead, trackLeadConversion } from '../utils/lead';
@@ -145,7 +146,7 @@ const HomePage: React.FC = () => {
               Vos retours comptent pour nous
             </h2>
             <p className="text-xl text-slate-600 mb-2">
-              Les avis de nos clients, vérifiés et publiés après modération
+              Les avis de nos clients, publiés après modération
             </p>
           </div>
 
@@ -186,7 +187,7 @@ const HomePage: React.FC = () => {
           {/* Mention légale */}
           <div className="text-center mt-8">
             <p className="text-sm text-gray-500 italic">
-              Les avis sont vérifiés et publiés après modération. Chaque situation étant unique, ils ne constituent pas une promesse de résultat.
+              Les avis sont publiés après modération par notre équipe. Chaque situation étant unique, ils ne constituent pas une promesse de résultat.
             </p>
           </div>
         </div>
@@ -199,7 +200,7 @@ const HomePage: React.FC = () => {
       />
       <div className="bg-slate-50 py-8 text-center">
         <p className="text-sm text-slate-500">
-          Et bien d'autres partenaires pour vous offrir les meilleures solutions
+          {PARTNER_COUNT} compagnies partenaires pour comparer vos contrats
         </p>
       </div>
 
@@ -332,7 +333,7 @@ const HomePage: React.FC = () => {
               </div>
 
               <p>
-                Contrairement aux assureurs directs, nous comparons les offres de plus de 20 compagnies
+                Contrairement aux assureurs directs, nous comparons les offres de {PARTNER_COUNT} compagnies
                 partenaires pour vous trouver la meilleure couverture au meilleur prix. Au-delà de la
                 souscription, nous vous accompagnons humainement tout au long de la vie de vos contrats :
                 gestion des sinistres, évolution de vos besoins et renégociation de vos garanties.

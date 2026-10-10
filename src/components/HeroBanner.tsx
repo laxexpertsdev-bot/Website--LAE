@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Phone, Users, ShieldCheck, Clock, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { PARTNER_COUNT } from '../data/partners';
 
 const HeroBanner: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -56,7 +57,7 @@ const HeroBanner: React.FC = () => {
               </h1>
               
               <p className="text-xl text-slate-600 leading-relaxed">
-                Cabinet de courtage indépendant : nous comparons les offres de plus de 20 assureurs
+                Cabinet de courtage indépendant : nous comparons les offres de {PARTNER_COUNT} assureurs
                 partenaires pour vous trouver la meilleure couverture au juste prix.
               </p>
             </div>

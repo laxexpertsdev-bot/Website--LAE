@@ -1,4 +1,5 @@
 import type { ProductPageData } from '../../components/product/types';
+import { PARTNER_COUNT } from '../partners';
 
 /**
  * Contenu de la page /mutuelle-sante.
@@ -10,7 +11,7 @@ export const mutuelleSante: ProductPageData = {
   seo: {
     title: 'Mutuelle Santé Pas Chère | Comparateur Expert | Les Assureurs Experts',
     description:
-      "Trouvez votre mutuelle santé idéale dès 18€/mois. Comparateur expert, devis gratuit, famille/senior/étudiant. Courtier ORIAS agréé.",
+      "Trouvez votre mutuelle santé idéale dès 29€/mois. Comparateur expert, devis gratuit, famille/senior/étudiant. Courtier ORIAS agréé.",
   },
   hero: {
     eyebrow: 'Complémentaire santé',
@@ -25,8 +26,8 @@ export const mutuelleSante: ProductPageData = {
     },
   },
   keyFigures: [
-    { value: 'dès 18 €/mois', label: 'Pour un jeune actif' },
-    { value: '20+ assureurs', label: 'Comparés pour vous' },
+    { value: 'dès 29 €/mois', label: 'Pour un jeune actif' },
+    { value: `${PARTNER_COUNT} assureurs`, label: 'Comparés pour vous' },
     { value: 'sous 24h', label: 'Devis personnalisé' },
   ],
   coverage: {
@@ -56,7 +57,7 @@ export const mutuelleSante: ProductPageData = {
     title: 'Combien coûte une mutuelle ?',
     factors: ['votre âge', 'votre lieu de résidence', 'votre niveau de couverture', 'votre situation familiale'],
     examples: [
-      { profile: 'Jeune actif', price: 'à partir de 18 €/mois' },
+      { profile: 'Jeune actif', price: 'à partir de 29 €/mois' },
       { profile: 'Famille', price: '65 – 120 €/mois' },
       { profile: 'Senior', price: '85 – 150 €/mois' },
     ],
@@ -67,7 +68,7 @@ export const mutuelleSante: ProductPageData = {
       { title: 'Priorisez vos besoins', text: 'Optique, dentaire, hospitalisation : identifiez vos postes de dépenses.' },
       { title: 'Lisez le tableau de garanties', text: 'Comparez les niveaux réels, pas seulement les pourcentages affichés.' },
       { title: 'Vérifiez les remboursements', text: 'Rapidité de gestion et délais de carence éventuels.' },
-      { title: 'Demandez un devis comparatif', text: 'Nous comparons pour vous plus de 20 compagnies partenaires.' },
+      { title: 'Demandez un devis comparatif', text: `Nous comparons pour vous ${PARTNER_COUNT} compagnies partenaires.` },
     ],
   },
   ctaBand: {
@@ -77,7 +78,7 @@ export const mutuelleSante: ProductPageData = {
   advantages: {
     title: 'Pourquoi passer par Les Assureurs Experts ?',
     items: [
-      'Accès à plus de 20 compagnies partenaires',
+      `Accès à ${PARTNER_COUNT} compagnies partenaires`,
       'Prix négociés, gestion simplifiée',
       'Un conseiller humain qui vous suit',
       'Des contrats évolutifs',

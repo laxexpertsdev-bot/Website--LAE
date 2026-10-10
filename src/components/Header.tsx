@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Phone, Menu, X, ChevronDown, User, Building, Heart, Shield, Home, Car, Bike, Plane, Anchor, PiggyBank, Briefcase, HardHat, Globe, Users, Flower2, Landmark } from 'lucide-react';
 
@@ -7,6 +7,11 @@ const Header: React.FC = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [hoverTimeout, setHoverTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
+  const buttonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  // Le survol ouvre déjà le menu : le clic souris qui suit immédiatement ne doit pas le refermer.
+  const suppressNextClickClose = useRef<string | null>(null);
+  // Échap renvoie le focus sur le bouton : ne pas rouvrir le menu à cause de ce focus.
+  const ignoreNextFocusOpen = useRef(false);
 
   const menuItems = [
     {
@@ -53,22 +58,72 @@ const Header: React.FC = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
-  const handleMouseEnter = (menuName: string) => {
-    // Clear any existing timeout
+  const clearHoverTimeout = () => {
     if (hoverTimeout) {
       clearTimeout(hoverTimeout);
       setHoverTimeout(null);
     }
-    setActiveDropdown(menuName);
   };
 
-  const handleMouseLeave = () => {
-    // Set a delay before closing the dropdown
+  const openDropdown = (menuName: string) => {
+    clearHoverTimeout();
+    setActiveDropdown((current) => {
+      if (current !== menuName) {
+        suppressNextClickClose.current = menuName;
+      }
+      return menuName;
+    });
+  };
+
+  const handleButtonFocus = (menuName: string) => {
+    if (ignoreNextFocusOpen.current) {
+      ignoreNextFocusOpen.current = false;
+      return;
+    }
+    openDropdown(menuName);
+  };
+
+  const handleMouseEnter = (menuName: string) => {
+    openDropdown(menuName);
+  };
+
+  const handleMouseLeave = (event: React.MouseEvent<HTMLDivElement>) => {
+    const root = event.currentTarget;
     const timeout = setTimeout(() => {
+      if (root.contains(document.activeElement)) return;
       setActiveDropdown(null);
-    }, 400); // 400ms delay for better UX
+    }, 400);
     setHoverTimeout(timeout);
   };
+
+  const handleDesktopClick = (menuName: string) => {
+    clearHoverTimeout();
+    if (suppressNextClickClose.current === menuName) {
+      suppressNextClickClose.current = null;
+      setActiveDropdown(menuName);
+      return;
+    }
+    setActiveDropdown((current) => (current === menuName ? null : menuName));
+  };
+
+  const closeDropdown = () => {
+    clearHoverTimeout();
+    suppressNextClickClose.current = null;
+    setActiveDropdown(null);
+  };
+
+  const desktopMenuId = (name: string) =>
+    `desktop-menu-${name
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '')}`;
+
+  React.useEffect(() => {
+    setActiveDropdown(null);
+    setIsMenuOpen(false);
+  }, [location.pathname]);
 
   // Clean up timeout on unmount
   React.useEffect(() => {
@@ -98,26 +153,56 @@ const Header: React.FC = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
-              {menuItems.map((menu) => (
+              {menuItems.map((menu) => {
+                const isOpen = activeDropdown === menu.name;
+                const menuDomId = desktopMenuId(menu.name);
+                return (
                 <div
                   key={menu.name}
                   className="relative"
                   onMouseEnter={() => handleMouseEnter(menu.name)}
                   onMouseLeave={handleMouseLeave}
+                  onBlur={(event) => {
+                    const next = event.relatedTarget as Node | null;
+                    if (next && event.currentTarget.contains(next)) return;
+                    if (activeDropdown === menu.name) closeDropdown();
+                  }}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Escape' && isOpen) {
+                      event.preventDefault();
+                      const button = buttonRefs.current[menu.name];
+                      if (document.activeElement !== button) {
+                        ignoreNextFocusOpen.current = true;
+                      }
+                      closeDropdown();
+                      button?.focus();
+                    }
+                  }}
                 >
-                  <button className="flex items-center gap-2 font-semibold text-slate-800 hover:text-blue-700 transition-all duration-300 py-2 text-lg group">
+                  <button
+                    type="button"
+                    ref={(node) => {
+                      buttonRefs.current[menu.name] = node;
+                    }}
+                    className="flex items-center gap-2 font-semibold text-slate-800 hover:text-blue-700 transition-all duration-300 py-2 text-lg group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 rounded-sm"
+                    aria-expanded={isOpen}
+                    aria-controls={menuDomId}
+                    onClick={() => handleDesktopClick(menu.name)}
+                    onFocus={() => handleButtonFocus(menu.name)}
+                  >
                     {menu.name}
-                    <ChevronDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform duration-300" />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : 'group-hover:translate-y-0.5'}`} />
                   </button>
 
                   {/* Dropdown Menu */}
-                  {activeDropdown === menu.name && (
-                    <div className="absolute top-full left-0 mt-1 w-72 bg-white rounded-lg shadow-2xl border border-gray-100 py-3 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                  {isOpen && (
+                    <div id={menuDomId} className="absolute top-full left-0 mt-1 w-72 bg-white rounded-lg shadow-2xl border border-gray-100 py-3 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                       {menu.items.map((item) => (
                         <Link
                           key={item.name}
                           to={item.path}
-                          className="flex items-center gap-3 px-5 py-3 text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition-all duration-200 text-base font-medium"
+                          className="flex items-center gap-3 px-5 py-3 text-slate-700 hover:bg-blue-50 hover:text-blue-700 focus-visible:bg-blue-50 focus-visible:text-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-blue-700 transition-all duration-200 text-base font-medium"
+                          onClick={closeDropdown}
                         >
                           {item.icon}
                           {item.name}
@@ -126,7 +211,8 @@ const Header: React.FC = () => {
                     </div>
                   )}
                 </div>
-              ))}
+                );
+              })}
 
               {staticLinks.map((item) => (
                 <Link
@@ -163,9 +249,11 @@ const Header: React.FC = () => {
 
             {/* Mobile menu button */}
             <button
+              type="button"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden p-2 hover:bg-gray-100 rounded-md transition-colors"
               aria-label="Menu"
+              aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? <X className="w-6 h-6 text-slate-800" /> : <Menu className="w-6 h-6 text-slate-800" />}
             </button>
@@ -200,8 +288,10 @@ const Header: React.FC = () => {
               {menuItems.map((menu) => (
                 <div key={menu.name} className="space-y-3">
                   <button
+                    type="button"
                     onClick={() => setActiveDropdown(activeDropdown === menu.name ? null : menu.name)}
                     className="flex items-center justify-between w-full py-3 font-semibold text-slate-800 hover:text-blue-700 text-lg"
+                    aria-expanded={activeDropdown === menu.name}
                   >
                     <div className="flex items-center gap-3">
                       {menu.name}

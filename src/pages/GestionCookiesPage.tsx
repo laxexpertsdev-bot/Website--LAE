@@ -114,16 +114,18 @@ const GestionCookiesPage: React.FC = () => {
                 <Settings className="w-6 h-6 text-gray-600" />
                 <h3 className="text-lg font-semibold text-gray-900">Actions rapides</h3>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <button
+                  type="button"
                   onClick={handleAcceptAll}
                   className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-semibold transition-colors"
                 >
                   Accepter tous les cookies
                 </button>
                 <button
+                  type="button"
                   onClick={handleRejectAll}
-                  className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-md font-semibold transition-colors"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-semibold transition-colors"
                 >
                   Refuser les cookies non nécessaires
                 </button>
