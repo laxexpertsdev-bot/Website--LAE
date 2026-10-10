@@ -6,6 +6,7 @@ import { BLOG_CATEGORIES } from './types';
  * 1. Dupliquer un fichier de ce dossier `posts/` et changer le `slug`.
  * 2. Déposer la photo dans `public/blog/` et une ligne dans `public/blog/CREDITS.md`.
  * 3. Ajouter l'adresse dans `public/sitemap.xml`.
+ *    Le chemin /blog/… est déjà réécrit vers l'application (vercel.json).
  * Le fichier est pris en compte tout seul. `npm run build` échoue si le slug
  * est en double ou si un article lié n'existe pas.
  */

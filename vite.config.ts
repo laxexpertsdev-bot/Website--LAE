@@ -49,6 +49,10 @@ function requestPathname(url: string | undefined): string {
 
 function isKnownSpaPath(pathname: string): boolean {
   const normalized = pathname.replace(/\/+$/, '') || '/';
+  // Les articles vivent sous /blog/:slug. Le slug inconnu affiche la page
+  // « article introuvable » (noindex) ; le statut HTTP reste 200, comme sur
+  // Vercel (rewrite /blog/:slug), pour que les vrais articles soient indexables.
+  if (normalized.startsWith('/blog/')) return true;
   return KNOWN_SPA_PATHS.has(normalized);
 }
 

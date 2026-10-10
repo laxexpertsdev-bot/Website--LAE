@@ -45,15 +45,39 @@ const ArticleBody: React.FC<{ post: BlogPost }> = ({ post }) => (
 
 const ShareBar: React.FC<{ post: BlogPost; url: string }> = ({ post, url }) => {
   const [copied, setCopied] = React.useState(false);
+  const [showLink, setShowLink] = React.useState(false);
+  const linkField = React.useRef<HTMLInputElement>(null);
   const shareText = `${post.title} — ${url}`;
 
   const copyLink = async () => {
-    try {
-      await navigator.clipboard.writeText(url);
-      setCopied(true);
+    let ok = false;
+    const write = navigator.clipboard?.writeText(url);
+    if (write) {
+      const result = await Promise.race([
+        write.then(() => 'ok' as const).catch(() => 'fail' as const),
+        new Promise<'timeout'>((resolve) => {
+          window.setTimeout(() => resolve('timeout'), 400);
+        }),
+      ]);
+      ok = result === 'ok';
+    }
+    if (!ok) {
+      const input = document.createElement('textarea');
+      input.value = url;
+      input.setAttribute('readonly', '');
+      input.style.position = 'fixed';
+      input.style.left = '-9999px';
+      document.body.appendChild(input);
+      input.select();
+      ok = document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    setCopied(ok);
+    setShowLink(!ok);
+    if (ok) {
       window.setTimeout(() => setCopied(false), 2000);
-    } catch {
-      setCopied(false);
+    } else {
+      window.setTimeout(() => linkField.current?.select(), 0);
     }
   };
 
@@ -84,6 +108,16 @@ const ShareBar: React.FC<{ post: BlogPost; url: string }> = ({ post, url }) => {
         <Mail className="h-4 w-4" aria-hidden />
         E-mail
       </a>
+      {showLink && (
+        <input
+          ref={linkField}
+          readOnly
+          value={url}
+          aria-label="Lien de l’article à copier"
+          onFocus={(event) => event.currentTarget.select()}
+          className="w-full rounded-lg border border-hairline px-3 py-2 text-sm text-brand-navy sm:w-auto sm:min-w-[18rem]"
+        />
+      )}
     </div>
   );
 };
